@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Implementing a Neuronal Net in NumPy</title>
+		<meta name="author" content="K0gito - c0gito(at)posteo.org" />
+		<meta name="date" content="2020" />
+		<meta name="description" content="Start page for all my posts about Machine Learning and Pattern Recognition"/>
+
+		<meta name="generator" content="https://jekyllrb.com/" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+		<link rel="license" title="CC BY-SA 4.0" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" />
+
+
+		<!-- KaTeX -->
+	  <link defer="defer" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+		<!-- KaTeX AutoRender-Skript -->
+		    <script defer="defer" src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+		<!--
+	  	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+		  onload="renderMathInElement(document.body);"></script>
+	  	-->
+
+
+	 	 <!-- MathJax
+	 	  <script type="text/x-mathjax-config">
+	 	      MathJax.Hub.Config({
+	 	   		tex2jax: {
+	 	   			inlineMath: [['$','$'], ['\\(','\\)'] ],
+	 	   			displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+	 	   			processEnvironments: true,
+	 	   			processRefs: false,
+	 	   		},
+	 	   		TeX: {
+	 	   			extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js", "mhchem.js"]
+	 	   		},
+	 	   		"HTML-CSS": { linebreaks: { automatic: true } },
+	 	   		SVG: { linebreaks: { automatic: true } }
+	 	   	});
+	 	   	MathJax.Ajax.loadComplete("http://marcels-blog.org/assets/js/mathjax_macros.js");
+	 	  </script>
+	 	  <script type="text/javascript" async="async" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG,http://marcels-blog.org/assets/js/mathjax_macros.js"></script>
+	 	  -->
+
+
+
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-dark.css" id="dark" class="alternate" title="Dark" />
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-light.css" id="light" class="alternate" title="Light" />
+
+	   <script type="text/javascript" src="/assets/js/responsive.js" ></script>
+
+		<script src="/assets/js/captcha.js"></script>
+		<script src="/assets/js/furigana.js"></script>
+	</head>
+	<body>
+		<!-- Header mit schönem Bild vom Herkules -->
+<header class="grid-item">
+	<img src="/assets/images/Herkules_Panorama-wikipedia-small.jpg" title="Herkules Panorama in Kassel;  Autor: 2micha, Lizenz: GFDL 1.2, Quelle: Wikimedia Commons" />
+</header>
+
+		<!-- Navigationsleiste -->
+<nav class="grid-item" id="myTopnav">
+	
+		
+			<a href="/index.xhtml" >
+			Home  </a>
+		
+
+	
+	
+		
+			<a class="dropdown-btn">Mathematik  </a>
+		
+
+	
+	<!-- Dropdown-menu -->
+	<div class="dropdown-container">
+		
+		<a href="/math/euler_lagrange_equation.xhtml" >Euler Lagrange Gleichung </a>
+		
+		<a href="/math/analytic_geometry.html" >Analytische Geometrie </a>
+		
+	</div>
+	
+	
+		
+			<a href="/about.xhtml" >
+			Über mich  </a>
+		
+
+	
+	
+
+	<div>
+		<a class="fa-language">&#xf1ab;</a>
+
+		
+		<a  class="current"  href=" /ml/multilayer_perceptron.xhtml ">de</a>
+		
+		<a  href=" /en/ml/multilayer_perceptron.xhtml ">en</a>
+		
+	</div>
+
+	<!--Switch Style Sheets for different colours -->
+	<div>
+		<a href="#" onclick="switchToDark()" id="button-dark" class="current" >dark</a>
+		<a href="#" onclick="switchToLight()" id="button-light" >light</a>
+	</div>
+
+
+	<!-- Für das Burger-Menü -->
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<i class="fa fa-bars">&#xf0c9;</i>
+	</a>
+</nav>
+
+
+		<main class="grid-item" >
+
+			<!-- ANFANG von content -->
+			<h1>Implementing a Neuronal Net in NumPy</h1>
+<div id="metadata">
+	<span id="category">Machine Learning</span>
+	<time id="date">01 March 2021</time>
+	<!--<span id="tags">ml neuronal_network mlp</span> -->
+	<span id="tags">ml neuronal_network mlp&#160;</span>
+</div>
+
+
+
+
+<div id="share">
+	Share on: &#160;
+	<br/>
+	<a href="http://www.facebook.com/sharer/sharer.php?u=http://0.0.0.0:4000/ml/multilayer_perceptron.xhtml" target="_blank" class="share-btn facebook">
+		Facebook
+	</a>
+	<!--	&#160; -->
+	<a href="http://reddit.com/submit?http://0.0.0.0:4000/ml/multilayer_perceptron.xhtml&amp;title=Implementing%20a%20Neuronal%20Net%20in%20NumPy" target="_blank" class="share-btn reddit">
+		Reddit
+	</a>
+	<!--	&#160; -->
+	<a href="https://news.ycombinator.com/submitlink?u=http://0.0.0.0:4000/ml/multilayer_perceptron.xhtml&amp;t=Implementing%20a%20Neuronal%20Net%20in%20NumPy" target="_blank" class="share-btn hacker_news">
+		Hacker News
+	</a>
+</div>
+
+
+			<!-- ENDE von content -->
+
+			<div id="myModal" class="modal">
+				<span class="close">&#215;</span>
+				<img class="modal-content" id="img01" />
+				<div id="caption"></div>
+			</div>
+		</main>
+
+		<!-- Seitenleiste -->
+<aside class="grid-item">
+	<h2>About me</h2>
+	<img src="/assets/images/profile_photo-small.jpg" />
+	<p>
+	I am a mathematics student in Kassel. I like learning Japanese, climbing and programming.
+	</p>
+</aside>
+
+		<!-- Fußleiste -->
+<footer class="grid-item">
+	<!--
+	 <a href="impressum.xhtml">Imprint</a>
+	 <a href="privacy.html">Privacy</a>
+	 <a href="bildnachweise.html">Bildnachweise</a>
+	-->
+	
+	<a href="/impressum.xhtml" >
+		Impressum  </a>
+	
+	<a href="/privacy.xhtml" >
+		Datenschutz  </a>
+	
+	<a href="/bildnachweise" >
+		Bildnachweise  </a>
+	
+	<span>
+		<!--
+	  Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+	  Except where otherwise noted, all texts and images are licensed under a Creative Commons license 
+		-->
+		<img src="/assets/images/CC-BY-SA.png" style="display: inline-block; vertical-align: middle;"/>
+		Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+		<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">(CC By-SA 4.0)</a>.
+		<br/>
+	</span>
+</footer>
+
+
+
+
+		<!-- <script src="/assets/js/codemirror-end.js"></script>-->
+		<script src="/assets/js/cookie.js"></script>
+		<script src="/assets/js/switch_style.js"></script>
+		<script src="/assets/js/embed_youtube.js"></script>
+		<script src="/assets/js/image_gallery.js"></script>
+
+
+	  <script src="/assets/js/katex_macros.js"></script>
+
+	  <!-- KaTeX Autorender options -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // ...options...
+        });
+    });
+</script>
+
+	  <script src="/assets/js/dropdown.js"></script>
+
+	</body>			
+</html>

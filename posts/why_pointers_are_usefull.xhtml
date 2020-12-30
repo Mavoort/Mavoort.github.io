@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Why Pointers are usefull</title>
+		<meta name="author" content="K0gito - c0gito(at)posteo.org" />
+		<meta name="date" content="2020" />
+		<meta name="description" content="Pointers in C++ are often considered difficult for beginners. This post shows when they are usefull."/>
+
+		<meta name="generator" content="https://jekyllrb.com/" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+		<link rel="license" title="CC BY-SA 4.0" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" />
+
+
+		<!-- KaTeX -->
+	  <link defer="defer" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+		<!-- KaTeX AutoRender-Skript -->
+		    <script defer="defer" src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+		<!--
+	  	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+		  onload="renderMathInElement(document.body);"></script>
+	  	-->
+
+
+	 	 <!-- MathJax
+	 	  <script type="text/x-mathjax-config">
+	 	      MathJax.Hub.Config({
+	 	   		tex2jax: {
+	 	   			inlineMath: [['$','$'], ['\\(','\\)'] ],
+	 	   			displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+	 	   			processEnvironments: true,
+	 	   			processRefs: false,
+	 	   		},
+	 	   		TeX: {
+	 	   			extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js", "mhchem.js"]
+	 	   		},
+	 	   		"HTML-CSS": { linebreaks: { automatic: true } },
+	 	   		SVG: { linebreaks: { automatic: true } }
+	 	   	});
+	 	   	MathJax.Ajax.loadComplete("http://marcels-blog.org/assets/js/mathjax_macros.js");
+	 	  </script>
+	 	  <script type="text/javascript" async="async" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG,http://marcels-blog.org/assets/js/mathjax_macros.js"></script>
+	 	  -->
+
+
+
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-dark.css" id="dark" class="alternate" title="Dark" />
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-light.css" id="light" class="alternate" title="Light" />
+
+	   <script type="text/javascript" src="/assets/js/responsive.js" ></script>
+
+		<script src="/assets/js/captcha.js"></script>
+		<script src="/assets/js/furigana.js"></script>
+	</head>
+	<body>
+		<!-- Header mit schönem Bild vom Herkules -->
+<header class="grid-item">
+	<img src="/assets/images/Herkules_Panorama-wikipedia-small.jpg" title="Herkules Panorama in Kassel;  Autor: 2micha, Lizenz: GFDL 1.2, Quelle: Wikimedia Commons" />
+</header>
+
+		<!-- Navigationsleiste -->
+<nav class="grid-item" id="myTopnav">
+	
+		
+			<a href="/index.xhtml" >
+			Home  </a>
+		
+
+	
+	
+		
+			<a class="dropdown-btn">Mathematik  </a>
+		
+
+	
+	<!-- Dropdown-menu -->
+	<div class="dropdown-container">
+		
+		<a href="/math/euler_lagrange_equation.xhtml" >Euler Lagrange Gleichung </a>
+		
+		<a href="/math/analytic_geometry.html" >Analytische Geometrie </a>
+		
+	</div>
+	
+	
+		
+			<a href="/about.xhtml" >
+			Über mich  </a>
+		
+
+	
+	
+
+	<div>
+		<a class="fa-language">&#xf1ab;</a>
+
+		
+		<a  class="current"  href=" /posts/why_pointers_are_usefull.xhtml ">de</a>
+		
+		<a  href=" /en/posts/why_pointers_are_usefull.xhtml ">en</a>
+		
+	</div>
+
+	<!--Switch Style Sheets for different colours -->
+	<div>
+		<a href="#" onclick="switchToDark()" id="button-dark" class="current" >dark</a>
+		<a href="#" onclick="switchToLight()" id="button-light" >light</a>
+	</div>
+
+
+	<!-- Für das Burger-Menü -->
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<i class="fa fa-bars">&#xf0c9;</i>
+	</a>
+</nav>
+
+
+		<main class="grid-item" >
+
+			<!-- ANFANG von content -->
+			<h1>Why Pointers are usefull</h1>
+<div id="metadata">
+	<span id="category">Programming</span>
+	<time id="date">01 January 2021</time>
+	<!--<span id="tags">C++</span> -->
+	<span id="tags">C++&#160;</span>
+</div>
+
+<h2 id="introduction">Introduction</h2>
+<p>For beginners coming from other languages like Python or Octave, pointers in C++ often are reason for confusion.
+With this post, I want to explain the concept of pointers and why they are usefull.</p>
+
+<h2 id="what-is-a-pointer">What is a pointer?</h2>
+<p>Citing the C++ Primer<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>:</p>
+<blockquote>
+  <p>A <strong>pointer</strong> is a compound type that <q>points</q> to another type.</p>
+</blockquote>
+<p>What does that mean?</p>
+
+<p>When the program is executed, variables and objects like <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">bool</code> or <code class="language-plaintext highlighter-rouge">string</code> are stored in the Memory. 
+To each variable belongs a 64-bit address which points to the location within the memory. 
+When the processor has to evaluate or change a variable,
+it fetches the data at the address of the variable into a register.
+Then it can do some calculations and move the data back into memory.</p>
+
+<p>This works similar like a library: When you want to read a specific book, you have to get the book from the position of the book number (= the address) and put it back at the same position later.</p>
+
+<figure class="normal">
+  <p><img src="/assets/images/pointer_table-1-small.png" /></p>
+  <figcaption>
+    <p>The RAM works similar to a library: Every object has a specific address.</p>
+  </figcaption>
+</figure>
+
+<p>But this is only theoretical; Let’s look at the Assembly code generated by the compiler.
+This is a simple program which does nothing more than to increment a variable <code class="language-plaintext highlighter-rouge">x</code>.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">long</span> <span class="n">x</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And this is the generated Assembly code:</p>
+
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">mov</span> <span class="nb">rax</span><span class="p">,</span><span class="kt">QWORD</span> <span class="p">[</span><span class="nv">ptr_x</span><span class="p">]</span>       <span class="c1">; Move data into register</span>
+<span class="nf">add</span> <span class="nb">rax</span><span class="p">,</span> <span class="mi">1</span>                  <span class="c1">; Do calculations: Add 1</span>
+<span class="nf">mov</span> <span class="kt">QWORD</span> <span class="p">[</span><span class="nv">ptr_x</span><span class="p">],</span> <span class="nb">rax</span>      <span class="c1">; Move data back to memory</span>
+</code></pre></div></div>
+
+<p>Explanation: The <code class="language-plaintext highlighter-rouge">mov</code> instructions does exactly what it sounds like:
+It moves data, in this case from memory to a register and the other way round.
+The first operand is the destination, and the second is the source operand. 
+So <code class="language-plaintext highlighter-rouge">mov rax, QWORD [ptr_x]</code> moves 8 bytes of data from the memory location with address ptr_x to register rax.
+Then the processor can do a simple calculation and move the result back into memory, similar to our library example from before.</p>
+
+<p>A Pointer in C++ is nothing more than an object which contains the address of another variable.
+To assign the address of a specific object to a pointer, we have to use the address-of operator <code class="language-plaintext highlighter-rouge">&amp;</code>.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="n">country</span><span class="p">;</span>
+<span class="n">string</span><span class="o">*</span> <span class="n">pCountry</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">country</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>This creates a pointer called <code class="language-plaintext highlighter-rouge">pCountry</code> which stores the address of the variable <code class="language-plaintext highlighter-rouge">country</code>.
+If we want to access the data the Pointer points to (not the memory address itself), this can be done with the dereference operator <code class="language-plaintext highlighter-rouge">*</code>.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="n">pCountry</span> <span class="o">=</span> <span class="s">"USA"</span><span class="p">;</span>      <span class="c1">// access data it points to</span>
+</code></pre></div></div>
+
+<figure class="normal">
+  <p><img src="/assets/images/pointer_table-2-small.png" /></p>
+</figure>
+
+<p>As we see, understanding pointers is important to understand how the concepts of variables and objects work.
+But are there any real world examples?</p>
+
+<p>Imagine we want to write a function which swaps the content of two strings.
+The simplest way do achieve this is the following way:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;string&gt;
+</span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">swap_strings</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">string</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"Coffee</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"Cocoa</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="n">swap_strings</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">swap_strings</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">string</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">str1</span><span class="p">;</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="n">str2</span><span class="p">;</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Because we want to change the content of the parameters given to the function, we have to declare it call-by-reference.
+When the function <code class="language-plaintext highlighter-rouge">swap_strings</code> is called, it copies the string <code class="language-plaintext highlighter-rouge">str1</code> into the temporary variable <code class="language-plaintext highlighter-rouge">tmp</code>.
+Afterwards, the first string can get the content of <code class="language-plaintext highlighter-rouge">str2</code>, and finally <code class="language-plaintext highlighter-rouge">tmp</code> is copied back to <code class="language-plaintext highlighter-rouge">str2</code>.</p>
+
+<p>Obviously, this has two disadvantages.</p>
+
+<ol>
+  <li>We need a temporary variable <code class="language-plaintext highlighter-rouge">tmp</code>, which stores a copy of the first string and needs more memory space.</li>
+  <li>The string objects are copied completely three times in total, which costs a lot of time.</li>
+</ol>
+
+<p>It is much easier to just swap the addresses of both strings by using pointers.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span><span class="o">*</span> <span class="n">pStr1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">str1</span><span class="p">;</span>
+<span class="n">string</span><span class="o">*</span> <span class="n">pStr2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">str2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">swap_strings</span><span class="p">(</span><span class="n">string</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">pStr1</span><span class="p">,</span> <span class="n">string</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">pStr2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">string</span><span class="o">*</span> <span class="n">pTmp</span> <span class="o">=</span> <span class="n">pStr1</span><span class="p">;</span>
+<span class="n">pStr1</span> <span class="o">=</span> <span class="n">pStr2</span><span class="p">;</span>
+<span class="n">pStr2</span> <span class="o">=</span> <span class="n">pTmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s compare both implementations with the Google profiler pprof.
+I created strings of 1kB length each and two functions to swap them, one with and one without using pointers.
+The functions are called exactly \(10^8\) times.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">pprof swap_strings /tmp/prof.out --ignore="std|__gnu|_init"
+</span></code></pre></div></div>
+
+<figure class="normal">
+  <p><img src="/assets/images/pprof.png" /></p>
+  <figcaption>
+    <p>Speed comparison with pprof: 94% vs. 6%</p>
+  </figcaption>
+</figure>
+
+<p>As expected, the function which uses pointers is significantly faster.</p>
+
+<p>Conclusion: 
+We use pointers because it’s easier to give someone an address to your home than to give a copy of your home to everyone.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<hr />
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>C++ Primer, 5th edition, Stanley B. Lippman (section 2.3.2) <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://stackoverflow.com/questions/162941/why-use-pointers">Why we use pointers</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+<!-- Ähnliche Posts / Realted Posts -->
+<h2>Änhliche Posts:</h2>
+
+<!-- This Code is from:
+	https://blog.webjeda.com/jekyll-related-posts/
+-->
+<ul>
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</ul>
+
+
+<div id="share">
+	Share on: &#160;
+	<br/>
+	<a href="http://www.facebook.com/sharer/sharer.php?u=http://0.0.0.0:4000/posts/why_pointers_are_usefull.xhtml" target="_blank" class="share-btn facebook">
+		Facebook
+	</a>
+	<!--	&#160; -->
+	<a href="http://reddit.com/submit?http://0.0.0.0:4000/posts/why_pointers_are_usefull.xhtml&amp;title=Why%20Pointers%20are%20usefull" target="_blank" class="share-btn reddit">
+		Reddit
+	</a>
+	<!--	&#160; -->
+	<a href="https://news.ycombinator.com/submitlink?u=http://0.0.0.0:4000/posts/why_pointers_are_usefull.xhtml&amp;t=Why%20Pointers%20are%20usefull" target="_blank" class="share-btn hacker_news">
+		Hacker News
+	</a>
+</div>
+
+
+			<!-- ENDE von content -->
+
+			<div id="myModal" class="modal">
+				<span class="close">&#215;</span>
+				<img class="modal-content" id="img01" />
+				<div id="caption"></div>
+			</div>
+		</main>
+
+		<!-- Seitenleiste -->
+<aside class="grid-item">
+	<h2>About me</h2>
+	<img src="/assets/images/profile_photo-small.jpg" />
+	<p>
+	I am a mathematics student in Kassel. I like learning Japanese, climbing and programming.
+	</p>
+</aside>
+
+		<!-- Fußleiste -->
+<footer class="grid-item">
+	<!--
+	 <a href="impressum.xhtml">Imprint</a>
+	 <a href="privacy.html">Privacy</a>
+	 <a href="bildnachweise.html">Bildnachweise</a>
+	-->
+	
+	<a href="/impressum.xhtml" >
+		Impressum  </a>
+	
+	<a href="/privacy.xhtml" >
+		Datenschutz  </a>
+	
+	<a href="/bildnachweise" >
+		Bildnachweise  </a>
+	
+	<span>
+		<!--
+	  Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+	  Except where otherwise noted, all texts and images are licensed under a Creative Commons license 
+		-->
+		<img src="/assets/images/CC-BY-SA.png" style="display: inline-block; vertical-align: middle;"/>
+		Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+		<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">(CC By-SA 4.0)</a>.
+		<br/>
+	</span>
+</footer>
+
+
+
+
+		<!-- <script src="/assets/js/codemirror-end.js"></script>-->
+		<script src="/assets/js/cookie.js"></script>
+		<script src="/assets/js/switch_style.js"></script>
+		<script src="/assets/js/embed_youtube.js"></script>
+		<script src="/assets/js/image_gallery.js"></script>
+
+
+	  <script src="/assets/js/katex_macros.js"></script>
+
+	  <!-- KaTeX Autorender options -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // ...options...
+        });
+    });
+</script>
+
+	  <script src="/assets/js/dropdown.js"></script>
+
+	</body>			
+</html>

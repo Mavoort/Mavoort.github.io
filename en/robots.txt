@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: /impressum.xhtml
+Disallow: /en/impressum.xhtml
+Disallow: /privacy.xhtml
+Disallow: /en/privacy.xhtml
+Disallow: /assets/
+Disallow: /unwichtig/
+Disallow: /test.xhtml

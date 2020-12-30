@@ -1,0 +1,244 @@
+/* Fonts ===== */
+/* Font: Unifraktur Magunte Regular License: SIL Open Font License, Version 1.1 Source: https://www.fontsquirrel.com/fonts/unifraktur-maguntia */
+@font-face { font-family: 'Fraktur'; src: url("../font/UnifrakturMaguntia.ttf") format("truetype"); }
+
+/* Font: Awesome License: SIL Open Font License v1.10 Source: https://www.fontsquirrel.com/fonts/font-awesome */
+@font-face { font-family: 'Awesome solid'; src: url("/assets/font/Awesome/FontAwesome-fa-solid-900.ttf") format("truetype"); }
+
+@font-face { font-family: 'Awesome brands'; src: url("/assets/font/Awesome/FontAwesome-fa-brands-400.ttf") format("truetype"); }
+
+@font-face { font-family: 'FontAwesomeWebfont'; src: url("/assets/font/Awesome/fontawesome-webfont.ttf") format("truetype"); src: url("/assets/font/Awesome/fontawesome-webfont.woff") format("woff"); font-display: swap; }
+
+/* Font: Hack Source: https://github.com/source-foundry/Hack License: https://github.com/source-foundry/Hack/blob/master/LICENSE.md */
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-regular.woff?sha=3114f1256") format("woff"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-bold.woff?sha=3114f1256") format("woff"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-italic.woff?sha=3114f1256") format("woff"); font-weight: 400; font-style: italic; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-bolditalic.woff?sha=3114f1256") format("woff"); font-weight: 700; font-style: italic; }
+
+@font-face { font-family: 'Droid Sans'; src: url("/assets/font/DroidSans-Bold-webfont.ttf") format("truetype"); display: swap; font-weight: bold; font-style: normal; }
+
+@font-face { font-family: 'Droid Sans'; src: url("/assets/font/DroidSans-webfont.ttf") format("truetype"); display: swap; font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'Garamond_reduced'; src: url("/assets/font/EBGaramond12-reduced_glyphs-201C.ttf") format("truetype"); font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10BdIt'; src: url("/assets/font/LatinModern/lmroman10-bolditalic-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_bold'; src: url("/assets/font/LatinModern/lmroman10-bold-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_italic'; src: url("/assets/font/LatinModern/lmroman10-italic-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_regular'; src: url("/assets/font/LatinModern/lmroman10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_caps10Ob'; src: url("/assets/font/LatinModern/lmromancaps10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_caps10Rg'; src: url("/assets/font/LatinModern/lmromancaps10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_demi10Ob'; src: url("/assets/font/LatinModern/lmromandemi10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_demi10Rg'; src: url("/assets/font/LatinModern/lmromandemi10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_dunhil10Ob'; src: url("/assets/font/LatinModern/lmromandunh10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_dunhil10Rg'; src: url("/assets/font/LatinModern/lmromandunh10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_slante10Bd'; src: url("/assets/font/LatinModern/lmromanslant10-bold-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_slante10Rg'; src: url("/assets/font/LatinModern/lmromanslant10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+/* Font: Kochi Mincho ==================== License: Public Domain Source: https://ufonts.com/fonts/kochi-mincho.html */
+.highlight .hll { background-color: #373b41; }
+
+.highlight { background: #1d1f21; color: #c5c8c6; }
+
+.highlight .c { color: #969896; }
+
+/* Comment */
+.highlight .err { color: #cc6666; }
+
+/* Error */
+.highlight .k { color: #b294bb; }
+
+/* Keyword */
+.highlight .l { color: #de935f; }
+
+/* Literal */
+.highlight .n { color: #c5c8c6; }
+
+/* Name */
+.highlight .o { color: #8abeb7; }
+
+/* Operator */
+.highlight .p { color: #c5c8c6; }
+
+/* Punctuation */
+.highlight .cm { color: #969896; }
+
+/* Comment.Multiline */
+.highlight .cp { color: #969896; }
+
+/* Comment.Preproc */
+.highlight .c1 { color: #969896; }
+
+/* Comment.Single */
+.highlight .cs { color: #969896; }
+
+/* Comment.Special */
+.highlight .gd { color: #cc6666; }
+
+/* Generic.Deleted */
+.highlight .ge { font-style: italic; }
+
+/* Generic.Emph */
+.highlight .gh { color: #c5c8c6; font-weight: bold; }
+
+/* Generic.Heading */
+.highlight .gi { color: #b5bd68; }
+
+/* Generic.Inserted */
+.highlight .gp { color: #969896; font-weight: bold; }
+
+/* Generic.Prompt */
+.highlight .gs { font-weight: bold; }
+
+/* Generic.Strong */
+.highlight .gu { color: #8abeb7; font-weight: bold; }
+
+/* Generic.Subheading */
+.highlight .kc { color: #b294bb; }
+
+/* Keyword.Constant */
+.highlight .kd { color: #b294bb; }
+
+/* Keyword.Declaration */
+.highlight .kn { color: #8abeb7; }
+
+/* Keyword.Namespace */
+.highlight .kp { color: #b294bb; }
+
+/* Keyword.Pseudo */
+.highlight .kr { color: #b294bb; }
+
+/* Keyword.Reserved */
+.highlight .kt { color: #f0c674; }
+
+/* Keyword.Type */
+.highlight .ld { color: #b5bd68; }
+
+/* Literal.Date */
+.highlight .m { color: #de935f; }
+
+/* Literal.Number */
+.highlight .s { color: #b5bd68; }
+
+/* Literal.String */
+.highlight .na { color: #81a2be; }
+
+/* Name.Attribute */
+.highlight .nb { color: #c5c8c6; }
+
+/* Name.Builtin */
+.highlight .nc { color: #f0c674; }
+
+/* Name.Class */
+.highlight .no { color: #cc6666; }
+
+/* Name.Constant */
+.highlight .nd { color: #8abeb7; }
+
+/* Name.Decorator */
+.highlight .ni { color: #c5c8c6; }
+
+/* Name.Entity */
+.highlight .ne { color: #cc6666; }
+
+/* Name.Exception */
+.highlight .nf { color: #81a2be; }
+
+/* Name.Function */
+.highlight .nl { color: #c5c8c6; }
+
+/* Name.Label */
+.highlight .nn { color: #f0c674; }
+
+/* Name.Namespace */
+.highlight .nx { color: #81a2be; }
+
+/* Name.Other */
+.highlight .py { color: #c5c8c6; }
+
+/* Name.Property */
+.highlight .nt { color: #8abeb7; }
+
+/* Name.Tag */
+.highlight .nv { color: #cc6666; }
+
+/* Name.Variable */
+.highlight .ow { color: #8abeb7; }
+
+/* Operator.Word */
+.highlight .w { color: #c5c8c6; }
+
+/* Text.Whitespace */
+.highlight .mf { color: #de935f; }
+
+/* Literal.Number.Float */
+.highlight .mh { color: #de935f; }
+
+/* Literal.Number.Hex */
+.highlight .mi { color: #de935f; }
+
+/* Literal.Number.Integer */
+.highlight .mo { color: #de935f; }
+
+/* Literal.Number.Oct */
+.highlight .sb { color: #b5bd68; }
+
+/* Literal.String.Backtick */
+.highlight .sc { color: #c5c8c6; }
+
+/* Literal.String.Char */
+.highlight .sd { color: #969896; }
+
+/* Literal.String.Doc */
+.highlight .s2 { color: #b5bd68; }
+
+/* Literal.String.Double */
+.highlight .se { color: #de935f; }
+
+/* Literal.String.Escape */
+.highlight .sh { color: #b5bd68; }
+
+/* Literal.String.Heredoc */
+.highlight .si { color: #de935f; }
+
+/* Literal.String.Interpol */
+.highlight .sx { color: #b5bd68; }
+
+/* Literal.String.Other */
+.highlight .sr { color: #b5bd68; }
+
+/* Literal.String.Regex */
+.highlight .s1 { color: #b5bd68; }
+
+/* Literal.String.Single */
+.highlight .ss { color: #b5bd68; }
+
+/* Literal.String.Symbol */
+.highlight .bp { color: #c5c8c6; }
+
+/* Name.Builtin.Pseudo */
+.highlight .vc { color: #cc6666; }
+
+/* Name.Variable.Class */
+.highlight .vg { color: #cc6666; }
+
+/* Name.Variable.Global */
+.highlight .vi { color: #cc6666; }
+
+/* Name.Variable.Instance */
+.highlight .il { color: #de935f; }
+
+/* Literal.Number.Integer.Long */

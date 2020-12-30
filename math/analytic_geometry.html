@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Analytic Geometry</title>
+		<meta name="author" content="K0gito - c0gito(at)posteo.org" />
+		<meta name="date" content="2020" />
+		<meta name="description" content="Short summary of some important formulas about geometry."/>
+
+		<meta name="generator" content="https://jekyllrb.com/" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+		<link rel="license" title="CC BY-SA 4.0" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" />
+
+
+		<!-- KaTeX -->
+	  <link defer="defer" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+		<!-- KaTeX AutoRender-Skript -->
+		    <script defer="defer" src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+		<!--
+	  	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+		  onload="renderMathInElement(document.body);"></script>
+	  	-->
+
+
+	 	 <!-- MathJax
+	 	  <script type="text/x-mathjax-config">
+	 	      MathJax.Hub.Config({
+	 	   		tex2jax: {
+	 	   			inlineMath: [['$','$'], ['\\(','\\)'] ],
+	 	   			displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+	 	   			processEnvironments: true,
+	 	   			processRefs: false,
+	 	   		},
+	 	   		TeX: {
+	 	   			extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js", "mhchem.js"]
+	 	   		},
+	 	   		"HTML-CSS": { linebreaks: { automatic: true } },
+	 	   		SVG: { linebreaks: { automatic: true } }
+	 	   	});
+	 	   	MathJax.Ajax.loadComplete("http://marcels-blog.org/assets/js/mathjax_macros.js");
+	 	  </script>
+	 	  <script type="text/javascript" async="async" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG,http://marcels-blog.org/assets/js/mathjax_macros.js"></script>
+	 	  -->
+
+
+
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-dark.css" id="dark" class="alternate" title="Dark" />
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-light.css" id="light" class="alternate" title="Light" />
+
+	   <script type="text/javascript" src="/assets/js/responsive.js" ></script>
+
+		<script src="/assets/js/captcha.js"></script>
+		<script src="/assets/js/furigana.js"></script>
+	</head>
+	<body>
+		<!-- Header mit schönem Bild vom Herkules -->
+<header class="grid-item">
+	<img src="/assets/images/Herkules_Panorama-wikipedia-small.jpg" title="Herkules Panorama in Kassel;  Autor: 2micha, Lizenz: GFDL 1.2, Quelle: Wikimedia Commons" />
+</header>
+
+		<!-- Navigationsleiste -->
+<nav class="grid-item" id="myTopnav">
+	
+		
+			<a href="/index.xhtml" >
+			Home  </a>
+		
+
+	
+	
+		
+			<a class="dropdown-btn">Mathematik  </a>
+		
+
+	
+	<!-- Dropdown-menu -->
+	<div class="dropdown-container">
+		
+		<a href="/math/euler_lagrange_equation.xhtml" >Euler Lagrange Gleichung </a>
+		
+		<a href="/math/analytic_geometry.html" >Analytische Geometrie </a>
+		
+	</div>
+	
+	
+		
+			<a href="/about.xhtml" >
+			Über mich  </a>
+		
+
+	
+	
+
+	<div>
+		<a class="fa-language">&#xf1ab;</a>
+
+		
+		<a  class="current"  href=" /math/analytic_geometry.html ">de</a>
+		
+		<a  href=" /en/math/analytic_geometry.html ">en</a>
+		
+	</div>
+
+	<!--Switch Style Sheets for different colours -->
+	<div>
+		<a href="#" onclick="switchToDark()" id="button-dark" class="current" >dark</a>
+		<a href="#" onclick="switchToLight()" id="button-light" >light</a>
+	</div>
+
+
+	<!-- Für das Burger-Menü -->
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<i class="fa fa-bars">&#xf0c9;</i>
+	</a>
+</nav>
+
+
+		<main class="grid-item" >
+
+			<!-- ANFANG von content -->
+			<h1>Analytic Geometry</h1>
+<div id="metadata">
+	<span id="category">Mathematics</span>
+	<time id="date">20 October 2018</time>
+	<!--<span id="tags">GeometryLinePlane</span> -->
+	<span id="tags">Geometry&#160;Line&#160;Plane&#160;</span>
+</div>
+
+<h2 id="transformation-of-a-plane-parametric--normal--and-cartesian-form">Transformation of a Plane (parametric-, normal- and cartesian form)</h2>
+
+<p>This section we show how to transform a plane from one representation to another.</p>
+
+<div class="gallery">
+  <figure>
+    <p><img src="/assets/images/Ebene_in_Parameterform-small.jpg" /></p>
+    <figcaption>
+      <p>plane in parametric form</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <p><img src="/assets/images/Ebene_in_Normalform-small.jpg" /></p>
+    <figcaption>
+      <p>plane in normal form</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <p><img src="/assets/images/Ebene_in_Koordinatenform-small.jpg" /></p>
+    <figcaption>
+      <p>plane in cartesian form</p>
+    </figcaption>
+  </figure>
+  <figcaption>
+    <p>planes in different representations</p>
+  </figcaption>
+</div>
+
+<h3 id="parametric-to-normal-form">Parametric to Normal Form</h3>
+<p>given: \(E: \vec{s} + \lambda\vec{u} + \mu\vec{v}\)</p>
+
+\[E: (\vec{x}-\vec{a}) \cdot \vec{n} = 0\]
+
+<p>with</p>
+
+\[\vec{n} = \frac{\vec{u} \times \vec{v}}{\left\lvert\vec{u}\times\vec{v} \right\rvert}, \quad
+\vec{a} = \vec{s}.\]
+
+<p>Subsitute in normal form:</p>
+
+\[E:(\vec{x} - \vec{s})\cdot(\vec{u} \times \vec{v}) = 0\]
+
+<h3 id="normal-form-to-parametric-form">Normal form to Parametric Form</h3>
+<p>given: \(E: (\vec{x} - \vec{a} ) \cdot \vec{n} =0\)</p>
+
+\[\left[ 
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} -
+\begin{pmatrix}
+a_x \\ a_y \\ a_z
+\end{pmatrix}
+\right] \cdot
+\begin{pmatrix}
+n_x \\ n_y \\ n_z
+\end{pmatrix}
+\overset{!}{=} 0\]
+
+<p>Multiply:</p>
+
+\[n_x x + n_y y + n_y z = \vec{a} \cdot\vec{n}\]
+
+<h3 id="cartesian-form-to-parametric-form">Cartesian Form to Parametric Form</h3>
+<p>given: \(E: ax + by + cz = d\) <br />
+Choose a parametrization for \(\vec{x}\):</p>
+
+\[x = \lambda, \, y=\mu, \,z = \frac{d-ax-by}{c} \\
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} =
+\begin{pmatrix}
+\lambda \\ \mu \\ \frac{d}{a} - \frac{a}{c} \lambda - \frac{b}{c} \mu
+\end{pmatrix}\]
+
+\[\leadsto 
+\vec{x} = 
+\begin{pmatrix}
+0 \\ 0 \\ -\frac{d}{c}
+\end{pmatrix} + \lambda
+\begin{pmatrix}
+1 \\ 0 \\ -\frac{a}{c}
+\end{pmatrix} + \mu
+\begin{pmatrix}
+0 \\ 1 \\ -\frac{b}{c}
+\end{pmatrix}\]
+
+<h3 id="cartesian-form-to-normal-form">Cartesian Form to Normal Form</h3>
+<p>given: \(E: ax + by + cz =d\)</p>
+
+\[E: (\vec{x} - \vec{a}) \cdot \vec{n} = 0,\]
+
+<p>Normal vector is given, choose \(\vec{a}\) arbitrary:</p>
+
+\[\vec{n} = 
+\begin{pmatrix}
+a \\ b \\ c
+\end{pmatrix},
+\quad
+\vec{a} = 
+\begin{pmatrix}
+1 \\ 1 \\ \frac{d-a-b}{c}
+\end{pmatrix}\]
+
+<h3 id="parameterform-in-koordinatenform">Parameterform in Koordinatenform</h3>
+<p>given: \(E: \vec{s} + \lambda\vec{u} + \mu\vec{v}\)</p>
+
+\[\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} =
+\begin{pmatrix}
+s_x \\ s_y \\ s_y
+\end{pmatrix} + r
+\begin{pmatrix}
+u_x \\ u_y \\ u_z
+\end{pmatrix} + s
+\begin{pmatrix}
+v_x \\ v_y \\ v_z
+\end{pmatrix}\]
+
+<p>This leads to a system of linear equations:</p>
+
+\[\left( 
+\begin{matrix}
+u_x &amp; v_x \\
+u_y &amp; v_y \\
+u_y &amp; v_z
+\end{matrix}
+\right. 
+\left\lvert \,
+\begin{matrix}
+x-s_x \\ y-s_y \\ z-s_z
+\end{matrix}
+\right)\]
+
+<p>Gauß-Algorithm leads to:</p>
+
+\[\left(
+\begin{matrix}
+\ddots \\ \\
+&amp; \ddots \\
+0 &amp; 0
+\end{matrix}
+\right.
+\left\lvert\,
+\begin{matrix}
+\vdots \\ \vdots \\ ax + by + cz + d
+\end{matrix}
+\right)\]
+
+<h2 id="distance-point---line">Distance Point - Line</h2>
+<h3 id="solution-1">Solution 1</h3>
+
+<p>given: line \(g: \vec{s} + \lambda\vec{v}\), point \(\vec{p} \in \R^3\)</p>
+
+\[\begin{aligned}
+\vec{n} &amp;= \vec{v} \times (\vec{p} - \vec{s} ) \\
+\implies d &amp;= \frac{\left\lvert\vec{n}\right\rvert}{\left\lvert\vec{v}\right\rvert} = \frac{\left\lvert\vec{v} \times (\vec{p} - \vec{s})\right\rvert}{\left\lvert\vec{v}\right\rvert} \\
+\left\lvert\vec{n}\right\rvert &amp;= \left\lvert\vec{v}\right\rvert\underbrace{\left\lvert\vec{p}-\vec{s}\right\rvert \sin(\alpha)}_{=\mathrm{dist}(g, \vec{p})} 
+\end{aligned}\]
+
+<figure class="right">
+  <p><img src="/assets/images/Abstand_Punkt-Gerade-1-small.jpg" /></p>
+  <figcaption>
+    <p>Distance Point - Line (with formula)</p>
+  </figcaption>
+</figure>
+
+<!--
+	\includegraphics[height=5cm]{Abstand_Punkt-Gerade-1.jpg}
+	\caption{Abstand Punkt - Gerade (mit Formel)}
+-->
+
+<!--
+	%\begin{figure}[h]
+	%	\begin{center}
+	%		\subfigure[mit Formel]{\includegraphics[height=6cm]{Abstand_Punkt-Gerade-1.jpg}}
+	%		\quad
+	%		\subfigure[mit Hilfsebene]{\includegraphics[height=6cm]{Abstand_Punkt-Gerade-2.jpg}}
+	%	\end{center}
+	%	\caption{Abstand Punkt - Gerade}
+	%\end{figure}
+	%
+-->
+<h3 id="solution-2">Solution 2</h3>
+<p>given: Line \(g: \vec{s} + \lambda\vec{v}\), Point \(\vec{p} \in \R^3\) <br />
+Konstruiere Hilfsebene:</p>
+
+\[E: \vec{n} \cdot (\vec{x} - \vec{a}) = 0\quad\text{mit} \\
+\vec{n} = \vec{v}, \quad \vec{a} = \vec{p}.\]
+
+<p>Für den Schnittpunkt \(S\) von \(g\) mit der Hilfsebene gilt:</p>
+
+\[\begin{aligned}
+\vec{v} \cdot (\vec{s} + \lambda \vec{v} - \vec{p} ) &amp;= 0 \\
+\lambda \left\lvert\vec{v}\right\rvert^2 + \vec{v} (\vec{s} - \vec{p}) &amp;= 0 
+\end{aligned}\]
+
+\[\implies \lambda = \frac{\vec{v} \cdot (\vec{p} - \vec{s})}{\left\lvert\vec{v}\right\rvert^2}\]
+
+<p>Damit erhält man also
+\(\begin{aligned}
+S &amp;= \vec{s} + \lambda \vec{v} \\ 
+&amp;= \vec{s} + \frac{\vec{v} \cdot (\vec{p}- \vec{s})}{\left\lvert\vec{v}\right\rvert^2} \vec{v} 
+\end{aligned}\)</p>
+
+<p>Der Abstand berechnet sich durch die Euklidische Norm:</p>
+
+\[\begin{aligned}
+\mathrm{dist}(g, \vec{p}) &amp;= \mathrm{dist}(S, \vec{p}) \\
+&amp;= \left\lvert\vec{s} + \frac{\vec{v} \cdot (\vec{p} - \vec{s})}{\left\lvert v\right\rvert^2 } \vec{v} - \vec{p}  \right\rvert 
+\end{aligned}\]
+
+<figure class="normal">
+  <p><img src="/assets/images/Abstand_Punkt-Gerade-2-small.jpg" /></p>
+  <figcaption>
+    <p>Abstand Punkt - Gerade (mit Hilfsebene)</p>
+  </figcaption>
+</figure>
+
+<h2 id="distance-point---plane">Distance Point - Plane</h2>
+<h3 id="solution-1-1">Solution 1</h3>
+<p>given: Plane \(E: ax + by + cz + d = 0\), Point \(\vec{p} = (p_x, p_y, p_z)^\mathrm{T}\) <br />
+Einsetzen von \(\vec{p}\) für \(\vec{x}\):</p>
+
+\[\begin{aligned}
+\mathrm{dist}(E, \vec{p}) &amp;=\frac{1}{\left\lvert\vec{n}\right\rvert}(a p_x + b p_y + c p_z -d) 	 \\
+&amp;= \frac{1}{\left\lvert\vec{n}\right\rvert} (\vec{n} \cdot \vec{p} -d)  
+\end{aligned}\]
+
+<h3 id="solution-2-1">Solution 2</h3>
+<p>given: Plane \(E: \vec{n} \cdot ( \vec{x} - \vec{a}) = 0\), Point \(\vec{p}\) <br />
+Einsetzen von \(\vec{p}\) in die Hesse’sche Normalform:</p>
+
+\[\mathrm{dist}(E, \vec{p}) = \frac{1}{\left\lvert\vec{n}\right\rvert} \vec{n}\cdot (\vec{p} - \vec{a})\]
+
+<h2 id="distance-of-skew-lines">Distance of skew lines</h2>
+<p>given: Lines \(g: \vec{x} = \vec{a} + \lambda \vec{v}, \;h: \vec{x} = \vec{b} + \mu \vec{w}\)</p>
+
+\[\mathrm{dist}(g,h) = \left\lvert(\vec{a} - \vec{b}) \cdot \vec{n}\right\rvert,\]
+
+<p>where</p>
+
+\[\vec{n} = \frac{\vec{v} \times \vec{w}}{\left\lvert\vec{v} \times \vec{w}\right\rvert}\]
+
+
+
+<div id="share">
+	Share on: &#160;
+	<br/>
+	<a href="http://www.facebook.com/sharer/sharer.php?u=http://0.0.0.0:4000/math/analytic_geometry.html" target="_blank" class="share-btn facebook">
+		Facebook
+	</a>
+	<!--	&#160; -->
+	<a href="http://reddit.com/submit?http://0.0.0.0:4000/math/analytic_geometry.html&amp;title=Analytic%20Geometry" target="_blank" class="share-btn reddit">
+		Reddit
+	</a>
+	<!--	&#160; -->
+	<a href="https://news.ycombinator.com/submitlink?u=http://0.0.0.0:4000/math/analytic_geometry.html&amp;t=Analytic%20Geometry" target="_blank" class="share-btn hacker_news">
+		Hacker News
+	</a>
+</div>
+
+
+			<!-- ENDE von content -->
+
+			<div id="myModal" class="modal">
+				<span class="close">&#215;</span>
+				<img class="modal-content" id="img01" />
+				<div id="caption"></div>
+			</div>
+		</main>
+
+		<!-- Seitenleiste -->
+<aside class="grid-item">
+	<h2>About me</h2>
+	<img src="/assets/images/profile_photo-small.jpg" />
+	<p>
+	I am a mathematics student in Kassel. I like learning Japanese, climbing and programming.
+	</p>
+</aside>
+
+		<!-- Fußleiste -->
+<footer class="grid-item">
+	<!--
+	 <a href="impressum.xhtml">Imprint</a>
+	 <a href="privacy.html">Privacy</a>
+	 <a href="bildnachweise.html">Bildnachweise</a>
+	-->
+	
+	<a href="/impressum.xhtml" >
+		Impressum  </a>
+	
+	<a href="/privacy.xhtml" >
+		Datenschutz  </a>
+	
+	<a href="/bildnachweise" >
+		Bildnachweise  </a>
+	
+	<span>
+		<!--
+	  Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+	  Except where otherwise noted, all texts and images are licensed under a Creative Commons license 
+		-->
+		<img src="/assets/images/CC-BY-SA.png" style="display: inline-block; vertical-align: middle;"/>
+		Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+		<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">(CC By-SA 4.0)</a>.
+		<br/>
+	</span>
+</footer>
+
+
+
+
+		<!-- <script src="/assets/js/codemirror-end.js"></script>-->
+		<script src="/assets/js/cookie.js"></script>
+		<script src="/assets/js/switch_style.js"></script>
+		<script src="/assets/js/embed_youtube.js"></script>
+		<script src="/assets/js/image_gallery.js"></script>
+
+
+	  <script src="/assets/js/katex_macros.js"></script>
+
+	  <!-- KaTeX Autorender options -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // ...options...
+        });
+    });
+</script>
+
+	  <script src="/assets/js/dropdown.js"></script>
+
+	</body>			
+</html>

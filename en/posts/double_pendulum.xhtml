@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Animation of the Double Pendulum</title>
+		<meta name="author" content="K0gito - c0gito(at)posteo.org" />
+		<meta name="date" content="2020" />
+		<meta name="description" content="This posts shows how to use SciPy to solve the Euler-Lagrange-Equation for the double pendulum and then animate the solution with Matplotlib."/>
+
+		<meta name="generator" content="https://jekyllrb.com/" />
+		<link rel="icon" type="image/svg+xml" href="/en/favicon.svg" sizes="any" />
+		<link rel="license" title="CC BY-SA 4.0" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" />
+
+
+		<!-- KaTeX -->
+	  <link defer="defer" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+		<!-- KaTeX AutoRender-Skript -->
+		    <script defer="defer" src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+		<!--
+	  	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+		  onload="renderMathInElement(document.body);"></script>
+	  	-->
+
+
+	 	 <!-- MathJax
+	 	  <script type="text/x-mathjax-config">
+	 	      MathJax.Hub.Config({
+	 	   		tex2jax: {
+	 	   			inlineMath: [['$','$'], ['\\(','\\)'] ],
+	 	   			displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+	 	   			processEnvironments: true,
+	 	   			processRefs: false,
+	 	   		},
+	 	   		TeX: {
+	 	   			extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js", "mhchem.js"]
+	 	   		},
+	 	   		"HTML-CSS": { linebreaks: { automatic: true } },
+	 	   		SVG: { linebreaks: { automatic: true } }
+	 	   	});
+	 	   	MathJax.Ajax.loadComplete("http://marcels-blog.org/assets/js/mathjax_macros.js");
+	 	  </script>
+	 	  <script type="text/javascript" async="async" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG,http://marcels-blog.org/assets/js/mathjax_macros.js"></script>
+	 	  -->
+
+
+
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-dark.css" id="dark" class="alternate" title="Dark" />
+	   <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style-light.css" id="light" class="alternate" title="Light" />
+
+	   <script type="text/javascript" src="/assets/js/responsive.js" ></script>
+
+		<script src="/assets/js/captcha.js"></script>
+		<script src="/assets/js/furigana.js"></script>
+	</head>
+	<body>
+		<!-- Header mit schönem Bild vom Herkules -->
+<header class="grid-item">
+	<img src="/assets/images/Herkules_Panorama-wikipedia-small.jpg" title="Herkules Panorama in Kassel;  Autor: 2micha, Lizenz: GFDL 1.2, Quelle: Wikimedia Commons" />
+</header>
+
+		<!-- Navigationsleiste -->
+<nav class="grid-item" id="myTopnav">
+	
+		
+			<a href="/en/index.xhtml" >
+			 Home  </a>
+		
+
+	
+	
+		
+			<a class="dropdown-btn"> Mathematics  </a>
+		
+
+	
+	<!-- Dropdown-menu -->
+	<div class="dropdown-container">
+		
+		<a href="/en/math/euler_lagrange_equation.xhtml" > Euler Lagrange Equation </a>
+		
+		<a href="/en/math/analytic_geometry.html" > Analytic Geometry </a>
+		
+	</div>
+	
+	
+		
+			<a href="/en/about.xhtml" >
+			 About  </a>
+		
+
+	
+	
+
+	<div>
+		<a class="fa-language">&#xf1ab;</a>
+
+		
+		<a  href=" /posts/double_pendulum.xhtml ">de</a>
+		
+		<a  class="current"  href=" /en/posts/double_pendulum.xhtml ">en</a>
+		
+	</div>
+
+	<!--Switch Style Sheets for different colours -->
+	<div>
+		<a href="#" onclick="switchToDark()" id="button-dark" class="current" >dark</a>
+		<a href="#" onclick="switchToLight()" id="button-light" >light</a>
+	</div>
+
+
+	<!-- Für das Burger-Menü -->
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<i class="fa fa-bars">&#xf0c9;</i>
+	</a>
+</nav>
+
+
+		<main class="grid-item" >
+
+			<!-- ANFANG von content -->
+			<h1>Animation of the Double Pendulum</h1>
+<div id="metadata">
+	<span id="category">Physics</span>
+	<time id="date">01 January 2021</time>
+	<!--<span id="tags">double_pendulumanimation</span> -->
+	<span id="tags">double_pendulum&#160;animation&#160;</span>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+</code></pre></div></div>
+
+<figure class="normal">
+  <p><img id="myImg" style="background-color: white;" src="/assets/images/double-pendulum.svg" title="double pendulum" /></p>
+  <figcaption>
+    <p>Double Pendulum  <br />
+Author: Diego Assencio, Licence: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de">CC BY-NC-SA 4.0</a> <br />Source: <a href="https://diego.assencio.com/?index=e5ac36fcb129ce95a61f8e8ce0572dbf">diego.assencio.com</a></p>
+  </figcaption>
+</figure>
+
+<p>The double pendulum is a typical example for the Lagrange-formalism in classical mechanics.
+Instead of formulating the system with Newton’s second law of motion, it is possible to incorporate the constraints directly in form of <em>generalised coordinates</em>.
+This leads to the <strong>Euler-Lagrange-Equation</strong> (of 2nd kind):</p>
+
+<div class="center">
+  <div class="boxed">
+
+\[\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial L}{\partial\dot{q}_i} - \frac{\partial L}{\partial q_i} = 0\]
+
+  </div>
+</div>
+
+<p>By choosing the angles \(\theta\) (see figure 1) as generalised coordinates, one obtains <a href="https://diego.assencio.com/?index=1500c66ae7ab27bb0106467c68feebc6">after long calculation</a></p>
+
+\[\begin{aligned}
+ (m_1 + m_2) l_1 \ddot{\theta}_1 + m_2 l_1 l_2 \ddot{\theta}_2 \cos(\theta_1 - \theta_2) 
+ + m_2 l_2 \dot{\theta}_2^2 \sin(\theta_1 - \theta_2) + (m_1 + m_2) g \sin(\theta_1)  &amp;= 0 \\
+l_2 \ddot{\theta}_2 + l_1 \ddot{\theta}_1 \cos(\theta_1 - \theta_2) 
+- l_1 \dot{\theta}_1 \sin(\theta_1 - \theta_2) + g \sin(\theta_2) &amp;= 0
+\end{aligned}
+\tag{2}\]
+
+<p>This is a 2nd order quasi-linear ordinary differential equation.
+The goal of this post is to solve this eqation numerically and to create an animation of the double pendulum with matplotlib.</p>
+
+<p>To do so, we write equation (2) as</p>
+
+\[A \begin{pmatrix} \ddot{\theta}_1 \\ \ddot{\theta}_2 \end{pmatrix} =
+\begin{pmatrix} f_1 \\ f_2 \end{pmatrix}\]
+
+<p>to solve it with the SciPy-function <code class="language-plaintext highlighter-rouge">linalg.solve</code> for \(\ddot{\theta}\) and then transform the ODE using \(\omega := \dot{\theta}\) to a first order system:</p>
+
+\[\frac{\mathrm{d}}{\mathrm{d}t}
+\begin{pmatrix}
+\theta_1 \\ \theta_2 \\ \omega_1 \\ \omega_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\omega_1 \\ \omega_2 \\ f_1 \\ f_2
+\end{pmatrix}
+\tag{4}\]
+
+<p>Now we can define the right-hand side of the differential equation in Python:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">l1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="s">"""
+    right-hand side of the differential equation  d/dt y = F(y,t)
+    Paramters: Masses m1, m2, lengths l1, l2
+    """</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>        <span class="c1"># gravitation
+</span>    
+    <span class="c1"># y = 4-dim. vector for theta and omega
+</span>    <span class="n">theta_1</span><span class="p">,</span> <span class="n">theta_2</span><span class="p">,</span> <span class="n">omega_1</span><span class="p">,</span> <span class="n">omega_2</span> <span class="o">=</span> <span class="n">y</span>
+    
+    <span class="c1"># Solve linear system of equations: A * theta_ddot = b
+</span>    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> <span class="o">*</span> <span class="n">l1</span><span class="p">,</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">l2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_1</span> <span class="o">-</span> <span class="n">theta_2</span><span class="p">)],</span>
+                  <span class="p">[</span><span class="n">l1</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_1</span> <span class="o">-</span> <span class="n">theta_2</span><span class="p">),</span> <span class="n">l2</span><span class="p">]</span> <span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="o">-</span><span class="n">m2</span> <span class="o">*</span> <span class="n">l2</span> <span class="o">*</span> <span class="n">omega_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_1</span> <span class="o">-</span> <span class="n">theta_2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_1</span><span class="p">),</span>
+                   <span class="n">l1</span> <span class="o">*</span> <span class="n">omega_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_1</span> <span class="o">-</span> <span class="n">theta_2</span><span class="p">)</span> <span class="o">-</span> <span class="n">g</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_2</span><span class="p">)])</span>
+    
+    <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">omega_1</span><span class="p">,</span> <span class="n">omega_2</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>An initial value problem</p>
+
+\[\left\{
+\begin{aligned}
+\frac{\mathrm{d}\mathbf{y}}{\mathrm{d}t} &amp;= \mathbf{f}(t, \mathbf{y}), &amp;t \in I, \\
+\mathbf{y}(0) &amp;= \mathbf{y}_0
+\end{aligned}
+\right.\]
+
+<p>can be solved using SciPy with</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ivl</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">"RK45"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>where \(f\) is a function for the right-hand side, ivl is the time interval, and y0 is the initial condition. Other available integration methods are “RK23”, “Radau” and “BDF”. The result is returned as an object, containing the time steps as <code class="language-plaintext highlighter-rouge">sol.t</code> and corresponding solution as <code class="language-plaintext highlighter-rouge">sol.y</code>.</p>
+
+<p>As we want to create an animation with a constant framerate, a variable stepsize for \(t\) is rather inconvenient.
+Fortunately we can evaluate the solution at specific times by passing the parameter <code class="language-plaintext highlighter-rouge">t_eval</code>. The fixed arguments for the masses and lengths of the pendulum can be specified with <code class="language-plaintext highlighter-rouge">args</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>             <span class="c1"># masses and lengths of the pendulum
+</span><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># initial condition
+</span><span class="n">ivl</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>                           <span class="c1"># time interval
+</span><span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>        <span class="c1"># points of time to evaluate the solution
+</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">ivl</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">"BDF"</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>As we have only the solution for the angles \(\theta\) so far, we have to transform it back to cartesian coordinates:</p>
+
+\[\begin{pmatrix}
+x_1 \\ y_1 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+l_1 \sin(\theta_1) \\
+- l_1 \cos(\theta_1)
+\end{pmatrix},
+\qquad
+\begin{pmatrix}
+x_2 \\ y_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+l_1 \sin(\theta_1) + l_2 \sin(\theta_2) \\
+- l_1 \cos(\theta_1) - l_2 \cos(\theta_2)
+\end{pmatrix}\]
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">theta_1</span><span class="p">,</span> <span class="n">theta_2</span><span class="p">,</span> <span class="n">omega_1</span><span class="p">,</span> <span class="n">omega_2</span> <span class="o">=</span> <span class="n">sol</span><span class="p">.</span><span class="n">y</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">sol</span><span class="p">.</span><span class="n">t</span>
+
+<span class="c1"># Transform angle theta back to cartetsian coordinates
+</span><span class="n">x1</span> <span class="o">=</span> <span class="n">l1</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_1</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">l1</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_1</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">l1</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_1</span><span class="p">)</span> <span class="o">+</span> <span class="n">l2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_2</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">l1</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">l2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now we can create the animation. The matplotlib-function <code class="language-plaintext highlighter-rouge">FuncAnimation()</code> is quite simple. First we have to initialize the figure by defining all objects which are going to change as empty, in this case the line object.
+Then an update function is called for each frame which changes the data of the line object.
+The time steps of the animation is given by <code class="language-plaintext highlighter-rouge">frames</code>, and <code class="language-plaintext highlighter-rouge">interval</code> is the time (in milliseconds) between each frame.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+
+<span class="c1"># Initialize plot figure
+</span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">autoscale_on</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s">'equal'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Define empty line and empty annotation text
+</span><span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s">"ob-"</span><span class="p">)</span>
+<span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.9</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="s">"""
+    Update data of the line plot (for each frame),
+    and change text of the clock on the top left
+    """</span>
+    <span class="n">xdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">ydata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    
+    <span class="n">line</span><span class="p">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
+    <span class="n">time_text</span><span class="p">.</span><span class="n">set_text</span><span class="p">(</span><span class="s">"{:2.1f}s"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span> <span class="n">time_text</span>
+
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># time step size (constant)
+</span>
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="p">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">),</span>
+                              <span class="n">interval</span><span class="o">=</span><span class="mi">1_000</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<video controls="controls">
+<source src="/assets/videos/double_pendulum.mp4" type="video/mp4" />
+Your browser doesn't support videos.
+</video>
+
+<p>To display the video within a Jupyter-Notebook, import</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</code></pre></div></div>
+<p>and replace <code class="language-plaintext highlighter-rouge">plt.show()</code> with:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rc</span><span class="p">(</span><span class="s">"animation"</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s">"html5"</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="p">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Because one has conservation of energy for the laws of motion, it makes sense to use a <a href="https://en.wikipedia.org/wiki/Symplectic_integrator">symplectic integrator</a> (for example <em>Leapfrog</em>) instead of Runge-Kutta. This method is not available in the SciPy-function <code class="language-plaintext highlighter-rouge">solve_ivp()</code>, so we would have to implement it by ourself. 
+However, the goal of this post was not to go deep into numerical mathematics, but use the example for the double pendulum to show how to make an animation with MatplotLib. An implementation of the Leapfrog-method might be an idea for another post.</p>
+
+
+
+
+<!-- Ähnliche Posts / Realted Posts -->
+<h2>Related Posts:</h2>
+
+<!-- This Code is from:
+	https://blog.webjeda.com/jekyll-related-posts/
+-->
+<ul>
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</ul>
+
+
+<div id="share">
+	Share on: &#160;
+	<br/>
+	<a href="http://www.facebook.com/sharer/sharer.php?u=http://0.0.0.0:4000/posts/double_pendulum.xhtml" target="_blank" class="share-btn facebook">
+		Facebook
+	</a>
+	<!--	&#160; -->
+	<a href="http://reddit.com/submit?http://0.0.0.0:4000/posts/double_pendulum.xhtml&amp;title=Animation%20of%20the%20Double%20Pendulum" target="_blank" class="share-btn reddit">
+		Reddit
+	</a>
+	<!--	&#160; -->
+	<a href="https://news.ycombinator.com/submitlink?u=http://0.0.0.0:4000/posts/double_pendulum.xhtml&amp;t=Animation%20of%20the%20Double%20Pendulum" target="_blank" class="share-btn hacker_news">
+		Hacker News
+	</a>
+</div>
+
+
+			<!-- ENDE von content -->
+
+			<div id="myModal" class="modal">
+				<span class="close">&#215;</span>
+				<img class="modal-content" id="img01" />
+				<div id="caption"></div>
+			</div>
+		</main>
+
+		<!-- Seitenleiste -->
+<aside class="grid-item">
+	<h2>About me</h2>
+	<img src="/assets/images/profile_photo-small.jpg" />
+	<p>
+	I am a mathematics student in Kassel. I like learning Japanese, climbing and programming.
+	</p>
+</aside>
+
+		<!-- Fußleiste -->
+<footer class="grid-item">
+	<!--
+	 <a href="impressum.xhtml">Imprint</a>
+	 <a href="privacy.html">Privacy</a>
+	 <a href="bildnachweise.html">Bildnachweise</a>
+	-->
+	
+	<a href="/en/impressum.xhtml" >
+		 Imprint  </a>
+	
+	<a href="/en/privacy.xhtml" >
+		 Privacy  </a>
+	
+	<a href="/en/bildnachweise" >
+		 Photo Credits  </a>
+	
+	<span>
+		<!--
+	  Sofern nicht anders angegeben, stehen alle Texte und Bilder unter einer Creative Commons Lizenz
+	  Except where otherwise noted, all texts and images are licensed under a Creative Commons license 
+		-->
+		<img src="/assets/images/CC-BY-SA.png" style="display: inline-block; vertical-align: middle;"/>
+		Except where otherwise noted, all texts and images are licensed under a Creative Commons license
+		<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">(CC By-SA 4.0)</a>.
+		<br/>
+	</span>
+</footer>
+
+
+
+
+		<!-- <script src="/assets/js/codemirror-end.js"></script>-->
+		<script src="/assets/js/cookie.js"></script>
+		<script src="/assets/js/switch_style.js"></script>
+		<script src="/assets/js/embed_youtube.js"></script>
+		<script src="/assets/js/image_gallery.js"></script>
+
+
+	  <script src="/assets/js/katex_macros.js"></script>
+
+	  <!-- KaTeX Autorender options -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            // ...options...
+        });
+    });
+</script>
+
+	  <script src="/assets/js/dropdown.js"></script>
+
+	</body>			
+</html>

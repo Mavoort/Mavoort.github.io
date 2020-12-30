@@ -1,0 +1,546 @@
+@charset "UTF-8";
+/* Fonts ===== */
+/* Font: Unifraktur Magunte Regular License: SIL Open Font License, Version 1.1 Source: https://www.fontsquirrel.com/fonts/unifraktur-maguntia */
+@font-face { font-family: 'Fraktur'; src: url("../font/UnifrakturMaguntia.ttf") format("truetype"); }
+
+/* Font: Awesome License: SIL Open Font License v1.10 Source: https://www.fontsquirrel.com/fonts/font-awesome */
+@font-face { font-family: 'Awesome solid'; src: url("/assets/font/Awesome/FontAwesome-fa-solid-900.ttf") format("truetype"); }
+
+@font-face { font-family: 'Awesome brands'; src: url("/assets/font/Awesome/FontAwesome-fa-brands-400.ttf") format("truetype"); }
+
+@font-face { font-family: 'FontAwesomeWebfont'; src: url("/assets/font/Awesome/fontawesome-webfont.ttf") format("truetype"); src: url("/assets/font/Awesome/fontawesome-webfont.woff") format("woff"); font-display: swap; }
+
+/* Font: Hack Source: https://github.com/source-foundry/Hack License: https://github.com/source-foundry/Hack/blob/master/LICENSE.md */
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-regular.woff?sha=3114f1256") format("woff"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-bold.woff?sha=3114f1256") format("woff"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-italic.woff?sha=3114f1256") format("woff"); font-weight: 400; font-style: italic; }
+
+@font-face { font-family: 'Hack'; src: url("../font/Hack/hack-bolditalic.woff?sha=3114f1256") format("woff"); font-weight: 700; font-style: italic; }
+
+@font-face { font-family: 'Droid Sans'; src: url("/assets/font/DroidSans-Bold-webfont.ttf") format("truetype"); display: swap; font-weight: bold; font-style: normal; }
+
+@font-face { font-family: 'Droid Sans'; src: url("/assets/font/DroidSans-webfont.ttf") format("truetype"); display: swap; font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'Garamond_reduced'; src: url("/assets/font/EBGaramond12-reduced_glyphs-201C.ttf") format("truetype"); font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10BdIt'; src: url("/assets/font/LatinModern/lmroman10-bolditalic-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_bold'; src: url("/assets/font/LatinModern/lmroman10-bold-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_italic'; src: url("/assets/font/LatinModern/lmroman10-italic-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman10_regular'; src: url("/assets/font/LatinModern/lmroman10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_caps10Ob'; src: url("/assets/font/LatinModern/lmromancaps10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_caps10Rg'; src: url("/assets/font/LatinModern/lmromancaps10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_demi10Ob'; src: url("/assets/font/LatinModern/lmromandemi10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_demi10Rg'; src: url("/assets/font/LatinModern/lmromandemi10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_dunhil10Ob'; src: url("/assets/font/LatinModern/lmromandunh10-oblique-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_dunhil10Rg'; src: url("/assets/font/LatinModern/lmromandunh10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_slante10Bd'; src: url("/assets/font/LatinModern/lmromanslant10-bold-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'latin_modern_roman_slante10Rg'; src: url("/assets/font/LatinModern/lmromanslant10-regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+/* Font: Kochi Mincho ==================== License: Public Domain Source: https://ufonts.com/fonts/kochi-mincho.html */
+/*
+:set nonum	
+#define base00 #f2e5bc
+#define base01 #ebdbb2
+#define base02 #d5c4a1
+#define base03 #bdae93
+#define base04 #665c54
+#define base05 #504945
+#define base06 #3c3836
+#define base07 #282828
+
+*/
+/* The Main Site Layout and Structure ================================== */
+* { border-color: #d5c4a1 !important; }
+
+body { margin: 0 auto; font: 1.1em "Droid Sans", sans; color: #3c3836; background: linear-gradient(to right, #969895, #282a2e); }
+
+header, footer { background-color: #bdae93; }
+
+footer { padding: 1em 2em; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); justify-content: center; }
+
+footer a { align-self: center; }
+
+footer span { margin-top: 1vw; grid-column: 1/-1; }
+
+header img { width: 100%; margin: 0; opacity: 1.0; border-radius: 0; }
+
+main { background-color: #f2e5bc; padding: 1ex 1em; }
+
+nav, aside { overflow: hidden; background-color: #d5c4a1; }
+
+aside { padding: 0vw 1em; }
+
+aside img { margin-bottom: 0.5vw; }
+
+/* Responsive Site Layout with Grid ================================ */
+html { height: 100%; }
+
+body { display: grid; min-height: 100%; grid-template-columns: 2fr 62% 2fr; font-size: 1em !important; }
+
+header, footer { grid-column: 1/4; height: auto !important; }
+
+.fa-bars, .fa-language { font-family: "FontAwesomeWebfont"; font-style: normal; }
+
+a.fa-language:hover { color: inherit !important; background-color: inherit; }
+
+.dropdown-container { display: none; background-color: #262626; padding-left: 20px; }
+
+@media screen and (max-width: 1600px) { body { grid-template-columns: 1fr 5fr; font-size: 1.3em !important; } aside { grid-column: 2/4; } nav { grid-row: 2/4; } aside img { max-width: 20%; display: inline; float: left; margin: 2vw 3vw; } aside p { margin: 3vw 3vw; } }
+
+@media screen and (max-width: 1300px) { body { grid-template-columns: 1fr; font-size: 1.6em !important; } nav { grid-column: 1/4; } aside { grid-column: 1/-1 !important; } }
+
+@media screen and (max-width: 1080px) { body { max-width: 100%; font-size: 4vw !important; } aside img { float: none; display: block; margin-left: auto; margin-right: auto; max-width: 60% !important; } blockquote, .highlight code { margin: 0 !important; } .highlight code { font-size: 70%; } }
+
+nav div a { display: inline-block !important; }
+
+nav a { display: block; color: #79740e !important; text-align: left; padding: 14px 16px; text-decoration: none; font-size: 20px; }
+
+nav a:hover { background-color: #427b58; color: #ebdbb2 !important; }
+
+nav .icon { display: none; }
+
+#current, .current { color: #9d0006 !important; }
+
+#current:hover, .current:hover { color: #ebdbb2 !important; }
+
+@media screen and (max-width: 1300px) { nav a { float: left; text-align: center; display: inline; } }
+
+@media screen and (max-width: 1080px) { nav div { display: none; } nav.responsive div { display: block; } nav.responsive div a { display: inline-block !important; } nav a:not(:first-child) { display: none !important; } nav a.icon { float: right; display: block	!important; } nav.responsive { position: relative; } nav.responsive .icon { position: absolute; right: 0; top: 0; } nav.responsive a { float: none !important; display: block !important; text-align: left !important; } nav a { font-size: 2em !important; } font-size: 50px; body { max-width: 100% !important; } }
+
+/* Print layout ============ */
+@media print { body { grid-template-columns: 1fr; } nav { grid-column: 1/4; } body { max-width: 100%; font: 1em/1.2 "Helvetiva Nue", Helvetica, Arial, sans-serif; color: black !important; display: block; height: auto; background-color: black; } main { padding: 0; } pre.highlight, div.highlight, main { background-color: white !important; } header, nav { display: none; } h1, h2, h3, h4, h5, h6 { color: black; } figure, table, blockquote { box-shadow: none !important; } img { display: inline-block !important; max-width: 100% !important; max-height: 100% !important; } figure { display: inline-block; border-left: 2px solid; } /* B Farben (base16 - tomorrow night) ----------------------------------  Textfarbe: 		#c5c8c6 Hintergrund: 	#1d1f21 (#303030) =grau Highlight:		#373b41 (#585858) Linie: 			#282a2e (#3a3a3a) dunkelgrau (Code-Hintergrund, Rahmen) Kommentar: 		#969896 Fenster: 		#4d5057	(#5e5e5e) rot: 	#cc6666 orange: #de935f gelb: 	#f0c674 grün: 	#b5bd68 aqua: 	#8abeb7 blau: 	#81a2be lila: 	#b294bb */ /* 2. CodeMirro-Editor  ------------------- */ .CodeMirror { width: 62%; /* Width of the code-block shall be in golden ratio to screen width. */ margin: 20px auto; border: 1px solid black !important; height: auto !important; /* Height can be dependend of the containing code, */ max-height: 300px !important; /* but not greater than 10 lines.*/ overflow: auto; font-family: "Hack", "Source Code Pro", monospace; font-size: medium; text-align: left; background-color: #d5c4a1; } .CodeMirror-scroll { height: auto 	!important; } .CodeMirror-gutter-text { background-color: #ebdbb2; } /* 3. Überschriften und Absätze  ---------------------------------- */ p { color: black; } /* p::first-letter { font-size: 140%; font-family: "Fraktur"; } */ hr { width: 90%; margin: 0.5em auto; } /* 4. Textauszeichnung  ------------------- */ /*  em, dfn, var 			{color: #b294bb;} strong 					{color: #f0c674;} */ del { color: #9d0006; } /* red */ ins { color: #79740e; } /* green */ mark { color: #81a2be; background-color: #373b41; } kbd, label { color: #79740e; background-color: #d5c4a1; } a { color: #81a2be !important; text-decoration: underline !important; } /* 5. Zitate (Blockquotes) ----------------------- */ blockquote { padding: 0 0.5em 1em 2em; margin: 0 2em 2em; border-left: 5px solid; font-style: italic; box-shadow: 10px 5px 5px black; } blockquote::before { content: "\201C\A0"; font-size: 350%; position: relative; top: 15px; left: 5px; /* margin-top: -0.8em; position: absolute; */ text-align: right; } blockquote cite::before { /*content: "<br/>&mdash;";*/ content: "\A\2014\00A0"; white-space: pre; } kbd, code, samp { background-color: #d5c4a1; } pre { background-color: #d5c4a1; } /* 7. Tabellen ------------ */ table { background-color: transparent; border-spacing: 0; border-collapse: collapse; border-top: 1px solid #ddd; margin: 1em auto 1em 1em; } th, td { padding: .5em 1em; vertical-align: top; text-align: left; border-bottom: 1px solid #ddd; } tfoot { font-style: italic; } caption, figcaption { color: #504945; } /* 8. Listen --------- */ /* 9. Formularelemente ------------------- */ input, button, textarea, select, option, optgroup { color: #3c3836; background-color: #ebdbb2; } input, button { border: 1px solid #427b58; } /* 10. Sonstige Tags ----------------- abbr, progrss, time, address, details */ abbr { border-bottom: 1px dotted; cursor: help; } time { color: #79740e; } /* Unwichtigen Kram löschen (Share-Buttons, ...) */ #share, footer a, aside { display: none !important; } }
+
+/* Text Markup (Heading, paragraphs, quotes, ...) ============================================== */
+scrollbar { opacity: .75; }
+
+ruby rt { visibility: hidden; }
+
+ruby:hover rt { visibility: visible; }
+
+h1, h2, h3, h4, h5, h6 { border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 0.3vw; }
+
+h1 { color: #8f3f71; }
+
+h2 { color: #076678; }
+
+h3, h4 { color: #427b58; }
+
+h5, h6 { color: #79740e; }
+
+p { /*text-indent: 50px;*/ }
+
+/* p::first-letter { font-size: 140%; font-family: "Fraktur"; } */
+hr { width: 95%; }
+
+div.japanese { font-family: "Kochi Mincho"; font-size: 200%; }
+
+/* 4. Textauszeichnung  ------------------- */
+/*  em, dfn, var 			{color: $violet;} strong 					{color: $yellow;} */
+del { color: #9d0006; }
+
+ins { color: #79740e; }
+
+mark, ::-moz-selection { color: #076678; background-color: #ebdbb2; }
+
+div.center { text-align: center !important; }
+
+div.boxed { display: inline-block; border: 1px solid #3c3836 !important; padding: 0.2em 0.6em; }
+
+span.boxed { border: 1px solid white !important; display: inline-block; }
+
+kbd, label { color: #79740e; background-color: #d5c4a1; }
+
+a { color: #b57614; }
+
+a:hover { color: #9d0006; }
+
+a:link { color: #d65d0e; }
+
+/* a:link 		{color: #f0c674;} */
+a:visited { color: #d65d0e; }
+
+a:active { color: #9d0006; }
+
+a[href="http"] { target: new; target-name: new; target-new: tab; }
+
+/* 5. Zitate (Blockquotes) ----------------------- */
+blockquote { padding: 0 0.5em 1em 2em; margin: 0 2em 2em; border-left: 5px solid; font-style: italic; box-shadow: 10px 5px 5px black; max-width: 90%; }
+
+blockquote::before { content: "\201C\A0"; font-size: 350%; position: relative; top: 15px; left: 5px; text-align: right; font-family: "Garamond_reduced"; }
+
+blockquote p { display: inline; }
+
+blockquote cite::before { /*content: "<br/>&mdash;";*/ content: "\A\2014\00A0"; white-space: pre; font-family: "EB Garamond"; }
+
+pre.highlight { background-color: #d5c4a1; overflow: auto; }
+
+@media (min-width: 1100px) { pre.highlight { margin: 0 2em; } }
+
+kbd, code, samp { background-color: #d5c4a1; font-family: "Hack", "Sourcecode Pro", monospace; }
+
+.highlight code { display: block; }
+
+main { overflow: auto; }
+
+table.code td:first-child, table.code td:last-child { font-family: "Hack", "Sourcecode Pro", monospace; }
+
+pre { background-color: #d5c4a1; }
+
+/* 10. Sonstige Tags ----------------- abbr, progrss, time, address, details */
+abbr { border-bottom: 1px dotted; cursor: help; }
+
+time { color: #79740e; }
+
+span { border-color: #3c3836 !important; }
+
+span.katex-display { overflow-x: auto; overflow-y: hidden; }
+
+.hll { background-color: #ffffcc; }
+
+.c { color: #aaaaaa; font-style: italic; }
+
+/* Comment */
+.err { color: #FF0000; background-color: #FFAAAA; }
+
+/* Error */
+.k { color: #0000aa; }
+
+/* Keyword */
+.ch { color: #aaaaaa; font-style: italic; }
+
+/* Comment.Hashbang */
+.cm { color: #aaaaaa; font-style: italic; }
+
+/* Comment.Multiline */
+.cp { color: #4c8317; }
+
+/* Comment.Preproc */
+.cpf { color: #aaaaaa; font-style: italic; }
+
+/* Comment.PreprocFile */
+.c1 { color: #aaaaaa; font-style: italic; }
+
+/* Comment.Single */
+.cs { color: #0000aa; font-style: italic; }
+
+/* Comment.Special */
+.gd { color: #aa0000; }
+
+/* Generic.Deleted */
+.ge { font-style: italic; }
+
+/* Generic.Emph */
+.gr { color: #aa0000; }
+
+/* Generic.Error */
+.gh { color: #000080; font-weight: bold; }
+
+/* Generic.Heading */
+.gi { color: #00aa00; }
+
+/* Generic.Inserted */
+.go { color: #888888; }
+
+/* Generic.Output */
+.gp { color: #555555; }
+
+/* Generic.Prompt */
+.gs { font-weight: bold; }
+
+/* Generic.Strong */
+.gu { color: #800080; font-weight: bold; }
+
+/* Generic.Subheading */
+.gt { color: #aa0000; }
+
+/* Generic.Traceback */
+.kc { color: #0000aa; }
+
+/* Keyword.Constant */
+.kd { color: #0000aa; }
+
+/* Keyword.Declaration */
+.kn { color: #0000aa; }
+
+/* Keyword.Namespace */
+.kp { color: #0000aa; }
+
+/* Keyword.Pseudo */
+.kr { color: #0000aa; }
+
+/* Keyword.Reserved */
+.kt { color: #00aaaa; }
+
+/* Keyword.Type */
+.m { color: #009999; }
+
+/* Literal.Number */
+.s { color: #aa5500; }
+
+/* Literal.String */
+.na { color: #1e90ff; }
+
+/* Name.Attribute */
+.nb { color: #00aaaa; }
+
+/* Name.Builtin */
+.nc { color: #00aa00; text-decoration: underline; }
+
+/* Name.Class */
+.no { color: #aa0000; }
+
+/* Name.Constant */
+.nd { color: #888888; }
+
+/* Name.Decorator */
+.ni { color: #880000; font-weight: bold; }
+
+/* Name.Entity */
+.nf { color: #00aa00; }
+
+/* Name.Function */
+.nn { color: #00aaaa; text-decoration: underline; }
+
+/* Name.Namespace */
+.nt { color: #1e90ff; font-weight: bold; }
+
+/* Name.Tag */
+.nv { color: #aa0000; }
+
+/* Name.Variable */
+.ow { color: #0000aa; }
+
+/* Operator.Word */
+.w { color: #bbbbbb; }
+
+/* Text.Whitespace */
+.mb { color: #009999; }
+
+/* Literal.Number.Bin */
+.mf { color: #009999; }
+
+/* Literal.Number.Float */
+.mh { color: #009999; }
+
+/* Literal.Number.Hex */
+.mi { color: #009999; }
+
+/* Literal.Number.Integer */
+.mo { color: #009999; }
+
+/* Literal.Number.Oct */
+.sa { color: #aa5500; }
+
+/* Literal.String.Affix */
+.sb { color: #aa5500; }
+
+/* Literal.String.Backtick */
+.sc { color: #aa5500; }
+
+/* Literal.String.Char */
+.dl { color: #aa5500; }
+
+/* Literal.String.Delimiter */
+.sd { color: #aa5500; }
+
+/* Literal.String.Doc */
+.s2 { color: #aa5500; }
+
+/* Literal.String.Double */
+.se { color: #aa5500; }
+
+/* Literal.String.Escape */
+.sh { color: #aa5500; }
+
+/* Literal.String.Heredoc */
+.si { color: #aa5500; }
+
+/* Literal.String.Interpol */
+.sx { color: #aa5500; }
+
+/* Literal.String.Other */
+.sr { color: #009999; }
+
+/* Literal.String.Regex */
+.s1 { color: #aa5500; }
+
+/* Literal.String.Single */
+.ss { color: #0000aa; }
+
+/* Literal.String.Symbol */
+.bp { color: #00aaaa; }
+
+/* Name.Builtin.Pseudo */
+.fm { color: #00aa00; }
+
+/* Name.Function.Magic */
+.vc { color: #aa0000; }
+
+/* Name.Variable.Class */
+.vg { color: #aa0000; }
+
+/* Name.Variable.Global */
+.vi { color: #aa0000; }
+
+/* Name.Variable.Instance */
+.vm { color: #aa0000; }
+
+/* Name.Variable.Magic */
+.il { color: #009999; }
+
+/* Literal.Number.Integer.Long */
+img { max-width: 90%; display: block; margin-left: auto; margin-right: auto; }
+
+header img { max-width: 100%; }
+
+.gallery { display: grid; gap: 20px; margin-top: 1.5vw; grid-template-columns: repeat(auto-fit, minmax(15vw, 1fr)); }
+
+.gallery figure { align-self: end; margin: 0; justify-self: center; }
+
+.gallery img { display: block !important; max-width: 100% !important; height: auto !important; transition: transform .2s ease-in-out; }
+
+.gallery > figcaption { grid-column: 1/-1; text-align: center; margin: 2px auto !important; }
+
+.gallery figcaption { margin: 10px auto; text-align: center; }
+
+@media screen and (min-width: 1080px) { figure:hover img { transform: scale(1.15); } }
+
+@media screen and (max-width: 1080px) { .gallery { grid-template-columns: 1fr; } main img { width: 70vw; } }
+
+.right { float: right; max-width: 40%; margin: 5%; }
+
+.left { float: left; max-width: 40%; margin: 5%; }
+
+.normal { max-width: 50%; }
+
+figure img { display: block; max-width: 90%; }
+
+figure.normal, figure.left, figure.right { border-left: 2px solid; box-shadow: 10px 5px 5px black; padding-top: 1px; padding-bottom: 1px; margin-left: auto; margin-right: auto; }
+
+figure { overflow: hidden; }
+
+figure.normal img, figure.left img, figure.right img { display: block; max-width: 90%; align: center !important; margin: 5% auto !important; }
+
+figure.normal figcaption, figure.left figcaption, figure.right figcaption { text-align: center; margin: 3% auto; }
+
+@media screen and (max-width: 1080px) { img { max-width: 100% !important; } figure { max-width: 70% !important; float: none !important; margin-left: auto; margin-right: auto; } }
+
+/* Style the Image Used to Trigger the Modal */
+#myImg { border-radius: 5px; cursor: pointer; transition: 0.3s; }
+
+#myImg:hover { opacity: 0.7; }
+
+/* The Modal (background) */
+.modal { display: none; /* Hidden by default */ position: fixed; /* Stay in place */ z-index: 1; /* Sit on top */ padding-top: 100px; /* Location of the box */ left: 0; top: 0; width: 100%; /* Full width */ height: 100%; /* Full height */ overflow: auto; /* Enable scroll if needed */ background-color: black; /* Fallback color */ background-color: rgba(0, 0, 0, 0.85); /* Black w/ opacity */ }
+
+/* Modal Content (Image) */
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; }
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { animation-name: zoom; animation-duration: 0.6s; }
+
+@keyframes zoom { from { transform: scale(0); }
+  to { transform: scale(1); } }
+
+/* The Close Button */
+.close { position: absolute; top: 15px; right: 35px; color: #076678; font-size: 40px; font-weight: bold; transition: 0.3s; }
+
+.close:hover, .close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 1080px) { .modal-content { width: 100%; margin-top: 100px; margin-bottom: auto; } .close { font-size: 150px; } }
+
+/* CSS for tables ============== */
+table { background-color: transparent; border-spacing: 0; border-collapse: collapse; border-top: 1px solid #ddd; box-shadow: 10px 5px 5px black; margin: 1ex auto 2ex auto !important; width: 90%; }
+
+@media screen and (max-width: 1080px) { table { width: 90vw !important; margin-left: 0; margin-right: 0; font-size: 60%; } }
+
+th, td { padding: .5em 1em; vertical-align: top; text-align: left; border-bottom: 1px solid #ddd; }
+
+tfoot { font-style: italic; }
+
+caption, figcaption { color: #504945; }
+
+table caption { margin-bottom: 1ex; }
+
+table td:last-child, table th:last-child { text-align: right; }
+
+table.curriculum_vitae td:last-child { font-style: italic; }
+
+/* Forms and Form Elements ======================= */
+input, button, textarea, select, option, optgroup { color: #3c3836; background-color: #ebdbb2; }
+
+input, button { border: 1px solid #427b58; font-size: 100%; }
+
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover { color: #3c3836; background: #ebdbb2; }
+
+input, button, textarea, select { font-size: 100%; }
+
+form, fieldset { margin-bottom: 1ex; }
+
+@media screen and (max-width: 1080px) { input[type="checkbox"] { width: 8vw; height: 8vw; display: inline-block; vertical-align: middle; } input[type="text"] { margin-right: 0; margin-left: 0; max-width: 70vw; } textarea { font-size: 3.5vw; } form label { padding: 0.2ex 0.1ex; } input, button, select, form label { font-size: 8vw !important; margin: 0.4ex 0; } }
+
+textarea { margin: 0.4ex 0; }
+
+/* Social Media Share Buttons (Facebook, Reddit, Hacker News) ========================================================== */
+a.facebook:before { content: "\F082\A0"; }
+
+a.facebook { color: #3B5998 !important; border: 2px solid #3B5998 !important; }
+
+a.reddit:before { content: "\F1A1\A0"; }
+
+a.reddit { color: orangered !important; border: 2px solid orangered !important; }
+
+a.hacker_news:before { content: "\F1D4\A0"; }
+
+a.hacker_news { color: #FF6000 !important; border: 2px solid #FF6000 !important; }
+
+div#share { margin-top: 1vw; }
+
+div#share a { font-family: "Awesome brands"; text-decoration: none !important; margin-right: 1.5vw; padding: 3px; display: inline-block; padding: 0.5% 1%; }
+
+div#metadata span, div#metadata time { color: #d65d0e; }
+
+div#metadata { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); grid-column-gap: 10px; margin-bottom: 1vw; }
+
+time#date:before { content: "\F073\A0"; font-family: "Awesome solid"; }
+
+span#tags:before { content: "\F02C\A0"; font-family: "Awesome solid"; }
+
+span#category:before { content: "\F0DB\A0"; font-family: "Awesome solid"; }
+
+time#tags { justify-self: end; text-align: right; }
+
+span#date { justify-self: center; text-align: left; }
+
+span#category { justify-self: start; }
+
+time#date, span#tags, span#category { font-family: "Awesome solid"; }
+
+.awesome { font-family: "Awesome brands", "Awesome solid"; }
+
+div.youtube { width: 640px; height: 480px; background-color: black; color: #9d0006; display: block; text-align: center; margin: 0 auto; }
+
+div.youtube a { display: inline-block; margin-top: 160px; text-decoration: none; color: #9d0006; font-size: 25px; }
+
+@media screen and (max-width: 1080px) { div.youtube, video { width: 90vw; height: 50.6vw; } div.youtube a, video { font-size: 6vw !important; margin-top: 100px !important; } }
+
+iframe { width: 100%; height: 100%; }
+
+video { display: block; margin: 1em auto; }
