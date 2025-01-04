@@ -38,8 +38,8 @@ jobs:
       - name: Install Quarto extensions for Reveal.js
         shell: bash
         run: |
-          quarto add martinomagnifico/quarto-appearance
-          quarto add quarto-ext/pointer
+          quarto add martinomagnifico/quarto-appearance --no-prompt
+          quarto add quarto-ext/pointer --no-prompt
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

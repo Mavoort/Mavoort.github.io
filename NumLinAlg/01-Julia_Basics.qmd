@@ -52,9 +52,17 @@ Julia is a modern programming language that is commonly used for numerical analy
 ::::
 
 
+Julia test:
 ``` {julia}
 println("Hello World")
 ```
+
+Julia packages test:
+``` {.julia}
+import Example
+Example.hello("friend")
+```
+
 
 ## Literature
 

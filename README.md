@@ -21,6 +21,8 @@ cd mathematics-weekly
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt --upgrade
+quarto add martinomagnifico/quarto-appearance
+quarto add quarto-ext/pointer
 quarto render
 quarto publish gh-pages
 ```
