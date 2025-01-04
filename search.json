@@ -39,7 +39,7 @@
     "href": "Optimization/introduction.html#references",
     "title": "Introduction",
     "section": "References",
-    "text": "References\n\n\nBoyd, Stephen, and Lieven Vandenberghe. 2004. Convex Optimization. Cambridge University Press. https://web.stanford.edu/~boyd/cvxbook/.\n\n\nKochenderfer, Mykel J., and Tim A. Wheeler. 2019. Algorithms for Optimization. Cambridge, MA: The MIT Press. https://algorithmsbook.com/optimization/.\n\n\nNocedal, Jorge, and Stephen J. Wright. 2006. Numerical Optimization. 2nd ed. Springer.\n\n\nRüdiger Reinhardt, Armin, and Tobias Gerlach Hoffmann. 2013. Nichtlineare Optimierung: Theorie, Numerik Und Experimente. Springer Spektrum.\n\n\n\n\n\n\n\nnonlinear optimization\nsource: arXiv:1805.04829\n(Boyd and Vandenberghe 2004)\n(Nocedal and Wright 2006)\n(Rüdiger Reinhardt and Hoffmann 2013)\n(Kochenderfer and Wheeler 2019)"
+    "text": "References\n\n\nBoyd, Stephen, and Lieven Vandenberghe. 2004. Convex Optimization. Cambridge University Press. https://web.stanford.edu/~boyd/cvxbook/.\n\n\nKochenderfer, Mykel J., and Tim A. Wheeler. 2019. Algorithms for Optimization. Cambridge, MA: The MIT Press. https://algorithmsbook.com/optimization/.\n\n\nNocedal, Jorge, and Stephen J. Wright. 2006. Numerical Optimization. 2nd ed. Springer.\n\n\nRüdiger Reinhardt, Armin, and Tobias Gerlach Hoffmann. 2013. Nichtlineare Optimierung: Theorie, Numerik Und Experimente. Springer Spektrum."
   },
   {
     "objectID": "Optimization/introduction-presentation.html#why-learn-optimization",
@@ -122,7 +122,7 @@
     "href": "NumLinAlg/introduction.html#references",
     "title": "Introduction",
     "section": "References",
-    "text": "References\n\n\nDarve, Eric, and Mary Wootters. 2021. Numerical Linear Algebra with Julia. Philadelphia: Society for Industrial; Applied Mathematics.\n\n\nDavis, Timothy A. 2006. Direct Methods for Sparse Linear Systems. SIAM.\n\n\nGolub, Gene H., and Charles F. Van Loan. 2013. Matrix Computations. 4th ed. Baltimore, MD: The Johns Hopkins University Press.\n\n\nHackbusch, Wolfgang. 2016. Iterative Solution of Large Sparse Systems of Equations. 2nd ed. Springer.\n\n\nLyche, Tom. 2020. Numerical Linear Algebra and Matrix Factorizations. Cham, Switzerland: Springer.\n\n\nMeister, Andreas. 2015. Numerik Linearer Gleichungssysteme. 5th ed. Springer Spektrum.\n\n\nRannacher, Rolf. 2018. Numerical Linear Algebra. Heidelberg University Publ. https://doi.org/10.17885/heiup.407.\n\n\nSaad, Yousef. 2011. Numerical Methods for Large Eigenvalue Problems. 2nd ed. SIAM.\n\n\nScott, Jennifer, and Miroslav Tůma. 2023. Algorithms for Sparse Linear Systems. Cham, Switzerland: Birkhäuser. https://doi.org/10.1007/978-3-031-25820-6.\n\n\nWendland, Holger. 2018. Numerical Linear Algebra: An Introduction. Cambridge University Press.\n\n\n\n\n\n\n\n(Golub and Van Loan 2013)\n(Rannacher 2018)\n(Meister 2015)\n(Lyche 2020)\n(Wendland 2018)\n(Darve and Wootters 2021)\n(Scott and Tůma 2023)\n(Hackbusch 2016)\n(Saad 2011)\n(Davis 2006)",
+    "text": "References\n\n\nDarve, Eric, and Mary Wootters. 2021. Numerical Linear Algebra with Julia. Philadelphia: Society for Industrial; Applied Mathematics.\n\n\nDavis, Timothy A. 2006. Direct Methods for Sparse Linear Systems. SIAM.\n\n\nGolub, Gene H., and Charles F. Van Loan. 2013. Matrix Computations. 4th ed. Baltimore, MD: The Johns Hopkins University Press.\n\n\nHackbusch, Wolfgang. 2016. Iterative Solution of Large Sparse Systems of Equations. 2nd ed. Springer.\n\n\nLyche, Tom. 2020. Numerical Linear Algebra and Matrix Factorizations. Cham, Switzerland: Springer.\n\n\nMeister, Andreas. 2015. Numerik Linearer Gleichungssysteme. 5th ed. Springer Spektrum.\n\n\nRannacher, Rolf. 2018. Numerical Linear Algebra. Heidelberg University Publ. https://doi.org/10.17885/heiup.407.\n\n\nSaad, Yousef. 2011. Numerical Methods for Large Eigenvalue Problems. 2nd ed. SIAM.\n\n\nScott, Jennifer, and Miroslav Tůma. 2023. Algorithms for Sparse Linear Systems. Cham, Switzerland: Birkhäuser. https://doi.org/10.1007/978-3-031-25820-6.\n\n\nWendland, Holger. 2018. Numerical Linear Algebra: An Introduction. Cambridge University Press.",
     "crumbs": [
       "About me",
       "Numerical Linear Algebra",
@@ -169,7 +169,7 @@
     "href": "NumLinAlg/julia_basics-presentation.html#why-julia",
     "title": "Julia Basics",
     "section": "Why Julia?",
-    "text": "Why Julia?\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++."
+    "text": "Why Julia?\n\n\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++.\n\n\n\n\nJulia test:\nJulia packages test:\nimport Example\nExample.hello(\"friend\")"
   },
   {
     "objectID": "NumLinAlg/julia_basics-presentation.html#literature",
@@ -263,7 +263,7 @@
     "href": "NumLinAlg/julia_basics.html#why-julia",
     "title": "Julia Basics",
     "section": "Why Julia?",
-    "text": "Why Julia?\n\n\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++.",
+    "text": "Why Julia?\n\n\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++.\n\n\n\n\nJulia test:\n\n\nCode\nprintln(\"Hello World\")\n\n\nJulia packages test:\nimport Example\nExample.hello(\"friend\")",
     "crumbs": [
       "About me",
       "Numerical Linear Algebra",
@@ -371,7 +371,7 @@
     "href": "NumLinAlg/julia_basics.html#references",
     "title": "Julia Basics",
     "section": "References",
-    "text": "References\n\n\nEngheim, Erik. 2023. Julia as a Second Language. Manning Publ.\n\n\nKamiński, Bogumił. 2022. Julia for Data Analysis. Manning Publ.\n\n\nLauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media.\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n(Engheim 2023)\n(Kamiński 2022)\n(Lauwens and Downey 2019)\nDynamic Variable Binding\nFigure was created with app.diagrams.net and is hereby licensed under Public Domain (CC0)\nJulia does it the Casio way. source: commons.wikimedia.org, license: CC By-SA 3.0",
+    "text": "References\n\n\nEngheim, Erik. 2023. Julia as a Second Language. Manning Publ.\n\n\nKamiński, Bogumił. 2022. Julia for Data Analysis. Manning Publ.\n\n\nLauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media.",
     "crumbs": [
       "About me",
       "Numerical Linear Algebra",
