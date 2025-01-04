@@ -9,7 +9,7 @@ abstract: >
   We will cover types, collections and a very powerful feature called multiple dispatch. 
   But for now, let us start with the basics.
 keywords: ["julia", "programming"]
-jupyter: julia-1.10
+jupyter: julia-1.11
 execute:
   enabled: false
 format: 

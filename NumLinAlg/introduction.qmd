@@ -16,7 +16,7 @@ abstract: >
 categories:
   - numerical linear algebra
 keywords: ["math", "65Fxx", "numerical linear algebra", "julia"]
-jupyter: julia-1.10
+jupyter: julia-1.11
 execute:
   enabled: false
 format: 

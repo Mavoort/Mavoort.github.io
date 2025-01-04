@@ -8,7 +8,7 @@ abstract: >
   In this video we will learn about Julias type system and a very powerful mechanism called "multiple dispatch".
   We will also talk about important data structures such as arrays, sets and dictionaries.
 keywords: ["julia", "programming"]
-jupyter: julia-1.10
+jupyter: julia-1.11
 execute:
   enabled: false
 format: 
