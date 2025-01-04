@@ -1,1 +1,1 @@
-Sitemap: https://Mavoort.github.io/sitemap.xml
+Sitemap: https://mathematics-weekly.org/sitemap.xml
