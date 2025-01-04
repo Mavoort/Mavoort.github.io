@@ -1,0 +1,160 @@
+/*-- scss:rules --*/
+
+
+
+/* Disable Chalkboard toolbar on the left */
+.palette,
+.boardhandle {
+    display: none;
+}
+
+/* Animations 
+ * ---------------------------------------------------------------------------*/
+
+/* Default Animation Duration */
+.reveal .fragment {
+    transition-duration: 1s !important;
+}
+
+/* grow-from-center Animation, similar to GrowFromCenter() in Manim.
+ * https://stackoverflow.com/a/42632850 */
+.grow-from-center {
+    opacity: 0;
+}
+.grow-from-center.visible {
+    animation: create-box 1s;
+}
+@keyframes create-box {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Fade-in Animation, similar to Write() in Manim
+ * https://stackoverflow.com/a/77213104 */
+.slides .write {
+    opacity: 0;
+}
+.write.visible {
+    animation: left-to-right-fade-in 1s ease-in;
+    mask-repeat: no-repeat;
+}
+
+@keyframes left-to-right-fade-in {
+    0% {
+        -webkit-mask-size: 0%;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 70%,
+            rgba(0, 0, 0, 0)
+        );
+    }
+    100% {
+        -webkit-mask-size: 100%;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 70%,
+            rgba(0, 0, 0, 0)
+        );
+    }
+}
+
+/* Blur Animation, see
+ * https://revealjs.com/fragments/#custom-fragments-4.5.0 */
+.fragment.blur {
+    filter: blur(5px);
+}
+.fragment.blur.visible {
+    filter: none;
+}
+
+
+
+/* Useless stuff
+ * =============================================================================
+.multicols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    column-gap: 5%;
+}
+
+multicols > div {
+    width: 47.5%;
+}
+
+.width-20 {
+    width: 20%;
+}
+.width-25 {
+    width: 25%;
+}
+.width-30 {
+    width: 30%;
+}
+.width-35 {
+    width: 35%;
+}
+.width-40 {
+    width: 40%;
+}
+.width-45 {
+    width: 45%;
+}
+.width-50 {
+    width: 50%;
+}
+.width-55 {
+    width: 55%;
+}
+.width-60 {
+    width: 60%;
+}
+.width-65 {
+    width: 65%;
+}
+.width-70 {
+    width: 70%;
+}
+.width-75 {
+    width: 75%;
+}
+.width-80 {
+    width: 80%;
+}
+@media (max-width: 720) {
+    .multicols > div {
+        width: 100% !important;
+    }
+}
+*/
+
+
+/* Size of iframes */
+iframe {
+	width: 80%;
+	height: 500px;
+}
+
+.reveal iframe {
+	width: 52vw !important;
+	height: 69vh !important;
+}
+
+
+/* for two-column layouts, fix margin between columns */
+
+.quarto-layout-cell {
+	margin-right: 0 !important;
+}
+
+
+/* Invert colors of svg image in light mode */
+body.quarto-light img.svg-image {
+	filter: invert(0.95);
+}
+

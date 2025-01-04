@@ -1,0 +1,393 @@
+[
+  {
+    "objectID": "Optimization/introduction.html",
+    "href": "Optimization/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "normal text, italic text, bold text, bold italics\n\n\n\nnonlinear optimization\nsource: arXiv:1805.04829"
+  },
+  {
+    "objectID": "Optimization/introduction.html#why-learn-optimization",
+    "href": "Optimization/introduction.html#why-learn-optimization",
+    "title": "Introduction",
+    "section": "",
+    "text": "normal text, italic text, bold text, bold italics\n\n\n\nnonlinear optimization\nsource: arXiv:1805.04829"
+  },
+  {
+    "objectID": "Optimization/introduction.html#about-this-course",
+    "href": "Optimization/introduction.html#about-this-course",
+    "title": "Introduction",
+    "section": "About this Course",
+    "text": "About this Course\nTarget audience:\nPrerequisites:\n\nLinear Algebra\nCalculus\nProgramming (Python/Julia)\n\n\nSyllabus\n\nWeek 1 – 5: Intro to Julia\nWeek 6 – 10: Algorithms for dense matrices\n\n\n\n\n\n\n\nNote\n\n\n\nThe exact structure of this course is subject to change and may vary."
+  },
+  {
+    "objectID": "Optimization/introduction.html#literature",
+    "href": "Optimization/introduction.html#literature",
+    "title": "Introduction",
+    "section": "Literature",
+    "text": "Literature\n\nRecommended Textbooks\n\n\n\n\n\n\n\n\n\n(Boyd and Vandenberghe 2004)\n\n\n\n\n \n\n\n\n\n\n(Nocedal and Wright 2006)\n\n\n\n\n \n\n\n\n\n\n(Rüdiger Reinhardt and Hoffmann 2013)\n\n\n\n\n \n\n\n\n\n\n(Kochenderfer and Wheeler 2019)"
+  },
+  {
+    "objectID": "Optimization/introduction.html#online-courses",
+    "href": "Optimization/introduction.html#online-courses",
+    "title": "Introduction",
+    "section": "Online Courses",
+    "text": "Online Courses\n\nStanford EE364A Convex Optimization by Stephen Boyd, 2023\nOptimization Method for Machine Learning by Julius Pfrommer, KIT 2020/21"
+  },
+  {
+    "objectID": "Optimization/introduction.html#references",
+    "href": "Optimization/introduction.html#references",
+    "title": "Introduction",
+    "section": "References",
+    "text": "References\n\n\nBoyd, Stephen, and Lieven Vandenberghe. 2004. Convex Optimization. Cambridge University Press. https://web.stanford.edu/~boyd/cvxbook/.\n\n\nKochenderfer, Mykel J., and Tim A. Wheeler. 2019. Algorithms for Optimization. Cambridge, MA: The MIT Press. https://algorithmsbook.com/optimization/.\n\n\nNocedal, Jorge, and Stephen J. Wright. 2006. Numerical Optimization. 2nd ed. Springer.\n\n\nRüdiger Reinhardt, Armin, and Tobias Gerlach Hoffmann. 2013. Nichtlineare Optimierung: Theorie, Numerik Und Experimente. Springer Spektrum.\n\n\n\n\n\n\n\nnonlinear optimization\nsource: arXiv:1805.04829\n(Boyd and Vandenberghe 2004)\n(Nocedal and Wright 2006)\n(Rüdiger Reinhardt and Hoffmann 2013)\n(Kochenderfer and Wheeler 2019)"
+  },
+  {
+    "objectID": "Optimization/introduction-presentation.html#why-learn-optimization",
+    "href": "Optimization/introduction-presentation.html#why-learn-optimization",
+    "title": "Introduction",
+    "section": "Why learn Optimization?",
+    "text": "Why learn Optimization?\nnormal text, italic text, bold text, bold italics\n\nnonlinear optimization\nsource: arXiv:1805.04829"
+  },
+  {
+    "objectID": "Optimization/introduction-presentation.html#about-this-course",
+    "href": "Optimization/introduction-presentation.html#about-this-course",
+    "title": "Introduction",
+    "section": "About this Course",
+    "text": "About this Course\nTarget audience:\nPrerequisites:\n\nLinear Algebra\nCalculus\nProgramming (Python/Julia)"
+  },
+  {
+    "objectID": "Optimization/introduction-presentation.html#online-courses",
+    "href": "Optimization/introduction-presentation.html#online-courses",
+    "title": "Introduction",
+    "section": "Online Courses",
+    "text": "Online Courses\n\nStanford EE364A Convex Optimization by Stephen Boyd, 2023\nOptimization Method for Machine Learning by Julius Pfrommer, KIT 2020/21"
+  },
+  {
+    "objectID": "Optimization/introduction-presentation.html#references",
+    "href": "Optimization/introduction-presentation.html#references",
+    "title": "Introduction",
+    "section": "References",
+    "text": "References\n\n\nBoyd, Stephen, and Lieven Vandenberghe. 2004. Convex Optimization. Cambridge University Press. https://web.stanford.edu/~boyd/cvxbook/.\n\n\nKochenderfer, Mykel J., and Tim A. Wheeler. 2019. Algorithms for Optimization. Cambridge, MA: The MIT Press. https://algorithmsbook.com/optimization/.\n\n\nNocedal, Jorge, and Stephen J. Wright. 2006. Numerical Optimization. 2nd ed. Springer.\n\n\nRüdiger Reinhardt, Armin, and Tobias Gerlach Hoffmann. 2013. Nichtlineare Optimierung: Theorie, Numerik Und Experimente. Springer Spektrum."
+  },
+  {
+    "objectID": "NumLinAlg/introduction.html",
+    "href": "NumLinAlg/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Numerical linear algebra is the foundation of modern scientific computing. It deals with the numerical approximation of problems such as linear systems and eigenvalue problems. Many techniques for solving differential equations, such as the finite element method (FEM) or the finite difference method, lead to a system of linear equations; As such, numerical linear algebra has many applications: from image and signal processing to computational physics, data science and more.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/introduction.html#why-learn-numerical-linear-algebra",
+    "href": "NumLinAlg/introduction.html#why-learn-numerical-linear-algebra",
+    "title": "Introduction",
+    "section": "",
+    "text": "Numerical linear algebra is the foundation of modern scientific computing. It deals with the numerical approximation of problems such as linear systems and eigenvalue problems. Many techniques for solving differential equations, such as the finite element method (FEM) or the finite difference method, lead to a system of linear equations; As such, numerical linear algebra has many applications: from image and signal processing to computational physics, data science and more.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/introduction.html#about-this-course",
+    "href": "NumLinAlg/introduction.html#about-this-course",
+    "title": "Introduction",
+    "section": "About this Course",
+    "text": "About this Course\n\nTarget Audience\nThis course is primarily aimed at undergraduate students of mathematics, physics and engineering. However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.\n\n\nPrerequisites\nThis is not a linear algebra course, so a solid understanding of linear algebra is required. For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient.\n\nTarget Audience This course is primarily aimed at undergraduate students of mathematics, physics and engineering. However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.\nPrerequisites This is not a linear algebra course, so a solid understanding of linear algebra is required. For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient.\n\n\n\nSyllabus\n\nWeek 1 – 5: Intro to Julia\nWeek 6 – 10: Algorithms for dense matrices\n\nPerturbation theory\nDirect solvers for linear systems\nIterative solvers for linear systems (Gauss-Seidel)\nCalculation of Eigenvalues (power method)\n\nWeek 11 – 20: (not sure yet)\n\nSparse LU-decompostion\nSparse matrix ordering algorithms\n\nWeek 20 – 22: Krylow methods (CG, GMRES)\nWeek 23 – 26: Special iteration methods (multigrid, domain decomposition)\n\n\n\n\n\n\n\nNote\n\n\n\nThe exact structure of this course is subject to change and may vary.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/introduction.html#literature",
+    "href": "NumLinAlg/introduction.html#literature",
+    "title": "Introduction",
+    "section": "Literature",
+    "text": "Literature\n\nTheoretical Textbooks\nThe standard textbook is (Golub and Van Loan 2013); it has over 1500 citations and covers basically everything. However, it is very dense and not very pleasant to read. I would recommend it more as a reference book rather than for self study.\nA good alternative is probably (Rannacher 2018), which is very readable and can be used as an introductory textbook. It is open-access.\nThe book (Meister 2015) is written by a former professor of mine. It is particularly interesting because it covers advanced Krylow-methods such as QMRCGSTAB and has a large chapter on Multigrid methods.\n\n\n\n\n\n\n\n\n\n(Golub and Van Loan 2013)\n\n\n\n\n \n\n\n\n\n\n(Rannacher 2018)\n\n\n\n\n \n\n\n\n\n\n(Meister 2015)\n\n\n\n\n \n\n\n\n\n\nPractical Textbooks\nThe book (Wendland 2018) is probably the best in my opinion; It is well structured and has a good balance of theory and application. The algorithms are given in pseudocode, which makes it straightforward to implement them in the programming language of your choice.\nSince numerical linear algebra is a very practical topic, a good book should in my opinion contain implementations of the actual algorithms. This is the case for (Lyche 2020), which has code in MATLAB/Octave, and for (Darve and Wootters 2021), which contains implementations in Julia. The former also has a companion book containing many exercises and solutions.\n\n\n\n\n\n\n\n\n\n(Lyche 2020)\n\n\n\n\n \n\n\n\n\n\n(Wendland 2018)\n\n\n\n\n \n\n\n\n\n\n(Darve and Wootters 2021)\n\n\n\n\n \n\n\n\n\n\nAdvanced Textbooks\nThe books (Scott and Tůma 2023) and (Hackbusch 2016) both deal with sparse matrices, but have a very different focus. While the former covers direct methods and matrix decompositions for developing algebraic preconditioners, the latter deals with advanced iterative methods for sparse systems, such as Krylov, multigrid or domain decomposition methods. It is probably a good idea to look at both books later in this course and focus on individual chapters that are of most interest.\n\n\n\n\n\n\n\n\n\n(Scott and Tůma 2023)\n\n\n\n\n \n\n\n\n\n\n(Hackbusch 2016)\n\n\n\n\n \n\n\n\n\n\n(Saad 2011)\n\n\n\n\n \n\n\n\n\n\n(Davis 2006)",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/introduction.html#references",
+    "href": "NumLinAlg/introduction.html#references",
+    "title": "Introduction",
+    "section": "References",
+    "text": "References\n\n\nDarve, Eric, and Mary Wootters. 2021. Numerical Linear Algebra with Julia. Philadelphia: Society for Industrial; Applied Mathematics.\n\n\nDavis, Timothy A. 2006. Direct Methods for Sparse Linear Systems. SIAM.\n\n\nGolub, Gene H., and Charles F. Van Loan. 2013. Matrix Computations. 4th ed. Baltimore, MD: The Johns Hopkins University Press.\n\n\nHackbusch, Wolfgang. 2016. Iterative Solution of Large Sparse Systems of Equations. 2nd ed. Springer.\n\n\nLyche, Tom. 2020. Numerical Linear Algebra and Matrix Factorizations. Cham, Switzerland: Springer.\n\n\nMeister, Andreas. 2015. Numerik Linearer Gleichungssysteme. 5th ed. Springer Spektrum.\n\n\nRannacher, Rolf. 2018. Numerical Linear Algebra. Heidelberg University Publ. https://doi.org/10.17885/heiup.407.\n\n\nSaad, Yousef. 2011. Numerical Methods for Large Eigenvalue Problems. 2nd ed. SIAM.\n\n\nScott, Jennifer, and Miroslav Tůma. 2023. Algorithms for Sparse Linear Systems. Cham, Switzerland: Birkhäuser. https://doi.org/10.1007/978-3-031-25820-6.\n\n\nWendland, Holger. 2018. Numerical Linear Algebra: An Introduction. Cambridge University Press.\n\n\n\n\n\n\n\n(Golub and Van Loan 2013)\n(Rannacher 2018)\n(Meister 2015)\n(Lyche 2020)\n(Wendland 2018)\n(Darve and Wootters 2021)\n(Scott and Tůma 2023)\n(Hackbusch 2016)\n(Saad 2011)\n(Davis 2006)",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/introduction-presentation.html#why-learn-numerical-linear-algebra",
+    "href": "NumLinAlg/introduction-presentation.html#why-learn-numerical-linear-algebra",
+    "title": "Introduction",
+    "section": "Why learn Numerical Linear Algebra?",
+    "text": "Why learn Numerical Linear Algebra?\n\nNumerical linear algebra is the foundation of modern scientific computing. It deals with the numerical approximation of problems such as linear systems and eigenvalue problems. Many techniques for solving differential equations, such as the finite element method (FEM) or the finite difference method, lead to a system of linear equations; As such, numerical linear algebra has many applications: from image and signal processing to computational physics, data science and more.\n\n\nNumerical linear algebra is the foundation of scientific computing\nit deals with numerical approximation of linear systems and Eigenvalue problems\ntechniques for solving PDEs often lead to a system of linear equations\nmany applications: signal processing, computational physics, data science, …"
+  },
+  {
+    "objectID": "NumLinAlg/introduction-presentation.html#about-this-course",
+    "href": "NumLinAlg/introduction-presentation.html#about-this-course",
+    "title": "Introduction",
+    "section": "About this Course",
+    "text": "About this Course\nTarget Audience:\n\nStudents in math/physics/engineering\nanyone who is interested in scientific computing\n\n\nPrerequisites:\n\nsolid knowledge of Linear Algebra\nbasic programming skills (Julia/Python/MATLAB)\n\n\nTarget Audience This course is primarily aimed at undergraduate students of mathematics, physics and engineering. However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.\nPrerequisites This is not a linear algebra course, so a solid understanding of linear algebra is required. For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient."
+  },
+  {
+    "objectID": "NumLinAlg/introduction-presentation.html#references",
+    "href": "NumLinAlg/introduction-presentation.html#references",
+    "title": "Introduction",
+    "section": "References",
+    "text": "References\n\n\nDarve, Eric, and Mary Wootters. 2021. Numerical Linear Algebra with Julia. Philadelphia: Society for Industrial; Applied Mathematics.\n\n\nDavis, Timothy A. 2006. Direct Methods for Sparse Linear Systems. SIAM.\n\n\nGolub, Gene H., and Charles F. Van Loan. 2013. Matrix Computations. 4th ed. Baltimore, MD: The Johns Hopkins University Press.\n\n\nHackbusch, Wolfgang. 2016. Iterative Solution of Large Sparse Systems of Equations. 2nd ed. Springer.\n\n\nLyche, Tom. 2020. Numerical Linear Algebra and Matrix Factorizations. Cham, Switzerland: Springer.\n\n\nMeister, Andreas. 2015. Numerik Linearer Gleichungssysteme. 5th ed. Springer Spektrum.\n\n\nRannacher, Rolf. 2018. Numerical Linear Algebra. Heidelberg University Publ. https://doi.org/10.17885/heiup.407.\n\n\nSaad, Yousef. 2011. Numerical Methods for Large Eigenvalue Problems. 2nd ed. SIAM.\n\n\nScott, Jennifer, and Miroslav Tůma. 2023. Algorithms for Sparse Linear Systems. Cham, Switzerland: Birkhäuser. https://doi.org/10.1007/978-3-031-25820-6.\n\n\nWendland, Holger. 2018. Numerical Linear Algebra: An Introduction. Cambridge University Press."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mathematics Weekly",
+    "section": "",
+    "text": "Welcome to my Blog!\nThis site is currently under construction. I plan to write regular posts about applied mathematics."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I like math."
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#why-julia",
+    "href": "NumLinAlg/julia_basics-presentation.html#why-julia",
+    "title": "Julia Basics",
+    "section": "Why Julia?",
+    "text": "Why Julia?\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++."
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#literature",
+    "href": "NumLinAlg/julia_basics-presentation.html#literature",
+    "title": "Julia Basics",
+    "section": "Literature",
+    "text": "Literature"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#getting-started",
+    "href": "NumLinAlg/julia_basics-presentation.html#getting-started",
+    "title": "Julia Basics",
+    "section": "Getting Started",
+    "text": "Getting Started\nLet’s start with a simple hello-world. The print function works exactly like it does in Python:\nprint(\"Hello World!\")\nprint(\"The answer is \", 42)\nThere is also the println() command, which is exactly the same except that it ends with a newline character.\nprintln(\"Hello World!\")"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#basic-math",
+    "href": "NumLinAlg/julia_basics-presentation.html#basic-math",
+    "title": "Julia Basics",
+    "section": "Basic Math",
+    "text": "Basic Math\nOf course, you can use Julia like a calculator:\njulia&gt; 5 + 3\n8\n\njulia&gt; 4 * 5\n20\n\njulia&gt; 0.5 * (4 + 7)\n5.5\n\nNote that division implicitly converts the input into float; if you want to do integer division, use div(n, m).\n\nJuliaPython\n\n\njulia&gt; 11 / 7\n1.5714285714285714\n\njulia&gt; div(11, 7)\n1\n\n\n&gt;&gt;&gt; 11 / 7\n1.5714285714285714\n\n&gt;&gt;&gt; 11 // 7\n1\n\n\n\n\n\nTo calculate the power of a number, use the ^ operator (similar to Matlab):\n\nJuliaMatlabPython\n\n\njulia&gt; 2^4\n16\n\n\n&gt;&gt; 2^4\n16\n\n\n&gt;&gt;&gt; 2**4\n16"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#dynamic-binding",
+    "href": "NumLinAlg/julia_basics-presentation.html#dynamic-binding",
+    "title": "Julia Basics",
+    "section": "Dynamic Binding",
+    "text": "Dynamic Binding\nLike Python, Julia is a dynamically typed language. This means that variables do not have a fixed data type like in C++, but can point to different data via dynamic binding.\nConsider two variables, x and y. After assigning y to x, both variables point to the same memory location; no data is being copied.\n\nDynamic Variable Binding\nFigure was created with app.diagrams.net and is hereby licensed under Public Domain (CC0)"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#numbers-in-julia",
+    "href": "NumLinAlg/julia_basics-presentation.html#numbers-in-julia",
+    "title": "Julia Basics",
+    "section": "Numbers in Julia",
+    "text": "Numbers in Julia\nYou can see the type of a variable with the typeof() operator:\n\nJuliaPythonMATLAB\n\n\njulia&gt; x = 42\n42\n\njulia&gt; typeof(x)\nInt64\n\njulia&gt; typeof(3.7)\nFloat64\n\n\n&gt;&gt;&gt; x = 42\n&gt;&gt;&gt; type(x)\n&lt;class 'int'&gt;\n&gt;&gt;&gt; type(3.7)\n&lt;class 'float'&gt;\n\n\n&gt;&gt; x = int64(42)\nx = 42\n&gt;&gt; y = 3.7\ny =              3.7\n&gt;&gt; whos\nVariables visible from the current scope:\n\nvariables in scope: top scope\n\n  Attr   Name        Size                     Bytes  Class\n  ====   ====        ====                     =====  ===== \n         x           1x1                          8  int64\n         y           1x1                          8  double\n\nTotal is 2 elements using 16 bytes\n\n\n\n\nJulia uses 64 bits for integers and floats by default. Other types available are:\nInt8, Int16, Int32, Int64, Int128, BigInt\nUInt8, UInt16, UInt32, UInt64, UInt128\nFloat16, Float32, Float64, BigFloat\n\n\nTo define a variable of a given size, use x = int16(100). For example, to define an integer of arbitrary length, use\nx = BigInt(1606938044258990275541962092341162602522202993782792835301376)\n\n\nAs specified in the IEEE754 standard, floating point numbers support inf and NaN values.\n\nJuliaPythonMATLAB\n\n\njulia&gt; -5 / 0\n-Inf\n\njulia&gt; 0 * Inf\nNaN\n\njulia&gt; NaN == NaN\nfalse\n\n\n&gt;&gt;&gt; -5 / 0\nTraceback (most recent call last):\n  File \"&lt;input&gt;\", line 1, in &lt;module&gt;\n    -5 / 0\n     ~~~^~~\nZeroDivisionError: division by zero\n&gt;&gt;&gt; 0 * np.Inf\nnan\n&gt;&gt;&gt; np.nan == np.nan\nFalse\n\n\n&gt;&gt; -5 / 0\nans =             -Inf\n&gt;&gt; 0 * Inf\nans =              NaN\n&gt;&gt; NaN == NaN\nans = 0\n\n\n\n\n\nFloating point numbers can only be approximated, so a direct comparison using a==b may give unexpected results:\n\nJuliaPythonMATLAB\n\n\njulia&gt; 0.2 + 0.1 == 0.3\nfalse\n\njulia&gt; 0.2 + 0.1\n0.30000000000000004\n\n\n&gt;&gt;&gt; 0.2 + 0.1 == 0.3\nFalse\n&gt;&gt;&gt; 0.2 + 0.1\n0.30000000000000004\n\n\n&gt;&gt; 0.2 + 0.1 == 0.3\nans = 0\n&gt;&gt; 0.2 + 0.1\nans =              0.3\n\n\n\nThis is a general problem with floating point numbers, and exists in other programming languages as well.\n\n\nThe machine precision can be obtained with eps(), which gives the distance between 1.0 and the next larger representable floating-point value:\n\nJuliaMATLAB\n\n\njulia&gt; eps(Float64)\n2.220446049250313e-16\n\n\n&gt;&gt; eps\nans = 2.220446049250313e-16\n\n\n\n\n\nUsing that, we can implement a function isapprox(a, b) to test whether to numbers are approximately equal:\nfunction isapprox(x::Real, y::Real; atol::Real=1e-14, rtol::Real=10*eps())\n        return abs(x - y) &lt;= atol + rtol * max(abs(x), abs(y))\nend\n\n\nFortunately, such a function already exists in the standard library:\n\nJuliaPython\n\n\njulia&gt; isapprox(0.2 + 0.1, 0.3)\ntrue\n\njulia&gt; 0.2 + 0.1 ≈ 0.3\ntrue\n\n\n&gt;&gt;&gt; np.allclose(0.2 + 0.1, 0.3)\nTrue"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#control-flow",
+    "href": "NumLinAlg/julia_basics-presentation.html#control-flow",
+    "title": "Julia Basics",
+    "section": "Control Flow",
+    "text": "Control Flow\nControl structures such as branches and loops are easy to implement in Julia; the syntax is very similar to MATLAB:\n\nJuliaMATLABPythonC++\n\n\nif x &gt; 0\n  println(\"x is positive\")\nelseif x &lt; 0\n  println(\"x is negative\")\nelse \n  println(\"x is zero\")\nend\n\n\nif x &gt; 0\n  disp(\"x is positive\")\nelseif x &lt; 0\n  disp(\"x is negative\")\nelse\n  disp(\"x is zero\")\nend\n\n\nif x &gt; 0:\n    print(\"x is positive\")\nelif x &lt; 0:\n    print(\"x is negative\")\nelse:\n    print(\"x is zero\")\n\n\nif (x &gt; 0) {\n  std::println(\"x is positive\");\n} else if (x &lt; 0) {\n  std::println(\"x is negative\");\n} else {\n  std::println(\"x is zero\");\n}\n\n\n\n\nJust as in C++, Julia supports the ternary if statement:\n\nJuliaC++\n\n\nprintln(x &lt; y ? \"less than\" : \"greater or equal\")\n\n\nstd::println(x &lt; y ? \"less than\" : \"not less than\");\n\n\n\n\n\nMultiple logical conditions can be combined with basic comparison operators:\nA && B    # A and B\nA || B    # A or B\nA != B    # A XOR B\n\n\nOf course, logical operations do short-circuit evaluation:\n\nJuliaPythonMATLAB\n\n\njulia&gt; n = 2;\n\njulia&gt; n == 1 && println(\"n is one\")\nfalse\n\n\n&gt;&gt;&gt; n = 2\n&gt;&gt;&gt; n == 1 and print(\"n is one\")\nFalse\n\n\n&gt;&gt; n = 2;\n&gt;&gt; n == 1 && disp(\"n is one\")\nans = 0"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#functions",
+    "href": "NumLinAlg/julia_basics-presentation.html#functions",
+    "title": "Julia Basics",
+    "section": "Functions",
+    "text": "Functions\nSimple functions can be defined via:\n\nJuliaPythonC++\n\n\nf(x) = x^2\n\n\nf = lambda x: x**2\n\n\nauto f = [](auto x){ return x*x; };\n\n\n\n\nMore advanced functions are defined using the function keyword:\n\nJuliaPython\n\n\nfunction fac(n::Integer)\n  @assert n &gt; 0 \"n must be positive\"\n\n  if n ≤ 1\n    return 1\n  else\n    return n * fac(n-1)\n  end\nend\n\n\ndef fac(n: int) -&gt; int:\n    assert n &gt; 0, \"n must be positive!\"\n\n    if (n &lt;= 1):\n        return 1\n    else:\n        return n * fac(n - 1)\n\n\n\nNote that we use the @assert macro to ensure that the arguments are positive.\n\n\nFunctions can be applied element-wise to arrays using the dot notation, f.(x):\n\nJuliaPythonMATLAB\n\n\njulia&gt; x = [0, 1, 2, 3, 4, 5];\njulia&gt; f(x) = x^2;\njulia&gt; f.(x)\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25\n\n\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; x = np.array([-11, 1, 2, 3, 4, 5])\n&gt;&gt;&gt; f = lambda x: x**2\n&gt;&gt;&gt; f(x)\narray([ 0,  1,  4,  9, 16, 25])\n\n\n&gt;&gt; x = [0, 1, 2, 3, 4, 5];\n&gt;&gt; f = @(x) x.^2\nf =\n\n@(x) x .^ 2\n\n&gt;&gt; f(x)\nans = 0   1   4   9   16    25\n\n\n\n\n\nThe same can be achieved with the map(f, arr) function:\njulia&gt; map(f, x)\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25\n\n\nThe advantage of the map command is that it can also be applied to anonymous functions:\njulia&gt; map(x -&gt; x^2, [0, 1, 2, 3, 4, 5])\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#strings",
+    "href": "NumLinAlg/julia_basics-presentation.html#strings",
+    "title": "Julia Basics",
+    "section": "Strings",
+    "text": "Strings"
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics-presentation.html#references",
+    "href": "NumLinAlg/julia_basics-presentation.html#references",
+    "title": "Julia Basics",
+    "section": "References",
+    "text": "References\n\n\nEngheim, Erik. 2023. Julia as a Second Language. Manning Publ.\n\n\nKamiński, Bogumił. 2022. Julia for Data Analysis. Manning Publ.\n\n\nLauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media."
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html",
+    "href": "NumLinAlg/julia_basics.html",
+    "title": "Julia Basics",
+    "section": "",
+    "text": "%======================================================================= % Dieses Paket beeinhaltet meine selbst definierten Befehle. %=======================================================================\n% Befehle mit Argumenten\n% Betrag\n% Norm \n%Folgende Befehle können mit MathJax nicht verwendet werden: %——————————————————————————- % für XHTML5, kein &lt; verwenden \n%Der Counter für Theoreme muss nach jedem Kapitel zurückgesetzt werden. %\n%Aufgaben-Umgebung\n%Abkürzungen (Beweisstruktur): \n%——————————————————————————-\n% MATHEMATIK % Mathematik allgemein ————————————————- % Abstand % Quantoren % Klammern für Indizes % Summen-Zeichen\n%Mengen-Symbole: % Komplement einer Menge % backslash % Teilmenge % Obermenge % echte Teilmenge % leere Menge\n%Zahlenmengen % Natürliche Zahlen % Ganze Zahlen % Rationale Zahlen % Reelle Zahlen % % Komplexe Zahlen % Körper K=R oder K=C\n%Pfeile % Implikationspfeil\n% grosser Äquivalenzpfeil % kleienr Äquivalenzpfeil (g.d.w.) % entspricht-Zeichen (alternativ s.u.)\n%Sonstiges % Realteil % Imaginärteil % Bildmenge einer Funktion % Graph einer Funktion\n%dieser Befehl wird bald geloescht. %\n%progression=Folge\n% ANALYSIS ————————————————————- %Nach iso 80000-2 werden Konstanten wie e, i aufrecht gesetzt \n%Folgen %Folgen und Reihen \n%Grenzwerte % GW für Folgen \n%totales Differential: \n%Vektoranalysis: % Topologie % Inneres einer Menge % Schwartz-Klasse % Potenzmenge % Distributionen % Fourier-Transformation % Mannigfaltigkeit % Stetig (diffbare) Fkt.\n% Traeger einer Funktion % n-dim. Volumen\n% Gradient % Rotation\n%Partielle Differentialgleichungen, Maßtheorie % für L_^1 Funktionen % ess sup (PDE)\n%Funktionalanalysis % Lineare Funktionale % Lineare Funktionale \n% Graphennorm: |||u|||\n% Hyberbolische Funktionen \n% Algebra ————————————————————– % Rang einer Matrix % Identität % Identität % Homomorphismus % Signum-Funktion % Trace (Spur einer Funktion)\n% Lineare Hülle ACHTUNG: Primitiv nicht überschreiben!! % Symmetrische Matrizen % Deviation\n% transponierte Matrix ACHTUNG: rimitiv nicht überschreiben!! \n\n%\n%LGS-Umgebung mit einem senkrechtem Strich in der Mitte\n%Numerik % Konditionszahl % Cofaktor-Matrix",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#mathjax-macros",
+    "href": "NumLinAlg/julia_basics.html#mathjax-macros",
+    "title": "Julia Basics",
+    "section": "",
+    "text": "%======================================================================= % Dieses Paket beeinhaltet meine selbst definierten Befehle. %=======================================================================\n% Befehle mit Argumenten\n% Betrag\n% Norm \n%Folgende Befehle können mit MathJax nicht verwendet werden: %——————————————————————————- % für XHTML5, kein &lt; verwenden \n%Der Counter für Theoreme muss nach jedem Kapitel zurückgesetzt werden. %\n%Aufgaben-Umgebung\n%Abkürzungen (Beweisstruktur): \n%——————————————————————————-\n% MATHEMATIK % Mathematik allgemein ————————————————- % Abstand % Quantoren % Klammern für Indizes % Summen-Zeichen\n%Mengen-Symbole: % Komplement einer Menge % backslash % Teilmenge % Obermenge % echte Teilmenge % leere Menge\n%Zahlenmengen % Natürliche Zahlen % Ganze Zahlen % Rationale Zahlen % Reelle Zahlen % % Komplexe Zahlen % Körper K=R oder K=C\n%Pfeile % Implikationspfeil\n% grosser Äquivalenzpfeil % kleienr Äquivalenzpfeil (g.d.w.) % entspricht-Zeichen (alternativ s.u.)\n%Sonstiges % Realteil % Imaginärteil % Bildmenge einer Funktion % Graph einer Funktion\n%dieser Befehl wird bald geloescht. %\n%progression=Folge\n% ANALYSIS ————————————————————- %Nach iso 80000-2 werden Konstanten wie e, i aufrecht gesetzt \n%Folgen %Folgen und Reihen \n%Grenzwerte % GW für Folgen \n%totales Differential: \n%Vektoranalysis: % Topologie % Inneres einer Menge % Schwartz-Klasse % Potenzmenge % Distributionen % Fourier-Transformation % Mannigfaltigkeit % Stetig (diffbare) Fkt.\n% Traeger einer Funktion % n-dim. Volumen\n% Gradient % Rotation\n%Partielle Differentialgleichungen, Maßtheorie % für L_^1 Funktionen % ess sup (PDE)\n%Funktionalanalysis % Lineare Funktionale % Lineare Funktionale \n% Graphennorm: |||u|||\n% Hyberbolische Funktionen \n% Algebra ————————————————————– % Rang einer Matrix % Identität % Identität % Homomorphismus % Signum-Funktion % Trace (Spur einer Funktion)\n% Lineare Hülle ACHTUNG: Primitiv nicht überschreiben!! % Symmetrische Matrizen % Deviation\n% transponierte Matrix ACHTUNG: rimitiv nicht überschreiben!! \n\n%\n%LGS-Umgebung mit einem senkrechtem Strich in der Mitte\n%Numerik % Konditionszahl % Cofaktor-Matrix",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#why-julia",
+    "href": "NumLinAlg/julia_basics.html#why-julia",
+    "title": "Julia Basics",
+    "section": "Why Julia?",
+    "text": "Why Julia?\n\n\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n\n\n\n\n \n\n\nJulia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the “two-language problem”: A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:\n\nJulia walks like Python, and runs like C++.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#literature",
+    "href": "NumLinAlg/julia_basics.html#literature",
+    "title": "Julia Basics",
+    "section": "Literature",
+    "text": "Literature\n\nRecommended Textbooks\nThere are very few good books on Julia programming. Many are completely outdated or just terrible. I do not understand why even today books do not have syntax highlighting or some colourful content to make it more appealing to the reader. Also, it is safe to assume that the reader has some prior knowledge of programming in MATLAB, Python, or similar. So if the book spends dozens of pages explaining what a variable is or what a for-loop does, it’s a waste of time.\nWith that in mind, the books I can recommend are “Julia as a second language” and “Julia for Data Analysis”:\n\n\n\n\n\n\n\n\n\n(Engheim 2023)\n\n\n\n\n \n\n\n\n\n\n(Kamiński 2022)\n\n\n\n\n \n\n\n\n\n\n(Lauwens and Downey 2019)\n\n\n\n\n \n\n\n\nThe best resources for learning Julia is definitely the Official Documentation, which is freely available on the Internet. Another course that is really really great is Julia for Optimization and Learning by the university of Prague. It gives a good introduction to Julia with examples from optimization and machine learning.\nThere is also a free Course on Coursera that should be mentioned. However, since I haven’t taken it, I can’t say whether it’s good or bad. It’s kinda okay; not good, not bad.\n\n\n\n\n\n\n\nWarning\n\n\n\nThis course is fairly fast-paced.\nIt is assumed that the reader is already familiar with a programming language such as MATLAB, Python or C++.\n\n\nI will be making comparisons to these languages throughout the course.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#getting-started",
+    "href": "NumLinAlg/julia_basics.html#getting-started",
+    "title": "Julia Basics",
+    "section": "Getting Started",
+    "text": "Getting Started\nLet’s start with a simple hello-world. The print function works exactly like it does in Python:\nprint(\"Hello World!\")\nprint(\"The answer is \", 42)\nThere is also the println() command, which is exactly the same except that it ends with a newline character.\nprintln(\"Hello World!\")",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#basic-math",
+    "href": "NumLinAlg/julia_basics.html#basic-math",
+    "title": "Julia Basics",
+    "section": "Basic Math",
+    "text": "Basic Math\nOf course, you can use Julia like a calculator:\njulia&gt; 5 + 3\n8\n\njulia&gt; 4 * 5\n20\n\njulia&gt; 0.5 * (4 + 7)\n5.5\n. . .\nNote that division implicitly converts the input into float; if you want to do integer division, use div(n, m).\n\nJuliaPython\n\n\njulia&gt; 11 / 7\n1.5714285714285714\n\njulia&gt; div(11, 7)\n1\n\n\n&gt;&gt;&gt; 11 / 7\n1.5714285714285714\n\n&gt;&gt;&gt; 11 // 7\n1\n\n\n\n. . .\nTo calculate the power of a number, use the ^ operator (similar to Matlab):\n\nJuliaMatlabPython\n\n\njulia&gt; 2^4\n16\n\n\n&gt;&gt; 2^4\n16\n\n\n&gt;&gt;&gt; 2**4\n16\n\n\n\n\nJulia provides a very flexible system for naming variables. In the Julia REPL, you can write mathematical symbols and other characters with a tab; for example, the Greek letter π can be typed via \\pi&lt;TAB&gt;.\nThis makes it possible to translate mathematical formulas into code in a very elegant way.\njulia&gt; sin(π) ≠ 1/2\ntrue\n\njulia&gt; √25\n5.0\n\nThere are alot of built-in math functions:\n\nJuliaMatlabPython\n\n\njulia&gt; cos(pi)\n-1.0\n\njulia&gt; sqrt(25)\n5.0\n\njulia&gt; exp(3)\n20.085536923187668\n\njulia&gt; rand()\n0.8421147919589432\n\n\n&gt;&gt; cos(pi)\nans =               -1\n\n&gt;&gt; sqrt(25)\nans =                5\n\n&gt;&gt; exp(3)\nans = 20.08553692318767\n\n&gt;&gt; rand()\nans = 0.2162824594661559\n\n\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; np.cos(np.pi)\n-1.0\n\n&gt;&gt;&gt; np.sqrt(25)\n5.0\n\n&gt;&gt;&gt; np.exp(3)\n20.085536923187668\n\n&gt;&gt;&gt; np.random.rand()\n0.8839348951868577\n\n\n\n. . .\nYou might be wondering what happens when you try to overwrite a built-in function or symbol:\njulia&gt; pi\nπ = 3.1415926535897...\n\njulia&gt; pi = 3\nERROR: cannot assign a value to imported variable Base.pi from module Main\n\njulia&gt; sqrt(100)\n10.0\n\njulia&gt; sqrt = 4\nERROR: cannot assign a value to imported variable Base.sqrt from module Main",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#dynamic-binding",
+    "href": "NumLinAlg/julia_basics.html#dynamic-binding",
+    "title": "Julia Basics",
+    "section": "Dynamic Binding",
+    "text": "Dynamic Binding\nLike Python, Julia is a dynamically typed language. This means that variables do not have a fixed data type like in C++, but can point to different data via dynamic binding.\nConsider two variables, x and y. After assigning y to x, both variables point to the same memory location; no data is being copied.\n\n\n\nDynamic Variable Binding\nFigure was created with app.diagrams.net and is hereby licensed under Public Domain (CC0)\n\n\n\nIn Python you can use the id() operator to see what’s actually going on:\n\nPythonC++\n\n\n&gt;&gt;&gt; x = 42\n&gt;&gt;&gt; y = 3.7\n&gt;&gt;&gt; id(x)\n11755208\n&gt;&gt;&gt; id(y)\n134427599166672\n&gt;&gt;&gt; x = y\n&gt;&gt;&gt; x\n3.7\n&gt;&gt;&gt; id(x)\n134427599166672\n\n\nint x = 42;\nstd::string str = \"Hello!\";\nx = str;    // Compile error!\n\n\n\nAs you can see, after the assignment, both variables have the same memory address. Something like that would not be possible in C++.1\n\nThis distinction may seem trivial, but has some important implications when dealing with mutable types, whose contents can be changed:\n\nJuliaPython\n\n\na = [1, 2, 3]\nb = a\na[2] = 42\njulia&gt; b\n3-element Vector{Int64}:\n  1\n 42\n  3\n\n\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; a = np.array([1, 2, 3])\n&gt;&gt;&gt; b = a\n&gt;&gt;&gt; a[1] = 42\n&gt;&gt;&gt; b\narray([ 1, 42,  3])\n\n\n\n. . .\nAs no copy is being made, any change to variable a will also affect variable b. To actually make a deep copy, use the deepcopy() command2:\n\nJuliaPython\n\n\nb = deepcopy(a)\n\n\nb = a.copy()\n\n\n\n. . .\n\n\n\n\n\n\nWarning\n\n\n\nFor performance reasons, avoid binding values of different types to the same variable.\nCode that avoids changing the type of a variable is called type stable.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#numbers-in-julia",
+    "href": "NumLinAlg/julia_basics.html#numbers-in-julia",
+    "title": "Julia Basics",
+    "section": "Numbers in Julia",
+    "text": "Numbers in Julia\nYou can see the type of a variable with the typeof() operator:\n\nJuliaPythonMATLAB\n\n\njulia&gt; x = 42\n42\n\njulia&gt; typeof(x)\nInt64\n\njulia&gt; typeof(3.7)\nFloat64\n\n\n&gt;&gt;&gt; x = 42\n&gt;&gt;&gt; type(x)\n&lt;class 'int'&gt;\n&gt;&gt;&gt; type(3.7)\n&lt;class 'float'&gt;\n\n\n&gt;&gt; x = int64(42)\nx = 42\n&gt;&gt; y = 3.7\ny =              3.7\n&gt;&gt; whos\nVariables visible from the current scope:\n\nvariables in scope: top scope\n\n  Attr   Name        Size                     Bytes  Class\n  ====   ====        ====                     =====  ===== \n         x           1x1                          8  int64\n         y           1x1                          8  double\n\nTotal is 2 elements using 16 bytes\n\n\n\n. . .\nJulia uses 64 bits for integers and floats by default. Other types available are:\nInt8, Int16, Int32, Int64, Int128, BigInt\nUInt8, UInt16, UInt32, UInt64, UInt128\nFloat16, Float32, Float64, BigFloat\n. . .\nTo define a variable of a given size, use x = int16(100). For example, to define an integer of arbitrary length, use\nx = BigInt(1606938044258990275541962092341162602522202993782792835301376)\n. . .\nAs specified in the IEEE754 standard, floating point numbers support inf and NaN values.\n\nJuliaPythonMATLAB\n\n\njulia&gt; -5 / 0\n-Inf\n\njulia&gt; 0 * Inf\nNaN\n\njulia&gt; NaN == NaN\nfalse\n\n\n&gt;&gt;&gt; -5 / 0\nTraceback (most recent call last):\n  File \"&lt;input&gt;\", line 1, in &lt;module&gt;\n    -5 / 0\n     ~~~^~~\nZeroDivisionError: division by zero\n&gt;&gt;&gt; 0 * np.Inf\nnan\n&gt;&gt;&gt; np.nan == np.nan\nFalse\n\n\n&gt;&gt; -5 / 0\nans =             -Inf\n&gt;&gt; 0 * Inf\nans =              NaN\n&gt;&gt; NaN == NaN\nans = 0\n\n\n\n. . .\nFloating point numbers can only be approximated, so a direct comparison using a==b may give unexpected results:\n\nJuliaPythonMATLAB\n\n\njulia&gt; 0.2 + 0.1 == 0.3\nfalse\n\njulia&gt; 0.2 + 0.1\n0.30000000000000004\n\n\n&gt;&gt;&gt; 0.2 + 0.1 == 0.3\nFalse\n&gt;&gt;&gt; 0.2 + 0.1\n0.30000000000000004\n\n\n&gt;&gt; 0.2 + 0.1 == 0.3\nans = 0\n&gt;&gt; 0.2 + 0.1\nans =              0.3\n\n\n\nThis is a general problem with floating point numbers, and exists in other programming languages as well.\n. . .\nThe machine precision can be obtained with eps(), which gives the distance between 1.0 and the next larger representable floating-point value:\n\nJuliaMATLAB\n\n\njulia&gt; eps(Float64)\n2.220446049250313e-16\n\n\n&gt;&gt; eps\nans = 2.220446049250313e-16\n\n\n\n. . .\nUsing that, we can implement a function isapprox(a, b) to test whether to numbers are approximately equal:\nfunction isapprox(x::Real, y::Real; atol::Real=1e-14, rtol::Real=10*eps())\n        return abs(x - y) &lt;= atol + rtol * max(abs(x), abs(y))\nend\n. . .\nFortunately, such a function already exists in the standard library:\n\nJuliaPython\n\n\njulia&gt; isapprox(0.2 + 0.1, 0.3)\ntrue\n\njulia&gt; 0.2 + 0.1 ≈ 0.3\ntrue\n\n\n&gt;&gt;&gt; np.allclose(0.2 + 0.1, 0.3)\nTrue\n\n\n\n\nNumerical Literal Coefficients\nWhen multiplying variables with a coefficient, you can omit the multiplication symbol *.\njulia&gt; x = 3\n3\n\njulia&gt; 2x^2 - 5x + 1\n4\n. . .\nAs a consequence, coefficients have a higher priority than other operations (“multiplications via juxtaposition”):\njulia&gt; 6 / 2x\n1.0\n. . .\n\n\n\nJulia does it the Casio way. source: commons.wikimedia.org, license: CC By-SA 3.0\n\n\n\n\nOverflow Behaviour\nAs in other programming languages, exceeding the maximum representable value of a given type results in wraparound behaviour:\njulia&gt; n = typemax(Int64)\n9223372036854775807\n\njulia&gt; n + 1\n-9223372036854775808\nIn this sense, calculating with integers is always a form of modulo arithmetic.",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#control-flow",
+    "href": "NumLinAlg/julia_basics.html#control-flow",
+    "title": "Julia Basics",
+    "section": "Control Flow",
+    "text": "Control Flow\nControl structures such as branches and loops are easy to implement in Julia; the syntax is very similar to MATLAB:\n\nJuliaMATLABPythonC++\n\n\nif x &gt; 0\n  println(\"x is positive\")\nelseif x &lt; 0\n  println(\"x is negative\")\nelse \n  println(\"x is zero\")\nend\n\n\nif x &gt; 0\n  disp(\"x is positive\")\nelseif x &lt; 0\n  disp(\"x is negative\")\nelse\n  disp(\"x is zero\")\nend\n\n\nif x &gt; 0:\n    print(\"x is positive\")\nelif x &lt; 0:\n    print(\"x is negative\")\nelse:\n    print(\"x is zero\")\n\n\nif (x &gt; 0) {\n  std::println(\"x is positive\");\n} else if (x &lt; 0) {\n  std::println(\"x is negative\");\n} else {\n  std::println(\"x is zero\");\n}\n\n\n\n. . .\nJust as in C++, Julia supports the ternary if statement:\n\nJuliaC++\n\n\nprintln(x &lt; y ? \"less than\" : \"greater or equal\")\n\n\nstd::println(x &lt; y ? \"less than\" : \"not less than\");\n\n\n\n. . .\nMultiple logical conditions can be combined with basic comparison operators:\nA && B    # A and B\nA || B    # A or B\nA != B    # A XOR B\n. . .\nOf course, logical operations do short-circuit evaluation:\n\nJuliaPythonMATLAB\n\n\njulia&gt; n = 2;\n\njulia&gt; n == 1 && println(\"n is one\")\nfalse\n\n\n&gt;&gt;&gt; n = 2\n&gt;&gt;&gt; n == 1 and print(\"n is one\")\nFalse\n\n\n&gt;&gt; n = 2;\n&gt;&gt; n == 1 && disp(\"n is one\")\nans = 0\n\n\n\n\nLoops\nTo iterate over a range or an array, use a for-each loop:\n\nJuliaPythonC++\n\n\narr = [\"Coffee\", \"Cocoa\", \"Avocado\", \"Math!\"];\n\nfor item in arr\n  println(item)\nend\n\n\narr = [\"Coffee\", \"Cocoa\", \"Avocado\", \"Math!\"]\n\nfor item in arr:\n  print(item)\n\n\nauto arr = std::vector&lt;std::string&gt;{\"Coffee\", \"Cocoa\", \"Avocado\", \"Math!\"};\n\nfor (const auto& item : arr){\n  std::println(item);\n}\n\n\n\n. . .\nThis can be used to iterate over a specific range:\n\nJuliaC++MATLABPython\n\n\nfor i in 1:4\n  println(i)\nend\n\n\nfor (int i = 1; i &lt;= 4; ++i){\n  std::println(i);\n}\n\n\nfor i = 1:4\n  disp(i)\nend\n\n\nfor i in range(1, 5):\n  print(i)\n\n\n\n. . .\nOf course, the same can be achieved with a while-loop:\n\nJuliaPythonMATLAB\n\n\ni = 1\n\nwhile i ≤ 4\n  println(i)\n  i += 1\nend\n\n\ni = 1\n\nwhile i &lt;= 4:\n  print(i)\n  i += 1\n\n\ni = 1\n\nwhile i &lt;= 4\n  disp(i)\n  i += 1;\nend\n\n\n\n\n\nException Handling",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#functions",
+    "href": "NumLinAlg/julia_basics.html#functions",
+    "title": "Julia Basics",
+    "section": "Functions",
+    "text": "Functions\nSimple functions can be defined via:\n\nJuliaPythonC++\n\n\nf(x) = x^2\n\n\nf = lambda x: x**2\n\n\nauto f = [](auto x){ return x*x; };\n\n\n\n. . .\nMore advanced functions are defined using the function keyword:\n\nJuliaPython\n\n\nfunction fac(n::Integer)\n  @assert n &gt; 0 \"n must be positive\"\n\n  if n ≤ 1\n    return 1\n  else\n    return n * fac(n-1)\n  end\nend\n\n\ndef fac(n: int) -&gt; int:\n    assert n &gt; 0, \"n must be positive!\"\n\n    if (n &lt;= 1):\n        return 1\n    else:\n        return n * fac(n - 1)\n\n\n\nNote that we use the @assert macro to ensure that the arguments are positive.\n. . .\nFunctions can be applied element-wise to arrays using the dot notation, f.(x):\n\nJuliaPythonMATLAB\n\n\njulia&gt; x = [0, 1, 2, 3, 4, 5];\njulia&gt; f(x) = x^2;\njulia&gt; f.(x)\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25\n\n\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; x = np.array([-11, 1, 2, 3, 4, 5])\n&gt;&gt;&gt; f = lambda x: x**2\n&gt;&gt;&gt; f(x)\narray([ 0,  1,  4,  9, 16, 25])\n\n\n&gt;&gt; x = [0, 1, 2, 3, 4, 5];\n&gt;&gt; f = @(x) x.^2\nf =\n\n@(x) x .^ 2\n\n&gt;&gt; f(x)\nans = 0   1   4   9   16    25\n\n\n\n. . .\nThe same can be achieved with the map(f, arr) function:\njulia&gt; map(f, x)\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25\n. . .\nThe advantage of the map command is that it can also be applied to anonymous functions:\njulia&gt; map(x -&gt; x^2, [0, 1, 2, 3, 4, 5])\n6-element Vector{Int64}:\n  0\n  1\n  4\n  9\n 16\n 25\n\nOptional Arguments\nFunctions in Julia can have positional arguments and keyword arguments, which are separated with a semicolon ;.\nfunction f(x, y=10; a=1)\n  return (x + y) * a\nend\n. . .\nSuch a function can be called via:\njulia&gt; f(5)\n15\n\njulia&gt; f(2, 5)\n7\n\njulia&gt; f(2, 5; a=3)\n21\n\n\nVarargs Functions\nSometimes it is convenient to write functions which can take an arbitray number of arguments. Such a function is called varargs functions. You can define a varargs function by following the last positional argument with an ellipsis:\n\nJuliaC++\n\n\nfunction display(args...)\n        println(typeof(args))\n        for x in args\n                println(x)\n        end\nend\njulia&gt; display(42, 3.7, \"hello\")\nTuple{Int64, Float64, String}\n42\n3.7\nhello\n\n\ntemplate&lt;typename... Args&gt;\nvoid display(Args&&... args)\n{\n    (std::cout &lt;&lt; ... &lt;&lt; args) &lt;&lt; '\\n';\n}\n423.7hello\n\n\n\n. . .\n\n\n\n\n\n\nNote\n\n\n\nNote that the varargs mechanism works differently in Julia than in C++. In C++, the expression args + ... is shorthand for recursion, meaning that the expression is evaluated to ((((x1 + x2) + x3) + x4) + ... ).\nIn Julia, however, it is much simpler: the varargs argument is just a tuple that you can iterate over.\n\n\n\n\nNaming convention\n\n\n\n\n\n\nImportant\n\n\n\nAs a convention in Julia, functions that modify an argument should have a ! at the end.\n\n\nFor example, sort() and sort!() both sort an array; however, one returns a copy, and the other functions sorts the array in place.\n. . .\nIt is also good practice to use return nothing to indicate that a function does not return anything.\nfunction do_something()\n  println(\"Hello world!\")\n  return nothing\nend\n\n\n\n\n\n\n\nExercise\n\n\n\nImplement a function which calculates the sine of a real number x.\n\\[\n\\sin(x) = \\sum_{k=0}^\\infty (-1)^k \\frac{x^{2k+1}}{(2k+1)!}\n\\]\n\n\n. . .\n\n\n\n\n\n\nSolution\n\n\n\n\n\nfunction sine(x::Real)\n        @assert 0 &lt;= x && x &lt;= pi/4\n\n        sine = 0.0\n        for k in 0:9\n                sine += (-1)^k * x^(2k + 1) / factorial(2k + 1)\n        end\n        return sine\nend",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#strings",
+    "href": "NumLinAlg/julia_basics.html#strings",
+    "title": "Julia Basics",
+    "section": "Strings",
+    "text": "Strings",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#references",
+    "href": "NumLinAlg/julia_basics.html#references",
+    "title": "Julia Basics",
+    "section": "References",
+    "text": "References\n\n\nEngheim, Erik. 2023. Julia as a Second Language. Manning Publ.\n\n\nKamiński, Bogumił. 2022. Julia for Data Analysis. Manning Publ.\n\n\nLauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media.\n\n\n\n\n\n\n\nJulia Logo \nauthor: Stefan Karpinski\nsource: github.com\nlicense: CC BY-NC-SA 4.0\n(Engheim 2023)\n(Kamiński 2022)\n(Lauwens and Downey 2019)\nDynamic Variable Binding\nFigure was created with app.diagrams.net and is hereby licensed under Public Domain (CC0)\nJulia does it the Casio way. source: commons.wikimedia.org, license: CC By-SA 3.0",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  },
+  {
+    "objectID": "NumLinAlg/julia_basics.html#footnotes",
+    "href": "NumLinAlg/julia_basics.html#footnotes",
+    "title": "Julia Basics",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIt is possible to achieve this in C++ by using pointers or std::any, but let’s not go there.↩︎\nsee also on stackoverflow: Copy or clone a collection in Julia↩︎",
+    "crumbs": [
+      "About me",
+      "Numerical Linear Algebra",
+      "Julia Basics"
+    ]
+  }
+]
