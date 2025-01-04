@@ -28,7 +28,7 @@ jobs:
       - name: Setup Julia
         uses: julia-actions/setup-julia@v2
         with:
-          version: 'julia 1.10'
+          version: 'julia 1.11'
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
