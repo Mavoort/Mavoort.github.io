@@ -23,6 +23,8 @@ format:
     html:
         output-file: about.html
         toc: false
+        code-tools:
+            source: false
 ---
 
 

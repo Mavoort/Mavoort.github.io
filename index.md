@@ -9,6 +9,8 @@ comments: false
 format:
     html:
         output-file: index.html
+        code-tools:
+            source: false
 ---
 
 Welcome to my Blog!
