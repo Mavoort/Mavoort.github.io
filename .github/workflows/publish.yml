@@ -35,6 +35,12 @@ jobs:
         run: |
           julia -e 'using Pkg; Pkg.add("IJulia");'
 
+      - name: Install Quarto extensions for Reveal.js
+        shell: bash
+        run: |
+          quarto add martinomagnifico/quarto-appearance
+          quarto add quarto-ext/pointer
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
