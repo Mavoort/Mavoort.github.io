@@ -1,0 +1,217 @@
+
+:::: {.content-visible when-format="html"}
+## MathJax Macros {visibility="hidden" .hidden}
+
+%=======================================================================
+% Dieses Paket beeinhaltet meine selbst definierten Befehle.
+%=======================================================================
+
+% Befehle mit Argumenten
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}				% Betrag
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}				% Norm
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+
+
+%Folgende Befehle können mit MathJax nicht verwendet werden:
+%-------------------------------------------------------------------------------
+\newcommand{\lt}{<}								% für XHTML5, kein < verwenden
+\newcommand{\gt}{>}
+
+
+\newcommand{\ab}{\item[a)\,$\Rightarrow$\,b)]}
+\newcommand{\ac}{\item[a)\,$\Rightarrow$\,c)]}
+\newcommand{\ad}{\item[a)\,$\Rightarrow$\,d)]}
+\newcommand{\ba}{\item[b)\,$\Rightarrow$\,a)]}
+\newcommand{\bc}{\item[b)\,$\Rightarrow$\,c)]}
+\newcommand{\bd}{\item[b)\,$\Rightarrow$\,d)]}
+\newcommand{\ca}{\item[c)\,$\Rightarrow$\,a)]}
+\newcommand{\cb}{\item[c)\,$\Rightarrow$\,b)]}
+\newcommand{\cd}{\item[c)\,$\Rightarrow$\,d)]}
+\newcommand{\da}{\item[d)\,$\Rightarrow$\,a)]}
+\newcommand{\db}{\item[d)\,$\Rightarrow$\,b)]}
+\newcommand{\dc}{\item[d)\,$\Rightarrow$\,c)]}
+
+\newcommand{\hinr}{\item[\enquote{$\Rightarrow$}]}
+\newcommand{\rueckr}{\item[\enquote{$\Leftarrow$}]}
+
+
+%Der Counter für Theoreme muss nach jedem Kapitel zurückgesetzt werden.
+%\newcommand{\Aufgabe}[1][]{\section*{Aufgabe #1}}			%Aufgaben-Umgebung
+
+
+%Abkürzungen (Beweisstruktur):
+\newcommand{\geg}{\underline{geg.:}\:}
+\newcommand{\ges}{\underline{ges.:}\:}
+\newcommand{\Beh}{\underline{Beh.:}\:}
+\newcommand{\Bew}{\underline{Bew.:}\:}
+\newcommand{\Vor}{\underline{Vor.:}\:}
+\newcommand{\Ann}{\underline{Ann.:}\:}
+\newcommand{\zzg}{\underline{z.\,zg.:}\:}
+\newcommand{\dH}{d.\,h.\ }
+\newcommand{\zB}{z.\,B. }
+\newcommand{\obda}{oBdA.\,}
+
+%-------------------------------------------------------------------------------
+
+
+
+
+% MATHEMATIK
+% Mathematik allgemein -------------------------------------------------
+\newcommand{\dist}{\mathrm{dist}}				% Abstand
+\newcommand{\A}{\forall}						% Quantoren
+\newcommand{\E}{\exists}
+\newcommand{\n}{{n \in \mathbb{N}} }			% Klammern für Indizes
+\newcommand{\s}{\sum\limits}					% Summen-Zeichen
+
+%Mengen-Symbole:
+\renewcommand{\c}{^{\mathsf{c}}}				% Komplement einer Menge
+\newcommand{\sm}{\setminus}						% backslash
+\newcommand{\tm}{\subseteq}						% Teilmenge
+\newcommand{\om}{\supseteq}						% Obermenge
+\newcommand{\etm}{\subsetneq}					% echte Teilmenge
+\newcommand{\lm}{\emptyset}						% leere Menge
+
+%Zahlenmengen
+\newcommand{\N}{\mathbb{N}}						% Natürliche Zahlen
+\newcommand{\Z}{\mathbb{Z}}						% Ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}}						% Rationale Zahlen
+\newcommand{\R}{\mathbb{R}}						% Reelle Zahlen
+%\newcommand{\Complex}{\mathbb{C}}				% Komplexe Zahlen
+\newcommand{\K}{\mathbb{K}}						% Körper K=R oder K=C
+
+%Pfeile
+\newcommand{\imp}{\implies}						% Implikationspfeil  
+\newcommand{\eqv}{\Longleftrightarrow}			% grosser Äquivalenzpfeil
+\newcommand{\gdw}{\Leftrightarrow}				% kleienr Äquivalenzpfeil (g.d.w.)
+\newcommand{\hateq}{\widehat{=}}				% entspricht-Zeichen (alternativ s.u.)
+
+%Sonstiges
+\renewcommand{\Re}{\operatorname{Re}}			% Realteil
+\renewcommand{\Im}{\operatorname{Im}}			% Imaginärteil
+\newcommand{\im}{\mathrm{im}}					% Bildmenge einer Funktion
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\graph}{\mathrm{graph}}				% Graph einer Funktion
+
+
+%dieser Befehl wird bald geloescht.
+%\newcommand{\p}[2]{\left(#1_#2 \right)_{#2\in\mathbb{N}}}                  %progression=Folge
+
+
+
+
+
+% ANALYSIS -------------------------------------------------------------
+%Nach iso 80000-2 werden Konstanten wie e, i aufrecht gesetzt
+\newcommand{\e}{\mathsf{e}}
+\renewcommand{\i}{\mathsf{i}}
+\newcommand{\0}{\mathrm{0}}
+\newcommand{\1}{\mathrm{1}}
+
+%Folgen
+\newcommand{\an}{\left(a_n\right)_{n\in\mathbb{N}}}		%Folgen und Reihen 
+\newcommand{\bn}{\left(b_n\right)_{n\in\mathbb{N}}}
+\newcommand{\cn}{\left(c_n\right)_{n\in\mathbb{N}}}
+\newcommand{\zn}{\left(z_n\right)_{n\in\mathbb{N}}}
+
+%Grenzwerte
+\newcommand{\limn}{\lim\limits_{n\to\infty}}
+\newcommand{\limk}{\lim\limits_{k\to\infty}}
+\newcommand{\limx}{\lim\limits_{x\to\infty}}
+\newcommand{\lima}{\lim\limits_{n\to\infty} a_n}		% GW für Folgen
+\newcommand{\limb}{\lim\limits_{n\to\infty} b_n}
+\newcommand{\limc}{\lim\limits_{n\to\infty} c_n}
+\newcommand{\limz}{\lim\limits_{n\to\infty} z_n}
+
+%totales Differential:
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dX}{\,\mathrm{d}\mathbf{x}}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\df}{\mathrm{d}f}
+\newcommand{\dg}{\mathrm{d}g}
+
+%Vektoranalysis:
+\renewcommand{\O}{\mathcal{O}}				% Topologie
+\newcommand{\Int}{\mathrm{Int}}				% Inneres einer Menge
+\DeclareMathOperator{\interior}{int}
+\renewcommand{\S}{\mathcal{S}}				% Schwartz-Klasse
+\renewcommand{\P}{\mathcal{P}}				% Potenzmenge
+\newcommand{\D}{\mathcal{D}}				% Distributionen
+\newcommand{\F}{\mathcal{F}}				% Fourier-Transformation
+\newcommand{\M}{\mathcal{M}}				% Mannigfaltigkeit
+\newcommand{\Cs}{\mathcal{C}}				% Stetig (diffbare) Fkt.
+
+\DeclareMathOperator{\supp}{supp}			% Traeger einer Funktion
+\DeclareMathOperator{\vol}{vol}				% n-dim. Volumen                 
+\DeclareMathOperator{\grad}{grad}			% Gradient
+\DeclareMathOperator{\rot}{rot}				% Rotation
+
+%Partielle Differentialgleichungen, Maßtheorie
+\newcommand{\loc}{\mathrm{loc}}				% für L_\loc^1 Funktionen
+\newcommand{\ess}{\mathrm{ess}}				% ess sup (PDE)
+
+%Funktionalanalysis
+\newcommand{\Lin}{\mathrm{Lin}}				% Lineare Funktionale
+\renewcommand{\L}{\mathrm{L}}			    % Lineare Funktionale
+\newcommand{\cof}{\mathrm{cof}}	
+
+% Graphennorm: |||u|||
+\newcommand{\lipnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\graphnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+
+
+% Hyberbolische Funktionen
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+
+\DeclareMathOperator{\acosh}{acosh}
+\DeclareMathOperator{\asinh}{asinh}
+\DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\asech}{asech}
+\DeclareMathOperator{\acsch}{acsch}
+\DeclareMathOperator{\acoth}{acoth}
+
+
+% Algebra --------------------------------------------------------------
+\DeclareMathOperator{\rk}{rg}		% Rang einer Matrix
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\id}{id}		% Identität
+\DeclareMathOperator{\Id}{Id}		% Identität
+\DeclareMathOperator{\Hom}{Hom}		% Homomorphismus
+\DeclareMathOperator{\sgn}{sgn}		% Signum-Funktion
+\DeclareMathOperator{\tr}{tr}		% Trace (Spur einer Funktion)
+
+\newcommand{\spn}{\mathrm{span}}	% Lineare Hülle ACHTUNG: \span Primitiv nicht überschreiben!!
+\newcommand{\sym}{\mathrm{sym}}		% Symmetrische Matrizen
+\newcommand{\dev}{\mathrm{dev}}		% Deviation 
+
+\newcommand{\trans}{^{\intercal}}	% transponierte Matrix ACHTUNG: \t Primitiv nicht überschreiben!!
+\newcommand{\transpose}{^{\intercal}}	
+\newcommand{\transposed}{^{\intercal}}	
+
+
+%\newenvironment{LGS}[1]{\newcommand{\Vektor}{#1} \left( \begin{matrix}}{\end{matrix} \; \left\vert \, \begin{matrix} \Vektor \end{matrix} \right.\right)}                                      
+%LGS-Umgebung mit einem senkrechtem Strich in der Mitte
+
+%Numerik
+\newcommand{\cond}{\mathrm{cond}}	% Konditionszahl
+\DeclareMathOperator{\Cof}{Cof} 	% Cofaktor-Matrix
+
+::::

@@ -1,0 +1,1154 @@
+---
+title: "Julia Basics"
+author: "Marcel Angenvoort"
+date: 2025-01-05
+bibliography: references.bib
+abstract: >
+  Julia is a modern programming language commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python.
+  In this tutorial I will show you how to program in Julia.
+  We will cover types, collections and a very powerful feature called multiple dispatch. 
+  But for now, let us start with the basics.
+keywords: ["julia", "programming"]
+jupyter: julia-1.10
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: julia_basics.html
+    code-line-numbers: false
+  revealjs:
+    output-file: julia_basics-presentation.html
+#    theme: ["../nord.scss"]
+#    css: "custom.css"
+#    footer: Numerical Linear Algebra
+#  ipynb:
+#    output-file: demo.ipynb
+#  typst:
+#    output-file: julia_basics.pdf
+#  pdf:
+#    output-file: julia_basics.pdf
+#    number-depth: 1
+---
+
+
+{{< include ../macros.qmd >}}
+
+
+## Why Julia?
+
+:::: {layout="[0.25, -0.05, 0.75]" }
+::: {.fragment}
+![**Julia Logo **  
+author: _Stefan Karpinski_  
+source: [github.com](https://github.com/JuliaLang/julia-logo-graphics)  
+license: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) ](images/julia-logo.svg)
+:::
+
+::: {.fragment}
+Julia is a modern programming language that is commonly used for numerical analysis and scientific computing. It combines the speed of languages like C++ or Fortran with the ease of use of Matlab or Python. This is because Julia was designed to solve the "two-language problem": A lot of software is often developed in a dynamic language like Python and then re-implemented in a statically typed language for better performance. With Julia, you get the best of both worlds:
+
+> Julia walks like Python, and runs like C++.
+:::
+::::
+
+
+
+## Literature
+
+### Recommended Textbooks
+
+::: {.content-visible unless-format="revealjs"}
+There are very few good books on Julia programming.
+Many are completely outdated or just terrible.
+I do not understand why even today books do not have syntax highlighting or some colourful content to make it more appealing to the reader.
+Also, it is safe to assume that the reader has some prior knowledge of programming in MATLAB, Python, or similar.
+So if the book spends dozens of pages explaining what a variable is or what a for-loop does, it's a waste of time.
+
+With that in mind, the books I can recommend are "Julia as a second language" and "Julia for Data Analysis":
+:::
+
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+![[@Julia_book]](images/literature/Julia_as_a_Second_Language.jpg){.fragment}
+
+![[@Julia_Data_Analysis]](images/literature/Julia_for_Data_Analysis.jpg){.fragment}
+
+![[@Think_Julia]](images/literature/Think_Julia.jpg){.fragment}
+:::
+
+:::  {.content-visible unless-format="revealjs"}
+The best resources for learning Julia is definitely the [Official Documentation](https://docs.julialang.org/en/v1/manual/getting-started/), which is freely available on the Internet.
+Another course that is really really great is [Julia for Optimization and Learning](https://juliateachingctu.github.io/Julia-for-Optimization-and-Learning/stable/) by the university of Prague.
+It gives a good introduction to Julia with examples from optimization and machine learning.
+
+There is also a free [Course on Coursera](https://www.coursera.org/learn/julia-programming) that should be mentioned.
+However, since I haven't taken it, I can't say whether it's good or bad.
+~~It's kinda okay; not good, not bad.~~
+:::
+
+
+::: {.content-hidden unless-format="revealjs"}
+Other Resources:
+
+- [Official Documentation](https://docs.julialang.org/en/v1/manual/getting-started/)
+- Course [Julia for Optimization and Learning](https://juliateachingctu.github.io/Julia-for-Optimization-and-Learning/stable/) by the University of Prague
+:::
+
+
+---
+
+::: {.callout-warning}
+
+This course is fairly fast-paced. 
+
+It is assumed that the reader is already familiar with a programming language such as MATLAB, Python or C++.
+
+:::
+
+I will be making comparisons to these languages throughout the course.
+
+
+
+
+
+## Getting Started
+
+Let's start with a simple hello-world. The print function works exactly like it does in Python:
+
+``` {.julia}
+print("Hello World!")
+print("The answer is ", 42)
+```
+
+There is also the `println()` command, which is exactly the same except that it ends with a newline character.
+``` {.julia}
+println("Hello World!")
+```
+
+
+
+
+
+## Basic Math
+
+Of course, you can use Julia like a calculator:
+
+``` {.julia code-line-numbers="false"}
+julia> 5 + 3
+8
+
+julia> 4 * 5
+20
+
+julia> 0.5 * (4 + 7)
+5.5
+```
+
+. . .
+
+Note that division implicitly converts the input into float; if you want to do integer division, use `div(n, m)`.
+
+:::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> 11 / 7
+1.5714285714285714
+
+julia> div(11, 7)
+1
+```
+
+## Python
+``` {.python}
+>>> 11 / 7
+1.5714285714285714
+
+>>> 11 // 7
+1
+```
+
+::::
+
+. . .
+
+To calculate the power of a number, use the `^` operator (similar to Matlab):
+
+:::: {.panel-tabset}
+## Julia
+
+``` {.julia}
+julia> 2^4
+16
+```
+
+## Matlab
+``` {.matlab}
+>> 2^4
+16
+```
+
+## Python
+
+``` {.python}
+>>> 2**4
+16
+```
+::::
+
+
+
+
+---
+
+
+
+Julia provides a very flexible system for naming variables.
+In the Julia REPL, you can write mathematical symbols and other characters with a tab; for example, the Greek letter π can be typed via `\pi<TAB>`.
+
+This makes it possible to translate mathematical formulas into code in a very elegant way.
+
+
+``` {.julia}
+julia> sin(π) ≠ 1/2
+true
+
+julia> √25
+5.0
+```
+
+---
+
+
+There are alot of built-in math functions:
+
+:::: {.panel-tabset}
+## Julia
+``` {.julia}
+julia> cos(pi)
+-1.0
+
+julia> sqrt(25)
+5.0
+
+julia> exp(3)
+20.085536923187668
+
+julia> rand()
+0.8421147919589432
+```
+
+## Matlab
+
+``` {.matlab}
+>> cos(pi)
+ans =               -1
+
+>> sqrt(25)
+ans =                5
+
+>> exp(3)
+ans = 20.08553692318767
+
+>> rand()
+ans = 0.2162824594661559
+```
+
+## Python
+
+``` {.python}
+>>> import numpy as np
+>>> np.cos(np.pi)
+-1.0
+
+>>> np.sqrt(25)
+5.0
+
+>>> np.exp(3)
+20.085536923187668
+
+>>> np.random.rand()
+0.8839348951868577
+```
+
+::::
+
+. . .
+
+You might be wondering what happens when you try to overwrite a built-in function or symbol:
+
+``` {.julia}
+julia> pi
+π = 3.1415926535897...
+
+julia> pi = 3
+ERROR: cannot assign a value to imported variable Base.pi from module Main
+
+julia> sqrt(100)
+10.0
+
+julia> sqrt = 4
+ERROR: cannot assign a value to imported variable Base.sqrt from module Main
+```
+
+
+
+
+
+## Dynamic Binding
+
+
+Like Python, Julia is a dynamically typed language.
+This means that variables do not have a fixed data type like in C++, but can point to different data via __dynamic binding__.
+
+Consider two variables, x and y. 
+After assigning y to x, both variables point to the same memory location; no data is being copied.
+
+
+![Dynamic Variable Binding\
+Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is hereby licensed under [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Dynamic_Variable_Binding-diagram.svg){.svg-image}
+
+
+---
+
+In Python you can use the `id()` operator to see what's actually going on:
+
+:::: {.panel-tabset}
+## Python
+``` {.python}
+>>> x = 42
+>>> y = 3.7
+>>> id(x)
+11755208
+>>> id(y)
+134427599166672
+>>> x = y
+>>> x
+3.7
+>>> id(x)
+134427599166672
+```
+
+## C++
+``` {.cpp}
+int x = 42;
+std::string str = "Hello!";
+x = str;    // Compile error!
+```
+::::
+
+As you can see, after the assignment, both variables have the same memory address. Something like that would not be possible in C++.[^1]
+
+[^1]: It is possible to achieve this in C++ by using pointers or [std::any](https://en.cppreference.com/w/cpp/utility/any), but let's not go there.
+
+---
+
+This distinction may seem trivial, but has some important implications when dealing with mutable types, whose contents can be changed:
+
+:::: {.panel-tabset}
+
+## Julia
+
+``` {.julia}
+a = [1, 2, 3]
+b = a
+a[2] = 42
+```
+
+``` {.julia}
+julia> b
+3-element Vector{Int64}:
+  1
+ 42
+  3
+```
+
+## Python
+``` {.python}
+>>> import numpy as np
+>>> a = np.array([1, 2, 3])
+>>> b = a
+>>> a[1] = 42
+>>> b
+array([ 1, 42,  3])
+```
+::::
+
+. . .
+
+As no copy is being made, any change to variable `a` will also affect variable `b`.
+To actually make a deep copy, use the `deepcopy()` command[^2]:
+
+[^2]: see also on stackoverflow: [Copy or clone a collection in Julia](https://stackoverflow.com/a/35133215)
+
+
+:::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+b = deepcopy(a)
+```
+
+## Python
+``` {.python}
+b = a.copy()
+```
+
+::::
+
+. . .
+
+::: {.callout-warning}
+For performance reasons, avoid binding values of different types to the same variable.
+
+Code that avoids changing the type of a variable is called __type stable__.
+:::
+
+
+## Numbers in Julia
+
+You can see the type of a variable with the `typeof()` operator:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> x = 42
+42
+
+julia> typeof(x)
+Int64
+
+julia> typeof(3.7)
+Float64
+```
+
+## Python
+``` {.python}
+>>> x = 42
+>>> type(x)
+<class 'int'>
+>>> type(3.7)
+<class 'float'>
+```
+
+## MATLAB
+``` {.matlab}
+>> x = int64(42)
+x = 42
+>> y = 3.7
+y =              3.7
+>> whos
+Variables visible from the current scope:
+
+variables in scope: top scope
+
+  Attr   Name        Size                     Bytes  Class
+  ====   ====        ====                     =====  ===== 
+         x           1x1                          8  int64
+         y           1x1                          8  double
+
+Total is 2 elements using 16 bytes
+```
+
+:::
+
+. . .
+
+Julia uses 64 bits for integers and floats by default.
+Other types available are:
+
+```
+Int8, Int16, Int32, Int64, Int128, BigInt
+UInt8, UInt16, UInt32, UInt64, UInt128
+Float16, Float32, Float64, BigFloat
+```
+
+. . .
+
+To define a variable of a given size, use `x = int16(100)`. 
+For example, to define an integer of arbitrary length, use
+
+``` {.julia}
+x = BigInt(1606938044258990275541962092341162602522202993782792835301376)
+```
+
+. . .
+
+As specified in the IEEE754 standard, floating point numbers support inf and NaN values.
+
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> -5 / 0
+-Inf
+
+julia> 0 * Inf
+NaN
+
+julia> NaN == NaN
+false
+```
+
+## Python
+``` {.python}
+>>> -5 / 0
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    -5 / 0
+     ~~~^~~
+ZeroDivisionError: division by zero
+>>> 0 * np.Inf
+nan
+>>> np.nan == np.nan
+False
+```
+
+## MATLAB
+``` {.matlab}
+>> -5 / 0
+ans =             -Inf
+>> 0 * Inf
+ans =              NaN
+>> NaN == NaN
+ans = 0
+```
+:::
+
+. . .
+
+Floating point numbers can only be approximated, so a direct comparison using `a==b` may give unexpected results:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> 0.2 + 0.1 == 0.3
+false
+
+julia> 0.2 + 0.1
+0.30000000000000004
+```
+
+## Python
+``` {.python}
+>>> 0.2 + 0.1 == 0.3
+False
+>>> 0.2 + 0.1
+0.30000000000000004
+```
+
+## MATLAB
+``` {.matlab}
+>> 0.2 + 0.1 == 0.3
+ans = 0
+>> 0.2 + 0.1
+ans =              0.3
+```
+
+:::
+
+
+This is a general problem with floating point numbers, and exists in other programming languages as well.
+
+. . .
+
+The machine precision can be obtained with `eps()`, which gives the distance between 1.0 and the next larger representable floating-point value:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> eps(Float64)
+2.220446049250313e-16
+```
+
+## MATLAB
+``` {.matlab}
+>> eps
+ans = 2.220446049250313e-16
+```
+
+:::
+
+. . .
+
+Using that, we can implement a function `isapprox(a, b)` to test whether to numbers are approximately equal:
+
+``` {.julia}
+function isapprox(x::Real, y::Real; atol::Real=1e-14, rtol::Real=10*eps())
+        return abs(x - y) <= atol + rtol * max(abs(x), abs(y))
+end
+```
+
+. . .
+
+Fortunately, such a function already exists in the standard library:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> isapprox(0.2 + 0.1, 0.3)
+true
+
+julia> 0.2 + 0.1 ≈ 0.3
+true
+```
+
+
+## Python
+``` {.python}
+>>> np.allclose(0.2 + 0.1, 0.3)
+True
+```
+
+:::
+
+
+
+
+
+### Numerical Literal Coefficients
+
+When multiplying variables with a coefficient, you can omit the multiplication symbol `*`.
+``` {.julia}
+julia> x = 3
+3
+
+julia> 2x^2 - 5x + 1
+4
+```
+
+. . .
+
+As a consequence, coefficients have a higher priority than other operations ("multiplications via juxtaposition"):
+``` {.julia}
+julia> 6 / 2x
+1.0
+```
+
+. . .
+
+![Julia does it the Casio way. 
+source: [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Precedence62xplus.jpg), license: [CC By-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)](images/calculator_photo.jpg){width="60%" }
+
+
+
+### Overflow Behaviour
+As in other programming languages, exceeding the maximum representable value of a given type results in wraparound behaviour:
+
+``` {.julia}
+julia> n = typemax(Int64)
+9223372036854775807
+
+julia> n + 1
+-9223372036854775808
+```
+
+In this sense, calculating with integers is always a form of modulo arithmetic.
+
+
+
+
+
+## Control Flow
+
+Control structures such as branches and loops are easy to implement in Julia; the syntax is very similar to MATLAB:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+if x > 0
+  println("x is positive")
+elseif x < 0
+  println("x is negative")
+else 
+  println("x is zero")
+end
+```
+
+## MATLAB
+``` {.matlab}
+if x > 0
+  disp("x is positive")
+elseif x < 0
+  disp("x is negative")
+else
+  disp("x is zero")
+end
+```
+
+## Python
+``` {.python}
+if x > 0:
+    print("x is positive")
+elif x < 0:
+    print("x is negative")
+else:
+    print("x is zero")
+```
+
+## C++
+``` {.cpp}
+if (x > 0) {
+  std::println("x is positive");
+} else if (x < 0) {
+  std::println("x is negative");
+} else {
+  std::println("x is zero");
+}
+```
+:::
+
+. . .
+
+Just as in C++, Julia supports the ternary if statement:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+println(x < y ? "less than" : "greater or equal")
+```
+
+## C++
+``` {.cpp}
+std::println(x < y ? "less than" : "not less than");
+```
+
+:::
+
+. . .
+
+Multiple logical conditions can be combined with basic comparison operators:
+
+``` {.julia}
+A && B    # A and B
+A || B    # A or B
+A != B    # A XOR B
+```
+
+. . .
+
+Of course, logical operations do short-circuit evaluation:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> n = 2;
+
+julia> n == 1 && println("n is one")
+false
+```
+
+## Python
+``` {.python}
+>>> n = 2
+>>> n == 1 and print("n is one")
+False
+```
+
+## MATLAB
+``` {.matlab}
+>> n = 2;
+>> n == 1 && disp("n is one")
+ans = 0
+```
+:::
+
+
+
+### Loops
+
+To iterate over a range or an array, use a for-each loop:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+arr = ["Coffee", "Cocoa", "Avocado", "Math!"];
+
+for item in arr
+  println(item)
+end
+```
+
+## Python
+``` {.python}
+arr = ["Coffee", "Cocoa", "Avocado", "Math!"]
+
+for item in arr:
+  print(item)
+```
+
+## C++
+``` {.cpp}
+auto arr = std::vector<std::string>{"Coffee", "Cocoa", "Avocado", "Math!"};
+
+for (const auto& item : arr){
+  std::println(item);
+}
+```
+:::
+
+. . .
+
+This can be used to iterate over a specific range:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+for i in 1:4
+  println(i)
+end
+```
+
+## C++
+``` {.cpp}
+for (int i = 1; i <= 4; ++i){
+  std::println(i);
+}
+```
+
+## MATLAB
+``` {.matlab}
+for i = 1:4
+  disp(i)
+end
+```
+
+## Python
+``` {.python}
+for i in range(1, 5):
+  print(i)
+```
+
+:::
+
+. . .
+
+Of course, the same can be achieved with a while-loop:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+i = 1
+
+while i ≤ 4
+  println(i)
+  i += 1
+end
+```
+
+## Python
+``` {.python}
+i = 1
+
+while i <= 4:
+  print(i)
+  i += 1
+```
+
+## MATLAB
+``` {.matlab}
+i = 1
+
+while i <= 4
+  disp(i)
+  i += 1;
+end
+```
+:::     
+
+
+### Exception Handling
+
+
+
+
+
+## Functions
+
+Simple functions can be defined via:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+f(x) = x^2
+```
+
+## Python
+``` {.python}
+f = lambda x: x**2
+```
+
+## C++
+``` {.cpp}
+auto f = [](auto x){ return x*x; };
+```
+
+:::
+
+. . .
+
+More advanced functions are defined using the `function` keyword:
+
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+function fac(n::Integer)
+  @assert n > 0 "n must be positive"
+
+  if n ≤ 1
+    return 1
+  else
+    return n * fac(n-1)
+  end
+end
+```
+
+## Python
+``` {.python}
+def fac(n: int) -> int:
+    assert n > 0, "n must be positive!"
+
+    if (n <= 1):
+        return 1
+    else:
+        return n * fac(n - 1)
+```
+
+:::
+
+Note that we use the `@assert` macro to ensure that the arguments are positive.
+
+. . .
+
+Functions can be applied element-wise to arrays using the dot notation, `f.(x)`:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> x = [0, 1, 2, 3, 4, 5];
+julia> f(x) = x^2;
+julia> f.(x)
+6-element Vector{Int64}:
+  0
+  1
+  4
+  9
+ 16
+ 25
+```
+
+## Python
+``` {.python}
+>>> import numpy as np
+>>> x = np.array([-11, 1, 2, 3, 4, 5])
+>>> f = lambda x: x**2
+>>> f(x)
+array([ 0,  1,  4,  9, 16, 25])
+```
+
+## MATLAB
+``` {.matlab}
+>> x = [0, 1, 2, 3, 4, 5];
+>> f = @(x) x.^2
+f =
+
+@(x) x .^ 2
+
+>> f(x)
+ans = 0   1   4   9   16    25
+```
+:::
+
+. . .
+
+The same can be achieved with the `map(f, arr)` function:
+
+``` {.julia}
+julia> map(f, x)
+6-element Vector{Int64}:
+  0
+  1
+  4
+  9
+ 16
+ 25
+```
+
+. . .
+
+The advantage of the `map` command is that it can also be applied to _anonymous functions_:
+
+``` {.julia}
+julia> map(x -> x^2, [0, 1, 2, 3, 4, 5])
+6-element Vector{Int64}:
+  0
+  1
+  4
+  9
+ 16
+ 25
+```
+
+### Optional Arguments
+
+Functions in Julia can have positional arguments and keyword arguments, which are separated with a semicolon `;`.
+
+``` {.julia}
+function f(x, y=10; a=1)
+  return (x + y) * a
+end
+```
+
+. . .
+
+Such a function can be called via:
+
+``` {.julia}
+julia> f(5)
+15
+
+julia> f(2, 5)
+7
+
+julia> f(2, 5; a=3)
+21
+```
+
+
+
+### Varargs Functions
+Sometimes it is convenient to write functions which can take an arbitray number of arguments. Such a function is called `varargs` functions. 
+You can define a varargs function by following the last positional argument with an ellipsis:
+
+
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+function display(args...)
+        println(typeof(args))
+        for x in args
+                println(x)
+        end
+end
+```
+
+``` {.julia}
+julia> display(42, 3.7, "hello")
+Tuple{Int64, Float64, String}
+42
+3.7
+hello
+```
+
+## C++
+``` {.cpp}
+template<typename... Args>
+void display(Args&&... args)
+{
+    (std::cout << ... << args) << '\n';
+}
+```
+
+``` {.cpp}
+423.7hello
+```
+:::
+
+. . .
+
+::: {.callout-note}
+Note that the varargs mechanism works differently in Julia than in C++.
+In C++, the expression `args + ...` is shorthand for recursion, meaning that the expression is evaluated to `((((x1 + x2) + x3) + x4) + ... )`.
+
+In Julia, however, it is much simpler: the varargs argument is just a tuple that you can iterate over.
+:::
+
+
+
+
+
+### Naming convention
+
+::: {.callout-important}
+As a convention in Julia, functions that modify an argument should have a ! at the end.
+:::
+
+For example, `sort()` and `sort!()` both sort an array; however, one returns a copy, and the other functions sorts the array _in place_.
+
+
+. . .
+
+It is also good practice to use `return nothing` to indicate that a function does not return anything.
+
+``` {.julia}
+function do_something()
+  println("Hello world!")
+  return nothing
+end
+```
+
+
+---
+
+
+::: {.callout-note}
+# Exercise
+
+Implement a function which calculates the sine of a real number x.
+
+$$
+\sin(x) = \sum_{k=0}^\infty (-1)^k \frac{x^{2k+1}}{(2k+1)!}
+$$
+:::
+
+. . .
+
+::: {.callout-note collapse="true"}
+# Solution
+
+``` {.julia}
+function sine(x::Real)
+        @assert 0 <= x && x <= pi/4
+
+        sine = 0.0
+        for k in 0:9
+                sine += (-1)^k * x^(2k + 1) / factorial(2k + 1)
+        end
+        return sine
+end
+```
+:::
+
+
+
+
+
+
+
+
+
+
+## Strings
+
+
+
+## References
+
+::: {#refs}
+:::

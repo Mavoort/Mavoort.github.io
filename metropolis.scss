@@ -1,0 +1,348 @@
+/*-- scss:defaults --*/
+
+// Fonts: Ubuntu Sans
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* Colors for the Metropolis-Theme (slightly modified), inspired by
+ * https://github.com/matze/mtheme */
+$myBlue: #0D2142;
+$myGreen: #0d4221;
+$myRed: #800000;
+$alertRed: #d90429;
+$darkGreen: #04471c;
+$lightGreen: #d8f3dc;
+$darkBlue: #16324f;
+$lightBlue: #caf0f8;
+$darkPurple: #3c096c;
+$purpleBlue: #455e89;
+
+$themecolor: $darkBlue;
+$bgColor: #f5fcfe;
+$textColor: #23373b;
+
+
+$NordDarkBlack: #2e3440;
+$NordBlack: #3b4252;
+$NordMediumBlack: #434c5e;
+$NordBrightBlack: #4c566a;
+$NordWhite: #d8dee9;
+$NordBrighterWhite: #e5e9f0;
+$NordBrightestWhite: #eceff4;
+$NordCyan: #8fbcbb;
+$NordBrightCyan: #88c0d0;
+$NordBlue: #81a1c1;
+$NordBrightBlue: #5e81ac;
+$NordRed: #bf616a;
+$NordOrange: #d08770;
+$NordYellow: #ebcb8b;
+$NordGreen: #a3be8c;
+$NordMagenta: #b48ead;
+
+$purple: #800080;
+
+// Set colours for callout boxes
+$callout-color-note: $purple;
+$callout-color-tip: $myGreen;
+$callout-color-caution: $NordOrange;
+$callout-color-warning: $NordYellow;
+$callout-color-important: $myRed;
+
+/* SASS-Variables for custom theme, see
+   https://quarto.org/docs/presentations/revealjs/themes.html */
+$body-color: $textColor;
+$presentation-heading-color: $myGreen;
+$presentation-heading-text-shadow: "none";
+$body-bg: $bgColor;
+$link-color: $myBlue;
+$link-color-hover: lighten($link-color, 15%);
+$selection-bg: $NordMagenta;
+
+$colorBlockTitleBg: rgba($NordBlack, 80%);
+
+$font-family-sans-serif: sans-serif;
+$headingFont: "Ubuntu Sans", sans-serif;
+$presentation-font-size-root: 40px;
+$presentation-heading-text-transform: "none";
+$presentation-heading-font-weight: "bold";
+
+$presentation-h1-font-size: 3em;
+$presentation-h2-font-size: 2.11em;
+$presentation-h3-font-size: 1.55em;
+$presentation-h4-font-size: 1em;
+
+$code-block-font-size: 0.8em;
+
+/*-- scss:rules --*/
+.callout-note {
+    border-left-color: $NordBlue;
+}
+.callout-tip {
+    border-left-color: $NordGreen;
+}
+.callout-caution {
+    border-left-color: $NordOrange;
+}
+
+.callout-warning {
+    border-left-color: $NordYellow;
+}
+.callout-important {
+    border-left-color: $NordRed !important;
+}
+
+del {
+    color: $NordRed;
+}
+
+.reveal .slides {
+    text-align: left;
+}
+
+
+// replace marker with triangles
+li::marker {
+    content: "\25B8\A0\A0";
+    color: $NordGreen;
+}
+
+ul ul li::marker {
+    //content: "\25AA\A0\A0";
+    content: "\1F784\A0\A0";
+    color: $NordCyan;
+}
+
+/*
+.theorem > p:first-child {
+	color: $NordGreen;
+	background-color: color-mix(in srgb, $NordBlack 80%, white);
+	padding-left: 0.5em;
+	// box-shadow: 0px 5px 10px rgba($NordGreen, 50%);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.theorem > p {
+	padding-left: 0.5em;
+	background-color: rgba($NordGreen, 50%);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+*/
+
+/*
+.theorem p:first-child::before {
+    content: "Theorem (";
+}
+.theorem p:first-child::after {
+    content: ")";
+}
+*/
+
+// Colorscheme for theorems, examples, definitions etc.
+.theorem {
+    font-style: italic;
+    color: $textColor;
+    background-color: color-mix(in srgb, $myGreen 20%, white);
+}
+.example {
+  color: $textColor;
+    background-color: color-mix(in srgb, $myGreen 20%, white);
+}
+.definition {
+  color: $textColor;
+    background-color: color-mix(in srgb, $myRed 20%, white);
+}
+
+.theorem-title {
+    display: block;
+    color: white;
+    background-color: $myBlue;
+}
+.example .theorem-title {
+    color: white;
+    background-color: $myGreen;
+}
+.definition .theorem-title {
+    color: white;
+    background-color: $myRed;
+}
+
+.alert {
+    background-color: color-mix(in srgb, $alertRed 20%, white);
+}
+.alert p:first-child {
+    color: $alertRed;
+    background-color: color-mix(in srgb, $alertRed 80%, white);
+}
+
+.beweis::before {
+    content: "Proof.";
+    font-style: italic;
+    //color: $NordBlue;
+}
+
+.proof-title,
+.beweis::before {
+    color: $themecolor;
+}
+.proof::after,
+.beweis::after {
+    content: "\25A1"; /* qed symbol */
+    display: block;
+    text-align: right;
+    color: $themecolor;
+}
+
+.theorem-title,
+.alert p:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-left: 0.5em;
+    margin: -0.25em -0.5em 0.25em -0.5em;
+}
+.definition,
+.theorem,
+.example,
+.alert {
+    padding: 0.25em 0.5em;
+    border-radius: 20px;
+}
+.callout,
+.definition,
+.theorem,
+.example,
+.alert {
+    width: 1650px; // assume margin is set to 0.125 in YAML-config
+}
+
+.definition,
+.example,
+.theorem-title {
+    font-style: normal;
+}
+.theorem,
+.definition,
+.example,
+.alert,
+.beweis {
+    margin-bottom: 4vh;
+}
+
+.theorem p,
+.definition p,
+.example p,
+.alert p,
+.beweis p {
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+h3.subtitle {
+    color: $NordBlue;
+}
+p.caption,
+figcaption {
+    color: $NordBlue;
+}
+
+/* Figures and Subfigures, see
+https://stackoverflow.com/a/23073569
+*/
+figure,
+.figure {
+    position: relative;
+    text-align: center;
+    margin: 20px auto 20px;
+    padding: 10px 0px 10px;
+    width: 100%;
+}
+
+.figure .quarto-layout-row {
+    align-items: flex-end;
+}
+
+figure > figcaption,
+figure > p.caption {
+    left: auto;
+    right: auto;
+    text-align: justify;
+    margin: 0px auto 0px;
+    padding: 10px 0px 5px;
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.plotly-figure {
+    text-align: center;
+    color: $NordBlue;
+}
+.plotly-graph-div {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+// Weird BugFix
+section.slide {
+    text-align: left !important;
+}
+
+// Change colour of callout blocks
+.callout-warning {
+    border-left-color: $purple !important;
+}
+.callout-warning .callout-title {
+    background-color: lighten($purple, 70%) !important;
+}
+
+// Set margin of the slides
+// assume margin is set to 0 in the YAML header
+// we use margin instead of padding because
+// otherwise, it would not be possible to give h2
+// a background color.
+section.slide > * {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+section.slide > ul, section.slide > ol {
+    margin-left: calc(120px + 1em);
+}
+
+// Fix overflow when images are next each other
+section.slide > div.quarto-layout-panel {
+  width: auto !important;
+}
+
+// make sure images are still centered
+section.slide > img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+section > div.sourceCode {
+    margin-left: 120px !important;
+    margin-right: 120px !important;
+}
+
+section.slide h2 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 60px;
+    color: $bgColor;
+    background-color: $themecolor;
+}
+
+// Create a margin at the bottom
+section > div:last-child {
+    margin-bottom: 80px;
+}
+
+// Weird BugFix (lin break in figcaption incorrect)
+figure > figcaption, figure > p.caption {
+  display: block !important;
+}

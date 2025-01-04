@@ -1,0 +1,85 @@
+---
+title: "Introduction"
+author: "Marcel Angenvoort"
+date: 2025-07-01
+#doi: 10.5555/12345678
+bibliography: "references.bib"
+abstract: >
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+keywords: ["math", "optimization", "julia", "90-01", "90C30"]
+jupyter: julia-1.10
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: introduction.html
+  revealjs:
+    output-file: introduction-presentation.html
+#    theme: ["nord.scss"]
+#    css: "custom.css"
+#  jpynb:
+#    output-file: introduction.ipynb
+#  typst:
+#    output-file: introduction.pdf
+#  pdf:
+#    output-file: introduction.pdf
+---
+
+
+## Why learn Optimization?
+
+normal text, *italic text*, **bold text**, ***bold italics***
+
+![**nonlinear optimization**  
+source: [arXiv:1805.04829](https://arxiv.org/abs/1805.04829)](images/example_for_optimization.jpg){.fragment}
+
+
+## About this Course
+
+**Target audience**:
+
+**Prerequisites**:
+
+- Linear Algebra
+- Calculus
+- Programming (Python/Julia)
+
+
+### Syllabus
+
+- Week 1 -- 5: Intro to Julia
+- Week 6 -- 10: Algorithms for dense matrices
+
+::: {.callout-note .fragment}
+The exact structure of this course is subject to change and may vary.
+:::
+
+
+## Literature {visibility="hidden"}
+
+### Recommended Textbooks
+
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+
+![[@Convex_Optimization_Boyd]](images/literature/Convex_Optimization-Boyd.jpg){.fragment}
+
+![[@Numerical_Optimization_Nocedal]](images/literature/Numerical_Optimization-Nocedal.jpg){.fragment}
+
+![[@Nichtlineare_Optimierung]](images/literature/Nichtlineare_Optimierung.jpg){.fragment}
+
+![[@Algorithms_for_Optimization]](images/literature/Algorithms_for_Optimization.jpg){.fragment}
+
+:::
+
+
+## Online Courses
+
+- [Stanford EE364A Convex Optimization](https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h) by **Stephen Boyd**, 2023
+- [Optimization Method for Machine Learning](https://www.youtube.com/playlist?list=PLdkTDauaUnQpzuOCZyUUZc0lxf4-PXNR5) by **Julius Pfrommer**, KIT 2020/21
+
+
+
+## References
+
+::: {#refs}
+:::

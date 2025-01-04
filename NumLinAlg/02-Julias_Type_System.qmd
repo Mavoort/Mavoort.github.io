@@ -1,0 +1,77 @@
+---
+title: "Julias Type System"
+author: "Marcel Angenvoort"
+date: 2025-01-12
+bibliography: references.bib
+abstract: >
+  Last week we started programming with Julia, covering basic control flow, functions and strings. 
+  In this video we will learn about Julias type system and a very powerful mechanism called "multiple dispatch".
+  We will also talk about important data structures such as arrays, sets and dictionaries.
+keywords: ["julia", "programming"]
+jupyter: julia-1.10
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: julias_type_system.html
+  revealjs:
+    output-file: julias_type_system-presentation.html
+#    theme: ["../nord.scss"]
+#    css: "custom.css"
+#  ipynb:
+#    output-file: demo.ipynb
+#  typst:
+#    output-file: julias_type_system.pdf
+#  pdf:
+#    output-file: presentation.pdf
+#    number-depth: 1
+---
+
+
+
+## Types in Julia
+
+Recall that for any variable x, you can determine it's type via:
+``` {.julia}
+typeof(x)
+``` 
+
+There are:
+
+-  _composite types_
+-  _primitive types_
+
+There are _composite types_, which are made up of smaller types, and _primitive types_, such as Real, Char and Int. You can use `isprimitivetype(type)`
+to check whether a type is a primitive type. 
+
+If you are coming from an object-oriented language such as C++, you are probably familiar with inheritance. 
+The type hierarchy in Julia is very similar, except that it also works for primitive types.
+
+
+
+We can use `subtype()` and `supertype()` to explore the type hierarchy in Julia.
+For example, the type Float64 is a subtype of AbstractFloat, which 
+
+
+You can check whether a type is a subtype of another type with the <: operator.
+
+---
+
+![**Types in Julia.**  
+Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is hereby licensed under [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Types_in_Julia-drawio.svg){.svg-image}
+
+
+---
+
+
+[The Unreasonable Effectiveness of Multiple Dispatch](https://www.youtube.com/live/kc9HwsxE1OY?si=BzU6ya8KSfWBK2Qx) by Julian Karpinski
+TODO:
+
+- Julias Types System, Multiple Dispatch
+- Functional Programming (map, reduce; Beispiel FP vs OOP, normalverteilung)
+- Arrays
+- Sets
+- Dictionaries
+
+
+

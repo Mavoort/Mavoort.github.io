@@ -1,0 +1,17 @@
+<!-- Render Pseudocode with pseudocode.js -->
+<script>
+	if (typeof require !== 'undefined') {
+		require.undef("pseudocode");
+		requirejs.config({
+			paths: {
+				'pseudocode': ['https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min']
+			}
+		});
+		require(['pseudocode'], function(pseudocode) {
+			console.log("inside script require pseudocode");
+			pseudocode.renderClass("pseudocode");
+		});
+	} else {
+		pseudocode.renderClass("pseudocode");
+	}
+</script>

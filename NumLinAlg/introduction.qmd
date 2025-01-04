@@ -1,0 +1,200 @@
+---
+title: "Introduction"
+author: "Marcel Angenvoort"
+date: 2025-01-01
+#date-modified: 2025-07-01
+#doi: 10.5555/12345678
+bibliography: "references.bib"
+abstract: >
+  This is a course about Numerical Linear Algebra.
+  Numerical Linear Algebra is the foundation of modern scientific computing and has many applications: from signal processing to computational physics and data science.
+  The aim of this course is to give a comprehensive overview of the methods and algorithms used to solve problems such as 
+  linear systems of equations, eigenvalue problems, and matrix decompositions.
+  I intend to cover iterative methods such as the Jacobi and Gauss-Seidel methods,
+  as well as advanced techniques for sparse matrices, such as Krylov and multigrid methods.
+  Furthermore, we will implement the algorithms presented in the programming language Julia.
+categories:
+  - numerical linear algebra
+keywords: ["math", "65Fxx", "numerical linear algebra", "julia"]
+jupyter: julia-1.10
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: introduction.html
+  revealjs:
+    output-file: introduction-presentation.html
+#    theme: ["../nord.scss"]
+#    css: "custom.css"
+#  jpynb:
+#    output-file: introduction.ipynb
+#  typst:
+#    output-file: introduction.pdf
+#  pdf:
+#    output-file: introduction.pdf
+---
+
+
+## Why learn Numerical Linear Algebra?
+
+::: {.notes}
+Numerical linear algebra is the foundation of modern scientific computing. 
+It deals with the numerical approximation of problems such as linear systems and eigenvalue problems.
+Many techniques for solving differential equations, such as the finite element method (FEM) or the finite difference method, lead to a system of linear equations;
+As such, numerical linear algebra has many applications: from image and signal processing to computational physics, data science and more.
+:::
+
+
+::: {.content-hidden unless-format="revealjs" .fragment}
+- Numerical linear algebra is the foundation of scientific computing
+- it deals with numerical approximation of linear systems and Eigenvalue problems
+- techniques for solving PDEs often lead to a system of linear equations
+- many applications: signal processing, computational physics, data science, ...
+:::
+
+
+
+
+
+## About this Course
+
+::: {.content-visible unless-format="revealjs"}
+### Target Audience
+This course is primarily aimed at undergraduate students of mathematics, physics and engineering. 
+However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.
+:::
+
+
+::: {.content-hidden unless-format="revealjs" }
+**Target Audience**:
+
+- Students in math/physics/engineering
+- anyone who is interested in scientific computing
+
+:::
+
+
+::: {.content-visible unless-format="revealjs"}
+### Prerequisites
+This is not a linear algebra course, so a solid understanding of linear algebra is required.
+For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. 
+However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient.
+:::
+
+::: {.content-hidden unless-format="revealjs"}
+. . .
+
+**Prerequisites:**
+
+- solid knowledge of Linear Algebra
+- basic programming skills (Julia/Python/MATLAB)
+:::
+
+
+::: {.notes .hidden}
+**Target Audience**
+This course is primarily aimed at undergraduate students of mathematics, physics and engineering. 
+However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.
+
+**Prerequisites**
+This is not a linear algebra course, so a solid understanding of linear algebra is required.
+For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. 
+However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient.
+:::
+
+
+### Syllabus
+
+- Week 1 -- 5: Intro to Julia
+- Week 6 -- 10: Algorithms for dense matrices
+  - Perturbation theory
+  - Direct solvers for linear systems
+  - Iterative solvers for linear systems (Gauss-Seidel)
+  - Calculation of Eigenvalues (power method)
+- Week 11 -- 20: (not sure yet)
+  - Sparse LU-decompostion
+  - Sparse matrix ordering algorithms
+- Week 20 -- 22: Krylow methods (CG, GMRES)
+- Week 23 -- 26: Special iteration methods (multigrid, domain decomposition) 
+
+::: {.callout-note .fragment}
+The exact structure of this course is subject to change and may vary.
+:::
+
+
+
+
+
+## Literature {visibility="hidden"}
+
+### Theoretical Textbooks
+
+::: {.content-visible unless-format="revealjs"}
+The standard textbook is [@Matrix_Computations_Golub]; it has over [1500 citations](https://zbmath.org/1268.65037) and covers basically everything.
+However, it is very dense and not very pleasant to read. 
+I would recommend it more as a reference book rather than for self study.
+
+A good alternative is probably [@NumLinAlg_Rannacher], which is very readable and can be used as an introductory textbook. It is open-access.
+
+The book [@Numerik_LGS_Meister] is written by a former professor of mine.
+It is particularly interesting because it covers advanced Krylow-methods such as [QMRCGSTAB](https://doi.org/10.1137/0915023) and has a large chapter on Multigrid methods.
+:::
+
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+![[@Matrix_Computations_Golub]](images/literature/Matrix_Computations-Golub.jpg){.fragment}
+
+![[@NumLinAlg_Rannacher]](images/literature/Numerical_Linear_Algebra-Rannacher.jpg){.fragment}
+
+![[@Numerik_LGS_Meister]](images/literature/Numerik_linearer_Gleichungssysteme-Meister.jpg){.fragment}
+:::
+
+
+
+### Practical Textbooks
+
+::: {.content-visible unless-format="revealjs"}
+The book [@NumLinAlg_Wendland] is probably the best in my opinion; It is well structured and has a good balance of theory and application. 
+The algorithms are given in pseudocode, which makes it straightforward to implement them in the programming language of your choice.
+
+Since numerical linear algebra is a very practical topic, a good book should in my opinion contain implementations of the actual algorithms.
+This is the case for [@NumLinAlg_Matrix_Factorizations], which has code in MATLAB/Octave, and for [@NumLinAlg_Julia], which contains implementations in Julia.
+The former also has a [companion book](https://link.springer.com/book/10.1007/978-3-030-59789-4) containing many exercises and solutions.
+:::
+
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+![[@NumLinAlg_Matrix_Factorizations]](images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg){.fragment}
+
+![[@NumLinAlg_Wendland]](images/literature/Numerical_Linear_Algebra-An_Introduction.jpg){.fragment}
+
+![[@NumLinAlg_Julia]](images/literature/Numerical_Linear_Algebra_with_Julia-large.jpg){.fragment}
+:::
+
+
+### Advanced Textbooks
+
+::: {.content-visible unless-format="revealjs"}
+The books [@Algos_sparse_LinSys] and [@Iterative_Solution] both deal with sparse matrices, but have a very different focus.
+While the former covers direct methods and matrix decompositions for developing algebraic preconditioners, the latter deals with advanced iterative methods for sparse systems, such as Krylov, multigrid or domain decomposition methods.
+It is probably a good idea to look at both books later in this course and focus on individual chapters that are of most interest.
+:::
+
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+
+![[@Algos_sparse_LinSys]](images/literature/Algorithms_for_Sparse_Linear_Systems.jpg){.fragment}
+
+![[@Iterative_Solution]](images/literature/Iterative_Solution_of_Large_Sparse_Systems_of_Equations.jpg){.fragment}
+
+![[@Large_Eigenvalue_Problems]](images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg){.fragment}
+
+![[@Direct_Methods]](images/literature/Direct_Methods_for_Sparse_Linear_Systems.jpg){.fragment}
+
+:::
+
+
+
+
+
+## References
+
+::: {#refs}
+:::

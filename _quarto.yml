@@ -1,0 +1,189 @@
+project:
+    type: website
+    #pre-render: source env/bin/activate
+    #post-render: deactivate
+    render:
+        - index.md
+        - about.md
+          #- posts/*
+        - NumLinAlg/introduction.qmd
+        - NumLinAlg/01-Julia_Basics.qmd
+        - Optimization/*
+          #        - Finite_Element_Method/*
+          #        - Machine_Learning/*
+          #        - Statistics/*
+          #        - GameDev/*
+          #        - Computational_Fluid_Dynamics/*
+          #        - Deep_Learning/*
+          #        - Stochastic_Calculus/*
+          #        - Rendering/*
+#        - Parallel_Computing/*
+#        - demo/demo.qmd
+
+
+website:
+    title: "Mathematics Weekly"
+    favicon: logo.png
+    navbar:
+        search: true
+        left:
+            - href: about.html
+              text: About me
+    sidebar:
+        style: "docked"
+        search: false
+        background: light
+        collapse-level: 1
+        contents:
+            - section: "Numerical Linear Algebra"
+              contents:
+                  - href: NumLinAlg/introduction.html
+                    text: Introduction
+                  - href: NumLinAlg/julia_basics.html
+                    text: Julia Basics
+                  - href: NumLinAlg/julias_type_system.html
+                    text: Julias Type System
+                      #            - section: "Optimization"
+                      #              contents:
+                      #                  - href: Optimization/introduction.html
+                      #                    text: Introduction
+                      #            - section: "Finite Element Method"
+                      #              contents:
+                      #                  - href: Finite_Element_Method/introduction.html
+                      #                    text: Introduction
+                      #                  - href: Finite_Element_Method/polynomial_approximation_1d.html
+                      #                    text: Polynomial Approximation in 1D
+                      #            - section: "Machine Learning"
+                      #              contents:
+                      #                  - href: Machine_Learning/introduction.html
+                      #                    text: Introduction
+                      #                  - href: Machine_Learning/probabilistic_inference.html
+                      #                    text: Probabilistic Inference
+                      #            - section: "Statistics"
+                      #              contents:
+                      #                  - href: Statistics/introduction.html
+                      #                    text: Introduction
+                      #                  - href: Statistics/programming_with_r.html
+                      #                    text: Programming with R
+                      #            - section: "Game Development"
+                      #              contents:
+                      #                  - href: GameDev/introduction.html
+                      #                    text: Introduction
+                      #                  - href: GameDev/representing_real_numbers.html
+                      #                    text: Representing Real Numbers
+                      #                  - href: GameDev/vectors.html
+                      #                    text: Vectors
+                      #            - section: "Computational Fluid Dynamics"
+                      #              contents:
+                      #                  - href: Computational_Fluid_Dynamics/introduction.html
+                      #                    text: Introduction
+                      #            - section: "Deep Learning"
+                      #              contents:
+                      #                  - href: Deep_Learning/introduction.html
+                      #                    text: Introduction
+                      #            - section: "Stochastic Calculus"
+                      #              contents:
+                      #                  - href: Stochastic_Calculus/introduction.html
+                      #                    text: Introduction
+                      #            - section: "Rendering"
+                      #              contents:
+                      #                  - href: Rendering/introduction.html
+                      #                    text: Introduction
+
+format:
+    revealjs:
+        theme: ["nord.scss"]
+        css: "custom.css"
+        email-obfuscation: javascript
+        toc: false
+        incremental: true
+        slide-level: 3
+        slide-number: true
+        #logo: logo.png
+        #footer: footer.html
+        scrollable: true
+        menu: false
+        chalkboard:
+            theme: whiteboard
+            boardmarker-width: 2
+            buttons: false
+        transition: slide
+        transition-speed: slow
+        progress: true
+        navigation-mode: linear
+        hide-inactive-cursor: true
+        controls: false
+        slide-tone: false
+        width: 1920
+        height: 1080
+        margin: 0
+        center: false
+        center-title-slide: false
+        highlight-style: monokai
+        code-fold: true
+        fig-align: center
+        appearance:
+            autoappear: true
+            #autoelements:
+            #    "ul li": "animate__fadeInLeft"
+            #    "ol li": "animate__fadeInRight"
+        pointer:
+            pointerSize: 25
+            alwaysVisible: false
+        html-math-method:
+            method: mathjax
+            url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    html:
+        theme:
+            dark: [darkly, theme-custom.scss]
+            light: minty
+        css: "custom.css"
+        html-math-method: mathjax
+        email-obfuscation: javascript
+        main-font: "Noto Sans"
+        fig-align: "center"
+        fig-cap-location: "bottom"
+        lightbox: true
+        link-external-newwindow: true
+          #include-in-header:
+          #  - file: include_pseudocode-header.html
+        #- file: macros.txt
+        #include-after-body:
+        #    - file: include_pseudocode-body.html
+        page-layout: article
+        code:
+            highlight-style: monokai
+        code-link: true
+        code-fold: true
+        code-tools:
+            toggle: false
+            source: true
+        layout: hightlight
+        width: 1920
+          #comments:
+          #  giscus:
+          #      repo: Mavoort/mathematics-weekly-blog
+    #typst:
+    #   paper: a4
+    pdf:
+        pdf-engine: lualatex
+        documentclass: scrreprt
+        papersize: a4
+        keep-tex: true
+        echo: false
+        fig-pos: "H"
+        cite-method: biblatex
+        include-in-header:
+            - file: custom_latex_header.tex
+            #- file: macros.tex
+revealjs-plugins:
+    - appearance
+    - pointer
+
+execute:
+    output: true
+    freeze: auto
+    #cache: true
+
+filters:
+    - convert_svg.lua

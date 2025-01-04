@@ -1,0 +1,206 @@
+/*-- scss:defaults --*/
+
+
+/*-- scss:rules --*/
+.reveal .slides {
+    text-align: left;
+}
+
+h2::before {
+    content: "\00BB\A0\A0";
+    color: $NordWhite;
+    font-weight: normal;
+}
+
+li::marker {
+    content: "\25B8\A0\A0";
+    color: $NordGreen;
+}
+
+/*
+.theorem > p:first-child {
+	color: $NordGreen;
+	background-color: color-mix(in srgb, $NordBlack 80%, white);
+	padding-left: 0.5em;
+	// box-shadow: 0px 5px 10px rgba($NordGreen, 50%);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.theorem > p {
+	padding-left: 0.5em;
+	background-color: rgba($NordGreen, 50%);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+*/
+
+.theorem p:first-child {
+    color: $NordGreen;
+    background-color: color-mix(in srgb, $NordBlack 80%, white);
+}
+.theorem p:first-child::before {
+    content: "Theorem (";
+}
+.theorem p:first-child::after {
+    content: ")";
+}
+.theorem p:nth-child(2) {
+    font-style: italic;
+    background-color: color-mix(in srgb, $NordGreen 50%, transparent);
+}
+
+.example p:first-child {
+    color: $NordBlue;
+    background-color: color-mix(in srgb, $NordBlack 80%, white);
+}
+.example p:first-child::before {
+    content: "Example";
+}
+.example p:nth-child(2) {
+    background-color: color-mix(in srgb, $NordBlue 50%, transparent);
+}
+
+.definition p:first-child {
+    color: $NordGreen;
+    background-color: color-mix(in srgb, $NordBlack 80%, white);
+}
+.definition p:first-child::before {
+    content: "Definition (";
+}
+.definition p:first-child::after {
+    content: ")";
+}
+.definition p:nth-child(2) {
+    background-color: color-mix(in srgb, $NordGreen 50%, transparent);
+}
+
+.alert p:first-child {
+    color: $NordRed;
+    background-color: color-mix(in srgb, $NordBlack 80%, white);
+}
+.alert p:nth-child(2) {
+    background-color: color-mix(in srgb, $NordRed 50%, transparent);
+}
+
+.beweis::before {
+    content: "Proof.";
+    font-style: italic;
+    color: $NordBlue;
+}
+.beweis::after {
+    content: "\25A1"; /* qed symbol */
+    display: block;
+    text-align: right;
+}
+
+.alert p:first-child, .example p:first-child, .definition p:first-child, .theorem p:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-left: 0.5em;
+}
+.definition p:nth-child(2),
+.alert p:nth-child(2),
+.theorem p:nth-child(2),
+.example p:nth-child(2) {
+    padding: 0.25em 0.5em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.theorem,
+.definition,
+.example,
+.alert {
+    width: 1638px;
+}
+.theorem,
+.definition,
+.example,
+.alert,
+.beweis {
+    margin-bottom: 4vh;
+}
+
+.theorem p, .definition p, .example p, .alert p, .beweis p
+{
+	margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+h3.subtitle {
+    color: $NordBlue;
+}
+p.caption, figcaption {
+    color: $NordBlue;
+}
+
+/* Figures and Subfigures, see
+https://stackoverflow.com/a/23073569
+*/
+figure {
+    position: relative;
+    text-align: center;
+    margin: 20px auto 20px;
+    padding: 10px 0px 10px;
+    width: 100%;
+}
+
+/*
+figure > figure {
+    display: inline-block;
+    position: relative;
+    margin: 0px auto 5px;
+    padding: 0px 4px 0px;
+    max-width: 100%;
+    height: auto;
+}
+figure > figure > img {
+    vertical-align: bottom;
+    max-width: 100%;
+    height: auto;
+}
+
+figure > figure > figcaption {
+    padding: 5px 0px 5px;
+    font-size: 25px;
+}
+*/
+.figure .quarto-layout-row {
+	align-items: flex-end;
+}
+
+figure > figcaption, figure > p.caption {
+    left: auto;
+    right: auto;
+    text-align: justify;
+    margin: 0px auto 0px;
+    padding: 10px 0px 5px;
+    width: 90%;
+
+    display: flex;
+    /*
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  */
+    justify-content: center;
+}
+
+.plotly-figure {
+	justify-content: center;
+	width: 1200px !important;
+	height: 900px !important;
+}
