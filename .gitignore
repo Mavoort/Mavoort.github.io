@@ -25,9 +25,9 @@
 *.syntex.gz
 
 # Ignore virtual environments (these can be very large)
+# Do not ignore julia_env !!
 env/
 renv/
-julia_env/
 renv.lock
 
 # Ignore Octave and R workspapce history
