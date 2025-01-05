@@ -18,7 +18,7 @@ project:
           #        - Stochastic_Calculus/*
           #        - Rendering/*
 #        - Parallel_Computing/*
-        - demo/demo.qmd
+#        - demo/demo.qmd
 
 
 website:
