@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
+      actions: write
       contents: write
     steps:
       - name: Check out repository
@@ -31,9 +32,9 @@ jobs:
         with:
           version: '1.11'
 
-# this doesn't work.
-#      - name: Cache Julia Packages
-#        uses: julia-actions/cache@v2
+      # this doesn't work.
+      - name: Cache Julia Packages
+        uses: julia-actions/cache@v2
 
       - name: Install IJulia Jupyter kernel
         shell: bash
