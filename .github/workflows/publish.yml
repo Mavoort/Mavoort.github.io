@@ -39,9 +39,9 @@ jobs:
         run: |
           julia -e 'using Pkg; Pkg.add("IJulia");'
 
-#      - name: Install useful Julia packages
-#        shell: bash
-#        run: julia -e 'Pkg.add(filter(x -> x!="", split(read("julia_packages.txt", String), "\n")))'
+      - name: Install useful Julia packages
+        shell: bash
+        run: julia -e 'using Pkg; Pkg.add(filter(x -> x!="", split(read("julia_packages.txt", String), "\n")))'
 
       - name: Install Quarto extensions for Reveal.js
         shell: bash
