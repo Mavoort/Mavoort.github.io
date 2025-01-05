@@ -105,7 +105,7 @@ However, there will be a short introduction to Julia programming at the beginnin
 
 ### Syllabus
 
-- Week 1 -- 5: Intro to Julia
+- Week 1 -- 5: Introduction to Julia
 - Week 6 -- 10: Algorithms for dense matrices
   - Perturbation theory
   - Direct solvers for linear systems
