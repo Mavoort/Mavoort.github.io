@@ -13,8 +13,6 @@ abstract: >
   I intend to cover iterative methods such as the Jacobi and Gauss-Seidel methods,
   as well as advanced techniques for sparse matrices, such as Krylov and multigrid methods.
   Furthermore, we will implement the algorithms presented in the programming language Julia.
-categories:
-  - numerical linear algebra
 keywords: ["math", "65Fxx", "numerical linear algebra", "julia"]
 jupyter: julia-1.11
 execute:
@@ -23,19 +21,14 @@ format:
   html: 
     output-file: introduction.html
   revealjs:
-    output-file: introduction-presentation.html
-#    theme: ["../nord.scss"]
-#    css: "custom.css"
-#  jpynb:
-#    output-file: introduction.ipynb
+    output-file: introduction-slides.html
 #  typst:
-#    output-file: introduction.pdf
-#  pdf:
 #    output-file: introduction.pdf
 ---
 
 
-## Why learn Numerical Linear Algebra?
+Why learn Numerical Linear Algebra?
+-----------------------------------
 
 ::: {.notes}
 Numerical linear algebra is the foundation of modern scientific computing. 
@@ -56,7 +49,8 @@ As such, numerical linear algebra has many applications: from image and signal p
 
 
 
-## About this Course
+About this Course
+-----------------
 
 ::: {.content-visible unless-format="revealjs"}
 ### Target Audience
@@ -103,6 +97,9 @@ However, there will be a short introduction to Julia programming at the beginnin
 :::
 
 
+
+
+
 ### Syllabus
 
 - Week 1 -- 5: Introduction to Julia
@@ -125,7 +122,8 @@ The exact structure of this course is subject to change and may vary.
 
 
 
-## Literature {visibility="hidden"}
+Literature {visibility="hidden"}
+--------------------------------
 
 ### Theoretical Textbooks
 
@@ -153,18 +151,18 @@ It is particularly interesting because it covers advanced Krylow-methods such as
 ### Practical Textbooks
 
 ::: {.content-visible unless-format="revealjs"}
-The book [@NumLinAlg_Wendland] is probably the best in my opinion; It is well structured and has a good balance of theory and application. 
-The algorithms are given in pseudocode, which makes it straightforward to implement them in the programming language of your choice.
+The book [@NumLinAlg_Wendland] is probably the best, in my opinion; it is well structured and has a good balance between theory and application.
+The algorithms are given in pseudocode, which makes it easy to implement them in the programming language of your choice.
 
-Since numerical linear algebra is a very practical topic, a good book should in my opinion contain implementations of the actual algorithms.
-This is the case for [@NumLinAlg_Matrix_Factorizations], which has code in MATLAB/Octave, and for [@NumLinAlg_Julia], which contains implementations in Julia.
+Since numerical linear algebra is a very practical subject, I think a good book should also include implementations of the actual algorithms.
+This is the case for @[NumLinAlg_Matrix_Factorizations], which has code in MATLAB/Octave, and for [@NumLinAlg_Julia], which has implementations in Julia.
 The former also has a [companion book](https://link.springer.com/book/10.1007/978-3-030-59789-4) containing many exercises and solutions.
 :::
 
 ::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
-![[@NumLinAlg_Matrix_Factorizations]](images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg){.fragment}
-
 ![[@NumLinAlg_Wendland]](images/literature/Numerical_Linear_Algebra-An_Introduction.jpg){.fragment}
+
+![[@NumLinAlg_Matrix_Factorizations]](images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg){.fragment}
 
 ![[@NumLinAlg_Julia]](images/literature/Numerical_Linear_Algebra_with_Julia-large.jpg){.fragment}
 :::

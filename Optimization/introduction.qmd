@@ -14,19 +14,14 @@ format:
   html: 
     output-file: introduction.html
   revealjs:
-    output-file: introduction-presentation.html
-#    theme: ["nord.scss"]
-#    css: "custom.css"
-#  jpynb:
-#    output-file: introduction.ipynb
+    output-file: introduction-slides.html
 #  typst:
-#    output-file: introduction.pdf
-#  pdf:
 #    output-file: introduction.pdf
 ---
 
 
-## Why learn Optimization?
+Why learn Optimization?
+-----------------------
 
 normal text, *italic text*, **bold text**, ***bold italics***
 
@@ -34,7 +29,11 @@ normal text, *italic text*, **bold text**, ***bold italics***
 source: [arXiv:1805.04829](https://arxiv.org/abs/1805.04829)](images/example_for_optimization.jpg){.fragment}
 
 
-## About this Course
+
+
+
+About this Course
+-----------------
 
 **Target audience**:
 
@@ -55,7 +54,11 @@ The exact structure of this course is subject to change and may vary.
 :::
 
 
-## Literature {visibility="hidden"}
+
+
+
+Literature {visibility="hidden"}
+--------------------------------
 
 ### Recommended Textbooks
 
@@ -72,10 +75,13 @@ The exact structure of this course is subject to change and may vary.
 :::
 
 
-## Online Courses
+
+### Online Courses
 
 - [Stanford EE364A Convex Optimization](https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h) by **Stephen Boyd**, 2023
 - [Optimization Method for Machine Learning](https://www.youtube.com/playlist?list=PLdkTDauaUnQpzuOCZyUUZc0lxf4-PXNR5) by **Julius Pfrommer**, KIT 2020/21
+
+
 
 
 

@@ -17,24 +17,15 @@ format:
     output-file: julia_basics.html
     code-line-numbers: false
   revealjs:
-    output-file: julia_basics-presentation.html
-#    theme: ["../nord.scss"]
-#    css: "custom.css"
+    output-file: julia_basics-slides.html
 #    footer: Numerical Linear Algebra
-#  ipynb:
-#    output-file: demo.ipynb
 #  typst:
 #    output-file: julia_basics.pdf
-#  pdf:
-#    output-file: julia_basics.pdf
-#    number-depth: 1
 ---
 
 
-{{< include ../macros.qmd >}}
-
-
-## Why Julia?
+Why Julia?
+----------
 
 :::: {layout="[0.25, -0.05, 0.75]" }
 ::: {.fragment}
@@ -52,22 +43,11 @@ Julia is a modern programming language that is commonly used for numerical analy
 ::::
 
 
-Julia test:
-``` {julia}
-import Example
-println("Hello World")
-Example.hello("friend")
-```
-
-``` {julia}
-using Plots
-x = LinRange(0, 2*pi, 100)
-y = sin.(x)
-plot(x, y)
-```
 
 
-## Literature
+
+Literature
+----------
 
 ### Recommended Textbooks
 
@@ -110,6 +90,7 @@ Other Resources:
 
 ---
 
+
 ::: {.callout-warning}
 
 This course is fairly fast-paced. 
@@ -124,7 +105,8 @@ I will be making comparisons to these languages throughout the course.
 
 
 
-## Getting Started
+Getting Started
+---------------
 
 Let's start with a simple hello-world. The print function works exactly like it does in Python:
 
@@ -142,7 +124,8 @@ println("Hello World!")
 
 
 
-## Basic Math
+Basic Math
+----------
 
 Of course, you can use Julia like a calculator:
 
@@ -308,8 +291,8 @@ ERROR: cannot assign a value to imported variable Base.sqrt from module Main
 
 
 
-## Dynamic Binding
-
+Dynamic Binding
+---------------
 
 Like Python, Julia is a dynamically typed language.
 This means that variables do not have a fixed data type like in C++, but can point to different data via __dynamic binding__.
@@ -323,6 +306,7 @@ Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is her
 
 
 ---
+
 
 In Python you can use the `id()` operator to see what's actually going on:
 
@@ -354,7 +338,9 @@ As you can see, after the assignment, both variables have the same memory addres
 
 [^1]: It is possible to achieve this in C++ by using pointers or [std::any](https://en.cppreference.com/w/cpp/utility/any), but let's not go there.
 
+
 ---
+
 
 This distinction may seem trivial, but has some important implications when dealing with mutable types, whose contents can be changed:
 
@@ -418,7 +404,11 @@ Code that avoids changing the type of a variable is called __type stable__.
 :::
 
 
-## Numbers in Julia
+
+
+
+Numbers in Julia
+-----------------
 
 You can see the type of a variable with the `typeof()` operator:
 
@@ -667,7 +657,8 @@ In this sense, calculating with integers is always a form of modulo arithmetic.
 
 
 
-## Control Flow
+Control Flow
+------------
 
 Control structures such as branches and loops are easy to implement in Julia; the syntax is very similar to MATLAB:
 
@@ -887,7 +878,8 @@ end
 
 
 
-## Functions
+Functions
+---------
 
 Simple functions can be defined via:
 
@@ -1158,7 +1150,8 @@ end
 
 
 
-## Strings
+Strings
+--------
 
 
 

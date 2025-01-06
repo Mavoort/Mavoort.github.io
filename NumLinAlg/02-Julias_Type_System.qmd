@@ -15,21 +15,15 @@ format:
   html: 
     output-file: julias_type_system.html
   revealjs:
-    output-file: julias_type_system-presentation.html
-#    theme: ["../nord.scss"]
-#    css: "custom.css"
-#  ipynb:
-#    output-file: demo.ipynb
+    output-file: julias_type_system-slides.html
 #  typst:
 #    output-file: julias_type_system.pdf
-#  pdf:
-#    output-file: presentation.pdf
-#    number-depth: 1
 ---
 
 
 
-## Types in Julia
+Types in Julia
+--------------
 
 Recall that for any variable x, you can determine it's type via:
 ``` {.julia}

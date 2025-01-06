@@ -5,18 +5,18 @@ project:
     render:
         - index.md
         - about.md
-          #- posts/*
+#        - posts/*
         - NumLinAlg/introduction.qmd
         - NumLinAlg/01-Julia_Basics.qmd
         - Optimization/*
-          #        - Finite_Element_Method/*
-          #        - Machine_Learning/*
-          #        - Statistics/*
-          #        - GameDev/*
-          #        - Computational_Fluid_Dynamics/*
-          #        - Deep_Learning/*
-          #        - Stochastic_Calculus/*
-          #        - Rendering/*
+#        - Finite_Element_Method/*
+#        - Machine_Learning/*
+#        - Statistics/*
+#        - GameDev/*
+#        - Computational_Fluid_Dynamics/*
+#        - Deep_Learning/*
+#        - Stochastic_Calculus/*
+#        - Rendering/*
 #        - Parallel_Computing/*
 #        - demo/demo.qmd
 
@@ -153,6 +153,7 @@ format:
         page-layout: article
         code:
             highlight-style: monokai
+        code-line-numbers: false
         code-link: true
         code-fold: true
         code-tools:
