@@ -11,7 +11,7 @@ abstract: >
 keywords: ["julia", "programming"]
 jupyter: julia-1.11
 execute:
-  enabled: true
+  enabled: false
 format: 
   html: 
     output-file: julia_basics.html

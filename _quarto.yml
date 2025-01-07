@@ -5,9 +5,8 @@ project:
     render:
         - index.md
         - about.md
-#        - posts/*
-        - NumLinAlg/introduction.qmd
-        - NumLinAlg/01-Julia_Basics.qmd
+        #        - posts/*
+        - NumLinAlg/*
         - Optimization/*
 #        - Finite_Element_Method/*
 #        - Machine_Learning/*
@@ -19,7 +18,6 @@ project:
 #        - Rendering/*
 #        - Parallel_Computing/*
 #        - demo/demo.qmd
-
 
 website:
     title: "Mathematics Weekly"
@@ -43,52 +41,52 @@ website:
                     text: Julia Basics
                   - href: NumLinAlg/julias_type_system.html
                     text: Julias Type System
-                      #            - section: "Optimization"
-                      #              contents:
-                      #                  - href: Optimization/introduction.html
-                      #                    text: Introduction
-                      #            - section: "Finite Element Method"
-                      #              contents:
-                      #                  - href: Finite_Element_Method/introduction.html
-                      #                    text: Introduction
-                      #                  - href: Finite_Element_Method/polynomial_approximation_1d.html
-                      #                    text: Polynomial Approximation in 1D
-                      #            - section: "Machine Learning"
-                      #              contents:
-                      #                  - href: Machine_Learning/introduction.html
-                      #                    text: Introduction
-                      #                  - href: Machine_Learning/probabilistic_inference.html
-                      #                    text: Probabilistic Inference
-                      #            - section: "Statistics"
-                      #              contents:
-                      #                  - href: Statistics/introduction.html
-                      #                    text: Introduction
-                      #                  - href: Statistics/programming_with_r.html
-                      #                    text: Programming with R
-                      #            - section: "Game Development"
-                      #              contents:
-                      #                  - href: GameDev/introduction.html
-                      #                    text: Introduction
-                      #                  - href: GameDev/representing_real_numbers.html
-                      #                    text: Representing Real Numbers
-                      #                  - href: GameDev/vectors.html
-                      #                    text: Vectors
-                      #            - section: "Computational Fluid Dynamics"
-                      #              contents:
-                      #                  - href: Computational_Fluid_Dynamics/introduction.html
-                      #                    text: Introduction
-                      #            - section: "Deep Learning"
-                      #              contents:
-                      #                  - href: Deep_Learning/introduction.html
-                      #                    text: Introduction
-                      #            - section: "Stochastic Calculus"
-                      #              contents:
-                      #                  - href: Stochastic_Calculus/introduction.html
-                      #                    text: Introduction
-                      #            - section: "Rendering"
-                      #              contents:
-                      #                  - href: Rendering/introduction.html
-                      #                    text: Introduction
+#            - section: "Optimization"
+#              contents:
+#                  - href: Optimization/introduction.html
+#                    text: Introduction
+#            - section: "Finite Element Method"
+#              contents:
+#                  - href: Finite_Element_Method/introduction.html
+#                    text: Introduction
+#                  - href: Finite_Element_Method/polynomial_approximation_1d.html
+#                    text: Polynomial Approximation in 1D
+#            - section: "Machine Learning"
+#              contents:
+#                  - href: Machine_Learning/introduction.html
+#                    text: Introduction
+#                  - href: Machine_Learning/probabilistic_inference.html
+#                    text: Probabilistic Inference
+#            - section: "Statistics"
+#              contents:
+#                  - href: Statistics/introduction.html
+#                    text: Introduction
+#                  - href: Statistics/programming_with_r.html
+#                    text: Programming with R
+#            - section: "Game Development"
+#              contents:
+#                  - href: GameDev/introduction.html
+#                    text: Introduction
+#                  - href: GameDev/representing_real_numbers.html
+#                    text: Representing Real Numbers
+#                  - href: GameDev/vectors.html
+#                    text: Vectors
+#            - section: "Computational Fluid Dynamics"
+#              contents:
+#                  - href: Computational_Fluid_Dynamics/introduction.html
+#                    text: Introduction
+#            - section: "Deep Learning"
+#              contents:
+#                  - href: Deep_Learning/introduction.html
+#                    text: Introduction
+#            - section: "Stochastic Calculus"
+#              contents:
+#                  - href: Stochastic_Calculus/introduction.html
+#                    text: Introduction
+#            - section: "Rendering"
+#              contents:
+#                  - href: Rendering/introduction.html
+#                    text: Introduction
 
 format:
     revealjs:
@@ -144,9 +142,10 @@ format:
         fig-align: "center"
         fig-cap-location: "bottom"
         lightbox: true
-        link-external-newwindow: true
-          #include-in-header:
-          #  - file: include_pseudocode-header.html
+        link-external-newwindow:
+            true
+            #include-in-header:
+            #  - file: include_pseudocode-header.html
         #- file: macros.txt
         #include-after-body:
         #    - file: include_pseudocode-body.html
@@ -160,12 +159,13 @@ format:
             toggle: false
             source: true
         layout: hightlight
-        width: 1920
-          #comments:
-          #  giscus:
-          #      repo: Mavoort/mathematics-weekly-blog
-    #typst:
-    #   paper: a4
+        width:
+            1920
+            #comments:
+            #  giscus:
+            #      repo: Mavoort/mathematics-weekly-blog
+    typst:
+        paper: a4
     pdf:
         pdf-engine: lualatex
         documentclass: scrreprt
