@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 author: "Marcel Angenvoort"
-date: 2025-01-01
+date: 2025-01-02
 #date-modified: 2025-07-01
 #doi: 10.5555/12345678
 bibliography: "references.bib"
@@ -63,6 +63,7 @@ However, it is also suitable for engineers who use these algorithms (linear solv
 **Target Audience**:
 
 - Students in math/physics/engineering
+- Engineers who want to gain a deeper understanding of numerical algorithms
 - anyone who is interested in scientific computing
 
 :::
@@ -108,11 +109,11 @@ However, there will be a short introduction to Julia programming at the beginnin
   - Direct solvers for linear systems
   - Iterative solvers for linear systems (Gauss-Seidel)
   - Calculation of Eigenvalues (power method)
-- Week 11 -- 20: (not sure yet)
+- Week 11 -- 26: Algorithms for sparse matrices
   - Sparse LU-decompostion
   - Sparse matrix ordering algorithms
-- Week 20 -- 22: Krylow methods (CG, GMRES)
-- Week 23 -- 26: Special iteration methods (multigrid, domain decomposition) 
+  - Krylow methods (CG, BiCGStab, GMRES)
+  - Special iteration methods (multigrid, domain decomposition) 
 
 ::: {.callout-note .fragment}
 The exact structure of this course is subject to change and may vary.
@@ -127,7 +128,7 @@ Literature {visibility="hidden"}
 
 ### Theoretical Textbooks
 
-::: {.content-visible unless-format="revealjs"}
+::: {.notes}
 The standard textbook is [@Matrix_Computations_Golub]; it has over [1500 citations](https://zbmath.org/1268.65037) and covers basically everything.
 However, it is very dense and not very pleasant to read. 
 I would recommend it more as a reference book rather than for self study.
@@ -150,12 +151,12 @@ It is particularly interesting because it covers advanced Krylow-methods such as
 
 ### Practical Textbooks
 
-::: {.content-visible unless-format="revealjs"}
+::: {.notes}
 The book [@NumLinAlg_Wendland] is probably the best, in my opinion; it is well structured and has a good balance between theory and application.
 The algorithms are given in pseudocode, which makes it easy to implement them in the programming language of your choice.
 
 Since numerical linear algebra is a very practical subject, I think a good book should also include implementations of the actual algorithms.
-This is the case for @[NumLinAlg_Matrix_Factorizations], which has code in MATLAB/Octave, and for [@NumLinAlg_Julia], which has implementations in Julia.
+This is the case for [@NumLinAlg_Matrix_Factorizations], which has code in MATLAB/Octave, and for [@NumLinAlg_Julia], which has implementations in Julia.
 The former also has a [companion book](https://link.springer.com/book/10.1007/978-3-030-59789-4) containing many exercises and solutions.
 :::
 
@@ -170,10 +171,15 @@ The former also has a [companion book](https://link.springer.com/book/10.1007/97
 
 ### Advanced Textbooks
 
-::: {.content-visible unless-format="revealjs"}
+::: {.notes}
 The books [@Algos_sparse_LinSys] and [@Iterative_Solution] both deal with sparse matrices, but have a very different focus.
 While the former covers direct methods and matrix decompositions for developing algebraic preconditioners, the latter deals with advanced iterative methods for sparse systems, such as Krylov, multigrid or domain decomposition methods.
-It is probably a good idea to look at both books later in this course and focus on individual chapters that are of most interest.
+There is also [@Direct_Methods], which is entirely about direct methods for sparse linear systems.
+
+For Eigenvalue problems, there is [@Large_Eigenvalue_Problems], which focuses on Krylov methods, but also covers modern techniques such as AMLS and the Jacobi-Davidson method.
+The book is accompanied by MATLAB codes, and has an interesting chapter on applications in physics.
+
+It is probably a good idea to look at some of these books later in this course and focus on individual chapters that are of most interest.
 :::
 
 ::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
@@ -182,9 +188,9 @@ It is probably a good idea to look at both books later in this course and focus 
 
 ![[@Iterative_Solution]](images/literature/Iterative_Solution_of_Large_Sparse_Systems_of_Equations.jpg){.fragment}
 
-![[@Large_Eigenvalue_Problems]](images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg){.fragment}
-
 ![[@Direct_Methods]](images/literature/Direct_Methods_for_Sparse_Linear_Systems.jpg){.fragment}
+
+![[@Large_Eigenvalue_Problems]](images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg){.fragment}
 
 :::
 

@@ -52,13 +52,10 @@ Literature
 ### Recommended Textbooks
 
 ::: {.content-visible unless-format="revealjs"}
-There are very few good books on Julia programming.
-Many are completely outdated or just terrible.
-I do not understand why even today books do not have syntax highlighting or some colourful content to make it more appealing to the reader.
-Also, it is safe to assume that the reader has some prior knowledge of programming in MATLAB, Python, or similar.
-So if the book spends dozens of pages explaining what a variable is or what a for-loop does, it's a waste of time.
-
-With that in mind, the books I can recommend are "Julia as a second language" and "Julia for Data Analysis":
+Julia is still a relatively new programming language, so there are few good books about it, and most of them are completely out of date.
+However, I can recommend the books "Julia as a Second Language" and "Julia for Data Analysis", both of which give a really good introduction to Julia programming.
+The latter also has a large chapter on dataframes, which is definitely useful in data science.
+The book "Think Julia" also seems to be good, although a little less comprehensive.
 :::
 
 ::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
@@ -872,8 +869,93 @@ end
 :::     
 
 
+
 ### Exception Handling
 
+Exceptions are a way of dealing with unexpected errors.
+When such an error occurs, it is best to deal with the problem as early as possible.
+By throwing an exception, you skip the entire function call until it reaches a point where the exception is caught. 
+
+. . .
+
+For example, the `sqrt` function throws a DomainError when applied to a negative real value:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> sqrt(-1)
+ERROR: DomainError with -1.0:
+sqrt was called with a negative real argument but will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).
+Stacktrace:
+[...]
+```
+
+## Python
+``` {.python}
+>>> math.sqrt(-1)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    math.sqrt(-1)
+ValueError: math domain error
+```
+:::
+
+. . .
+
+An exception like this can be thrown using the `throw` keyword:
+
+``` {.julia}
+if x <= 0
+    err = DomainError(x, "`x` must be positive.")
+    throw(err)
+end
+```
+
+. . .
+
+There are many built-in exceptions available.
+
+Exception |
+----------|
+DomainError|
+ArgumentError|
+BoundsError|
+OverflowError|
+
+: built-in exceptions {.striped .hover}
+
+. . .
+
+You may also define your own exceptions in the following way:
+
+``` {.julia}
+julia> struct MyCustomException <: Exception end
+```
+
+. . .
+
+An error is an eception of type `ErrorException`. 
+It can be used to interrupt the normal control flow.
+
+``` {.julia}
+julia> fussy_sqrt(x) = x >= 0 ? sqrt(x) : error("negative x not allowed")
+fussy_sqrt (generic function with 1 method)
+```
+
+. . .
+
+The `try-catch` block can be used to handle exceptions:
+
+``` {.julia}
+try
+    # Code
+catch e::DomainError
+    # Handle specific error
+catch
+    # Handle other errors
+end
+```
 
 
 
@@ -1072,7 +1154,9 @@ void display(Args&&... args)
 ```
 
 ``` {.cpp}
-423.7hello
+42
+3.7
+hello
 ```
 :::
 
@@ -1152,6 +1236,544 @@ end
 
 Strings
 --------
+
+One can think of a String as an array of characters with some convenience functions.
+Julia supports Unicode characters via the UTF-8 encoding.
+
+. . .
+
+As in Java and Python, strings are immutable. The value of a string object cannot be changed.
+
+``` {.julia}
+julia> name = "Markus"
+"Markus"
+
+julia> pointer_from_objref(name)
+Ptr{Nothing} @0x000072d21dee95b8
+
+julia> name = "Aurelius"
+"Aurelius"
+
+julia> pointer_from_objref(name)
+Ptr{Nothing} @0x000072d21deea6c8
+```
+
+. . .
+
+To change a character in a string, you have to first convert the string to an array, modify the desired character, and then join the array back into a string:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+str = "hello world"
+chars = collect(str)
+chars[6] = '_'
+new_str = join(chars)  # hello_world
+```
+
+## Python
+``` {.python}
+str = "hello world"
+char_list = list(str)
+char_list[5] = '_'
+new_str = ''.join(char_list)
+print(new_str)  # hello_world
+```
+:::
+
+
+
+### Single Characters
+
+There is a class-type for single characters, `AbstractChar`:
+
+``` {.julia}
+julia> c = 'ü'
+'ü': Unicode U+00FC (category Ll: Letter, lowercase)
+
+julia> typeof(c)
+Char
+```
+
+. . .
+
+You can easily convert a character to its integer value:
+
+``` {.julia}
+julia> Int(c)
+252
+```
+
+. . .
+
+Keep in mind that not all integer values are valid unicode characters.
+For performance, the `Char` conversion does not check that every value is valid.
+
+``` {.julia}
+julia> Char(0x110000)
+'\U110000': Unicode U+110000 (category In: Invalid, too high)
+
+julia> isvalid(Char, 0x110000)
+false
+```
+
+. . .
+
+Since characters are basically like integers, you can treat them as such.
+
+``` {.julia}
+julia> 'A' < 'a'
+true
+
+julia> 'x' - 'a'
+23
+```
+
+
+
+### String Basics
+
+String literals are delimited by double quotes (not single quotes):
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> str = "Hello World!\n"
+"Hello World!\n"
+
+julia> str[begin]
+'H': ASCII/Unicode U+0048 (category Lu: Letter, uppercase)
+
+julia> str[end]
+'\n': ASCII/Unicode U+000A (category Cc: Other, control)
+
+julia> str[2:5]
+"ello"
+```
+
+## Python
+``` {.python}
+>>> str = "Hello  World!\n"
+>>> str[0]
+'H'
+>>> str[-1]
+'\n'
+>>> str[1:4]
+'ell'
+```
+:::
+
+
+
+### Substrings
+
+A `SubString` is a view into another string.
+It does not allocate memory, but instead references the original string.
+
+``` {.julia}
+# Range Indexing
+str = "Hello, World!"
+substring_copy = str[1:5]  # Creates a new string copy
+println(substring_copy)  # Outputs: "Hello"
+
+# SubString Function
+str = "Hello, World!"
+substring_view = SubString(str, 1, 5)  # Creates a view into the original string
+println(substring_view)  # Outputs: "Hello"
+```
+
+. . .
+
+So while both methods can extract a substring, the SubString function is more memory-efficient as it does not create a new string but rather a view into the original string.
+
+
+
+### Unicode and UTF-8
+
+As mentioned above, Julia supports Unicode characters. 
+Because of the variable length encodings, you cannot iterate over a string as you can in a normal array.
+Not every integer is a valid index.
+
+::: {.panel-tabset}
+## Julia
+``` {.julia}
+julia> str  = "\u2200 x \u2203 y"
+"∀ x ∃ y"
+
+julia> str[1]
+'∀': Unicode U+2200 (category Sm: Symbol, math)
+
+julia> str[2]
+ERROR: StringIndexError: invalid index [2], valid nearby indices [1]=>'∀', [4]=>' '
+Stacktrace:
+[...]
+
+julia> str[4]
+' ': ASCII/Unicode U+0020 (category Zs: Separator, space)
+```
+
+## Python
+``` {.python}
+>>> str = "\u2200 x \u2203 y"
+>>> str
+'∀ x ∃ y'
+>>> str[0]
+'∀'
+>>> str[1]
+' '
+>>> str[2]
+'x'
+```
+:::
+
+This also means that the number of characters in a string is not always the same as the last index.
+
+``` {.python}
+julia> str
+"∀ x ∃ y"
+
+julia> length(str)
+7   # number of characters
+
+julia> lastindex(str)
+11  # last index
+```
+
+. . .
+
+To iterate through a string, you can use the string as an iterable object:
+
+``` {.julia}
+julia> for c in str
+         print(c)
+       end
+∀ x ∃ y
+```
+
+. . .
+
+If you need to obtain the valid indices for a string, you can use the `eachindex` function:
+
+``` {.julia}
+julia> collect(eachindex(str))
+7-element Vector{Int64}:
+  1
+  4
+  5
+  6
+  7
+ 10
+ 11
+```
+
+
+
+### Concatenation
+
+Multiple strings can be concatenated:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> str = "Hello " * "world"
+"Hello world"
+```
+
+## Python
+``` {.python}
+>>> str = "Hello " + "world"  
+>>> str
+'Hello world'
+```
+:::
+
+. . .
+
+The choice of `*` to concatenate strings may seem unusual, but mathematically it makes sense, since concatenation is a non-commutative operation.
+
+
+
+### String Interpolation
+
+You can evaluate variables within a string with the `$` character:
+
+``` {.python}
+julia> x = 42
+42
+
+julia> "The solution is $x"
+"The solution is  42"
+
+julia> "1 + 2 = $(1 + 2)"
+"1 + 2 = 3"
+```
+
+
+### Common String Operations
+
+Basic string operations
+
+``` {.julia}
+julia> "Avocado" < "Coffee"
+true
+
+julia> findfirst("and", "Avocados and Chocolate and Coffee.")
+10:12
+
+julia> findall("and", "Avocados and Chocolate and Coffee.")
+2-element Vector{UnitRange{Int64}}:
+ 10:12
+ 24:26
+```
+
+. . .
+
+
+To repeat a string multiple times, use `repeat`:
+
+::: {.panel-tabset}
+
+## Python
+``` {.python}
+>>> "...X" * 5
+'...X...X...X...X...X'
+```
+
+## Julia
+``` {.julia}
+julia> repeat("...X", 5)
+"...X...X...X...X...X"
+```
+:::
+
+. . .
+
+Two other very handy operations are `split` and `join`:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> str = "Germany,Berlin,83500000,357596,+49,de"
+"Germany,Berlin,83500000,357596,+49,de"
+
+julia> words = split(str, ',')
+6-element Vector{SubString{String}}:
+ "Germany"
+ "Berlin"
+ "83500000"
+ "357596"
+ "+49"
+ "de"
+
+julia> join(words, ',')
+"Germany,Berlin,83500000,357596,+49,de"
+ ```
+
+## Python
+``` {.python}
+>>> str  = "Germany,Berlin,83500000,357596,+49,de"
+>>> words = str.split(',')
+>>> words
+['Germany', 'Berlin', '83500000', '357596', '+49', 'de']
+
+>>> ','.join(words)
+'Germany,Berlin,83500000,357596,+49,de'
+```
+:::
+
+. . .
+
+These functions are very useful for handling csv-data.
+
+. . .
+
+To check whether a string contains a specific substring, we can either use `occursin` or `contains`.
+
+``` {.julia}
+julia> occursin("world", "Hello world.")
+true
+
+julia> contains("Hello world.", "world")
+true
+```
+
+For more complicated operations, it is recommended to use regular expressions.
+
+
+
+### Regular Expressions
+
+Julia uses Perl-compatible regular expressions (regexes), as provided by the [PCRE library](https://www.pcre.org/current/doc/html/pcre2syntax.html#SEC1).
+
+Regular expressions are a common concept found in other programming languages, so there is no need to go into detail here.
+For a quick refresher, I refer the reader to the [Python regex documentation](https://docs.python.org/3/howto/regex.html) and the tutorial  on [regular-expressions.info](https://www.regular-expressions.info/tutorial.html).
+
+
+. . .
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> re = r"^\s*(?:#|$)"
+r"^\s*(?:#|$)"
+
+julia> typeof(re)
+Regex
+```
+
+## Python
+``` {.python}
+>>> import re
+>>> rx = re.compile(r'^\s*(?:#|$)')
+>>> type(rx)
+<class 're.Pattern'>
+```
+:::
+
+
+. . .
+
+For example, to match comment lines, you can use the following regex:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+m = match(r"^\s*(?:#|$)", line)
+if m === nothing
+    println("not a comment")
+else
+    println("blank or comment")
+end
+```
+
+## Python
+``` {.python}
+m = re.match(r'^\s*(?:#|$)', line)
+if m==None:
+    print("not a comment")
+else:
+    print("blank or comment")
+```
+:::
+
+. . .
+
+::: {.callout-note}
+# Example
+
+Here is a simple regex to parse a string that contains the time:
+
+``` {.julia}
+julia> time = "12:45"
+"12:45"
+
+julia> m=match(r"(?<hour>\d{1,2}):(?<minute>\d{2})","12:45")
+RegexMatch("12:45", hour="12", minute="45")
+```
+:::
+
+. . .
+
+::: {.callout-note}
+# Exercise
+
+Write a regular expression to parse bibliography data in the following format:
+
+```
+surename, forename, and surename2, forename2. year. Title. Publisher.
+```
+
+Example:
+```
+Lauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media.
+```
+:::
+
+. . .
+
+::: {.callout-note collapse="false"}
+# Solution
+
+``` {.julia}
+julia> m = match(r"^(?P<names>.*)\. (?P<year>\d{4})\. (?<title>.*)\. (?<publisher>.*)\.$", str)
+RegexMatch("Lauwens, Ben, and Allen B. Downey. 2019. Think Julia. O’Reilly Media.", names="Lauwens, Ben, and Allen B. Downey", year="2019", title="Think Julia", publisher="O’Reilly Media")
+
+julia> authors = split(m["names"], " and ")
+2-element Vector{SubString{String}}:
+ "Lauwens, Ben,"
+ "Allen B. Downey"
+
+julia> year = parse(Int, m["year"])
+2019
+```
+:::
+
+
+## Pretty Output
+
+
+
+## Symbols
+
+Symbols are a special type of immutable data that represent identifiers or names. They are denoted by a colon (:) followed by the name, such as `:example`.
+
+The advantage of symbols over strings is that they offer very efficient comparisons:
+
+``` {.julia}
+julia> @btime "abcd" == "abcd"
+  5.632 ns (0 allocations: 0 bytes)
+true
+
+julia> @btime :abcd == :abcd
+  0.025 ns (0 allocations: 0 bytes)
+true
+```
+
+In this sense, symbols are very similar to enums, except that they do not provide type safety: all symbols are of type "symbol", whereas enums have their own distinct types.
+
+Symbols are also used for meta-programming, which we will learn more about later.
+
+
+
+## Fixed-width Strings
+
+In many data science applications we have to deal with strings that are only a few characters long.
+For example, city names are usually very short, and country codes are only two characters long.
+
+For better performance, it is advantageous to store such data using a fixed-width string. 
+This can be done using the InlineStrings.jl package, which provides eight fixed-width string types of up to 255 bytes.
+
+
+```  {.julia}
+julia> using InlineStrings
+
+julia> country = InlineString("South-Korea")
+"South-Korea"
+
+julia> typeof(country)
+String15
+```
+
+
+TODO: Move this to chapter 5.
+
+## Annotated Strings
+
+Is is possible to store additional information inside a string by 
+
+``` {.julia}
+julia> printstyled("WARNING!", color=:red, bold=true, blink=true)
+WARNING!
+
+julia> str = styled"{green:Avocados} are {bold:green}"
+"Avocados are green"
+```
 
 
 

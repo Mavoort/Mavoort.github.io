@@ -1,0 +1,29 @@
+---
+title: "DataFrames"
+author: "Marcel Angenvoort"
+date: 2025-01-05
+bibliography: references.bib
+abstract: >
+  lorem ipsum
+keywords: ["julia", "programming"]
+jupyter: julia-1.11
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: data_frames.html
+    code-line-numbers: false
+  revealjs:
+    output-file: data_frames-slides.html
+#    footer: Numerical Linear Algebra
+#  typst:
+#    output-file: data_frames.pdf
+---
+
+
+What is DataFrames.jl?
+----------------------
+
+TODO: 
+[DataFrames.jl](https://dataframes.juliadata.org/stable/)
+

@@ -25,31 +25,56 @@ format:
 Types in Julia
 --------------
 
-Recall that for any variable x, you can determine it's type via:
+There are two types of programming languages:
+Statically typed systems such as C++, where each variable must be of a particular type before execution, and dynamically typed systems, where the type is not known until runtime.
+Julia is a dynamically typed language, but still has the ability to specify certain types for better efficiency.
+
+. . .
+
+Recall that you can specify the type of a variable either by calling its constructor, or via using the :: operator:
+
 ``` {.julia}
-typeof(x)
-``` 
+julia> x::Float64 = 8
+8
 
-There are:
+julia> typeof(x)
+Float64
+```
 
--  _composite types_
--  _primitive types_
+We can determine the type of a variable with the `typeof()` function.
 
-There are _composite types_, which are made up of smaller types, and _primitive types_, such as Real, Char and Int. You can use `isprimitivetype(type)`
-to check whether a type is a primitive type. 
-
-If you are coming from an object-oriented language such as C++, you are probably familiar with inheritance. 
-The type hierarchy in Julia is very similar, except that it also works for primitive types.
-
-
-
-We can use `subtype()` and `supertype()` to explore the type hierarchy in Julia.
-For example, the type Float64 is a subtype of AbstractFloat, which 
-
-
-You can check whether a type is a subtype of another type with the <: operator.
 
 ---
+
+
+Types in Julia are organised in a hierarchy, 
+which is very similar to inheritance in object-oriented languages such as C++,
+except that it also works for primitive types.
+Each type has exactly one parent type and possibly several child types,
+which can be determined using the `supertype` and `subtype` cmmands.
+
+. . .
+
+
+``` {.julia}
+julia> subtypes(Real)
+4-element Vector{Any}:
+ AbstractFloat
+ AbstractIrrational
+ Integer
+ Rational
+
+julia> supertype(Float64)
+AbstractFloat
+```
+
+For example, `Real` is an abstract type representing real numbers, which has subtypes for rational, integer, and floating-point types.
+
+
+---
+
+
+This way we can display the complete type tree:
 
 ![**Types in Julia.**  
 Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is hereby licensed under [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Types_in_Julia-drawio.svg){.svg-image}
@@ -57,15 +82,270 @@ Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is her
 
 ---
 
+As you can see, each type is a subtype of the type `Any`.
+We can check whether a type is a subtype of another using the <: operator.
 
-[The Unreasonable Effectiveness of Multiple Dispatch](https://www.youtube.com/live/kc9HwsxE1OY?si=BzU6ya8KSfWBK2Qx) by Julian Karpinski
+``` {.julia}
+julia> Float64 <: Any
+true
+```
+
+. . .
+
+_Concrete types_ such as Float64 or Int64 can be instantiated, whereas _abstract types_ exist only in the type hierarchy.
+
+``` {.julia}
+julia> isconcretetype(Float64)
+true
+
+julia> isabstracttype(AbstractFloat)
+true
+```
+
+. . .
+
+There are also _composite types_, which are made up of many smaller types.
+
+``` {.julia}
+struct Person
+  name::String
+  age::Int
+  married::Bool
+end
+```
+
+. . .
+
+::: {.callout-important}
+# Important
+
+Composite types in Julia are not the same as classes in other languages.
+They don't support inheritance and can't have member functions.
+:::
+
+. . .
+
+To instantiate a variable of that type, we call it's constructor.
+
+``` {.julia}
+julia> author = Person("Marcel", 29, false)
+Person("Marcel", 29, false)
+
+julia> typeof(author)
+Person
+```
+
+As usual, we can access the member variables of a composite type using the . notation.
+
+``` {.julia}
+julia> author.name
+"Marcel"
+
+julia> author.age
+29
+
+julia> author.married
+false
+```
+
+. . .
+
+By default, composite types are immutable, meaning they cannot be changed.
+However, an immutable object can contain mutable fields, such as arrays, which remain mutable. 
+
+To define a mutable type, use the `mutable` keyword.
+If you want to ensure that a particular field remains constant in an otherwise mutable object, you can do this using the `const` keyword.
+
+``` {.julia}
+mutable struct Triple
+  a::Int
+  b::Real
+  const c::Char
+end
+
+julia> X = Triple(8, 3.7, 'K')
+Triple(8, 3.7, 'K')
+
+julia> X.a = 5
+5
+
+julia> X.c = 'M'
+ERROR: setfield!: const field .c of type Triple cannot be changed
+Stacktrace:
+[...]
+```
+
+---
+
+TODO: Ist das wichtig?
+
+Abstract, primitive and composite types are all instances of the same concept, `DataType`, which is the type of these types.
+
+``` {.julia}
+julia> typeof(Real)
+DataType
+
+julia> typeof(Person)
+DataType
+
+julia> typeof(DataType)
+DataType
+```
+
+
+
+
+
+Type Unions
+-----------
+
+What if you want to specify that a function accepts signed and unsigned integers, but not bool?
+You can use a union type.
+
+The concept is similar in other programming languages.
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+IntOrString = Union{Int, AbstractString}
+
+x = 8::IntOrString
+x = "Hello!"
+
+println(x)
+```
+
+## C++
+``` {.cpp}
+using IntOrString = std::variant<int, std::string>;
+
+auto x = IntOrString(8);
+x = "Hello!";
+
+std::println(std::get<std::string>(x));
+```
+:::
+
+A particularly useful case of a Union type is `Union{T, Nothing}`, which would be equivalent to `std::optional` in C++.
+
+
+
+
+
+Parametric Types
+----------------
+
+Types in Julia can take parameters, so type declarations introduce a whole family of types.
+This concept is known in other programming languages as _generic programming_.
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+struct Point{T}
+    x::T
+    y::T
+end
+
+P = Point{Float64}(5, 8)
+```
+
+## C++
+``` {.cpp}
+template <typename T>
+stuct Point {
+  T x;
+  T y;
+}
+
+auto P = Point<double>(5, 8)
+```
+:::
+
+::: {.callout-warning}
+# Warning
+
+Note that although `Float64` is a subtype of `Real`, we **do NOT** have:
+
+``` {.julia}
+julia> Point{Float64} <: Point{Real}
+false
+```
+:::
+
+In other words, Julia's type parameters are _invariant_.
+
+. . .
+
+Let's say we want to write a generic function that can take `Point{Float64}` as an argument.
+The following method won't work:
+
+``` {.julia}
+function norm(p::Point{Real})
+    sqrt(p.x^2 + p.y^2)
+end
+```
+
+Since `Point{Float64}` is not a subtype of `Point{Real}`, the function can't take `Point{Float64}` as an argument.
+
+. . .
+
+**The correct way to define a method that accepts all arguments of type `Point{T}` where `T` is a subtype of `Real` is**:
+
+``` {.julia}
+function norm(p::Point{<:Real})
+    sqrt(p.x^2 + p.y^2)
+end
+```
+
+Alternatively, one could also write
+
+``` {.julia}
+function norm(p::Point{T}) where T<:Real;
+    sqrt(p.x^2 + p.y^2)
+end
+```
+
+. . .
+
+::: {.callout-note}
+# Exercise
+
+Implement a parametric type for rational numbers.
+:::
+
+
+::: {.callout-note collapse="true"}
+# Solution
+
+``` {.julia}
+struct Rational{T<:Integer} <: Real
+    num::T
+    den::T
+end
+```
+:::
+
+
+
+
+
+Tuples
+------
+
+sdf
+
+
+
+
+
 TODO:
+-----
 
 - Julias Types System, Multiple Dispatch
 - Functional Programming (map, reduce; Beispiel FP vs OOP, normalverteilung)
 - Arrays
 - Sets
 - Dictionaries
-
-
 
