@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Marcel Angenvoort">
-  <meta name="dcterms.date" content="2025-07-01">
-  <meta name="keywords" content="math, optimization, julia, 90-01, 90C30">
+  <meta name="dcterms.date" content="2025-01-02">
+  <meta name="keywords" content="math, 65Fxx, numerical linear algebra, julia">
   <title>Mathematics Weekly – Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -166,31 +166,80 @@ Marcel Angenvoort
 </div>
 </div>
 
-  <p class="date">2025-07-01</p>
+  <p class="date">2025-01-02</p>
 </section>
-<section id="why-learn-optimization" class="title-slide slide level2">
-<h2>Why learn Optimization?</h2>
-<p>normal text, <em>italic text</em>, <strong>bold text</strong>, <strong><em>bold italics</em></strong></p>
-
-<img data-src="images/example_for_optimization.jpg" class="fragment r-stretch quarto-figure-center"><p class="caption"><strong>nonlinear optimization</strong><br>
-source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></section>
+<section id="why-learn-numerical-linear-algebra" class="title-slide slide level2">
+<h2>Why learn Numerical Linear Algebra?</h2>
+<aside class="notes">
+<p>Numerical linear algebra is the foundation of modern scientific computing. It deals with the numerical approximation of problems such as linear systems and eigenvalue problems. Many techniques for solving differential equations, such as the finite element method (FEM) or the finite difference method, lead to a system of linear equations; As such, numerical linear algebra has many applications: from image and signal processing to computational physics, data science and more.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment">Numerical linear algebra is the foundation of scientific computing</li>
+<li class="fragment">it deals with numerical approximation of linear systems and Eigenvalue problems</li>
+<li class="fragment">techniques for solving PDEs often lead to a system of linear equations</li>
+<li class="fragment">many applications: signal processing, computational physics, data science, …</li>
+</ul>
+</section>
 
 <section>
 <section id="about-this-course" class="title-slide slide level2">
 <h2>About this Course</h2>
-<p><strong>Target audience</strong>:</p>
-<p><strong>Prerequisites</strong>:</p>
+<p><strong>Target Audience</strong>:</p>
 <ul>
-<li class="fragment">Linear Algebra</li>
-<li class="fragment">Calculus</li>
-<li class="fragment">Programming (Python/Julia)</li>
+<li class="fragment">Students in math/physics/engineering</li>
+<li class="fragment">Engineers who want to gain a deeper understanding of numerical algorithms</li>
+<li class="fragment">anyone who is interested in scientific computing</li>
 </ul>
+<div class="fragment">
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li class="fragment">solid knowledge of Linear Algebra</li>
+<li class="fragment">basic programming skills (Julia/Python/MATLAB)</li>
+</ul>
+<aside class="notes hidden">
+<p><strong>Target Audience</strong> This course is primarily aimed at undergraduate students of mathematics, physics and engineering. However, it is also suitable for engineers who use these algorithms (linear solvers, multigrid methods) in commercial software and want to gain a deeper understanding of how they work.</p>
+<p><strong>Prerequisites</strong> This is not a linear algebra course, so a solid understanding of linear algebra is required. For the implementation of the numerical algorithms, it is also useful to have some programming skills in either MATLAB, Python or Julia. However, there will be a short introduction to Julia programming at the beginning, so basic programming skills are sufficient.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section>
 <section id="syllabus" class="slide level3">
 <h3>Syllabus</h3>
 <ul>
-<li class="fragment">Week 1 – 5: Intro to Julia</li>
-<li class="fragment">Week 6 – 10: Algorithms for dense matrices</li>
+<li class="fragment">Week 1 – 5: Introduction to Julia</li>
+<li class="fragment">Week 6 – 10: Algorithms for dense matrices
+<ul>
+<li class="fragment">Perturbation theory</li>
+<li class="fragment">Direct solvers for linear systems</li>
+<li class="fragment">Iterative solvers for linear systems (Gauss-Seidel)</li>
+<li class="fragment">Calculation of Eigenvalues (power method)</li>
+</ul></li>
+<li class="fragment">Week 11 – 26: Algorithms for sparse matrices
+<ul>
+<li class="fragment">Sparse LU-decompostion</li>
+<li class="fragment">Sparse matrix ordering algorithms</li>
+<li class="fragment">Krylow methods (CG, BiCGStab, GMRES)</li>
+<li class="fragment">Special iteration methods (multigrid, domain decomposition)</li>
+</ul></li>
 </ul>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -210,8 +259,23 @@ source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></sec
 </section></section>
 <section>
 
-<section id="recommended-textbooks" class="slide level3">
-<h3>Recommended Textbooks</h3>
+<section id="theoretical-textbooks" class="slide level3">
+<h3>Theoretical Textbooks</h3>
+<aside class="notes">
+<p>The standard textbook is <span class="citation" data-cites="Matrix_Computations_Golub">(<a href="#/references" role="doc-biblioref" onclick="">Golub and Van Loan 2013</a>)</span>; it has over <a href="https://zbmath.org/1268.65037">1500 citations</a> and covers basically everything. However, it is very dense and not very pleasant to read. I would recommend it more as a reference book rather than for self study.</p>
+<p>A good alternative is probably <span class="citation" data-cites="NumLinAlg_Rannacher">(<a href="#/references" role="doc-biblioref" onclick="">Rannacher 2018</a>)</span>, which is very readable and can be used as an introductory textbook. It is open-access.</p>
+<p>The book <span class="citation" data-cites="Numerik_LGS_Meister">(<a href="#/references" role="doc-biblioref" onclick="">Meister 2015</a>)</span> is written by a former professor of mine. It is particularly interesting because it covers advanced Krylow-methods such as <a href="https://doi.org/10.1137/0915023">QMRCGSTAB</a> and has a large chapter on Multigrid methods.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div>
 
 </div>
@@ -220,8 +284,8 @@ source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></sec
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Convex_Optimization-Boyd.jpg" class="fragment"></p>
-<figcaption><span class="citation" data-cites="Convex_Optimization_Boyd">(<a href="#/references" role="doc-biblioref" onclick="">Boyd and Vandenberghe 2004</a>)</span></figcaption>
+<p><img data-src="images/literature/Matrix_Computations-Golub.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Matrix_Computations_Golub">(<a href="#/references" role="doc-biblioref" onclick="">Golub and Van Loan 2013</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -231,8 +295,8 @@ source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></sec
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Optimization-Nocedal.jpg" class="fragment"></p>
-<figcaption><span class="citation" data-cites="Numerical_Optimization_Nocedal">(<a href="#/references" role="doc-biblioref" onclick="">Nocedal and Wright 2006</a>)</span></figcaption>
+<p><img data-src="images/literature/Numerical_Linear_Algebra-Rannacher.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="NumLinAlg_Rannacher">(<a href="#/references" role="doc-biblioref" onclick="">Rannacher 2018</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -242,8 +306,43 @@ source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></sec
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Nichtlineare_Optimierung.jpg" class="fragment"></p>
-<figcaption><span class="citation" data-cites="Nichtlineare_Optimierung">(<a href="#/references" role="doc-biblioref" onclick="">Rüdiger Reinhardt and Hoffmann 2013</a>)</span></figcaption>
+<p><img data-src="images/literature/Numerik_linearer_Gleichungssysteme-Meister.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Numerik_LGS_Meister">(<a href="#/references" role="doc-biblioref" onclick="">Meister 2015</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-textbooks" class="slide level3">
+<h3>Practical Textbooks</h3>
+<aside class="notes">
+<p>The book <span class="citation" data-cites="NumLinAlg_Wendland">(<a href="#/references" role="doc-biblioref" onclick="">Wendland 2018</a>)</span> is probably the best, in my opinion; it is well structured and has a good balance between theory and application. The algorithms are given in pseudocode, which makes it easy to implement them in the programming language of your choice.</p>
+<p>Since numerical linear algebra is a very practical subject, I think a good book should also include implementations of the actual algorithms. This is the case for <span class="citation" data-cites="NumLinAlg_Matrix_Factorizations">(<a href="#/references" role="doc-biblioref" onclick="">Lyche 2020</a>)</span>, which has code in MATLAB/Octave, and for <span class="citation" data-cites="NumLinAlg_Julia">(<a href="#/references" role="doc-biblioref" onclick="">Darve and Wootters 2021</a>)</span>, which has implementations in Julia. The former also has a <a href="https://link.springer.com/book/10.1007/978-3-030-59789-4">companion book</a> containing many exercises and solutions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div>
+
+</div>
+<div class="figure quarto-layout-panel" data-layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Numerical_Linear_Algebra-An_Introduction.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="NumLinAlg_Wendland">(<a href="#/references" role="doc-biblioref" onclick="">Wendland 2018</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -253,36 +352,126 @@ source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></p></sec
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Algorithms_for_Optimization.jpg" class="fragment"></p>
-<figcaption><span class="citation" data-cites="Algorithms_for_Optimization">(<a href="#/references" role="doc-biblioref" onclick="">Kochenderfer and Wheeler 2019</a>)</span></figcaption>
+<p><img data-src="images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="NumLinAlg_Matrix_Factorizations">(<a href="#/references" role="doc-biblioref" onclick="">Lyche 2020</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Numerical_Linear_Algebra_with_Julia-large.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="NumLinAlg_Julia">(<a href="#/references" role="doc-biblioref" onclick="">Darve and Wootters 2021</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</section>
+<section id="advanced-textbooks" class="slide level3">
+<h3>Advanced Textbooks</h3>
+<aside class="notes">
+<p>The books <span class="citation" data-cites="Algos_sparse_LinSys">(<a href="#/references" role="doc-biblioref" onclick="">Scott and Tůma 2023</a>)</span> and <span class="citation" data-cites="Iterative_Solution">(<a href="#/references" role="doc-biblioref" onclick="">Hackbusch 2016</a>)</span> both deal with sparse matrices, but have a very different focus. While the former covers direct methods and matrix decompositions for developing algebraic preconditioners, the latter deals with advanced iterative methods for sparse systems, such as Krylov, multigrid or domain decomposition methods. There is also <span class="citation" data-cites="Direct_Methods">(<a href="#/references" role="doc-biblioref" onclick="">Davis 2006</a>)</span>, which is entirely about direct methods for sparse linear systems.</p>
+<p>For Eigenvalue problems, there is <span class="citation" data-cites="Large_Eigenvalue_Problems">(<a href="#/references" role="doc-biblioref" onclick="">Saad 2011</a>)</span>, which focuses on Krylov methods, but also covers modern techniques such as AMLS and the Jacobi-Davidson method. The book is accompanied by MATLAB codes, and has an interesting chapter on applications in physics.</p>
+<p>It is probably a good idea to look at some of these books later in this course and focus on individual chapters that are of most interest.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div>
+
+</div>
+<div class="figure quarto-layout-panel" data-layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Algorithms_for_Sparse_Linear_Systems.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Algos_sparse_LinSys">(<a href="#/references" role="doc-biblioref" onclick="">Scott and Tůma 2023</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Iterative_Solution_of_Large_Sparse_Systems_of_Equations.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Iterative_Solution">(<a href="#/references" role="doc-biblioref" onclick="">Hackbusch 2016</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Direct_Methods_for_Sparse_Linear_Systems.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Direct_Methods">(<a href="#/references" role="doc-biblioref" onclick="">Davis 2006</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg" class="fragment"></p>
+<figcaption><span class="citation" data-cites="Large_Eigenvalue_Problems">(<a href="#/references" role="doc-biblioref" onclick="">Saad 2011</a>)</span></figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section></section>
-<section id="online-courses" class="title-slide slide level2">
-<h2>Online Courses</h2>
-<ul>
-<li class="fragment"><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h">Stanford EE364A Convex Optimization</a> by <strong>Stephen Boyd</strong>, 2023</li>
-<li class="fragment"><a href="https://www.youtube.com/playlist?list=PLdkTDauaUnQpzuOCZyUUZc0lxf4-PXNR5">Optimization Method for Machine Learning</a> by <strong>Julius Pfrommer</strong>, KIT 2020/21</li>
-</ul>
-</section>
-
 <section id="references" class="title-slide slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Convex_Optimization_Boyd" class="csl-entry" role="listitem">
-Boyd, Stephen, and Lieven Vandenberghe. 2004. <em>Convex Optimization</em>. Cambridge University Press. <a href="https://web.stanford.edu/~boyd/cvxbook/">https://web.stanford.edu/~boyd/cvxbook/</a>.
+<div id="ref-NumLinAlg_Julia" class="csl-entry" role="listitem">
+Darve, Eric, and Mary Wootters. 2021. <em>Numerical Linear Algebra with Julia</em>. Philadelphia: Society for Industrial; Applied Mathematics.
 </div>
-<div id="ref-Algorithms_for_Optimization" class="csl-entry" role="listitem">
-Kochenderfer, Mykel J., and Tim A. Wheeler. 2019. <em>Algorithms for Optimization</em>. Cambridge, MA: The MIT Press. <a href="https://algorithmsbook.com/optimization/">https://algorithmsbook.com/optimization/</a>.
+<div id="ref-Direct_Methods" class="csl-entry" role="listitem">
+Davis, Timothy A. 2006. <em>Direct Methods for Sparse Linear Systems</em>. SIAM.
 </div>
-<div id="ref-Numerical_Optimization_Nocedal" class="csl-entry" role="listitem">
-Nocedal, Jorge, and Stephen J. Wright. 2006. <em>Numerical Optimization</em>. 2nd ed. Springer.
+<div id="ref-Matrix_Computations_Golub" class="csl-entry" role="listitem">
+Golub, Gene H., and Charles F. Van Loan. 2013. <em>Matrix Computations</em>. 4th ed. Baltimore, MD: The Johns Hopkins University Press.
 </div>
-<div id="ref-Nichtlineare_Optimierung" class="csl-entry" role="listitem">
-Rüdiger Reinhardt, Armin, and Tobias Gerlach Hoffmann. 2013. <em>Nichtlineare Optimierung: Theorie, Numerik Und Experimente</em>. Springer Spektrum.
+<div id="ref-Iterative_Solution" class="csl-entry" role="listitem">
+Hackbusch, Wolfgang. 2016. <em>Iterative Solution of Large Sparse Systems of Equations</em>. 2nd ed. Springer.
+</div>
+<div id="ref-NumLinAlg_Matrix_Factorizations" class="csl-entry" role="listitem">
+Lyche, Tom. 2020. <em>Numerical Linear Algebra and Matrix Factorizations</em>. Cham, Switzerland: Springer.
+</div>
+<div id="ref-Numerik_LGS_Meister" class="csl-entry" role="listitem">
+Meister, Andreas. 2015. <em>Numerik Linearer Gleichungssysteme</em>. 5th ed. Springer Spektrum.
+</div>
+<div id="ref-NumLinAlg_Rannacher" class="csl-entry" role="listitem">
+Rannacher, Rolf. 2018. <em>Numerical Linear Algebra</em>. Heidelberg University Publ. <a href="https://doi.org/10.17885/heiup.407">https://doi.org/10.17885/heiup.407</a>.
+</div>
+<div id="ref-Large_Eigenvalue_Problems" class="csl-entry" role="listitem">
+Saad, Yousef. 2011. <em>Numerical Methods for Large Eigenvalue Problems</em>. 2nd ed. SIAM.
+</div>
+<div id="ref-Algos_sparse_LinSys" class="csl-entry" role="listitem">
+Scott, Jennifer, and Miroslav Tůma. 2023. <em>Algorithms for Sparse Linear Systems</em>. Cham, Switzerland: Birkhäuser. <a href="https://doi.org/10.1007/978-3-031-25820-6">https://doi.org/10.1007/978-3-031-25820-6</a>.
+</div>
+<div id="ref-NumLinAlg_Wendland" class="csl-entry" role="listitem">
+Wendland, Holger. 2018. <em>Numerical Linear Algebra: An Introduction</em>. Cambridge University Press.
 </div>
 </div>
 

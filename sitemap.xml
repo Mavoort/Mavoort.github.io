@@ -2,34 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mathematics-weekly.org/Optimization/introduction.html</loc>
-    <lastmod>2025-01-05T21:21:30.833Z</lastmod>
+    <lastmod>2025-01-31T12:52:56.489Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/Optimization/introduction-presentation.html</loc>
-    <lastmod>2025-01-05T21:21:30.833Z</lastmod>
+    <loc>https://mathematics-weekly.org/Optimization/introduction-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.489Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/introduction.html</loc>
-    <lastmod>2025-01-05T21:21:30.831Z</lastmod>
+    <loc>https://mathematics-weekly.org/NumLinAlg/julia_ecosystem.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/introduction-presentation.html</loc>
-    <lastmod>2025-01-05T21:21:30.831Z</lastmod>
+    <loc>https://mathematics-weekly.org/NumLinAlg/julia_ecosystem-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/index.html</loc>
-    <lastmod>2025-01-05T21:21:30.835Z</lastmod>
+    <loc>https://mathematics-weekly.org/NumLinAlg/julias_type_system.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/julias_type_system-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
   </url>
   <url>
     <loc>https://mathematics-weekly.org/about.html</loc>
-    <lastmod>2025-01-05T21:21:30.834Z</lastmod>
+    <lastmod>2025-01-31T12:52:56.491Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julia_basics-presentation.html</loc>
-    <lastmod>2025-01-05T21:21:30.816Z</lastmod>
+    <loc>https://mathematics-weekly.org/index.html</loc>
+    <lastmod>2025-01-31T12:52:56.491Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/julia_basics-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
   </url>
   <url>
     <loc>https://mathematics-weekly.org/NumLinAlg/julia_basics.html</loc>
-    <lastmod>2025-01-05T21:21:30.816Z</lastmod>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/data_frames-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/data_frames.html</loc>
+    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/introduction-slides.html</loc>
+    <lastmod>2025-01-31T12:52:56.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mathematics-weekly.org/NumLinAlg/introduction.html</loc>
+    <lastmod>2025-01-31T12:52:56.487Z</lastmod>
   </url>
 </urlset>
