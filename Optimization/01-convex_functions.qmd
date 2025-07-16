@@ -1,0 +1,86 @@
+---
+title: "Introduction"
+author: "Marcel Angenvoort"
+date: 2025-07-01
+#doi: 10.5555/12345678
+bibliography: "references.bib"
+abstract: >
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+keywords: ["math", "optimization", "julia", "90-01", "90C30"]
+jupyter: julia-1.11
+execute:
+  enabled: false
+format: 
+  html: 
+    output-file: convex_functions.html
+  revealjs:
+    output-file: convex_functions-slides.html
+#  typst:
+#    output-file: introduction.pdf
+---
+
+
+TODO:
+
+- Calculus Basics: Gradient, Hessian matrix, Taylor-approximation
+- Convexity: Def. convex Set, Def. convex function, convex hull (smalles convex set that contains M)
+- examples: norm(x), affine fct. f(x) = c.T x + b, quadratic fct. x.T A x
+- equivalent: function convex, iff Epigraph is convex (see image)
+- Jennsen-inequality
+- convex <==> Hessian is positive semi-definite
+- necessary condition: If $\hat{x}$ is local minimum of $f$, then $\nabla f(\hat{x}) = 0$
+- sufficient condition: $\nabla f(\hat{x}) = 0$ and $H f(\hat{x})$ pos. definit, then local minimum 
+- Optimization algorithms: iterative. Typees: gradient based, trust-region, 
+
+
+
+$$
+f(\mathbf{x}^\ast + h\Delta \mathbf{x}) = f(\mathbf{x}^\ast) + h \underbrace{\nabla f(\mathbf{x}^\ast) \cdot \Delta \mathbf{x}}_{=0} + \frac{1}{2} \Delta \mathbf{x}^\mathrm{T} H \Delta \mathbf{x} + \mathcal{O}(h^3)
+$$
+
+Since $f(\mathbf{x}^\ast + h \Delta \mathbf{x}) > f(\mathbf{x}^\ast)$, and $\nabla f(\mathbf{x}^\ast) = \mathbf{0}$, we have
+$$
+\Delta \mathbf{x}^\mathrm{T} H \Delta \mathbf{x} \gt 0
+$$
+
+::: {.callout-tip .fragment}
+## Himmelblau-function
+
+The [Himmelblau function](https://en.wikipedia.org/wiki/Himmelblau%27s_function) is a common test function for optimization problems.
+It is defined by:
+
+$$
+f(x,y) = (x^2 + y - 11)^2 + (x + y^2 - 7)^2
+$$
+
+This function has four identical local minima, one of which is $f(3, 2) = 0$.
+:::
+
+```{.julia}
+using Symbolics
+using LinearAlgebra
+
+vars = @variables x, y
+f = (x^2 + y - 11)^2 + (x + y^2 -7)^2   # Himmelblau's function
+H = Symbolics.hessian(f, vars)
+H_at_point = substitute.(H, Ref(Dict( x=>1.0, y=>2.0) ))
+isposdef(H_at_point)
+```
+
+Contour plot:
+
+``` {.julia}
+using Plots
+theme(:dark)    # requires Pkg PlotThemes
+
+f(x,y) = (x^2 + y - 11)^2 + (x + y^2 - 7)^2
+
+x = range(-5, 5, length=100);
+y = range(-5, 5, length=50);
+z = @. f(x', y);
+
+contour(x, y, z, levels=20, color=:turbo, cbar=false, lw=1)
+title!("Contour Plot of the Himmelblau function")
+xlabel!("x")
+ylabel!("y")
+```

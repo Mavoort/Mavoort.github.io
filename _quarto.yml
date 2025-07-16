@@ -2,25 +2,28 @@ project:
     type: website
     #pre-render: source env/bin/activate
     #post-render: deactivate
+    preview:
+      host: '0.0.0.0'
+      port: 8000
     render:
         - index.md
         - about.md
-        #        - posts/*
+        - posts/*
         - NumLinAlg/*
         - Optimization/*
-#        - Finite_Element_Method/*
+        - Finite_Element_Method/*
 #        - Machine_Learning/*
-#        - Statistics/*
 #        - GameDev/*
+#        - Statistics/*
 #        - Computational_Fluid_Dynamics/*
 #        - Deep_Learning/*
 #        - Stochastic_Calculus/*
 #        - Rendering/*
-#        - Parallel_Computing/*
+        - Parallel_Computing/*
 #        - demo/demo.qmd
 
 website:
-    title: "Mathematics Weekly"
+    title: "My Notes"
     favicon: logo.png
     navbar:
         search: true
@@ -35,57 +38,73 @@ website:
         contents:
             - section: "Numerical Linear Algebra"
               contents:
-                  - href: NumLinAlg/introduction.html
+                  - href: NumLinAlg/index.html
                     text: Introduction
                   - href: NumLinAlg/julia_basics.html
                     text: Julia Basics
                   - href: NumLinAlg/julias_type_system.html
                     text: Julias Type System
-#            - section: "Optimization"
-#              contents:
-#                  - href: Optimization/introduction.html
-#                    text: Introduction
-#            - section: "Finite Element Method"
-#              contents:
-#                  - href: Finite_Element_Method/introduction.html
-#                    text: Introduction
-#                  - href: Finite_Element_Method/polynomial_approximation_1d.html
-#                    text: Polynomial Approximation in 1D
+                  - href: NumLinAlg/julia_dataframes.html
+                    text: Data Analysis with Julia
+                  - href: NumLinAlg/julia_ecosystem.html
+                    text: Important Julia Packages
+                  - href: NumLinAlg/basics_of_linalg.html
+                    text: Basics of Linear Algebra
+            - section: "Optimization"
+              contents:
+                  - href: Optimization/index.html
+                    text: Introduction
+                  - href: Optimization/convex_functions.html
+                    text: Convex Functions
+            - section: "Parallel Computing"
+              contents:
+                - href: Parallel_Computing/index.html
+                  text: Introduction
+                - href: Parallel_Computing/openmp.html
+                  text: OpenMP
+                - href: Parallel_Computing/mpi.html
+                  text: MPI
+            - section: "Finite Element Method"
+              contents:
+                  - href: Finite_Element_Method/index.html
+                    text: Introduction
+                  - href: Finite_Element_Method/polynomial_approximation_1d.html
+                    text: Polynomial Approximation in 1D
 #            - section: "Machine Learning"
 #              contents:
-#                  - href: Machine_Learning/introduction.html
+#                  - href: Machine_Learning/index.html
 #                    text: Introduction
 #                  - href: Machine_Learning/probabilistic_inference.html
 #                    text: Probabilistic Inference
-#            - section: "Statistics"
-#              contents:
-#                  - href: Statistics/introduction.html
-#                    text: Introduction
-#                  - href: Statistics/programming_with_r.html
-#                    text: Programming with R
 #            - section: "Game Development"
 #              contents:
-#                  - href: GameDev/introduction.html
+#                  - href: GameDev/index.html
 #                    text: Introduction
 #                  - href: GameDev/representing_real_numbers.html
 #                    text: Representing Real Numbers
 #                  - href: GameDev/vectors.html
 #                    text: Vectors
+#            - section: "Statistics"
+#              contents:
+#                  - href: Statistics/index.html
+#                    text: Introduction
+#                  - href: Statistics/programming_with_r.html
+#                    text: Programming with R
 #            - section: "Computational Fluid Dynamics"
 #              contents:
-#                  - href: Computational_Fluid_Dynamics/introduction.html
+#                  - href: Computational_Fluid_Dynamics/index.html
 #                    text: Introduction
 #            - section: "Deep Learning"
 #              contents:
-#                  - href: Deep_Learning/introduction.html
-#                    text: Introduction
-#            - section: "Stochastic Calculus"
-#              contents:
-#                  - href: Stochastic_Calculus/introduction.html
+#                  - href: Deep_Learning/index.html
 #                    text: Introduction
 #            - section: "Rendering"
 #              contents:
-#                  - href: Rendering/introduction.html
+#                  - href: Rendering/index.html
+#                    text: Introduction
+#            - section: "Stochastic Calculus"
+#              contents:
+#                  - href: Stochastic_Calculus/index.html
 #                    text: Introduction
 
 format:
@@ -150,6 +169,7 @@ format:
         #include-after-body:
         #    - file: include_pseudocode-body.html
         page-layout: article
+        csl: ieee.csl
         code:
             highlight-style: monokai
         code-line-numbers: false
@@ -184,7 +204,7 @@ revealjs-plugins:
 execute:
     output: true
     freeze: auto
-    #cache: true
+    cache: true
 
 filters:
     - convert_svg.lua

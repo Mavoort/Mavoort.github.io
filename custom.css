@@ -157,4 +157,10 @@ iframe {
 body.quarto-light img.svg-image {
 	filter: invert(0.95);
 }
+body.quarto-light img.svg-light {
+	filter: invert(0.95);
+}
+body.quarto-dark img.svg-dark {
+	filter: invert(0.95);
+}
 

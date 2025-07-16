@@ -7,7 +7,7 @@ abstract: >
   Last week we started programming with Julia, covering basic control flow, functions and strings. 
   In this video we will learn about Julias type system and a very powerful mechanism called "multiple dispatch".
   We will also talk about important data structures such as arrays, sets and dictionaries.
-keywords: ["julia", "programming"]
+keywords: ["julia", "programming", "scientific computing"]
 jupyter: julia-1.11
 execute:
   enabled: false
@@ -77,7 +77,7 @@ For example, `Real` is an abstract type representing real numbers, which has sub
 This way we can display the complete type tree:
 
 ![**Types in Julia.**  
-Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is hereby licensed under [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Types_in_Julia-drawio.svg){.svg-image}
+This figure was created with [draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Julia_Types-diagrama.drawio&dark=auto#R%3Cmxfile%3E%3Cdiagram%20id%3D%22R2lEEEUBdFMjLlhIrx00%22%20name%3D%22Page-1%22%3E7V1tc%2BI2EP41fMwNfnc%2BBpJckyZtmjS966eOsIVRYyxGFgncrz8JJF4kAw5nGxuYYe7wWqxh9ezus2tZaVnd4eQrAaPBIw5h3DLb4aRlXbdM0zBdm%2F3HJdO5xGz7QhIRFIpRS8EL%2BgGFsC2kYxTCdG0gxTimaLQuDHCSwICuyQAh%2BGN9WB%2FH61cdgQhqgpcAxLr0GwrpYC71TW8p%2Fw2iaCCvbLiX8zM9ELxFBI8Tcb0EJ3B%2BZgikGvEb0wEI8ceaCE7oLU6o%2BPJPkAxBAhPKzjwC8gZJy7kZUMptcNUyb9mrz0d%2FiTCOYghGKP0S4CETBykbctsHQxTzGVhR1BGK2OWsm5bVJRjT%2BbvhpAtjPo1ygubf6XbD2YWFCNeb4wNu%2FHTzz18X9%2FeP%2F3W%2B37Yf6bf75EJoeQfxWFi%2BxQYyfZ0eexPxN1fJVMqY8oVY2JBO5ZTNjA75xdrs9McAUfgyAgE%2F%2B8FQymQDOozZkcHehogw2CCc8LMw5Qr7KI67OMZkps7q%2BwEMAiZPKcFvcOVMz3dsp734CqsWkD8HEgonKyJhka8QDyEl7Pe0xVnLE34hHOXCaLcFFj5WcCdEgxXI2UIGBFiihe7lHLA3Yho%2BMSWmZlkYMt8Qh5jQAY5wAuKbpbSzbvvlmAeMR8Li%2F0NKp8LRwZji9fmAE0S%2F849%2FccTRv0IZf389WT2YioON5k%2FxmARwN%2BooIBGku8fx3791MgmMAUXv67Gj8ImxN%2FrKwJBe8fd0xMImU5Swf%2B7HMQIrvrMcpk0xgytdn5EsB8IM2P14FrMGKAxhok09iFHEfSpgc8KiTDE%2BYqo%2BYpi6jxhZTuKX5SSONhd%2FjIe9eVzdPyrxaC4dzThUSJI2k9a%2BzDB2pQHJzZEjeswkIGDGIyiJcqWLXVNxkGzg2LttvwB%2FJcb38hv%2FihCQL1XX0faumQP31drer08mlmeKzsRezkzs1SoTX%2B52ii4ejmKGvMKZq%2BIcIYB%2BP9M53MCHvX4xzqH6hn9okirrxG1T8AxB3NhwZNi1M7mZPxWwYXcsG%2FACazkHPbKcgabOikqOvIMnCcPaPS13jIxHnJw21OyW6gxZZq%2B2SM4Rf3QPKNDw1cR9w1UM79qHNnyOjlFpVUA1Rre0bHtwo%2BcI%2FS%2FjXsPtbmsp99B2t7JKX7UkSMIr3vBmR7Ne85od15llMCbvs4N9O27MtmS68iF%2BuKgO%2BMHyY7OjX68PBNPeWR%2BIfszO%2BmBlJp2MmZSy3GWEuMITRrMuvURSW81XhgKR%2BQ8XH1uiRNfkqJpcRdPcNJqmGd4WP%2FwXIJjVADgpCMqpaxgGNarqm3ti0FTj4mW7Ygxm1dunhUErJwYlWGsCQstQQdjYQGhnEc%2FTAqHZTBAeUTa2cxDx588UnfVvPdpqCXrw2t%2FO6rgUFQk2eHV7h1dX27XPTYkkXs%2BRoPBIkLUaoJYgPPQijnrR8mOCoL4IoqYQLCsOujkhKBWeMVg4BsvskB0XBs%2BpuCwMltkiO6pU7J4hWBIE%2FQwIKnVhD%2BNjqQm1NYoHvy1pn3yLUkJwd3fIOkeBcqKAUyYhbwQIZWtoNwjPbKgsEDaGkZfFhvKuaa17Uagmy%2F0heFkaBIe3F%2B8Pdnrzu98nzkX62HPvrrIbEwobuoZJCpu9Yt3R7vBWyIKyDZ%2FnUY2SbF4N89Rs7vmHtnkW9d8%2F3tYuz28F2mqM3RoKahJkPXVpn7tvnvc8VVN5eT7TstIiReFuTwyVltq3wqmw51Uqgp2WKZw9YeerLMGvOLc7%2BjIM%2BdDBM0giqGGweQ9gupc58nppDxlkW93UrP4nCVEC4qM1%2BqJuOpzR9XUGrwmqAObVUClPXRvmVriwI9vg%2Bj11GVuqMfyBoO5mcNiKoV5s06AZJFamsoaRCUuDj7ocOHejQF1Y7Kq0pGwycYq1k8zlO2snp14NKk%2Blns7etZPaoHKqrp2KvVvUENzZeXFn1gt3avFkq7vK5C6eLBV3VrW4kzA%2FLdxlPDuxFaA1wZ1G0%2FbGnafm2cpxpzfkJbG%2BjTGgGgjTDzSMwQx9KmUOBigOH8AUj7m5UwqCN3nUGWCCfrDxQOKVnSZUbHVit9dGvPBPCnARmLIxTxJchiJ6BJO1gQ%2BAbxg3vz2F4xiMUtRbfL8hMyVKOphSPGzts4SimiJAbUTm3sjAULGTgeRnGFBWLDGbbH4czcmor72M66k1B4gpJAmgsMNjUVoKXDffxhjH6h4WMVIlizsaHRQJeGfd7VjIdA1bdM4U8u01C1ZpmYWrNNy8O39suQgTrtpciRNi27rNfYpNnQ25T10M%2B1wB9xsUgPhKiIcoDGfbKaXMa1ESPcyGXdtLybNAKBdlbYs34rF0Blmnw14MxF2e8Rz2Lbrs2FgesxcfTmgXJzwmoplPQxZjxMaUBFNAwTzC5AgnenDYHpN3h4zpuifuihBqR7iwLoF7irTZzXvLoWZP3Wn9VDVv5GUv2k5InsqDSmYvns6aX1iYYDg605aqaYu2SiXvyk9DLfGPj7Z4m7fG%2BSxtuUsKJS1MnWH6BWsslgQxhcVSIP6b3YIVft6EtaJPPEUdD4FapIVfIVCZoUrdqKMwAuWZJ0ig5Dw1bWG6qa7w2bv%2FYx16rZCXdSf7zKEOtW5UW4R25lALpG7eZP9THOq1eMrzWjjneS2c9LwWznpej4H2uMdEe6zc8aY2tKfY56IaQntybxlWL9rjqTdJrX2fQ9Fu3FqFrVVlh8s%2FnDQfvvxDWNbNTw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E) and is hereby licensed under [Public Domain (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Types_in_Julia-drawio.svg){.svg-image}
 
 
 ---
@@ -289,20 +289,24 @@ end
 
 Since `Point{Float64}` is not a subtype of `Point{Real}`, the function can't take `Point{Float64}` as an argument.
 
+
 . . .
 
+
+::: {.callout-important}
 **The correct way to define a method that accepts all arguments of type `Point{T}` where `T` is a subtype of `Real` is**:
 
 ``` {.julia}
-function norm(p::Point{<:Real})
+function norm(p::Point{T}) where T<:Real;
     sqrt(p.x^2 + p.y^2)
 end
 ```
+:::
 
 Alternatively, one could also write
 
 ``` {.julia}
-function norm(p::Point{T}) where T<:Real;
+function norm(p::Point{<:Real})
     sqrt(p.x^2 + p.y^2)
 end
 ```
@@ -331,10 +335,927 @@ end
 
 
 
-Tuples
+Arrays
 ------
 
-sdf
+Arrays are data structures that allow random access to elements.
+Arrays often represent vectors and matrices.
+Julia has built-in support for arrays, with indexing and slicing syntax similar to Python or MATLAB.
+A (column)-vector in Julia can be constructed directly using square brackets and a comma (or semicolon) as separators.
+
+
+``` {.julia}
+julia> v = [4, 8, 15, 16, 23, 42]
+6-element Vector{Int64}:
+  4
+  8
+ 15
+ 16
+ 23
+ 42
+```
+
+. . .
+
+There are built-in functions for constructing common matrices:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> zeros(Int8, (2, 3))
+2×3 Matrix{Int8}:
+ 0  0  0
+ 0  0  0
+
+julia> A = rand(2, 2)
+×2 Matrix{Float64}:
+0.380141  0.81997
+0.93474   0.0321379
+
+julia> Matrix{Float64}(I, 3, 3)
+3×3 Matrix{Float64}:
+ 1.0  0.0  0.0
+ 0.0  1.0  0.0
+ 0.0  0.0  1.0
+```
+
+## Python
+``` {.python}
+>>> A = np.zeros( (2, 3), dtype=int)
+array([[0, 0, 0],
+       [0, 0, 0]])
+
+>>> np.random.rand( 2, 2)
+array([[0.46581219, 0.93757536],
+       [0.97690228, 0.72186734]])
+
+>>> np.identity(3)
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+```
+:::
+
+. . .
+
+Note that ranges in Julia are closed, i.e. they include the endpoint.
+
+::: {.panel-tabset}
+## Julia
+``` {.julia}
+julia> collect(range(1, 5))
+1:5
+
+julia> range(0, 2*pi, length=10)
+0.0:0.6981317007977318:6.283185307179586
+```
+
+## Python
+``` {.python}
+>>> np.arange(0, 5)
+array([0, 1, 2, 3, 4])
+>>> np.linspace(0, 2*np.pi, num=10, endpoint=True)
+array([0.        , 0.6981317 , 1.3962634 , 2.0943951 , 2.7925268 ,
+       3.4906585 , 4.1887902 , 4.88692191, 5.58505361, 6.28318531])
+
+```
+:::
+
+. . .
+
+You can basic information about the data type, dimension and size of the matrix:
+
+::: {.panel-tabset}
+## Julia
+
+``` {.julia}
+julia> eltype(A)
+Float64
+
+julia> ndims(A)
+2
+
+julia> size(A)
+(2, 2)
+
+julia> length(A)
+4
+```
+
+## Python
+``` {python}
+>>> A.dtype
+dtype('int64')
+>>> A.ndim
+2
+>>> A.shape
+(2, 3)
+>>> A.size
+6
+```
+:::
+
+
+
+---
+
+
+Indexing and Slicing works very similar to MATLAB/Python:
+
+
+![**Array Slicing in Julia**  
+This image was created using [draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Array%20Slicing&dark=0#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Seite-1%22%20id%3D%22n41Uv4Qp2VjL033gDME-%22%3E3ZrLcpswFIafhpl24QySMJdl6sTpJouOO9NssSUbGoFcGd%2F69BVGwtgnnUkmtgV4Y%2FHrAvp00JkfcMgo2z3JeJk8C8q4g126c8iDgzFyA0%2F9lcq%2BUoIgrISFTKludBQm6V9memp1nVK2OmlYCMGLdHkqzkSes1lxosVSiu1ps7ngp2ddxgsGhMks5lD9ldIiqdQQB0f9O0sXiTkz8qOqJotNYz2TVRJTsW1I5NEhIylEUZWy3YjxEp7hUvUb%2F6e2vjDJ8uI9He5%2Fvjz%2FHgj5Yzr540fZ%2BmW65wNcjbKJ%2BVpP2ME%2BV%2BN9o%2BlGFRdlERlNDd6Q9bSKvWElxTqnrDydq6q3SVqwyTKelbVbFR1KS4qMqyOkiqtCilc2ElzIQ2%2FiHn71uM2J6blumCzYriHpiT4xkbFC7lUTXYtdDV1HHTKLsD2uoaelpLF8Rot11CzqkY9gVUGz%2FQBn8h7O%2BBqc5ynnDcrzmEZ0eHX%2BXsv4e4A%2FaXP4hi3DNwT4vA5GJcEtw%2BoDrMMWRyXxW4YvAPj8i0blFFE6d2%2Beq3zLWEOANejgzQ5SkG2sEcAadjFaz1OTbazGKDS4Rh0MV5CbrHNFgKtB3Y3sZB0g9FaGaSsBnueh%2BtgaQGiaDNNO3drnmcg%2BWOiG0Cft0BUyi31M0PWgPtge%2B2Ch70GfND5XSCD2MUF%2Fg%2FpgcGpi1sBCh4P6YHHsg4UeB93c5FQ15mH9tZKTbdRmT2%2Bi7oPvsQ8W%2Bp76DU6LkpN1THAPxZ1yN6FtgHCvxL1wN7bBErgzXuZlTzOl3PQZm32kb%2ByJvXBC1sFiCLZLr4DsA3zrxfql4jIXOQNEeTmrAY3l6xcFdzx%2BiHxlytTVk6FHFOyvYL%2FwLpXBvDvzcUmNfwjwo8i98zFcAvLxJVCHx89TDnWNj3zI4z8%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E)
+and is hereby released into the [public domain (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Array_Slicing.svg)
+
+
+::: {.panel-tabset}
+## Julia
+
+``` {.julia}
+A = transpose(reshape(1:25, 5, 5))
+
+red = A[:, 2:2:end]
+blue = A[2:2:end, 1:2:3]
+yellow = A[end, :]
+```
+
+## Python
+``` {.python}
+A = np.arange(1, 26).reshape((5,5))
+
+red = A[:, 1::2]
+blue = A[1::2, 0:3:2]
+yellow = A[-1, :]
+```
+:::
+
+By default, indexing and slicing return copies of the array.
+For performance reasons, it may sometimes be better to just get a view:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+julia> B = @view A[2, :]
+3-element view(::Matrix{Int64}, 2, :) with eltype Int64:
+  8
+ 42
+ 69
+
+julia> B[2] = -5
+-5
+
+julia> A
+3×3 Matrix{Int64}:
+ 1   2    3
+ 8  -5   69
+ 5  25  100
+```
+
+
+## Python
+``` {.python}
+>>> B = A[:, 1]
+>>> B[1] = -5
+
+>>> A
+array([[  1,   2,   3],
+       [  8,  -5,  69],
+       [  5,  25, 100]])
+
+```
+
+:::
+
+As you can see, changing the second element of B causes the corresponding element of A to change as well.
+
+---
+
+To use logical indexing (masking) in Julia, you must first map a lambda function to each element to create a mask.
+Alternatively, you can use dot syntax to vectorise a particular function.
+
+::: {.panel-tabset}
+## Julia
+``` {.julia}
+julia> mask = map( x -> (x > 3), A)
+3×3 Matrix{Bool}:
+ 0  0  0
+ 1  0  1
+ 1  1  1
+
+julia> A[mask]
+5-element Vector{Int64}:
+   8
+   5
+  25
+  69
+ 100
+
+julia> A[A.>3]
+5-element Vector{Int64}:
+   8
+   5
+  25
+  69
+ 100
+```
+
+## Python
+``` {.python}
+>>> A > 3
+array([[False, False, False],
+       [ True, False,  True],
+       [ True,  True,  True]])
+
+>>> A[A>3]
+array([  8,  69,   5,  25, 100])
+```
+:::
+
+
+---
+
+You can use hcat and to combine multiple arrays:
+
+![**Array concatenation in Julia**  
+This image was created with [draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Array_Concatenation.drawio&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Seite-1%22%20id%3D%22sR6SqacXofZBzUr4gbBw%22%3E5ZtLc5swFIV%2FDTPtojMggY2XtpMmXXSVRR87GWSjFpAH5Efy6ytsYRtdMtPO0IjbrgJXIOC7zInO8eDRZXF8qNg2%2ByxTnnvET48evfMICfxpqP80ledzZTqNz4VNJVJz0LXwJF54e6ap7kTK686BSspciW23mMiy5Inq1FhVyUP3sLXMu1fdsg0HhaeE5bD6RaQqO1djMr3WH7nYZO2Vg8nsPFKw9mDzJHXGUnm4KdF7jy4rKdV5qzgued7Aa7mcz%2Fv4yujlxipeqt85ofh6%2F%2BP7JgjEvk6%2FfXoMq5l8%2BGBm2bN8133gWj23CCq5K1PezOJ7dHHIhOJPW5Y0owfddF3LVJHrvUBvrkWeL2Uuq9O5dB0nPEl0vVaV%2FMlvRlZxFEbNhOYOeKX48dVHCy7A9JvGZcFV9awPaU%2BYGMbmJYvN7uHasdCUsptmtTVm3pHNZeIrRr1hSP4BVQKoEoRUiT8uqhRQpRiphuOiGgKqIUKqtgIExDHWCGCNEGK1JcA51gnAOsGINRwZ1ikUgWH%2FY6WMx%2BterpMk5qv1MFzpyNYBMXxbZwixhiNbCMwA1qC9Q1xcR7YUaD3XDdjpsEssNzLgXF6DHpuFEawtBO7B9jitYddZbpTAPVhotlAGA6TL9QLMGVdotzBGA7bdcs8V%2Bi2U4YA%2FNq7QcKGMB2wdcL7Ugo4LYz4AdMA51x7LhZAr0AHnXKHnQpkQ2EJAXS%2B02utjzwhsJXAPtsdzoUwJbC1wTxaaLpQxAdCCiWuwPaYLJVhbC5yD7XFdGGMCIAXOwULbhTEmuCyvxmK7CLRdGGMCOrb4hUDbhTEmsANu91yh7cIYEwAdcG27CLRdGGMCoAOuudIe14WR69jiFwpNF8qYwP6hy7nAUui5UMYE9g9d7sH2eC6UMUE4tjUshaYLZUwAtMC5yPaYLpRgbS1wDrbHdWGMCYAUOAcLbdc%2BYerd3CN6Qn%2FxHkDWD6%2B6JFkuNqXeTjQErqEtGkQiYfncDBQiTZvTe1vSbdpalsp8ahKEA2Ve9svsQ%2BbxmzKHliz7x5iD5a9z5tCuzQfFXPFavLDVaaoG6laKUp2eIlp40V0z107J2mAGOlPKklui1JaG7w7xo053Itgc2tMc%2Brea03b9pjmL%2F7Y54Zs1R%2B9ev3E7jd18KUjvfwE%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E)
+and is hereby release into the [public domain (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+](images/Array_Concatenation.svg){width="50%"}
+
+
+::: {.panel-tabset}
+## Julia
+``` {.julia}
+julia> hcat(A, B)
+2×6 Matrix{Int64}:
+ 1  2  3  42  69  100
+ 4  5  6  73  13   25
+
+julia> vcat(A, B)
+4×3 Matrix{Int64}:
+  1   2    3
+  4   5    6
+ 42  69  100
+ 73  13   25
+```
+
+## Python
+``` {.python}
+>>> np.hstack( (A, B) )
+array([[  1,   2,   3,  42,  69, 100],
+       [  4,   5,   6,  73,  13,  25]])
+>>> np.vstack( (A,B) )
+array([[  1,   2,   3],
+       [  4,   5,   6],
+       [ 42,  69, 100],
+       [ 73,  13,  25]])
+```
+:::
+
+
+---
+
+Broadcasting also works in Julia, but you have to explicitly use the `broadcast` function, so the syntax is a bit more verbose.
+That way, broadcasting cannot happen by accident.
+
+::: {.panel-tabset}
+## Julia
+
+``` {.julia} 
+julia> A = randn(2,2)
+2×2 Matrix{Float64}:
+ -0.805994   0.887138
+  0.630169  -0.70303
+
+julia> b = [5; 3]
+2-element Vector{Int64}:
+ 5
+ 3
+
+julia> broadcast(+, A, b)
+2×2 Matrix{Float64}:
+ 4.19401  5.88714
+ 3.63017  2.29697
+```
+
+## Python
+``` {.python}
+>>> A = np.random.randn(2, 2)
+>>> A
+array([[ 0.22867558,  0.50563247],
+       [-0.21137373, -1.31592931]])
+>>> b = np.array([[5, 3]]).T
+>>> b
+array([[5],
+       [3]])
+>>> A + b
+array([[5.22867558, 5.50563247],
+       [2.78862627, 1.68407069]])
+```
+:::
+
+
+
+
+
+Constructors
+------------
+
+Constructors are functions that create new instances of composite types.
+When a user defines a new composite type, Julia creates the default constructors. 
+However, in some cases constructors need additional functionality, for example to enforce constraints (called invariants) through argument checking or transformation.
+
+Here's a simple example illustrating the use of constructors in Julia:
+
+``` {.julia}
+struct Rectangle{T <: Real}
+   width::T
+   height::T
+
+   # Inner constructor
+   function Rectangle(width::Real, height::Real)
+       @assert width >= 0 "Width must be non-negative!"
+       @assert height >= 0 "Height must be non-negative!"
+       promoted_type = promote_type(typeof(width), typeof(height))
+       new{promoted_type}(width, height)
+   end
+
+   # Default Constructor
+   Rectangle() = Rectangle(1.0, 1.0)
+end
+```
+
+. . .
+
+That way, you can construct a Rectangle via
+
+``` {.julia}
+rect1 = Rectangle(5.0, 3.0)     # Float64
+rect2 = Rectangle(5, 3)         # Int64
+rect3 = Rectangle(5.0, 3)       # Float64 (via type promotion)
+rect4 = Rectangle()             # default: Float64
+```
+but calling it with negative arguments results in an error:
+``` {.julia}
+rect = Rectangle(5.0, -3.0)    # error
+```
+
+---
+
+Sometimes it can be useful to define a struct with some default values. 
+This can be achieved either by using default arguments in  the constructor, 
+
+``` {.julia}
+struct MyType
+        a::Int # required keyword
+        b::Float64 # optional
+        
+        MyType(a::Int) = new(a, 2.3)
+        MyType(a::Int, b::Float64) = new(a, b)
+end 
+```
+
+. . .
+
+or by using the `Base.@kwdef` macro:
+
+``` {.julia}
+Base.@kwdef struct MyType
+    a::Int # required keyword
+    b::Float64 = 2.3
+    c::String = "hello"
+end
+```
+. . .
+
+If you omit any of the optional parameters, the values must be passed as keyword arguments:
+
+``` {.julia}
+julia> MyType(1, 2.3, "aaa")
+MyType(1, 2.3, "aaa")
+
+julia> MyType(; a = 3)
+MyType(3, 2.3, "hello")
+```
+
+---
+
+TODO: Explain functors, make comparison with C++
+
+``` {.julia}
+Base.@kwdef struct Gauss
+    μ::Float64 = 0.0
+    σ::Float64 = 1.0
+    
+    function Gauss(mu::Real, sigma::Real)
+        @assert sigma > 0 "sigma must be positive"
+        new(mu, sigma)
+    end
+end     
+
+# Function to compute the normal distribution
+(d::Gauss)(x::Real) = 1/(d.σ * sqrt(2π)) * exp(-1/2((x-d.μ)/d.σ)^2)
+```
+
+
+
+
+
+Method Overloading
+------------------
+
+A function in Julia can consist of multiple methods.
+When a user calls a function, the method that is actually executed depends on the type and number of arguments.
+This is very similar to function overloading in C++.
+
+::: {.panel-tabset}
+## Julia
+
+``` {.julia}
+julia> f(x::Float64, y::Float64) = 2x - y
+f (generic function with 2 methods)
+
+julia> f(x::Int64, y::Int64) = 2x - y
+f (generic function with 2 methods)
+
+```
+
+## C++
+``` {.cpp}
+double f(double x, double y) {
+    return 2*x - y;
+}
+
+long f(long x, long y) {
+    return 2*x - y;
+}
+```
+:::
+
+. . .
+
+You can use the `methods` function to get a list of the methods for a given function.
+
+``` {.julia}
+julia> methods(f)
+# 2 methods for generic function "f" from Main:
+ [1] f(x::Int64, y::Int64)
+     @ REPL[5]:1
+ [2] f(x::Float64, y::Float64)
+     @ REPL[4]:1
+```
+
+---
+
+We can call this function in the usual way:
+
+
+
+``` {.julia}
+julia> f(2, 3)
+1
+
+julia> f(2.0, 3.0)
+1.0
+```
+
+. . .
+
+If there is no method available for the given arguments, this will result in a `MethodError`:
+
+``` {.julia}
+julia> f(2, 3.7)
+ERROR: MethodError: no method matching f(::Int64, ::Float64)
+The function `f` exists, but no method is defined for this combination of argument types.
+
+Closest candidates are:
+  f(::Int64, ::Int64)
+   @ Main REPL[5]:1
+  f(::Float64, ::Float64)
+   @ Main REPL[4]:1
+
+Stacktrace:
+[...]
+```
+
+---
+
+Providing a method for every possible combination of types can quickly get out of hand; it is more useful to define general methods where the parameters are abstract:
+
+``` {.julia}
+julia> f(x::Number, y::Number) = 2x - y
+f (generic function with 2 methods)
+
+julia> f(2.0, 3)
+1.0
+```
+
+This function will work for any numeric type; non-numeric types will throw an error as expected.
+
+``` {.julia}
+julia> f(2, 3)
+7
+
+julia> f(2.0, 3.0)
+7.0
+
+julia> f(2.0, 3)
+7.0
+
+julia> f("2.0", 3)
+ERROR: MethodError: no method matching f(::String, ::Int64)
+```
+
+---
+
+Care should be taken to ensure that there are no conflicting methods for the same function.
+If more than one method is applicable to a particular combination of arguments, the function call is **ambiguous** and an error will occur.
+
+``` {.julia}
+julia> g(x::Float64, y) = 2x + y
+g (generic function with 1 method)
+
+julia> g(x, y::Float64) = x + 2y
+g (generic function with 2 methods)
+
+julia> g(2.0, 3)
+7.0
+
+julia> g(2, 3.0)
+8.0
+
+julia> g(2.0, 3.0)
+ERROR: MethodError: g(::Float64, ::Float64) is ambiguous.
+[...]
+```
+
+
+
+
+
+Polymorphism
+------------
+
+In order to understand Multiple Dispatch, we first need to talk about Polymorphism.
+
+. . .
+
+Polymorphism, meaning "many forms," is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common type.
+It enables you to design code that is more flexible, extensible, and reusable.
+
+. . .
+
+::: {.panel-tabset}
+
+## C++
+``` {.cpp}
+#include <vector>
+#include <iostream>
+#include <memory>
+
+class Animal {
+  public:
+    virtual void sound() const {
+      std::cout << "FALLBACK\n" << std::endl;
+    }
+    virtual ~Animal() = default;
+};
+
+class Dog : public Animal {
+  public:
+    void sound() const override {
+      std::cout << "bark\n";
+    }
+};
+
+class Cat : public Animal {
+  public:
+    void sound() const override {
+      std::cout << "miau\n";
+    }
+};
+
+
+
+int main()
+{
+  auto ein = std::make_unique<Dog>();
+  auto sphinx = std::make_unique<Cat>();
+
+  ein->sound();
+  sphinx->sound();
+}
+```
+
+## C\#
+``` {.cs}
+using System;
+
+public class Animal
+{
+  public virtual void Sound()
+  {
+    Console.WriteLine("FALLBACK");
+  }
+}
+
+public class Dog : Animal
+{
+  public override void Sound()
+  {
+    Console.WriteLine("bark");
+  }
+}
+
+public class Cat : Animal
+{
+  public override void Sound()
+  {
+    Console.WriteLine("miau");
+  }
+}
+
+public class Program
+{
+  public static void Main(string[] args)
+  {
+    Animal ein = new Dog();
+    Animal sphinx = new Cat();
+
+    ein.Sound();
+    sphinx.Sound();
+  }
+}
+```
+
+:::
+
+As Julia is not an object-oriented language, the only way to achieve something similar is as follows:
+
+``` {.julia}
+abstract type Animal end
+struct Cat <: Animal end
+struct Dog <: Animal end
+struct Bird <: Animal end
+
+make_sound(cat::Cat) = println("miau!")
+make_sound(dog::Dog) = println("wuff!")
+make_sound(bird::Bird) = println("chierp!")
+
+ein = Dog()
+shinx = Cat()
+
+make_sound(ein)
+make_sound(cat)
+```
+
+This isn't very spectacular yet; it looks like normal operator overloading.
+Things get more interesting when the functions have more arguments.
+
+
+
+
+
+Multiple Dispatch
+-----------------
+
+Multi-dispatch is the ability to choose which version of a function to call based on the runtime type of all arguments passed to the function call.
+
+
+::: {.panel-tabset}
+
+## Julia
+
+``` {.julia}
+abstract type Pet end
+struct Dog <: Pet; name::String end
+struct Cat <: Pet; name::String end
+
+function encounter(a::Pet, b::Pet)
+	verb = meets(a, b)
+	println("$(a.name) meets $(b.name) and $verb")
+end
+
+meets(a::Dog, b::Dog) = "sniffs"
+meets(a::Dog, b::Cat) = "chases"
+meets(a::Cat, b::Dog) = "hisses"
+meets(a::Cat, b::Cat) = "slinks"
+
+fido = Dog("Fido")
+rex = Dog("Rex")
+whiskers = Cat("Whiskers")
+spots = Cat("Spots")
+
+encounter(fido, rex)
+encounter(fido, whiskers)
+encounter(whiskers, rex)
+encounter(whiskers, spots)
+```
+
+```
+Fido meets Rex and sniffs
+Fido meets Whiskers and chases
+Whiskers meets Rex and hisses
+Whiskers meets Spots and slinks
+```
+
+## C++
+``` {.cpp}
+#include <iostream>
+#include <string>
+
+class Pet {
+	public:
+		std::string name{};
+};
+
+class Dog : public Pet{};
+class Cat : public Pet{};
+
+std::string meets(Dog a, Dog b) { return "sniffs"; }
+std::string meets(Dog a, Cat b) { return "chases"; }
+std::string meets(Cat a, Dog b) { return "hisses"; }
+std::string meets(Cat a, Cat b) { return "slinks"; }
+
+std::string meets(Pet a, Pet b) {
+	return "FALLBACK";
+}
+
+void encounter(Pet a, Pet b) {
+	auto verb = meets(a, b);
+	std::cout << a.name << " meets "
+		<< b.name << " and " << verb << std::endl;
+}
+
+int main() {
+	Dog fido{"Fido"};
+	Dog rex{"Rex"};
+	Cat whiskers{"whiskers"};
+	Cat spots{"spots"};
+
+	encounter(fido, rex);
+	encounter(fido, whiskers);
+	encounter(whiskers, rex);
+	encounter(whiskers, spots);
+}
+```
+
+
+```
+Fido meets Rex and FALLBACK
+Fido meets whiskers and FALLBACK
+whiskers meets Rex and FALLBACK
+whiskers meets spots and FALLBACK
+```
+:::
+
+Doing something like this in C++ is not possible.
+
+. . .
+
+See also:
+
+- [The Unreasonable Effectiveness of Multiple Dispatch](https://www.youtube.com/watch?v=kc9HwsxE1OY) by _Stefan Karpinski_, JuliaCon 2019
+- [Multiple Dispatch in C++](https://stackoverflow.com/a/1749604) on StackOverflow
+
+
+
+
+
+## Functional Programming
+
+Functional programming is a programming paradigm where programs are constructed by applying and composing functions.
+It's a declarative style of programming, meaning you describe what you want to achieve rather than how to achieve it (which is more typical of imperative programming)
+
+. . .
+
+The core concepts and characteristics of functional programming are as follows:
+
+1) Functions are first-class objects, meaning they can be passed around and stored like variables.
+2) Higher order functions: functions can take other functions as arguments, or return a function as a result
+3) Immutability: Data, once created, cannot be changed. Instead of modifying existing data structures, you create new ones with the desired changes.
+4) Declarative style programming: Using map, filter and reduce instead of for loops to iterate over an array.
+
+
+### Map, Filter, Reduce
+
+- `map`: Transforms each element in a collection by applying a function to it, returning a new collection of the same size.
+- `filter`: Creates a new collection containing only elements that satisfy a given predicate function.
+- `reduce`: Reduces a collection to a single value by iteratively applying a function that combines elements.
+
+
+### Normal Distribution
+
+$$
+\mathcal{N}(x | \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left({- \frac{1}{2} \biggl( \frac{x - \mu}{\sigma} \biggr)^2 }\right)
+$$
+$$
+\mathcal{N}(x | \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} \, e^{- \frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2 }
+$$
+
+Closure:
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+function normal_distribution(μ::Real = 0, σ::Real = 1)
+  return x -> 1 / (sqrt(2π) * σ) * exp(-1/2 * ((x - μ)/σ)^2) 
+end
+
+f = normal_distribution(5, 2)
+println(f(7.5))
+```
+
+## C++
+``` {.cpp}
+#include <cmath>
+#include <functional>
+#include <iostream>
+#include <numbers>
+
+std::function<double(double)> normal_distribution(double mu=0.0, double sigma=1.0) {
+  return [=](double x) {
+    return 1 / (std::sqrt(2 * std::numbers::pi) * sigma) * std::exp( -1/2 * std::pow( (x - mu) / sigma, 2));
+  };
+}
+
+int main()
+{
+  auto f = normal_distribution(5.0, 2.0);
+  std::cout << f(7.5) << std::endl;
+}
+```
+:::
+
+
+
+
+
+### LeetCode Example
+
+Let's say we want to solve [LeetCode problem 557](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/) (Reverse Words in a String III).
+Given a string `str`, reverse the characters in each word while still preserving the initial word order.
+
+Example:
+```
+str = "The quick brown fox jumps over the lazy dog"
+--> "ehT kciuq nworb xof spmuj revo eht yzal god"
+```
+
+. . .
+
+This problem can be solved in a very elegant way using functional programming:
+
+1) `split` the string at the space (' ') character
+2) `map` the `reverse` function to each element
+3) `join` everything back together
+
+. . .
+
+::: {.panel-tabset}
+
+## Julia
+``` {.julia}
+function reverse_word(str::String)
+  return join(map(reverse, split(str, " ")), " ")
+end
+```
+
+## C++
+``` {.cpp}
+#include <string>
+#include <ranges>
+#include <string_view>
+
+std::string reverseWords(std::string_view str) {
+  return str | std::views::split(' ')
+             | std::views::transform([](auto&& word) {
+                  return word | std::views::reverse;
+                })
+              | std::views::join_with(' ')
+              | std::ranges::to<std::string>();
+}
+```
+:::
+
+::: {.callout-note collapse="true"}
+Alternatively, you can do this with the pipe operator:
+
+``` {.julia}
+function reverse_word(str::String)
+  return str |> x -> split(x, " ") |>
+  x -> map(reverse, x) |>
+  x -> join(x, " ")
+end
+```
+:::
+
+
+
+
+---
 
 
 
@@ -343,9 +1264,12 @@ sdf
 TODO:
 -----
 
-- Julias Types System, Multiple Dispatch
-- Functional Programming (map, reduce; Beispiel FP vs OOP, normalverteilung)
-- Arrays
-- Sets
-- Dictionaries
+- [x] Constructors
+- [x] Method overloading
+- [ ] Polymorphism, Multiple Dispatch
+- [ ] Functional Programming (map, reduce; ...)
+- [ ] Example for FP vs OOP: normal distribution
+- [ ] Sets
+- [ ] Dictionaries
+- [ ] Difference Arrays vs. Tuples (named tuples as intro to DataFrames)
 

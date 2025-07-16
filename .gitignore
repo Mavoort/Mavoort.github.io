@@ -7,6 +7,7 @@
 /_extensions/
 .ipynb_checkpoints
 .virtual_documents
+.jupyter_cache/
 
 # Ignore LaTeX and Typst documents
 *.typ

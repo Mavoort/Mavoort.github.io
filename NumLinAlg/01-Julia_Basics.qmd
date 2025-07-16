@@ -8,7 +8,7 @@ abstract: >
   In this tutorial I will show you how to program in Julia.
   We will cover types, collections and a very powerful feature called multiple dispatch. 
   But for now, let us start with the basics.
-keywords: ["julia", "programming"]
+keywords: ["julia", "programming", "scientific computing"]
 jupyter: julia-1.11
 execute:
   enabled: false
@@ -58,12 +58,14 @@ The latter also has a large chapter on dataframes, which is definitely useful in
 The book "Think Julia" also seems to be good, although a little less comprehensive.
 :::
 
-::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]" layout-valign="bottom"}
+::: {.figure layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.20]" layout-valign="bottom"}
 ![[@Julia_book]](images/literature/Julia_as_a_Second_Language.jpg){.fragment}
 
 ![[@Julia_Data_Analysis]](images/literature/Julia_for_Data_Analysis.jpg){.fragment}
 
 ![[@Think_Julia]](images/literature/Think_Julia.jpg){.fragment}
+
+![[@Julia_Data_Science]](images/literature/Julia_Data_Science.png){.fragment}
 :::
 
 :::  {.content-visible unless-format="revealjs"}
@@ -77,12 +79,13 @@ However, since I haven't taken it, I can't say whether it's good or bad.
 :::
 
 
-::: {.content-hidden unless-format="revealjs"}
-Other Resources:
+### Other Resources:
 
 - [Official Documentation](https://docs.julialang.org/en/v1/manual/getting-started/)
 - Course [Julia for Optimization and Learning](https://juliateachingctu.github.io/Julia-for-Optimization-and-Learning/stable/) by the University of Prague
-:::
+- [Quantitative Economics with Julia](https://julia.quantecon.org/intro.html) by _Jesse Perla_, _Thomas J. Sargent_, and _John Stachurski_
+- Lecture [Computational Thinking](https://www.youtube.com/playlist?list=PLP8iPy9hna6T56GkMHEdSrjCCheNuEwI0), MIT 18.S191/6.S083
+- [Introducing Julia](https://en.wikibooks.org/wiki/Introducing_Julia) on WikiBooks
 
 
 ---
@@ -299,7 +302,7 @@ After assigning y to x, both variables point to the same memory location; no dat
 
 
 ![Dynamic Variable Binding\
-Figure was created with [app.diagrams.net](https://app.diagrams.net/) and is hereby licensed under [Public Domain (CC0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Dynamic_Variable_Binding-diagram.svg){.svg-image}
+This figure was created with [draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Dynamic_Variable_Binding-diagram.drawio&dark=1#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Seite-1%22%20id%3D%228zmR4mmEL4HT2iXYoOuu%22%3E7VnLcpswFP0aL5NBiJeXfiTpop3pTDpNu5SRDGpk5MpygH59BUg2BJw4U9t47K4snSseOuceuBcP4GSRPQi0jL9wTNjAtnA2gNOBbQPLd9RPgeQV4vtBBUSCYr1oCzzSP8QcqdE1xWTVWCg5Z5Ium2DIk4SEsoEhIXjaXDbnrHnVJYpIC3gMEWujTxTLWKPAG24DnwiNYn3pwParwAKZxXonqxhhntYgeDeAE8G5rEaLbEJYQZ7hpTrufkd0c2OCJHKfA4YIPI%2FSJ0I99i3Nv3%2B18%2Fv4Rp%2FlBbG13rC%2BWZkbBgRfJ5gUJ7EGcJzGVJLHJQqLaKo0V1gsF0zNgBrOeSK1iLBYPqeMTTjjojwXnKEwwFDhKyn4M6lFbOg4rrrIuL0tc49ESJLVIL3NB8IXRIpcLdFRJ9CU65wDRoK0pqDB4pp4jsaQTppoc%2Botr2qgqf0AzXaLZue4RGOXBNjpIjqwZ9DzVCQSCFNFci029LHl%2B0cSwetbBHgNuW5bfdPstGiGt%2F6VJfuG3d5UcK8i2YO%2BaW4nNsGqftBTLmTMI54gdrdFx03et2s%2Bc77UbP8iUuaabrSWvKmFIlDkP%2FTx5eRnMbl1zXSa1YPTXM92KrDiaxGSN7bpVeskEhGR77%2FnCg7e1FMQhiR9adZYBxfH6%2FCAx9T9j2dqEBWDzCDqAhuwpalKT9mUADEaJWocKiqJyvRxkcRUlY0jHVhQjEu1u3zVzIDX1mJoRpjKC0yE8VHCE9I2HQHqyed3mW7o%2BRB5hzGdvceL3Dml54bX4blgT885Z%2BW54H3P5f8991HPddUTJ%2FWcaccvu55wei%2BeQbshP3KnOA9CEoZdTM8C13HffIb9A9O9F8ig3ZNfYkb3XiGDdtt9ff2g2%2FsXKNBuyy8w3d3ePzIBt0Vrj9WpfbzyFOzbE5oHwJkUqODiusLdleiu2vUAzntdoXa90E9boV7Jpxiwb194br67uM7wLHzXVVmc1nfDnboWVDak836vuQncrEqSR2oBCJZZyY6JG%2BlH80JO2xrTBNMkKlko%2Fv%2Bttj%2BqZUt1qV4S5gCiQqspKnTbotp%2Bh6rw46qq6fY%2F5zJW%2B%2Bce3v0F%3C%2Fdiagram%3E%3C%2Fmxfile%3E) and is hereby licensed under [Public Domain (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/)](images/Dynamic_Variable_Binding-diagram.svg){.svg-image}
 
 
 ---

@@ -5,7 +5,7 @@ date: 2025-02-01
 bibliography: references.bib
 abstract: >
   lorem ipsum
-keywords: ["julia", "programming"]
+keywords: ["julia", "programming", "scientific computing"]
 jupyter: julia-1.11
 execute:
   enabled: false
