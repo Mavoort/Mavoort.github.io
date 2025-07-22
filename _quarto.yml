@@ -20,7 +20,7 @@ project:
 #        - Stochastic_Calculus/*
 #        - Rendering/*
         - Parallel_Computing/*
-#        - demo/demo.qmd
+        - demo/demo.qmd
 
 website:
     title: "My Notes"
@@ -204,7 +204,7 @@ revealjs-plugins:
 execute:
     output: true
     freeze: auto
-    cache: true
+    cache: false
 
 filters:
     - convert_svg.lua

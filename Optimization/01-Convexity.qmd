@@ -12,11 +12,11 @@ execute:
   enabled: false
 format: 
   html: 
-    output-file: convex_functions.html
+    output-file: convexity.html
   revealjs:
-    output-file: convex_functions-slides.html
+    output-file: convexity-slides.html
 #  typst:
-#    output-file: introduction.pdf
+#    output-file: convexity.pdf
 ---
 
 
@@ -33,6 +33,20 @@ TODO:
 - Optimization algorithms: iterative. Typees: gradient based, trust-region, 
 
 
+TODO:
+
+- Definition convex set
+- generalizion of convex combination: probability distributions, E[p]
+- Examples for convex sets: Polyhedra, Simplices
+- Operations that preserve convexity: Intersection, affine transformation
+- Union of convex sets obviously not convex (make figure)
+
+The _projection_ of a convex set onto some of it's coordinates is convex:
+If $S \subseteq \mathbb{R}^m \times \mathbb{R}^n$, then
+$$
+T = \{ x_1 \in \mathbb{R}^m | (x_1, x_2) \in S \;\text{for some $x_2 \in \mathbb{R}^n$} \}
+$$
+is convex.[@Convex_Optimization_Boyd]
 
 $$
 f(\mathbf{x}^\ast + h\Delta \mathbf{x}) = f(\mathbf{x}^\ast) + h \underbrace{\nabla f(\mathbf{x}^\ast) \cdot \Delta \mathbf{x}}_{=0} + \frac{1}{2} \Delta \mathbf{x}^\mathrm{T} H \Delta \mathbf{x} + \mathcal{O}(h^3)
@@ -42,6 +56,31 @@ Since $f(\mathbf{x}^\ast + h \Delta \mathbf{x}) > f(\mathbf{x}^\ast)$, and $\nab
 $$
 \Delta \mathbf{x}^\mathrm{T} H \Delta \mathbf{x} \gt 0
 $$
+
+
+::: {.callout-important}
+## Separating Hyperplane Theorem
+
+Suppose $A$ and $B$ are non-empty, disjoiint sets, i.e. $A \cap B = \emptyset$. Then there exists $\mathbf{a} \ne \mathbf{0}$ and $b$ such that
+$\mathbf{a}^\mathrm{T} \mathbf{x} \leq b$ for all $\mathbf{x} \in A$ and $b \leq \mathbf{a}^\mathrm{T} \mathbf{x}$ for all $\mathbf{x} \in B$.
+:::
+
+Bild einfuegen
+
+::: {.proof}
+See notes.
+:::
+
+- definition conxex functions
+- examples: norm(x), affine fct. f(x) = c.T x + b, quadratic fct. x.T A x
+- sublevel sets of convex functions are convex sets (proof trivial)
+- Epigraphs: A function is convex if and only if it's epigraph is convex.
+- Jennsen's inequality
+- Operations that preserve convexity: Composition with affine mapping
+- Definition of convex conjugate of a function (generalization of Legendre transformation)
+- Examples for convex conjugate (see p. 92)
+
+
 
 ::: {.callout-tip .fragment}
 ## Himmelblau-function

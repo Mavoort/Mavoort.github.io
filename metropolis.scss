@@ -41,11 +41,11 @@ $NordMagenta: #b48ead;
 $purple: #800080;
 
 // Set colours for callout boxes
-$callout-color-note: $purple;
-$callout-color-tip: $myGreen;
-$callout-color-caution: $NordOrange;
-$callout-color-warning: $NordYellow;
-$callout-color-important: $myRed;
+$callout-color-note: $themecolor;
+//$callout-color-tip: $myGreen;
+////$callout-color-caution: $orange;
+////$callout-color-warning: $yellow;
+//$callout-color-important: $myRed;
 
 /* SASS-Variables for custom theme, see
    https://quarto.org/docs/presentations/revealjs/themes.html */
@@ -55,9 +55,9 @@ $presentation-heading-text-shadow: "none";
 $body-bg: $bgColor;
 $link-color: $myBlue;
 $link-color-hover: lighten($link-color, 15%);
-$selection-bg: $NordMagenta;
+//$selection-bg: $NordMagenta;
 
-$colorBlockTitleBg: rgba($NordBlack, 80%);
+//$colorBlockTitleBg: rgba($NordBlack, 80%);
 
 $font-family-sans-serif: sans-serif;
 $headingFont: "Ubuntu Sans", sans-serif;
@@ -73,26 +73,32 @@ $presentation-h4-font-size: 1em;
 $code-block-font-size: 0.8em;
 
 /*-- scss:rules --*/
-.callout-note {
-    border-left-color: $NordBlue;
+
+//.callout-note {
+//    border-left-color: $NordBlue;
+//}
+//.callout-tip {
+//    border-left-color: $NordGreen;
+//}
+//.callout-caution {
+//    border-left-color: $NordOrange;
+//}
+//
+//.callout-warning {
+//    border-left-color: $NordYellow;
+//}
+//.callout-important {
+//    border-left-color: $NordRed !important;
+//}
+
+// Strike through and inline code
+.reveal del {
+    color: $myRed;
 }
-.callout-tip {
-    border-left-color: $NordGreen;
-}
-.callout-caution {
-    border-left-color: $NordOrange;
+.reveal code {
+    color: $myGreen;
 }
 
-.callout-warning {
-    border-left-color: $NordYellow;
-}
-.callout-important {
-    border-left-color: $NordRed !important;
-}
-
-del {
-    color: $NordRed;
-}
 
 .reveal .slides {
     text-align: left;
@@ -102,13 +108,17 @@ del {
 // replace marker with triangles
 li::marker {
     content: "\25B8\A0\A0";
-    color: $NordGreen;
+    color: $themecolor;
 }
 
 ul ul li::marker {
     //content: "\25AA\A0\A0";
     content: "\1F784\A0\A0";
-    color: $NordCyan;
+    color: $themecolor;
+}
+
+.icons {
+    color: $themecolor;
 }
 
 /*
@@ -293,12 +303,12 @@ section.slide {
 }
 
 // Change colour of callout blocks
-.callout-warning {
-    border-left-color: $purple !important;
-}
-.callout-warning .callout-title {
-    background-color: lighten($purple, 70%) !important;
-}
+//.callout-warning {
+//    border-left-color: $purple !important;
+//}
+//.callout-warning .callout-title {
+//    background-color: lighten($purple, 70%) !important;
+//}
 
 // Set margin of the slides
 // assume margin is set to 0 in the YAML header

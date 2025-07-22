@@ -9,6 +9,9 @@
 .virtual_documents
 .jupyter_cache/
 
+# Ignore VS Code files
+.vscode
+
 # Ignore LaTeX and Typst documents
 *.typ
 *.tex

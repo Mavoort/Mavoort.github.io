@@ -1,0 +1,163 @@
+---
+title: "The Julia Data Ecosystem"
+author: "Marcel Angenvoort"
+date: 2025-02-01
+bibliography: references.bib
+abstract: >
+  lorem ipsum
+keywords: ["julia", "programming", "scientific computing"]
+jupyter: julia-1.11
+#engine: julia
+#julia:
+#  exeflags: ["--project=JuliaEcosystem"]
+execute:
+  enabled: true
+format: 
+  html: 
+    output-file: julia_ecosystem.html
+    code-line-numbers: false
+    echo: true
+    code-fold: true
+  revealjs:
+    output-file: julia_ecosystem-slides.html
+    echo: true
+    code-fold: true
+#  typst:
+#    output-file: julia_ecosystem.pdf
+---
+
+
+Important Julia Packages
+------------------------
+
+- [Plots.jl](https://docs.juliaplots.org/latest/): Modern plotting library similar to MatplotLib
+- [LinearSolve.jl](https://docs.sciml.ai/LinearSolve/stable/) High-performance library for solving linear equations
+- [DifferentialEquations.jl](https://docs.sciml.ai/DiffEqDocs/stable/) Efficient solvers for various differential equations
+- [FFTW.jl](https://juliamath.github.io/FFTW.jl/stable/) Bindings to the FFTW libeary for Fast Fourier Transform
+- [StatsKit.jl](https://github.com/JuliaStats/StatsKit.jl) Convenience meta-package to load essential packages for statistics
+- [MLJ.jl](https://juliaai.github.io/MLJ.jl/stable/) Machine Learning framework for Julia
+- [Turing.jl](https://turinglang.org/docs/tutorials/coin-flipping/index.html) Bayesian inference with probabilistic programming
+
+
+
+
+
+Plots.jl
+--------
+
+[Plots.jl](https://docs.juliaplots.org/stable/) is a data visualisation and plotting library similar to Matplotlib.
+It provides an interface for several backends, offering great flexibility while remaining simple to use.
+
+Installation:
+```{.julia}
+Pkg.add("Plots")
+Pkg.add("PlotThemes")
+```
+
+We also need [LaTeXStrings.jl](https://github.com/JuliaStrings/LaTeXStrings.jl):
+
+```{julia}
+#| code-fold: false
+using Plots
+using LaTeXStrings
+using WebIO
+
+theme(:dark)
+```
+
+---
+
+Example Plot of the trigonometric functions:
+```{julia}
+x = range(0, 2π, length=100)
+y = sin.(x)
+plot(x, y)
+plot!(x, cos.(x))
+```
+
+---
+
+We can use `LaTeXStrings` to add LaTeX labels to each plot;
+
+Let's customize the plot by using a different colors, 
+and also add a title and xlabel:
+
+```{julia}
+x = range(0, 2π, length=100)
+plot(x, sin.(x), label=L"$\sin(x)$", color="darkred", lw=3)
+plot!(x, cos.(x), label=L"$\cos(x)$", color="teal", lw=2)
+
+title!("Trigonometric functions")
+xlabel!("x-axis")
+ylabel!("y-axis")
+```
+
+---
+
+Scatter Plots:
+
+```{julia}
+x = range(0, 10, length=100)
+y = sin.(x)
+y_noisy = @. sin(x) + 0.1*randn()
+
+plot(x, y, label=L"$\sin(x)$")
+scatter!(x, y_noisy, label="data", markersize=2.5)
+```
+
+
+---
+
+Histograms can be useful for visualizing statistical data:
+
+```{julia}
+using StatsPlots
+x = randn(1000)
+
+histogram(x, bins=50, normalize=:pdf, label="data")
+density!(x, trim=true, label="KDE", lw=3)
+```
+
+
+
+### 3D-Plots
+
+Surface Plots of the Rosenbrock function:
+
+```{julia}
+#| width: 900
+#| height: 600
+  
+# Use Plotly backend with MathJax support
+plotlyjs()
+#plotlyjs(extra_plot_kwargs=KW(:include_mathjax=>"cdn"))
+
+# Rosenbrock function:
+f(x, y) = (1 - x)^2 + 100 * (y - x^2)^2
+
+x = range(-2, 2, length=100)
+y = range(-1, 3, length=100)
+
+surface(x, y, f, color=:viridis, extra_plot_kwargs=KW(:width=>900, :height=>600))
+#surface(x, y, f, color=:viridis)
+title!("Rosenbrock function")
+xlabel!("x")
+ylabel!("y")
+```
+
+---
+
+Contour Plots of the Himmelblau function:
+```{julia}
+# Himmelblau-function
+f(x, y) = (x^2 + y - 11)^2 + (x + y^2 - 7)^2
+
+x = range(-5, 5, length=100)
+y = range(-5, 5, length=100)
+z = @. f(x', y)
+
+contour(x, y, z, levels=20, clabels=true, color=:turbo)
+title!("Himmelblau function")
+xlabel!(L"x")
+ylabel!(L"y")
+```
