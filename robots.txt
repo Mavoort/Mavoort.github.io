@@ -1,1 +1,1 @@
-Sitemap: https://mathematics-weekly.org/sitemap.xml
+Sitemap: https://math-with-marcel.org/sitemap.xml

@@ -7,13 +7,13 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-9e228d6d4d66c12a9d11739da31c2b1c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-1b3db88def35042d172274863c1cdcf0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Marcel Angenvoort">
   <meta name="dcterms.date" content="2025-01-12">
-  <meta name="keywords" content="julia, programming">
-  <title>Mathematics Weekly – Julias Type System</title>
+  <meta name="keywords" content="julia, programming, scientific computing">
+  <title>Math with Marcel – Julias Type System</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,8 +32,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -44,7 +45,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -97,7 +98,7 @@
     code span.vs { color: #e6db74; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c5b6a1026e0bd0fb59551726b9dbd2d4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8360b5825b7175df3238cb831ab8ff7c.css">
   <link rel="stylesheet" href="../custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -219,11 +220,11 @@ Marcel Angenvoort
 <p>There are two types of programming languages: Statically typed systems such as C++, where each variable must be of a particular type before execution, and dynamically typed systems, where the type is not known until runtime. Julia is a dynamically typed language, but still has the ability to specify certain types for better efficiency.</p>
 <div class="fragment">
 <p>Recall that you can specify the type of a variable either by calling its constructor, or via using the :: operator:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a></a>julia<span class="op">&gt;</span> x<span class="op">::</span><span class="dt">Float64 </span><span class="op">=</span> <span class="fl">8</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a></a>julia<span class="op">&gt;</span> x<span class="op">::</span><span class="dt">Float64 </span><span class="op">=</span> <span class="fl">8</span></span>
 <span id="cb1-2"><a></a><span class="fl">8</span></span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(x)</span>
-<span id="cb1-5"><a></a><span class="dt">Float64</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a></a><span class="dt">Float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We can determine the type of a variable with the <code>typeof()</code> function.</p>
 </div>
 </section>
@@ -231,7 +232,7 @@ Marcel Angenvoort
 
 <p>Types in Julia are organised in a hierarchy, which is very similar to inheritance in object-oriented languages such as C++, except that it also works for primitive types. Each type has exactly one parent type and possibly several child types, which can be determined using the <code>supertype</code> and <code>subtype</code> cmmands.</p>
 <div class="fragment">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">subtypes</span>(<span class="dt">Real</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">subtypes</span>(<span class="dt">Real</span>)</span>
 <span id="cb2-2"><a></a><span class="fl">4</span><span class="op">-</span>element <span class="dt">Vector</span>{<span class="dt">Any</span>}<span class="op">:</span></span>
 <span id="cb2-3"><a></a> <span class="dt">AbstractFloat</span></span>
 <span id="cb2-4"><a></a> <span class="dt">AbstractIrrational</span></span>
@@ -239,7 +240,7 @@ Marcel Angenvoort
 <span id="cb2-6"><a></a> <span class="dt">Rational</span></span>
 <span id="cb2-7"><a></a></span>
 <span id="cb2-8"><a></a>julia<span class="op">&gt;</span> <span class="fu">supertype</span>(<span class="dt">Float64</span>)</span>
-<span id="cb2-9"><a></a><span class="dt">AbstractFloat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a></a><span class="dt">AbstractFloat</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For example, <code>Real</code> is an abstract type representing real numbers, which has subtypes for rational, integer, and floating-point types.</p>
 </div>
 </section>
@@ -248,27 +249,27 @@ Marcel Angenvoort
 <p>This way we can display the complete type tree:</p>
 
 <img data-src="images/Types_in_Julia-drawio.svg" class="svg-image r-stretch quarto-figure-center"><p class="caption"><strong>Types in Julia.</strong><br>
-Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a> and is hereby licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain (CC0)</a></p></section>
+This figure was created with <a href="https://viewer.diagrams.net/?tags=%7B%7D&amp;lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Julia_Types-diagrama.drawio&amp;dark=auto#R%3Cmxfile%3E%3Cdiagram%20id%3D%22R2lEEEUBdFMjLlhIrx00%22%20name%3D%22Page-1%22%3E7V1tc%2BI2EP41fMwNfnc%2BBpJckyZtmjS966eOsIVRYyxGFgncrz8JJF4kAw5nGxuYYe7wWqxh9ezus2tZaVnd4eQrAaPBIw5h3DLb4aRlXbdM0zBdm%2F3HJdO5xGz7QhIRFIpRS8EL%2BgGFsC2kYxTCdG0gxTimaLQuDHCSwICuyQAh%2BGN9WB%2FH61cdgQhqgpcAxLr0GwrpYC71TW8p%2Fw2iaCCvbLiX8zM9ELxFBI8Tcb0EJ3B%2BZgikGvEb0wEI8ceaCE7oLU6o%2BPJPkAxBAhPKzjwC8gZJy7kZUMptcNUyb9mrz0d%2FiTCOYghGKP0S4CETBykbctsHQxTzGVhR1BGK2OWsm5bVJRjT%2BbvhpAtjPo1ygubf6XbD2YWFCNeb4wNu%2FHTzz18X9%2FeP%2F3W%2B37Yf6bf75EJoeQfxWFi%2BxQYyfZ0eexPxN1fJVMqY8oVY2JBO5ZTNjA75xdrs9McAUfgyAgE%2F%2B8FQymQDOozZkcHehogw2CCc8LMw5Qr7KI67OMZkps7q%2BwEMAiZPKcFvcOVMz3dsp734CqsWkD8HEgonKyJhka8QDyEl7Pe0xVnLE34hHOXCaLcFFj5WcCdEgxXI2UIGBFiihe7lHLA3Yho%2BMSWmZlkYMt8Qh5jQAY5wAuKbpbSzbvvlmAeMR8Li%2F0NKp8LRwZji9fmAE0S%2F849%2FccTRv0IZf389WT2YioON5k%2FxmARwN%2BooIBGku8fx3791MgmMAUXv67Gj8ImxN%2FrKwJBe8fd0xMImU5Swf%2B7HMQIrvrMcpk0xgytdn5EsB8IM2P14FrMGKAxhok09iFHEfSpgc8KiTDE%2BYqo%2BYpi6jxhZTuKX5SSONhd%2FjIe9eVzdPyrxaC4dzThUSJI2k9a%2BzDB2pQHJzZEjeswkIGDGIyiJcqWLXVNxkGzg2LttvwB%2FJcb38hv%2FihCQL1XX0faumQP31drer08mlmeKzsRezkzs1SoTX%2B52ii4ejmKGvMKZq%2BIcIYB%2BP9M53MCHvX4xzqH6hn9okirrxG1T8AxB3NhwZNi1M7mZPxWwYXcsG%2FACazkHPbKcgabOikqOvIMnCcPaPS13jIxHnJw21OyW6gxZZq%2B2SM4Rf3QPKNDw1cR9w1UM79qHNnyOjlFpVUA1Rre0bHtwo%2BcI%2FS%2FjXsPtbmsp99B2t7JKX7UkSMIr3vBmR7Ne85od15llMCbvs4N9O27MtmS68iF%2BuKgO%2BMHyY7OjX68PBNPeWR%2BIfszO%2BmBlJp2MmZSy3GWEuMITRrMuvURSW81XhgKR%2BQ8XH1uiRNfkqJpcRdPcNJqmGd4WP%2FwXIJjVADgpCMqpaxgGNarqm3ti0FTj4mW7Ygxm1dunhUErJwYlWGsCQstQQdjYQGhnEc%2FTAqHZTBAeUTa2cxDx588UnfVvPdpqCXrw2t%2FO6rgUFQk2eHV7h1dX27XPTYkkXs%2BRoPBIkLUaoJYgPPQijnrR8mOCoL4IoqYQLCsOujkhKBWeMVg4BsvskB0XBs%2BpuCwMltkiO6pU7J4hWBIE%2FQwIKnVhD%2BNjqQm1NYoHvy1pn3yLUkJwd3fIOkeBcqKAUyYhbwQIZWtoNwjPbKgsEDaGkZfFhvKuaa17Uagmy%2F0heFkaBIe3F%2B8Pdnrzu98nzkX62HPvrrIbEwobuoZJCpu9Yt3R7vBWyIKyDZ%2FnUY2SbF4N89Rs7vmHtnkW9d8%2F3tYuz28F2mqM3RoKahJkPXVpn7tvnvc8VVN5eT7TstIiReFuTwyVltq3wqmw51Uqgp2WKZw9YeerLMGvOLc7%2BjIM%2BdDBM0giqGGweQ9gupc58nppDxlkW93UrP4nCVEC4qM1%2BqJuOpzR9XUGrwmqAObVUClPXRvmVriwI9vg%2Bj11GVuqMfyBoO5mcNiKoV5s06AZJFamsoaRCUuDj7ocOHejQF1Y7Kq0pGwycYq1k8zlO2snp14NKk%2Blns7etZPaoHKqrp2KvVvUENzZeXFn1gt3avFkq7vK5C6eLBV3VrW4kzA%2FLdxlPDuxFaA1wZ1G0%2FbGnafm2cpxpzfkJbG%2BjTGgGgjTDzSMwQx9KmUOBigOH8AUj7m5UwqCN3nUGWCCfrDxQOKVnSZUbHVit9dGvPBPCnARmLIxTxJchiJ6BJO1gQ%2BAbxg3vz2F4xiMUtRbfL8hMyVKOphSPGzts4SimiJAbUTm3sjAULGTgeRnGFBWLDGbbH4czcmor72M66k1B4gpJAmgsMNjUVoKXDffxhjH6h4WMVIlizsaHRQJeGfd7VjIdA1bdM4U8u01C1ZpmYWrNNy8O39suQgTrtpciRNi27rNfYpNnQ25T10M%2B1wB9xsUgPhKiIcoDGfbKaXMa1ESPcyGXdtLybNAKBdlbYs34rF0Blmnw14MxF2e8Rz2Lbrs2FgesxcfTmgXJzwmoplPQxZjxMaUBFNAwTzC5AgnenDYHpN3h4zpuifuihBqR7iwLoF7irTZzXvLoWZP3Wn9VDVv5GUv2k5InsqDSmYvns6aX1iYYDg605aqaYu2SiXvyk9DLfGPj7Z4m7fG%2BSxtuUsKJS1MnWH6BWsslgQxhcVSIP6b3YIVft6EtaJPPEUdD4FapIVfIVCZoUrdqKMwAuWZJ0ig5Dw1bWG6qa7w2bv%2FYx16rZCXdSf7zKEOtW5UW4R25lALpG7eZP9THOq1eMrzWjjneS2c9LwWznpej4H2uMdEe6zc8aY2tKfY56IaQntybxlWL9rjqTdJrX2fQ9Fu3FqFrVVlh8s%2FnDQfvvxDWNbNTw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E">draw.io</a> and is hereby licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain (CC0 1.0)</a></p></section>
 <section class="slide level3">
 
 <p>As you can see, each type is a subtype of the type <code>Any</code>. We can check whether a type is a subtype of another using the &lt;: operator.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a></a>julia<span class="op">&gt;</span> <span class="dt">Float64</span> <span class="op">&lt;:</span><span class="dt"> Any</span></span>
-<span id="cb3-2"><a></a><span class="cn">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a></a>julia<span class="op">&gt;</span> <span class="dt">Float64</span> <span class="op">&lt;:</span><span class="dt"> Any</span></span>
+<span id="cb3-2"><a></a><span class="cn">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p><em>Concrete types</em> such as Float64 or Int64 can be instantiated, whereas <em>abstract types</em> exist only in the type hierarchy.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">isconcretetype</span>(<span class="dt">Float64</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">isconcretetype</span>(<span class="dt">Float64</span>)</span>
 <span id="cb4-2"><a></a><span class="cn">true</span></span>
 <span id="cb4-3"><a></a></span>
 <span id="cb4-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">isabstracttype</span>(<span class="dt">AbstractFloat</span>)</span>
-<span id="cb4-5"><a></a><span class="cn">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a></a><span class="cn">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>There are also <em>composite types</em>, which are made up of many smaller types.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a></a><span class="kw">struct</span> Person</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a></a><span class="kw">struct</span> Person</span>
 <span id="cb5-2"><a></a>  name<span class="op">::</span><span class="dt">String</span></span>
 <span id="cb5-3"><a></a>  age<span class="op">::</span><span class="dt">Int</span></span>
 <span id="cb5-4"><a></a>  married<span class="op">::</span><span class="dt">Bool</span></span>
-<span id="cb5-5"><a></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -287,25 +288,25 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 </div>
 <div class="fragment">
 <p>To instantiate a variable of that type, we call it’s constructor.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a></a>julia<span class="op">&gt;</span> author <span class="op">=</span> <span class="fu">Person</span>(<span class="st">"Marcel"</span>, <span class="fl">29</span>, <span class="cn">false</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a></a>julia<span class="op">&gt;</span> author <span class="op">=</span> <span class="fu">Person</span>(<span class="st">"Marcel"</span>, <span class="fl">29</span>, <span class="cn">false</span>)</span>
 <span id="cb6-2"><a></a><span class="fu">Person</span>(<span class="st">"Marcel"</span>, <span class="fl">29</span>, <span class="cn">false</span>)</span>
 <span id="cb6-3"><a></a></span>
 <span id="cb6-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(author)</span>
-<span id="cb6-5"><a></a>Person</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a></a>Person</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As usual, we can access the member variables of a composite type using the . notation.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a></a>julia<span class="op">&gt;</span> author.name</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a></a>julia<span class="op">&gt;</span> author.name</span>
 <span id="cb7-2"><a></a><span class="st">"Marcel"</span></span>
 <span id="cb7-3"><a></a></span>
 <span id="cb7-4"><a></a>julia<span class="op">&gt;</span> author.age</span>
 <span id="cb7-5"><a></a><span class="fl">29</span></span>
 <span id="cb7-6"><a></a></span>
 <span id="cb7-7"><a></a>julia<span class="op">&gt;</span> author.married</span>
-<span id="cb7-8"><a></a><span class="cn">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-8"><a></a><span class="cn">false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>By default, composite types are immutable, meaning they cannot be changed. However, an immutable object can contain mutable fields, such as arrays, which remain mutable.</p>
 <p>To define a mutable type, use the <code>mutable</code> keyword. If you want to ensure that a particular field remains constant in an otherwise mutable object, you can do this using the <code>const</code> keyword.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a></a><span class="kw">mutable struct</span> Triple</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a></a><span class="kw">mutable struct</span> Triple</span>
 <span id="cb8-2"><a></a>  a<span class="op">::</span><span class="dt">Int</span></span>
 <span id="cb8-3"><a></a>  b<span class="op">::</span><span class="dt">Real</span></span>
 <span id="cb8-4"><a></a>  <span class="kw">const</span> c<span class="op">::</span><span class="dt">Char</span></span>
@@ -320,21 +321,21 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 <span id="cb8-13"><a></a>julia<span class="op">&gt;</span> X.c <span class="op">=</span> <span class="ch">'M'</span></span>
 <span id="cb8-14"><a></a>ERROR<span class="op">:</span> setfield!<span class="op">:</span> <span class="kw">const</span> field .c of <span class="kw">type</span> Triple cannot be changed</span>
 <span id="cb8-15"><a></a>Stacktrace<span class="op">:</span></span>
-<span id="cb8-16"><a></a>[<span class="op">...</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a></a>[<span class="op">...</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level3">
 
 <p>TODO: Ist das wichtig?</p>
 <p>Abstract, primitive and composite types are all instances of the same concept, <code>DataType</code>, which is the type of these types.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(<span class="dt">Real</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(<span class="dt">Real</span>)</span>
 <span id="cb9-2"><a></a>DataType</span>
 <span id="cb9-3"><a></a></span>
 <span id="cb9-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(Person)</span>
 <span id="cb9-5"><a></a>DataType</span>
 <span id="cb9-6"><a></a></span>
 <span id="cb9-7"><a></a>julia<span class="op">&gt;</span> <span class="fu">typeof</span>(DataType)</span>
-<span id="cb9-8"><a></a>DataType</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a></a>DataType</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section id="type-unions" class="title-slide slide level2">
 <h2>Type Unions</h2>
@@ -344,20 +345,20 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Julia</a></li><li><a href="#tabset-1-2">C++</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a></a>IntOrString <span class="op">=</span> <span class="dt">Union</span>{<span class="dt">Int</span>, <span class="dt">AbstractString</span>}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a></a>IntOrString <span class="op">=</span> <span class="dt">Union</span>{<span class="dt">Int</span>, <span class="dt">AbstractString</span>}</span>
 <span id="cb10-2"><a></a></span>
 <span id="cb10-3"><a></a>x <span class="op">=</span> <span class="fl">8</span><span class="op">::</span><span class="dt">IntOrString</span></span>
 <span id="cb10-4"><a></a>x <span class="op">=</span> <span class="st">"Hello!"</span></span>
 <span id="cb10-5"><a></a></span>
-<span id="cb10-6"><a></a><span class="fu">println</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-6"><a></a><span class="fu">println</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-1-2">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a></a><span class="kw">using</span> IntOrString <span class="op">=</span> <span class="bu">std::</span>variant<span class="op">&lt;</span><span class="dt">int</span><span class="op">,</span> <span class="bu">std::</span>string<span class="op">&gt;;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb11-1"><a></a><span class="kw">using</span> IntOrString <span class="op">=</span> <span class="bu">std::</span>variant<span class="op">&lt;</span><span class="dt">int</span><span class="op">,</span> <span class="bu">std::</span>string<span class="op">&gt;;</span></span>
 <span id="cb11-2"><a></a></span>
 <span id="cb11-3"><a></a><span class="kw">auto</span> x <span class="op">=</span> IntOrString<span class="op">(</span><span class="dv">8</span><span class="op">);</span></span>
 <span id="cb11-4"><a></a>x <span class="op">=</span> <span class="st">"Hello!"</span><span class="op">;</span></span>
 <span id="cb11-5"><a></a></span>
-<span id="cb11-6"><a></a><span class="bu">std::</span>println<span class="op">(</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;(</span>x<span class="op">));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a><span class="bu">std::</span>println<span class="op">(</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;(</span>x<span class="op">));</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -371,21 +372,21 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Julia</a></li><li><a href="#tabset-2-2">C++</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a></a><span class="kw">struct</span> Point{T}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a></a><span class="kw">struct</span> Point{T}</span>
 <span id="cb12-2"><a></a>    x<span class="op">::</span><span class="dt">T</span></span>
 <span id="cb12-3"><a></a>    y<span class="op">::</span><span class="dt">T</span></span>
 <span id="cb12-4"><a></a><span class="kw">end</span></span>
 <span id="cb12-5"><a></a></span>
-<span id="cb12-6"><a></a>P <span class="op">=</span> <span class="fu">Point</span><span class="dt">{Float64}</span>(<span class="fl">5</span>, <span class="fl">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a></a>P <span class="op">=</span> <span class="fu">Point</span><span class="dt">{Float64}</span>(<span class="fl">5</span>, <span class="fl">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-2-2">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb13-1"><a></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
 <span id="cb13-2"><a></a>stuct Point <span class="op">{</span></span>
 <span id="cb13-3"><a></a>  T x<span class="op">;</span></span>
 <span id="cb13-4"><a></a>  T y<span class="op">;</span></span>
 <span id="cb13-5"><a></a><span class="op">}</span></span>
 <span id="cb13-6"><a></a></span>
-<span id="cb13-7"><a></a><span class="kw">auto</span> P <span class="op">=</span> Point<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-7"><a></a><span class="kw">auto</span> P <span class="op">=</span> Point<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -399,28 +400,40 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 </div>
 <div class="callout-content">
 <p>Note that although <code>Float64</code> is a subtype of <code>Real</code>, we <strong>do NOT</strong> have:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a></a>julia<span class="op">&gt;</span> Point{<span class="dt">Float64</span>} <span class="op">&lt;:</span><span class="dt"> Point{Real}</span></span>
-<span id="cb14-2"><a></a><span class="cn">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a></a>julia<span class="op">&gt;</span> Point{<span class="dt">Float64</span>} <span class="op">&lt;:</span><span class="dt"> Point{Real}</span></span>
+<span id="cb14-2"><a></a><span class="cn">false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <p>In other words, Julia’s type parameters are <em>invariant</em>.</p>
 <div class="fragment">
 <p>Let’s say we want to write a generic function that can take <code>Point{Float64}</code> as an argument. The following method won’t work:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{Real}</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{Real}</span>)</span>
 <span id="cb15-2"><a></a>    <span class="fu">sqrt</span>(p.x<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> p.y<span class="op">^</span><span class="fl">2</span>)</span>
-<span id="cb15-3"><a></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since <code>Point{Float64}</code> is not a subtype of <code>Point{Real}</code>, the function can’t take <code>Point{Float64}</code> as an argument.</p>
 </div>
 <div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
 <p><strong>The correct way to define a method that accepts all arguments of type <code>Point{T}</code> where <code>T</code> is a subtype of <code>Real</code> is</strong>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{&lt;:Real}</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{T}</span>) <span class="kw">where</span> T<span class="op">&lt;:</span><span class="dt">Real</span>;</span>
 <span id="cb16-2"><a></a>    <span class="fu">sqrt</span>(p.x<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> p.y<span class="op">^</span><span class="fl">2</span>)</span>
-<span id="cb16-3"><a></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 <p>Alternatively, one could also write</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{T}</span>) <span class="kw">where</span> T<span class="op">&lt;:</span><span class="dt">Real</span>;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a></a><span class="kw">function</span> <span class="fu">norm</span>(p<span class="op">::</span><span class="dt">Point{&lt;:Real}</span>)</span>
 <span id="cb17-2"><a></a>    <span class="fu">sqrt</span>(p.x<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> p.y<span class="op">^</span><span class="fl">2</span>)</span>
-<span id="cb17-3"><a></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -445,29 +458,797 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 <p><strong>Solution</strong></p>
 </div>
 <div class="callout-content">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a></a><span class="kw">struct</span> <span class="dt">Rational</span>{T<span class="op">&lt;:</span><span class="dt">Integer</span>} <span class="op">&lt;:</span><span class="dt"> Real</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a></a><span class="kw">struct</span> <span class="dt">Rational</span>{T<span class="op">&lt;:</span><span class="dt">Integer</span>} <span class="op">&lt;:</span><span class="dt"> Real</span></span>
 <span id="cb18-2"><a></a>    num<span class="op">::</span><span class="dt">T</span></span>
 <span id="cb18-3"><a></a>    den<span class="op">::</span><span class="dt">T</span></span>
-<span id="cb18-4"><a></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section id="tuples" class="title-slide slide level2">
-<h2>Tuples</h2>
-<p>sdf</p>
+<section>
+<section id="arrays" class="title-slide slide level2">
+<h2>Arrays</h2>
+<p>Arrays are data structures that allow random access to elements. Arrays often represent vectors and matrices. Julia has built-in support for arrays, with indexing and slicing syntax similar to Python or MATLAB. A (column)-vector in Julia can be constructed directly using square brackets and a comma (or semicolon) as separators.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a></a>julia<span class="op">&gt;</span> v <span class="op">=</span> [<span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">15</span>, <span class="fl">16</span>, <span class="fl">23</span>, <span class="fl">42</span>]</span>
+<span id="cb19-2"><a></a><span class="fl">6</span><span class="op">-</span>element <span class="dt">Vector</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb19-3"><a></a>  <span class="fl">4</span></span>
+<span id="cb19-4"><a></a>  <span class="fl">8</span></span>
+<span id="cb19-5"><a></a> <span class="fl">15</span></span>
+<span id="cb19-6"><a></a> <span class="fl">16</span></span>
+<span id="cb19-7"><a></a> <span class="fl">23</span></span>
+<span id="cb19-8"><a></a> <span class="fl">42</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>There are built-in functions for constructing common matrices:</p>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Julia</a></li><li><a href="#tabset-3-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">zeros</span>(<span class="dt">Int8</span>, (<span class="fl">2</span>, <span class="fl">3</span>))</span>
+<span id="cb20-2"><a></a><span class="fl">2</span><span class="op">×</span><span class="fl">3</span> <span class="dt">Matrix</span>{<span class="dt">Int8</span>}<span class="op">:</span></span>
+<span id="cb20-3"><a></a> <span class="fl">0</span>  <span class="fl">0</span>  <span class="fl">0</span></span>
+<span id="cb20-4"><a></a> <span class="fl">0</span>  <span class="fl">0</span>  <span class="fl">0</span></span>
+<span id="cb20-5"><a></a></span>
+<span id="cb20-6"><a></a>julia<span class="op">&gt;</span> A <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">2</span>, <span class="fl">2</span>)</span>
+<span id="cb20-7"><a></a><span class="op">×</span><span class="fl">2</span> <span class="dt">Matrix</span>{<span class="dt">Float64</span>}<span class="op">:</span></span>
+<span id="cb20-8"><a></a><span class="fl">0.380141</span>  <span class="fl">0.81997</span></span>
+<span id="cb20-9"><a></a><span class="fl">0.93474</span>   <span class="fl">0.0321379</span></span>
+<span id="cb20-10"><a></a></span>
+<span id="cb20-11"><a></a>julia<span class="op">&gt;</span> <span class="fu">Matrix</span><span class="dt">{Float64}</span>(I, <span class="fl">3</span>, <span class="fl">3</span>)</span>
+<span id="cb20-12"><a></a><span class="fl">3</span><span class="op">×</span><span class="fl">3</span> <span class="dt">Matrix</span>{<span class="dt">Float64</span>}<span class="op">:</span></span>
+<span id="cb20-13"><a></a> <span class="fl">1.0</span>  <span class="fl">0.0</span>  <span class="fl">0.0</span></span>
+<span id="cb20-14"><a></a> <span class="fl">0.0</span>  <span class="fl">1.0</span>  <span class="fl">0.0</span></span>
+<span id="cb20-15"><a></a> <span class="fl">0.0</span>  <span class="fl">0.0</span>  <span class="fl">1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-3-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> np.zeros( (<span class="dv">2</span>, <span class="dv">3</span>), dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb21-2"><a></a>array([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb21-3"><a></a>       [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]])</span>
+<span id="cb21-4"><a></a></span>
+<span id="cb21-5"><a></a><span class="op">&gt;&gt;&gt;</span> np.random.rand( <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb21-6"><a></a>array([[<span class="fl">0.46581219</span>, <span class="fl">0.93757536</span>],</span>
+<span id="cb21-7"><a></a>       [<span class="fl">0.97690228</span>, <span class="fl">0.72186734</span>]])</span>
+<span id="cb21-8"><a></a></span>
+<span id="cb21-9"><a></a><span class="op">&gt;&gt;&gt;</span> np.identity(<span class="dv">3</span>)</span>
+<span id="cb21-10"><a></a>array([[<span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>],</span>
+<span id="cb21-11"><a></a>       [<span class="fl">0.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>],</span>
+<span id="cb21-12"><a></a>       [<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">1.</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Note that ranges in Julia are closed, i.e.&nbsp;they include the endpoint.</p>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Julia</a></li><li><a href="#tabset-4-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">collect</span>(<span class="fu">range</span>(<span class="fl">1</span>, <span class="fl">5</span>))</span>
+<span id="cb22-2"><a></a><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">range</span>(<span class="fl">0</span>, <span class="fl">2</span><span class="op">*</span><span class="cn">pi</span>, length<span class="op">=</span><span class="fl">10</span>)</span>
+<span id="cb22-5"><a></a><span class="fl">0.0</span><span class="op">:</span><span class="fl">0.6981317007977318</span><span class="op">:</span><span class="fl">6.283185307179586</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-4-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="op">&gt;&gt;&gt;</span> np.arange(<span class="dv">0</span>, <span class="dv">5</span>)</span>
+<span id="cb23-2"><a></a>array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb23-3"><a></a><span class="op">&gt;&gt;&gt;</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, num<span class="op">=</span><span class="dv">10</span>, endpoint<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-4"><a></a>array([<span class="fl">0.</span>        , <span class="fl">0.6981317</span> , <span class="fl">1.3962634</span> , <span class="fl">2.0943951</span> , <span class="fl">2.7925268</span> ,</span>
+<span id="cb23-5"><a></a>       <span class="fl">3.4906585</span> , <span class="fl">4.1887902</span> , <span class="fl">4.88692191</span>, <span class="fl">5.58505361</span>, <span class="fl">6.28318531</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>You can basic information about the data type, dimension and size of the matrix:</p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Julia</a></li><li><a href="#tabset-5-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">eltype</span>(A)</span>
+<span id="cb24-2"><a></a><span class="dt">Float64</span></span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">ndims</span>(A)</span>
+<span id="cb24-5"><a></a><span class="fl">2</span></span>
+<span id="cb24-6"><a></a></span>
+<span id="cb24-7"><a></a>julia<span class="op">&gt;</span> <span class="fu">size</span>(A)</span>
+<span id="cb24-8"><a></a>(<span class="fl">2</span>, <span class="fl">2</span>)</span>
+<span id="cb24-9"><a></a></span>
+<span id="cb24-10"><a></a>julia<span class="op">&gt;</span> <span class="fu">length</span>(A)</span>
+<span id="cb24-11"><a></a><span class="fl">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-5-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb25-1"><a></a>&gt;&gt;&gt; A.dtype</span>
+<span id="cb25-2"><a></a>dtype('int64')</span>
+<span id="cb25-3"><a></a>&gt;&gt;&gt; A.ndim</span>
+<span id="cb25-4"><a></a>2</span>
+<span id="cb25-5"><a></a>&gt;&gt;&gt; A.shape</span>
+<span id="cb25-6"><a></a>(2, 3)</span>
+<span id="cb25-7"><a></a>&gt;&gt;&gt; A.size</span>
+<span id="cb25-8"><a></a>6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>Indexing and Slicing works very similar to MATLAB/Python:</p>
+
+<img data-src="images/Array_Slicing.svg" class="r-stretch quarto-figure-center"><p class="caption"><strong>Array Slicing in Julia</strong><br>
+This image was created using <a href="https://viewer.diagrams.net/?tags=%7B%7D&amp;lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Array%20Slicing&amp;dark=0#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Seite-1%22%20id%3D%22n41Uv4Qp2VjL033gDME-%22%3E3ZrLcpswFIafhpl24QySMJdl6sTpJouOO9NssSUbGoFcGd%2F69BVGwtgnnUkmtgV4Y%2FHrAvp00JkfcMgo2z3JeJk8C8q4g126c8iDgzFyA0%2F9lcq%2BUoIgrISFTKludBQm6V9memp1nVK2OmlYCMGLdHkqzkSes1lxosVSiu1ps7ngp2ddxgsGhMks5lD9ldIiqdQQB0f9O0sXiTkz8qOqJotNYz2TVRJTsW1I5NEhIylEUZWy3YjxEp7hUvUb%2F6e2vjDJ8uI9He5%2Fvjz%2FHgj5Yzr540fZ%2BmW65wNcjbKJ%2BVpP2ME%2BV%2BN9o%2BlGFRdlERlNDd6Q9bSKvWElxTqnrDydq6q3SVqwyTKelbVbFR1KS4qMqyOkiqtCilc2ElzIQ2%2FiHn71uM2J6blumCzYriHpiT4xkbFC7lUTXYtdDV1HHTKLsD2uoaelpLF8Rot11CzqkY9gVUGz%2FQBn8h7O%2BBqc5ynnDcrzmEZ0eHX%2BXsv4e4A%2FaXP4hi3DNwT4vA5GJcEtw%2BoDrMMWRyXxW4YvAPj8i0blFFE6d2%2Beq3zLWEOANejgzQ5SkG2sEcAadjFaz1OTbazGKDS4Rh0MV5CbrHNFgKtB3Y3sZB0g9FaGaSsBnueh%2BtgaQGiaDNNO3drnmcg%2BWOiG0Cft0BUyi31M0PWgPtge%2B2Ch70GfND5XSCD2MUF%2Fg%2FpgcGpi1sBCh4P6YHHsg4UeB93c5FQ15mH9tZKTbdRmT2%2Bi7oPvsQ8W%2Bp76DU6LkpN1THAPxZ1yN6FtgHCvxL1wN7bBErgzXuZlTzOl3PQZm32kb%2ByJvXBC1sFiCLZLr4DsA3zrxfql4jIXOQNEeTmrAY3l6xcFdzx%2BiHxlytTVk6FHFOyvYL%2FwLpXBvDvzcUmNfwjwo8i98zFcAvLxJVCHx89TDnWNj3zI4z8%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E">draw.io</a> and is hereby released into the <a href="https://creativecommons.org/publicdomain/zero/1.0/">public domain (CC0 1.0)</a></p><div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Julia</a></li><li><a href="#tabset-6-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a></a>A <span class="op">=</span> <span class="fu">transpose</span>(<span class="fu">reshape</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">25</span>, <span class="fl">5</span>, <span class="fl">5</span>))</span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a>red <span class="op">=</span> A[<span class="op">:</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="kw">end</span>]</span>
+<span id="cb26-4"><a></a>blue <span class="op">=</span> A[<span class="fl">2</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="kw">end</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span>]</span>
+<span id="cb26-5"><a></a>yellow <span class="op">=</span> A[<span class="kw">end</span>, <span class="op">:</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-6-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>A <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">26</span>).reshape((<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb27-2"><a></a></span>
+<span id="cb27-3"><a></a>red <span class="op">=</span> A[:, <span class="dv">1</span>::<span class="dv">2</span>]</span>
+<span id="cb27-4"><a></a>blue <span class="op">=</span> A[<span class="dv">1</span>::<span class="dv">2</span>, <span class="dv">0</span>:<span class="dv">3</span>:<span class="dv">2</span>]</span>
+<span id="cb27-5"><a></a>yellow <span class="op">=</span> A[<span class="op">-</span><span class="dv">1</span>, :]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>By default, indexing and slicing return copies of the array. For performance reasons, it may sometimes be better to just get a view:</p>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Julia</a></li><li><a href="#tabset-7-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a></a>julia<span class="op">&gt;</span> B <span class="op">=</span> <span class="pp">@view</span> A[<span class="fl">2</span>, <span class="op">:</span>]</span>
+<span id="cb28-2"><a></a><span class="fl">3</span><span class="op">-</span>element <span class="fu">view</span>(<span class="op">::</span><span class="dt">Matrix{Int64}</span>, <span class="fl">2</span>, <span class="op">:</span>) with eltype <span class="dt">Int64</span><span class="op">:</span></span>
+<span id="cb28-3"><a></a>  <span class="fl">8</span></span>
+<span id="cb28-4"><a></a> <span class="fl">42</span></span>
+<span id="cb28-5"><a></a> <span class="fl">69</span></span>
+<span id="cb28-6"><a></a></span>
+<span id="cb28-7"><a></a>julia<span class="op">&gt;</span> B[<span class="fl">2</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">5</span></span>
+<span id="cb28-8"><a></a><span class="op">-</span><span class="fl">5</span></span>
+<span id="cb28-9"><a></a></span>
+<span id="cb28-10"><a></a>julia<span class="op">&gt;</span> A</span>
+<span id="cb28-11"><a></a><span class="fl">3</span><span class="op">×</span><span class="fl">3</span> <span class="dt">Matrix</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb28-12"><a></a> <span class="fl">1</span>   <span class="fl">2</span>    <span class="fl">3</span></span>
+<span id="cb28-13"><a></a> <span class="fl">8</span>  <span class="op">-</span><span class="fl">5</span>   <span class="fl">69</span></span>
+<span id="cb28-14"><a></a> <span class="fl">5</span>  <span class="fl">25</span>  <span class="fl">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-7-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> A[:, <span class="dv">1</span>]</span>
+<span id="cb29-2"><a></a><span class="op">&gt;&gt;&gt;</span> B[<span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a><span class="op">&gt;&gt;&gt;</span> A</span>
+<span id="cb29-5"><a></a>array([[  <span class="dv">1</span>,   <span class="dv">2</span>,   <span class="dv">3</span>],</span>
+<span id="cb29-6"><a></a>       [  <span class="dv">8</span>,  <span class="op">-</span><span class="dv">5</span>,  <span class="dv">69</span>],</span>
+<span id="cb29-7"><a></a>       [  <span class="dv">5</span>,  <span class="dv">25</span>, <span class="dv">100</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>As you can see, changing the second element of B causes the corresponding element of A to change as well.</p>
+</section>
+<section class="slide level3">
+
+<p>To use logical indexing (masking) in Julia, you must first map a lambda function to each element to create a mask. Alternatively, you can use dot syntax to vectorise a particular function.</p>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Julia</a></li><li><a href="#tabset-8-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a></a>julia<span class="op">&gt;</span> mask <span class="op">=</span> <span class="fu">map</span>( x <span class="op">-&gt;</span> (x <span class="op">&gt;</span> <span class="fl">3</span>), A)</span>
+<span id="cb30-2"><a></a><span class="fl">3</span><span class="op">×</span><span class="fl">3</span> <span class="dt">Matrix</span>{<span class="dt">Bool</span>}<span class="op">:</span></span>
+<span id="cb30-3"><a></a> <span class="fl">0</span>  <span class="fl">0</span>  <span class="fl">0</span></span>
+<span id="cb30-4"><a></a> <span class="fl">1</span>  <span class="fl">0</span>  <span class="fl">1</span></span>
+<span id="cb30-5"><a></a> <span class="fl">1</span>  <span class="fl">1</span>  <span class="fl">1</span></span>
+<span id="cb30-6"><a></a></span>
+<span id="cb30-7"><a></a>julia<span class="op">&gt;</span> A[mask]</span>
+<span id="cb30-8"><a></a><span class="fl">5</span><span class="op">-</span>element <span class="dt">Vector</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb30-9"><a></a>   <span class="fl">8</span></span>
+<span id="cb30-10"><a></a>   <span class="fl">5</span></span>
+<span id="cb30-11"><a></a>  <span class="fl">25</span></span>
+<span id="cb30-12"><a></a>  <span class="fl">69</span></span>
+<span id="cb30-13"><a></a> <span class="fl">100</span></span>
+<span id="cb30-14"><a></a></span>
+<span id="cb30-15"><a></a>julia<span class="op">&gt;</span> A[A<span class="op">.&gt;</span><span class="fl">3</span>]</span>
+<span id="cb30-16"><a></a><span class="fl">5</span><span class="op">-</span>element <span class="dt">Vector</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb30-17"><a></a>   <span class="fl">8</span></span>
+<span id="cb30-18"><a></a>   <span class="fl">5</span></span>
+<span id="cb30-19"><a></a>  <span class="fl">25</span></span>
+<span id="cb30-20"><a></a>  <span class="fl">69</span></span>
+<span id="cb30-21"><a></a> <span class="fl">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-8-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="op">&gt;&gt;&gt;</span> A <span class="op">&gt;</span> <span class="dv">3</span></span>
+<span id="cb31-2"><a></a>array([[<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb31-3"><a></a>       [ <span class="va">True</span>, <span class="va">False</span>,  <span class="va">True</span>],</span>
+<span id="cb31-4"><a></a>       [ <span class="va">True</span>,  <span class="va">True</span>,  <span class="va">True</span>]])</span>
+<span id="cb31-5"><a></a></span>
+<span id="cb31-6"><a></a><span class="op">&gt;&gt;&gt;</span> A[A<span class="op">&gt;</span><span class="dv">3</span>]</span>
+<span id="cb31-7"><a></a>array([  <span class="dv">8</span>,  <span class="dv">69</span>,   <span class="dv">5</span>,  <span class="dv">25</span>, <span class="dv">100</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>You can use hcat and to combine multiple arrays:</p>
+
+<img data-src="images/Array_Concatenation.svg" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Array concatenation in Julia</strong><br>
+This image was created with <a href="https://viewer.diagrams.net/?tags=%7B%7D&amp;lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Array_Concatenation.drawio&amp;dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Seite-1%22%20id%3D%22sR6SqacXofZBzUr4gbBw%22%3E5ZtLc5swFIV%2FDTPtojMggY2XtpMmXXSVRR87GWSjFpAH5Efy6ytsYRtdMtPO0IjbrgJXIOC7zInO8eDRZXF8qNg2%2ByxTnnvET48evfMICfxpqP80ledzZTqNz4VNJVJz0LXwJF54e6ap7kTK686BSspciW23mMiy5Inq1FhVyUP3sLXMu1fdsg0HhaeE5bD6RaQqO1djMr3WH7nYZO2Vg8nsPFKw9mDzJHXGUnm4KdF7jy4rKdV5qzgued7Aa7mcz%2Fv4yujlxipeqt85ofh6%2F%2BP7JgjEvk6%2FfXoMq5l8%2BGBm2bN8133gWj23CCq5K1PezOJ7dHHIhOJPW5Y0owfddF3LVJHrvUBvrkWeL2Uuq9O5dB0nPEl0vVaV%2FMlvRlZxFEbNhOYOeKX48dVHCy7A9JvGZcFV9awPaU%2BYGMbmJYvN7uHasdCUsptmtTVm3pHNZeIrRr1hSP4BVQKoEoRUiT8uqhRQpRiphuOiGgKqIUKqtgIExDHWCGCNEGK1JcA51gnAOsGINRwZ1ikUgWH%2FY6WMx%2BterpMk5qv1MFzpyNYBMXxbZwixhiNbCMwA1qC9Q1xcR7YUaD3XDdjpsEssNzLgXF6DHpuFEawtBO7B9jitYddZbpTAPVhotlAGA6TL9QLMGVdotzBGA7bdcs8V%2Bi2U4YA%2FNq7QcKGMB2wdcL7Ugo4LYz4AdMA51x7LhZAr0AHnXKHnQpkQ2EJAXS%2B02utjzwhsJXAPtsdzoUwJbC1wTxaaLpQxAdCCiWuwPaYLJVhbC5yD7XFdGGMCIAXOwULbhTEmuCyvxmK7CLRdGGMCOrb4hUDbhTEmsANu91yh7cIYEwAdcG27CLRdGGMCoAOuudIe14WR69jiFwpNF8qYwP6hy7nAUui5UMYE9g9d7sH2eC6UMUE4tjUshaYLZUwAtMC5yPaYLpRgbS1wDrbHdWGMCYAUOAcLbdc%2BYerd3CN6Qn%2FxHkDWD6%2B6JFkuNqXeTjQErqEtGkQiYfncDBQiTZvTe1vSbdpalsp8ahKEA2Ve9svsQ%2BbxmzKHliz7x5iD5a9z5tCuzQfFXPFavLDVaaoG6laKUp2eIlp40V0z107J2mAGOlPKklui1JaG7w7xo053Itgc2tMc%2Brea03b9pjmL%2F7Y54Zs1R%2B9ev3E7jd18KUjvfwE%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E">draw.io</a> and is hereby release into the <a href="https://creativecommons.org/publicdomain/zero/1.0/">public domain (CC0 1.0)</a>.</p><div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Julia</a></li><li><a href="#tabset-9-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">hcat</span>(A, B)</span>
+<span id="cb32-2"><a></a><span class="fl">2</span><span class="op">×</span><span class="fl">6</span> <span class="dt">Matrix</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb32-3"><a></a> <span class="fl">1</span>  <span class="fl">2</span>  <span class="fl">3</span>  <span class="fl">42</span>  <span class="fl">69</span>  <span class="fl">100</span></span>
+<span id="cb32-4"><a></a> <span class="fl">4</span>  <span class="fl">5</span>  <span class="fl">6</span>  <span class="fl">73</span>  <span class="fl">13</span>   <span class="fl">25</span></span>
+<span id="cb32-5"><a></a></span>
+<span id="cb32-6"><a></a>julia<span class="op">&gt;</span> <span class="fu">vcat</span>(A, B)</span>
+<span id="cb32-7"><a></a><span class="fl">4</span><span class="op">×</span><span class="fl">3</span> <span class="dt">Matrix</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb32-8"><a></a>  <span class="fl">1</span>   <span class="fl">2</span>    <span class="fl">3</span></span>
+<span id="cb32-9"><a></a>  <span class="fl">4</span>   <span class="fl">5</span>    <span class="fl">6</span></span>
+<span id="cb32-10"><a></a> <span class="fl">42</span>  <span class="fl">69</span>  <span class="fl">100</span></span>
+<span id="cb32-11"><a></a> <span class="fl">73</span>  <span class="fl">13</span>   <span class="fl">25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-9-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a><span class="op">&gt;&gt;&gt;</span> np.hstack( (A, B) )</span>
+<span id="cb33-2"><a></a>array([[  <span class="dv">1</span>,   <span class="dv">2</span>,   <span class="dv">3</span>,  <span class="dv">42</span>,  <span class="dv">69</span>, <span class="dv">100</span>],</span>
+<span id="cb33-3"><a></a>       [  <span class="dv">4</span>,   <span class="dv">5</span>,   <span class="dv">6</span>,  <span class="dv">73</span>,  <span class="dv">13</span>,  <span class="dv">25</span>]])</span>
+<span id="cb33-4"><a></a><span class="op">&gt;&gt;&gt;</span> np.vstack( (A,B) )</span>
+<span id="cb33-5"><a></a>array([[  <span class="dv">1</span>,   <span class="dv">2</span>,   <span class="dv">3</span>],</span>
+<span id="cb33-6"><a></a>       [  <span class="dv">4</span>,   <span class="dv">5</span>,   <span class="dv">6</span>],</span>
+<span id="cb33-7"><a></a>       [ <span class="dv">42</span>,  <span class="dv">69</span>, <span class="dv">100</span>],</span>
+<span id="cb33-8"><a></a>       [ <span class="dv">73</span>,  <span class="dv">13</span>,  <span class="dv">25</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>Broadcasting also works in Julia, but you have to explicitly use the <code>broadcast</code> function, so the syntax is a bit more verbose. That way, broadcasting cannot happen by accident.</p>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Julia</a></li><li><a href="#tabset-10-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a></a>julia<span class="op">&gt;</span> A <span class="op">=</span> <span class="fu">randn</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
+<span id="cb34-2"><a></a><span class="fl">2</span><span class="op">×</span><span class="fl">2</span> <span class="dt">Matrix</span>{<span class="dt">Float64</span>}<span class="op">:</span></span>
+<span id="cb34-3"><a></a> <span class="op">-</span><span class="fl">0.805994</span>   <span class="fl">0.887138</span></span>
+<span id="cb34-4"><a></a>  <span class="fl">0.630169</span>  <span class="op">-</span><span class="fl">0.70303</span></span>
+<span id="cb34-5"><a></a></span>
+<span id="cb34-6"><a></a>julia<span class="op">&gt;</span> b <span class="op">=</span> [<span class="fl">5</span>; <span class="fl">3</span>]</span>
+<span id="cb34-7"><a></a><span class="fl">2</span><span class="op">-</span>element <span class="dt">Vector</span>{<span class="dt">Int64</span>}<span class="op">:</span></span>
+<span id="cb34-8"><a></a> <span class="fl">5</span></span>
+<span id="cb34-9"><a></a> <span class="fl">3</span></span>
+<span id="cb34-10"><a></a></span>
+<span id="cb34-11"><a></a>julia<span class="op">&gt;</span> <span class="fu">broadcast</span>(<span class="op">+</span>, A, b)</span>
+<span id="cb34-12"><a></a><span class="fl">2</span><span class="op">×</span><span class="fl">2</span> <span class="dt">Matrix</span>{<span class="dt">Float64</span>}<span class="op">:</span></span>
+<span id="cb34-13"><a></a> <span class="fl">4.19401</span>  <span class="fl">5.88714</span></span>
+<span id="cb34-14"><a></a> <span class="fl">3.63017</span>  <span class="fl">2.29697</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-10-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> np.random.randn(<span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb35-2"><a></a><span class="op">&gt;&gt;&gt;</span> A</span>
+<span id="cb35-3"><a></a>array([[ <span class="fl">0.22867558</span>,  <span class="fl">0.50563247</span>],</span>
+<span id="cb35-4"><a></a>       [<span class="op">-</span><span class="fl">0.21137373</span>, <span class="op">-</span><span class="fl">1.31592931</span>]])</span>
+<span id="cb35-5"><a></a><span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> np.array([[<span class="dv">5</span>, <span class="dv">3</span>]]).T</span>
+<span id="cb35-6"><a></a><span class="op">&gt;&gt;&gt;</span> b</span>
+<span id="cb35-7"><a></a>array([[<span class="dv">5</span>],</span>
+<span id="cb35-8"><a></a>       [<span class="dv">3</span>]])</span>
+<span id="cb35-9"><a></a><span class="op">&gt;&gt;&gt;</span> A <span class="op">+</span> b</span>
+<span id="cb35-10"><a></a>array([[<span class="fl">5.22867558</span>, <span class="fl">5.50563247</span>],</span>
+<span id="cb35-11"><a></a>       [<span class="fl">2.78862627</span>, <span class="fl">1.68407069</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="constructors" class="title-slide slide level2">
+<h2>Constructors</h2>
+<p>Constructors are functions that create new instances of composite types. When a user defines a new composite type, Julia creates the default constructors. However, in some cases constructors need additional functionality, for example to enforce constraints (called invariants) through argument checking or transformation.</p>
+<p>Here’s a simple example illustrating the use of constructors in Julia:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb36-1"><a></a><span class="kw">struct</span> Rectangle{T <span class="op">&lt;:</span><span class="dt"> Real</span>}</span>
+<span id="cb36-2"><a></a>   width<span class="op">::</span><span class="dt">T</span></span>
+<span id="cb36-3"><a></a>   height<span class="op">::</span><span class="dt">T</span></span>
+<span id="cb36-4"><a></a></span>
+<span id="cb36-5"><a></a>   <span class="co"># Inner constructor</span></span>
+<span id="cb36-6"><a></a>   <span class="kw">function</span> <span class="fu">Rectangle</span>(width<span class="op">::</span><span class="dt">Real</span>, height<span class="op">::</span><span class="dt">Real</span>)</span>
+<span id="cb36-7"><a></a>       <span class="pp">@assert</span> width <span class="op">&gt;=</span> <span class="fl">0</span> <span class="st">"Width must be non-negative!"</span></span>
+<span id="cb36-8"><a></a>       <span class="pp">@assert</span> height <span class="op">&gt;=</span> <span class="fl">0</span> <span class="st">"Height must be non-negative!"</span></span>
+<span id="cb36-9"><a></a>       promoted_type <span class="op">=</span> <span class="fu">promote_type</span>(<span class="fu">typeof</span>(width), <span class="fu">typeof</span>(height))</span>
+<span id="cb36-10"><a></a>       <span class="fu">new</span><span class="dt">{promoted_type}</span>(width, height)</span>
+<span id="cb36-11"><a></a>   <span class="kw">end</span></span>
+<span id="cb36-12"><a></a></span>
+<span id="cb36-13"><a></a>   <span class="co"># Default Constructor</span></span>
+<span id="cb36-14"><a></a>   <span class="fu">Rectangle</span>() <span class="op">=</span> <span class="fu">Rectangle</span>(<span class="fl">1.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb36-15"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>That way, you can construct a Rectangle via</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a></a>rect1 <span class="op">=</span> <span class="fu">Rectangle</span>(<span class="fl">5.0</span>, <span class="fl">3.0</span>)     <span class="co"># Float64</span></span>
+<span id="cb37-2"><a></a>rect2 <span class="op">=</span> <span class="fu">Rectangle</span>(<span class="fl">5</span>, <span class="fl">3</span>)         <span class="co"># Int64</span></span>
+<span id="cb37-3"><a></a>rect3 <span class="op">=</span> <span class="fu">Rectangle</span>(<span class="fl">5.0</span>, <span class="fl">3</span>)       <span class="co"># Float64 (via type promotion)</span></span>
+<span id="cb37-4"><a></a>rect4 <span class="op">=</span> <span class="fu">Rectangle</span>()             <span class="co"># default: Float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>but calling it with negative arguments results in an error:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a></a>rect <span class="op">=</span> <span class="fu">Rectangle</span>(<span class="fl">5.0</span>, <span class="op">-</span><span class="fl">3.0</span>)    <span class="co"># error</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>Sometimes it can be useful to define a struct with some default values. This can be achieved either by using default arguments in the constructor,</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a></a><span class="kw">struct</span> MyType</span>
+<span id="cb39-2"><a></a>        a<span class="op">::</span><span class="dt">Int </span><span class="co"># required keyword</span></span>
+<span id="cb39-3"><a></a>        b<span class="op">::</span><span class="dt">Float64 </span><span class="co"># optional</span></span>
+<span id="cb39-4"><a></a>        </span>
+<span id="cb39-5"><a></a>        <span class="fu">MyType</span>(a<span class="op">::</span><span class="dt">Int</span>) <span class="op">=</span> <span class="fu">new</span>(a, <span class="fl">2.3</span>)</span>
+<span id="cb39-6"><a></a>        <span class="fu">MyType</span>(a<span class="op">::</span><span class="dt">Int</span>, b<span class="op">::</span><span class="dt">Float64</span>) <span class="op">=</span> <span class="fu">new</span>(a, b)</span>
+<span id="cb39-7"><a></a><span class="kw">end</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>or by using the <code>Base.@kwdef</code> macro:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a></a><span class="bu">Base</span>.<span class="pp">@kwdef</span> <span class="kw">struct</span> MyType</span>
+<span id="cb40-2"><a></a>    a<span class="op">::</span><span class="dt">Int </span><span class="co"># required keyword</span></span>
+<span id="cb40-3"><a></a>    b<span class="op">::</span><span class="dt">Float64 </span><span class="op">=</span> <span class="fl">2.3</span></span>
+<span id="cb40-4"><a></a>    c<span class="op">::</span><span class="dt">String </span><span class="op">=</span> <span class="st">"hello"</span></span>
+<span id="cb40-5"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>If you omit any of the optional parameters, the values must be passed as keyword arguments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb41-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">MyType</span>(<span class="fl">1</span>, <span class="fl">2.3</span>, <span class="st">"aaa"</span>)</span>
+<span id="cb41-2"><a></a><span class="fu">MyType</span>(<span class="fl">1</span>, <span class="fl">2.3</span>, <span class="st">"aaa"</span>)</span>
+<span id="cb41-3"><a></a></span>
+<span id="cb41-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">MyType</span>(; a <span class="op">=</span> <span class="fl">3</span>)</span>
+<span id="cb41-5"><a></a><span class="fu">MyType</span>(<span class="fl">3</span>, <span class="fl">2.3</span>, <span class="st">"hello"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>TODO: Explain functors, make comparison with C++</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a></a><span class="bu">Base</span>.<span class="pp">@kwdef</span> <span class="kw">struct</span> Gauss</span>
+<span id="cb42-2"><a></a>    μ<span class="op">::</span><span class="dt">Float64 </span><span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb42-3"><a></a>    σ<span class="op">::</span><span class="dt">Float64 </span><span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb42-4"><a></a>    </span>
+<span id="cb42-5"><a></a>    <span class="kw">function</span> <span class="fu">Gauss</span>(mu<span class="op">::</span><span class="dt">Real</span>, sigma<span class="op">::</span><span class="dt">Real</span>)</span>
+<span id="cb42-6"><a></a>        <span class="pp">@assert</span> sigma <span class="op">&gt;</span> <span class="fl">0</span> <span class="st">"sigma must be positive"</span></span>
+<span id="cb42-7"><a></a>        <span class="fu">new</span>(mu, sigma)</span>
+<span id="cb42-8"><a></a>    <span class="kw">end</span></span>
+<span id="cb42-9"><a></a><span class="kw">end</span>     </span>
+<span id="cb42-10"><a></a></span>
+<span id="cb42-11"><a></a><span class="co"># Function to compute the normal distribution</span></span>
+<span id="cb42-12"><a></a>(d<span class="op">::</span><span class="dt">Gauss</span>)(x<span class="op">::</span><span class="dt">Real</span>) <span class="op">=</span> <span class="fl">1</span><span class="op">/</span>(d.σ <span class="op">*</span> <span class="fu">sqrt</span>(<span class="fl">2</span>π)) <span class="op">*</span> <span class="fu">exp</span>(<span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span>((x<span class="op">-</span>d.μ)<span class="op">/</span>d.σ)<span class="op">^</span><span class="fl">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section>
+<section id="method-overloading" class="title-slide slide level2">
+<h2>Method Overloading</h2>
+<p>A function in Julia can consist of multiple methods. When a user calls a function, the method that is actually executed depends on the type and number of arguments. This is very similar to function overloading in C++.</p>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Julia</a></li><li><a href="#tabset-11-2">C++</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb43-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(x<span class="op">::</span><span class="dt">Float64</span>, y<span class="op">::</span><span class="dt">Float64</span>) <span class="op">=</span> <span class="fl">2</span>x <span class="op">-</span> y</span>
+<span id="cb43-2"><a></a>f (generic <span class="kw">function</span> with <span class="fl">2</span> methods)</span>
+<span id="cb43-3"><a></a></span>
+<span id="cb43-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(x<span class="op">::</span><span class="dt">Int64</span>, y<span class="op">::</span><span class="dt">Int64</span>) <span class="op">=</span> <span class="fl">2</span>x <span class="op">-</span> y</span>
+<span id="cb43-5"><a></a>f (generic <span class="kw">function</span> with <span class="fl">2</span> methods)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-11-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb44-1"><a></a><span class="dt">double</span> f<span class="op">(</span><span class="dt">double</span> x<span class="op">,</span> <span class="dt">double</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb44-2"><a></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">-</span> y<span class="op">;</span></span>
+<span id="cb44-3"><a></a><span class="op">}</span></span>
+<span id="cb44-4"><a></a></span>
+<span id="cb44-5"><a></a><span class="dt">long</span> f<span class="op">(</span><span class="dt">long</span> x<span class="op">,</span> <span class="dt">long</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb44-6"><a></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">-</span> y<span class="op">;</span></span>
+<span id="cb44-7"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>You can use the <code>methods</code> function to get a list of the methods for a given function.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb45-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">methods</span>(f)</span>
+<span id="cb45-2"><a></a><span class="co"># 2 methods for generic function "f" from Main:</span></span>
+<span id="cb45-3"><a></a> [<span class="fl">1</span>] <span class="fu">f</span>(x<span class="op">::</span><span class="dt">Int64</span>, y<span class="op">::</span><span class="dt">Int64</span>)</span>
+<span id="cb45-4"><a></a>     @ <span class="bu">REPL</span>[<span class="fl">5</span>]<span class="op">:</span><span class="fl">1</span></span>
+<span id="cb45-5"><a></a> [<span class="fl">2</span>] <span class="fu">f</span>(x<span class="op">::</span><span class="dt">Float64</span>, y<span class="op">::</span><span class="dt">Float64</span>)</span>
+<span id="cb45-6"><a></a>     @ <span class="bu">REPL</span>[<span class="fl">4</span>]<span class="op">:</span><span class="fl">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>We can call this function in the usual way:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2</span>, <span class="fl">3</span>)</span>
+<span id="cb46-2"><a></a><span class="fl">1</span></span>
+<span id="cb46-3"><a></a></span>
+<span id="cb46-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2.0</span>, <span class="fl">3.0</span>)</span>
+<span id="cb46-5"><a></a><span class="fl">1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>If there is no method available for the given arguments, this will result in a <code>MethodError</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb47-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2</span>, <span class="fl">3.7</span>)</span>
+<span id="cb47-2"><a></a>ERROR<span class="op">:</span> <span class="dt">MethodError</span><span class="op">:</span> no method matching <span class="fu">f</span>(<span class="op">::</span><span class="dt">Int64</span>, <span class="op">::</span><span class="dt">Float64</span>)</span>
+<span id="cb47-3"><a></a>The <span class="kw">function</span> <span class="ss">`f`</span> exists, but no method is defined <span class="cf">for</span> this combination of argument types.</span>
+<span id="cb47-4"><a></a></span>
+<span id="cb47-5"><a></a>Closest candidates are<span class="op">:</span></span>
+<span id="cb47-6"><a></a>  <span class="fu">f</span>(<span class="op">::</span><span class="dt">Int64</span>, <span class="op">::</span><span class="dt">Int64</span>)</span>
+<span id="cb47-7"><a></a>   @ <span class="bu">Main</span> <span class="bu">REPL</span>[<span class="fl">5</span>]<span class="op">:</span><span class="fl">1</span></span>
+<span id="cb47-8"><a></a>  <span class="fu">f</span>(<span class="op">::</span><span class="dt">Float64</span>, <span class="op">::</span><span class="dt">Float64</span>)</span>
+<span id="cb47-9"><a></a>   @ <span class="bu">Main</span> <span class="bu">REPL</span>[<span class="fl">4</span>]<span class="op">:</span><span class="fl">1</span></span>
+<span id="cb47-10"><a></a></span>
+<span id="cb47-11"><a></a>Stacktrace<span class="op">:</span></span>
+<span id="cb47-12"><a></a>[<span class="op">...</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level3">
+
+<p>Providing a method for every possible combination of types can quickly get out of hand; it is more useful to define general methods where the parameters are abstract:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(x<span class="op">::</span><span class="dt">Number</span>, y<span class="op">::</span><span class="dt">Number</span>) <span class="op">=</span> <span class="fl">2</span>x <span class="op">-</span> y</span>
+<span id="cb48-2"><a></a>f (generic <span class="kw">function</span> with <span class="fl">2</span> methods)</span>
+<span id="cb48-3"><a></a></span>
+<span id="cb48-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2.0</span>, <span class="fl">3</span>)</span>
+<span id="cb48-5"><a></a><span class="fl">1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function will work for any numeric type; non-numeric types will throw an error as expected.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb49-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2</span>, <span class="fl">3</span>)</span>
+<span id="cb49-2"><a></a><span class="fl">7</span></span>
+<span id="cb49-3"><a></a></span>
+<span id="cb49-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2.0</span>, <span class="fl">3.0</span>)</span>
+<span id="cb49-5"><a></a><span class="fl">7.0</span></span>
+<span id="cb49-6"><a></a></span>
+<span id="cb49-7"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="fl">2.0</span>, <span class="fl">3</span>)</span>
+<span id="cb49-8"><a></a><span class="fl">7.0</span></span>
+<span id="cb49-9"><a></a></span>
+<span id="cb49-10"><a></a>julia<span class="op">&gt;</span> <span class="fu">f</span>(<span class="st">"2.0"</span>, <span class="fl">3</span>)</span>
+<span id="cb49-11"><a></a>ERROR<span class="op">:</span> <span class="dt">MethodError</span><span class="op">:</span> no method matching <span class="fu">f</span>(<span class="op">::</span><span class="dt">String</span>, <span class="op">::</span><span class="dt">Int64</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level3">
+
+<p>Care should be taken to ensure that there are no conflicting methods for the same function. If more than one method is applicable to a particular combination of arguments, the function call is <strong>ambiguous</strong> and an error will occur.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a></a>julia<span class="op">&gt;</span> <span class="fu">g</span>(x<span class="op">::</span><span class="dt">Float64</span>, y) <span class="op">=</span> <span class="fl">2</span>x <span class="op">+</span> y</span>
+<span id="cb50-2"><a></a>g (generic <span class="kw">function</span> with <span class="fl">1</span> method)</span>
+<span id="cb50-3"><a></a></span>
+<span id="cb50-4"><a></a>julia<span class="op">&gt;</span> <span class="fu">g</span>(x, y<span class="op">::</span><span class="dt">Float64</span>) <span class="op">=</span> x <span class="op">+</span> <span class="fl">2</span>y</span>
+<span id="cb50-5"><a></a>g (generic <span class="kw">function</span> with <span class="fl">2</span> methods)</span>
+<span id="cb50-6"><a></a></span>
+<span id="cb50-7"><a></a>julia<span class="op">&gt;</span> <span class="fu">g</span>(<span class="fl">2.0</span>, <span class="fl">3</span>)</span>
+<span id="cb50-8"><a></a><span class="fl">7.0</span></span>
+<span id="cb50-9"><a></a></span>
+<span id="cb50-10"><a></a>julia<span class="op">&gt;</span> <span class="fu">g</span>(<span class="fl">2</span>, <span class="fl">3.0</span>)</span>
+<span id="cb50-11"><a></a><span class="fl">8.0</span></span>
+<span id="cb50-12"><a></a></span>
+<span id="cb50-13"><a></a>julia<span class="op">&gt;</span> <span class="fu">g</span>(<span class="fl">2.0</span>, <span class="fl">3.0</span>)</span>
+<span id="cb50-14"><a></a>ERROR<span class="op">:</span> <span class="dt">MethodError</span><span class="op">:</span> <span class="fu">g</span>(<span class="op">::</span><span class="dt">Float64</span>, <span class="op">::</span><span class="dt">Float64</span>) is ambiguous.</span>
+<span id="cb50-15"><a></a>[<span class="op">...</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section id="polymorphism" class="title-slide slide level2">
+<h2>Polymorphism</h2>
+<p>In order to understand Multiple Dispatch, we first need to talk about Polymorphism.</p>
+<div class="fragment">
+<p>Polymorphism, meaning “many forms,” is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common type. It enables you to design code that is more flexible, extensible, and reusable.</p>
+</div>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">C++</a></li><li><a href="#tabset-12-2">C#</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb51-1"><a></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb51-2"><a></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb51-3"><a></a><span class="pp">#include </span><span class="im">&lt;memory&gt;</span></span>
+<span id="cb51-4"><a></a></span>
+<span id="cb51-5"><a></a><span class="kw">class</span> Animal <span class="op">{</span></span>
+<span id="cb51-6"><a></a>  <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb51-7"><a></a>    <span class="kw">virtual</span> <span class="dt">void</span> sound<span class="op">()</span> <span class="at">const</span> <span class="op">{</span></span>
+<span id="cb51-8"><a></a>      <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">"FALLBACK</span><span class="sc">\n</span><span class="st">"</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb51-9"><a></a>    <span class="op">}</span></span>
+<span id="cb51-10"><a></a>    <span class="kw">virtual</span> <span class="op">~</span>Animal<span class="op">()</span> <span class="op">=</span> <span class="cf">default</span><span class="op">;</span></span>
+<span id="cb51-11"><a></a><span class="op">};</span></span>
+<span id="cb51-12"><a></a></span>
+<span id="cb51-13"><a></a><span class="kw">class</span> Dog <span class="op">:</span> <span class="kw">public</span> Animal <span class="op">{</span></span>
+<span id="cb51-14"><a></a>  <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb51-15"><a></a>    <span class="dt">void</span> sound<span class="op">()</span> <span class="at">const</span> <span class="kw">override</span> <span class="op">{</span></span>
+<span id="cb51-16"><a></a>      <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">"bark</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb51-17"><a></a>    <span class="op">}</span></span>
+<span id="cb51-18"><a></a><span class="op">};</span></span>
+<span id="cb51-19"><a></a></span>
+<span id="cb51-20"><a></a><span class="kw">class</span> Cat <span class="op">:</span> <span class="kw">public</span> Animal <span class="op">{</span></span>
+<span id="cb51-21"><a></a>  <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb51-22"><a></a>    <span class="dt">void</span> sound<span class="op">()</span> <span class="at">const</span> <span class="kw">override</span> <span class="op">{</span></span>
+<span id="cb51-23"><a></a>      <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">"miau</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb51-24"><a></a>    <span class="op">}</span></span>
+<span id="cb51-25"><a></a><span class="op">};</span></span>
+<span id="cb51-26"><a></a></span>
+<span id="cb51-27"><a></a></span>
+<span id="cb51-28"><a></a></span>
+<span id="cb51-29"><a></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb51-30"><a></a><span class="op">{</span></span>
+<span id="cb51-31"><a></a>  <span class="kw">auto</span> ein <span class="op">=</span> <span class="bu">std::</span>make_unique<span class="op">&lt;</span>Dog<span class="op">&gt;();</span></span>
+<span id="cb51-32"><a></a>  <span class="kw">auto</span> sphinx <span class="op">=</span> <span class="bu">std::</span>make_unique<span class="op">&lt;</span>Cat<span class="op">&gt;();</span></span>
+<span id="cb51-33"><a></a></span>
+<span id="cb51-34"><a></a>  ein<span class="op">-&gt;</span>sound<span class="op">();</span></span>
+<span id="cb51-35"><a></a>  sphinx<span class="op">-&gt;</span>sound<span class="op">();</span></span>
+<span id="cb51-36"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-12-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource cs number-lines code-with-copy"><code class="sourceCode cs"><span id="cb52-1"><a></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb52-2"><a></a></span>
+<span id="cb52-3"><a></a><span class="kw">public</span> <span class="kw">class</span> Animal</span>
+<span id="cb52-4"><a></a><span class="op">{</span></span>
+<span id="cb52-5"><a></a>  <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Sound</span><span class="op">()</span></span>
+<span id="cb52-6"><a></a>  <span class="op">{</span></span>
+<span id="cb52-7"><a></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"FALLBACK"</span><span class="op">);</span></span>
+<span id="cb52-8"><a></a>  <span class="op">}</span></span>
+<span id="cb52-9"><a></a><span class="op">}</span></span>
+<span id="cb52-10"><a></a></span>
+<span id="cb52-11"><a></a><span class="kw">public</span> <span class="kw">class</span> Dog <span class="op">:</span> Animal</span>
+<span id="cb52-12"><a></a><span class="op">{</span></span>
+<span id="cb52-13"><a></a>  <span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Sound</span><span class="op">()</span></span>
+<span id="cb52-14"><a></a>  <span class="op">{</span></span>
+<span id="cb52-15"><a></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"bark"</span><span class="op">);</span></span>
+<span id="cb52-16"><a></a>  <span class="op">}</span></span>
+<span id="cb52-17"><a></a><span class="op">}</span></span>
+<span id="cb52-18"><a></a></span>
+<span id="cb52-19"><a></a><span class="kw">public</span> <span class="kw">class</span> Cat <span class="op">:</span> Animal</span>
+<span id="cb52-20"><a></a><span class="op">{</span></span>
+<span id="cb52-21"><a></a>  <span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Sound</span><span class="op">()</span></span>
+<span id="cb52-22"><a></a>  <span class="op">{</span></span>
+<span id="cb52-23"><a></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"miau"</span><span class="op">);</span></span>
+<span id="cb52-24"><a></a>  <span class="op">}</span></span>
+<span id="cb52-25"><a></a><span class="op">}</span></span>
+<span id="cb52-26"><a></a></span>
+<span id="cb52-27"><a></a><span class="kw">public</span> <span class="kw">class</span> Program</span>
+<span id="cb52-28"><a></a><span class="op">{</span></span>
+<span id="cb52-29"><a></a>  <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb52-30"><a></a>  <span class="op">{</span></span>
+<span id="cb52-31"><a></a>    Animal ein <span class="op">=</span> <span class="kw">new</span> <span class="fu">Dog</span><span class="op">();</span></span>
+<span id="cb52-32"><a></a>    Animal sphinx <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cat</span><span class="op">();</span></span>
+<span id="cb52-33"><a></a></span>
+<span id="cb52-34"><a></a>    ein<span class="op">.</span><span class="fu">Sound</span><span class="op">();</span></span>
+<span id="cb52-35"><a></a>    sphinx<span class="op">.</span><span class="fu">Sound</span><span class="op">();</span></span>
+<span id="cb52-36"><a></a>  <span class="op">}</span></span>
+<span id="cb52-37"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>As Julia is not an object-oriented language, the only way to achieve something similar is as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb53-1"><a></a><span class="kw">abstract type</span> Animal <span class="kw">end</span></span>
+<span id="cb53-2"><a></a><span class="kw">struct</span> Cat <span class="op">&lt;:</span><span class="dt"> Animal </span><span class="kw">end</span></span>
+<span id="cb53-3"><a></a><span class="kw">struct</span> Dog <span class="op">&lt;:</span><span class="dt"> Animal </span><span class="kw">end</span></span>
+<span id="cb53-4"><a></a><span class="kw">struct</span> Bird <span class="op">&lt;:</span><span class="dt"> Animal </span><span class="kw">end</span></span>
+<span id="cb53-5"><a></a></span>
+<span id="cb53-6"><a></a><span class="fu">make_sound</span>(cat<span class="op">::</span><span class="dt">Cat</span>) <span class="op">=</span> <span class="fu">println</span>(<span class="st">"miau!"</span>)</span>
+<span id="cb53-7"><a></a><span class="fu">make_sound</span>(dog<span class="op">::</span><span class="dt">Dog</span>) <span class="op">=</span> <span class="fu">println</span>(<span class="st">"wuff!"</span>)</span>
+<span id="cb53-8"><a></a><span class="fu">make_sound</span>(bird<span class="op">::</span><span class="dt">Bird</span>) <span class="op">=</span> <span class="fu">println</span>(<span class="st">"chierp!"</span>)</span>
+<span id="cb53-9"><a></a></span>
+<span id="cb53-10"><a></a>ein <span class="op">=</span> <span class="fu">Dog</span>()</span>
+<span id="cb53-11"><a></a>shinx <span class="op">=</span> <span class="fu">Cat</span>()</span>
+<span id="cb53-12"><a></a></span>
+<span id="cb53-13"><a></a><span class="fu">make_sound</span>(ein)</span>
+<span id="cb53-14"><a></a><span class="fu">make_sound</span>(cat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This isn’t very spectacular yet; it looks like normal operator overloading. Things get more interesting when the functions have more arguments.</p>
+</div>
 </section>
 
+<section id="multiple-dispatch" class="title-slide slide level2">
+<h2>Multiple Dispatch</h2>
+<p>Multi-dispatch is the ability to choose which version of a function to call based on the runtime type of all arguments passed to the function call.</p>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Julia</a></li><li><a href="#tabset-13-2">C++</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb54-1"><a></a><span class="kw">abstract type</span> Pet <span class="kw">end</span></span>
+<span id="cb54-2"><a></a><span class="kw">struct</span> Dog <span class="op">&lt;:</span><span class="dt"> Pet</span>; name<span class="op">::</span><span class="dt">String </span><span class="kw">end</span></span>
+<span id="cb54-3"><a></a><span class="kw">struct</span> Cat <span class="op">&lt;:</span><span class="dt"> Pet</span>; name<span class="op">::</span><span class="dt">String </span><span class="kw">end</span></span>
+<span id="cb54-4"><a></a></span>
+<span id="cb54-5"><a></a><span class="kw">function</span> <span class="fu">encounter</span>(a<span class="op">::</span><span class="dt">Pet</span>, b<span class="op">::</span><span class="dt">Pet</span>)</span>
+<span id="cb54-6"><a></a>    verb <span class="op">=</span> <span class="fu">meets</span>(a, b)</span>
+<span id="cb54-7"><a></a>    <span class="fu">println</span>(<span class="st">"</span><span class="sc">$</span>(a.name)<span class="st"> meets </span><span class="sc">$</span>(b.name)<span class="st"> and </span><span class="sc">$</span>verb<span class="st">"</span>)</span>
+<span id="cb54-8"><a></a><span class="kw">end</span></span>
+<span id="cb54-9"><a></a></span>
+<span id="cb54-10"><a></a><span class="fu">meets</span>(a<span class="op">::</span><span class="dt">Dog</span>, b<span class="op">::</span><span class="dt">Dog</span>) <span class="op">=</span> <span class="st">"sniffs"</span></span>
+<span id="cb54-11"><a></a><span class="fu">meets</span>(a<span class="op">::</span><span class="dt">Dog</span>, b<span class="op">::</span><span class="dt">Cat</span>) <span class="op">=</span> <span class="st">"chases"</span></span>
+<span id="cb54-12"><a></a><span class="fu">meets</span>(a<span class="op">::</span><span class="dt">Cat</span>, b<span class="op">::</span><span class="dt">Dog</span>) <span class="op">=</span> <span class="st">"hisses"</span></span>
+<span id="cb54-13"><a></a><span class="fu">meets</span>(a<span class="op">::</span><span class="dt">Cat</span>, b<span class="op">::</span><span class="dt">Cat</span>) <span class="op">=</span> <span class="st">"slinks"</span></span>
+<span id="cb54-14"><a></a></span>
+<span id="cb54-15"><a></a>fido <span class="op">=</span> <span class="fu">Dog</span>(<span class="st">"Fido"</span>)</span>
+<span id="cb54-16"><a></a>rex <span class="op">=</span> <span class="fu">Dog</span>(<span class="st">"Rex"</span>)</span>
+<span id="cb54-17"><a></a>whiskers <span class="op">=</span> <span class="fu">Cat</span>(<span class="st">"Whiskers"</span>)</span>
+<span id="cb54-18"><a></a>spots <span class="op">=</span> <span class="fu">Cat</span>(<span class="st">"Spots"</span>)</span>
+<span id="cb54-19"><a></a></span>
+<span id="cb54-20"><a></a><span class="fu">encounter</span>(fido, rex)</span>
+<span id="cb54-21"><a></a><span class="fu">encounter</span>(fido, whiskers)</span>
+<span id="cb54-22"><a></a><span class="fu">encounter</span>(whiskers, rex)</span>
+<span id="cb54-23"><a></a><span class="fu">encounter</span>(whiskers, spots)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>Fido meets Rex and sniffs
+Fido meets Whiskers and chases
+Whiskers meets Rex and hisses
+Whiskers meets Spots and slinks</code></pre>
+</div>
+<div id="tabset-13-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb56-1"><a></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb56-2"><a></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb56-3"><a></a></span>
+<span id="cb56-4"><a></a><span class="kw">class</span> Pet <span class="op">{</span></span>
+<span id="cb56-5"><a></a>    <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb56-6"><a></a>        <span class="bu">std::</span>string name<span class="op">{};</span></span>
+<span id="cb56-7"><a></a><span class="op">};</span></span>
+<span id="cb56-8"><a></a></span>
+<span id="cb56-9"><a></a><span class="kw">class</span> Dog <span class="op">:</span> <span class="kw">public</span> Pet<span class="op">{};</span></span>
+<span id="cb56-10"><a></a><span class="kw">class</span> Cat <span class="op">:</span> <span class="kw">public</span> Pet<span class="op">{};</span></span>
+<span id="cb56-11"><a></a></span>
+<span id="cb56-12"><a></a><span class="bu">std::</span>string meets<span class="op">(</span>Dog a<span class="op">,</span> Dog b<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="st">"sniffs"</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb56-13"><a></a><span class="bu">std::</span>string meets<span class="op">(</span>Dog a<span class="op">,</span> Cat b<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="st">"chases"</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb56-14"><a></a><span class="bu">std::</span>string meets<span class="op">(</span>Cat a<span class="op">,</span> Dog b<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="st">"hisses"</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb56-15"><a></a><span class="bu">std::</span>string meets<span class="op">(</span>Cat a<span class="op">,</span> Cat b<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="st">"slinks"</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb56-16"><a></a></span>
+<span id="cb56-17"><a></a><span class="bu">std::</span>string meets<span class="op">(</span>Pet a<span class="op">,</span> Pet b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb56-18"><a></a>    <span class="cf">return</span> <span class="st">"FALLBACK"</span><span class="op">;</span></span>
+<span id="cb56-19"><a></a><span class="op">}</span></span>
+<span id="cb56-20"><a></a></span>
+<span id="cb56-21"><a></a><span class="dt">void</span> encounter<span class="op">(</span>Pet a<span class="op">,</span> Pet b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb56-22"><a></a>    <span class="kw">auto</span> verb <span class="op">=</span> meets<span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span></span>
+<span id="cb56-23"><a></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> a<span class="op">.</span>name <span class="op">&lt;&lt;</span> <span class="st">" meets "</span></span>
+<span id="cb56-24"><a></a>        <span class="op">&lt;&lt;</span> b<span class="op">.</span>name <span class="op">&lt;&lt;</span> <span class="st">" and "</span> <span class="op">&lt;&lt;</span> verb <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb56-25"><a></a><span class="op">}</span></span>
+<span id="cb56-26"><a></a></span>
+<span id="cb56-27"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb56-28"><a></a>    Dog fido<span class="op">{</span><span class="st">"Fido"</span><span class="op">};</span></span>
+<span id="cb56-29"><a></a>    Dog rex<span class="op">{</span><span class="st">"Rex"</span><span class="op">};</span></span>
+<span id="cb56-30"><a></a>    Cat whiskers<span class="op">{</span><span class="st">"whiskers"</span><span class="op">};</span></span>
+<span id="cb56-31"><a></a>    Cat spots<span class="op">{</span><span class="st">"spots"</span><span class="op">};</span></span>
+<span id="cb56-32"><a></a></span>
+<span id="cb56-33"><a></a>    encounter<span class="op">(</span>fido<span class="op">,</span> rex<span class="op">);</span></span>
+<span id="cb56-34"><a></a>    encounter<span class="op">(</span>fido<span class="op">,</span> whiskers<span class="op">);</span></span>
+<span id="cb56-35"><a></a>    encounter<span class="op">(</span>whiskers<span class="op">,</span> rex<span class="op">);</span></span>
+<span id="cb56-36"><a></a>    encounter<span class="op">(</span>whiskers<span class="op">,</span> spots<span class="op">);</span></span>
+<span id="cb56-37"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>Fido meets Rex and FALLBACK
+Fido meets whiskers and FALLBACK
+whiskers meets Rex and FALLBACK
+whiskers meets spots and FALLBACK</code></pre>
+</div>
+</div>
+</div>
+<p>Doing something like this in C++ is not possible.</p>
+<div class="fragment">
+<p>See also:</p>
+<ul>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=kc9HwsxE1OY">The Unreasonable Effectiveness of Multiple Dispatch</a> by <em>Stefan Karpinski</em>, JuliaCon 2019</li>
+<li class="fragment"><a href="https://stackoverflow.com/a/1749604">Multiple Dispatch in C++</a> on StackOverflow</li>
+<li class="fragment"><a href="https://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch">A polyglot’s guide to multiple dispatch</a> by <em>Eli Bendersky</em> (<a href="https://archive.ph/m66JE">permalink</a>)</li>
+</ul>
+</div>
+</section>
+
+<section>
+<section id="functional-programming" class="title-slide slide level2 scrollable">
+<h2>Functional Programming</h2>
+<p>Functional programming is a programming paradigm where programs are constructed by applying and composing functions. It’s a declarative style of programming, meaning you describe what you want to achieve rather than how to achieve it (which is more typical of imperative programming)</p>
+<div class="fragment">
+<p>The core concepts and characteristics of functional programming are as follows:</p>
+<ol type="1">
+<li class="fragment">Functions are first-class objects, meaning they can be passed around and stored like variables.</li>
+<li class="fragment">Higher order functions: functions can take other functions as arguments, or return a function as a result</li>
+<li class="fragment">Immutability: Data, once created, cannot be changed. Instead of modifying existing data structures, you create new ones with the desired changes.</li>
+<li class="fragment">Declarative style programming: Using map, filter and reduce instead of for loops to iterate over an array.</li>
+</ol>
+</div>
+</section>
+<section id="map-filter-reduce" class="slide level3">
+<h3>Map, Filter, Reduce</h3>
+<ul>
+<li class="fragment"><code>map</code>: Transforms each element in a collection by applying a function to it, returning a new collection of the same size.</li>
+<li class="fragment"><code>filter</code>: Creates a new collection containing only elements that satisfy a given predicate function.</li>
+<li class="fragment"><code>reduce</code>: Reduces a collection to a single value by iteratively applying a function that combines elements.</li>
+</ul>
+</section>
+<section id="normal-distribution" class="slide level3">
+<h3>Normal Distribution</h3>
+<p><span class="math display">\[
+\mathcal{N}(x | \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left({- \frac{1}{2} \biggl( \frac{x - \mu}{\sigma} \biggr)^2 }\right)
+\]</span> <span class="math display">\[
+\mathcal{N}(x | \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} \, e^{- \frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2 }
+\]</span></p>
+<p>Closure:</p>
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Julia</a></li><li><a href="#tabset-14-2">C++</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb58-1"><a></a><span class="kw">function</span> <span class="fu">normal_distribution</span>(μ<span class="op">::</span><span class="dt">Real </span><span class="op">=</span> <span class="fl">0</span>, σ<span class="op">::</span><span class="dt">Real </span><span class="op">=</span> <span class="fl">1</span>)</span>
+<span id="cb58-2"><a></a>  <span class="cf">return</span> x <span class="op">-&gt;</span> <span class="fl">1</span> <span class="op">/</span> (<span class="fu">sqrt</span>(<span class="fl">2</span>π) <span class="op">*</span> σ) <span class="op">*</span> <span class="fu">exp</span>(<span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span> <span class="op">*</span> ((x <span class="op">-</span> μ)<span class="op">/</span>σ)<span class="op">^</span><span class="fl">2</span>) </span>
+<span id="cb58-3"><a></a><span class="kw">end</span></span>
+<span id="cb58-4"><a></a></span>
+<span id="cb58-5"><a></a>f <span class="op">=</span> <span class="fu">normal_distribution</span>(<span class="fl">5</span>, <span class="fl">2</span>)</span>
+<span id="cb58-6"><a></a><span class="fu">println</span>(<span class="fu">f</span>(<span class="fl">7.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-14-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb59-1"><a></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb59-2"><a></a><span class="pp">#include </span><span class="im">&lt;functional&gt;</span></span>
+<span id="cb59-3"><a></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb59-4"><a></a><span class="pp">#include </span><span class="im">&lt;numbers&gt;</span></span>
+<span id="cb59-5"><a></a></span>
+<span id="cb59-6"><a></a><span class="bu">std::</span>function<span class="op">&lt;</span><span class="dt">double</span><span class="op">(</span><span class="dt">double</span><span class="op">)&gt;</span> normal_distribution<span class="op">(</span><span class="dt">double</span> mu<span class="op">=</span><span class="fl">0.0</span><span class="op">,</span> <span class="dt">double</span> sigma<span class="op">=</span><span class="fl">1.0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb59-7"><a></a>  <span class="cf">return</span> <span class="op">[=](</span><span class="dt">double</span> x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb59-8"><a></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span><span class="bu">std::</span>sqrt<span class="op">(</span><span class="dv">2</span> <span class="op">*</span> <span class="bu">std::</span>numbers::pi<span class="op">)</span> <span class="op">*</span> sigma<span class="op">)</span> <span class="op">*</span> <span class="bu">std::</span>exp<span class="op">(</span> <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span> <span class="op">*</span> <span class="bu">std::</span>pow<span class="op">(</span> <span class="op">(</span>x <span class="op">-</span> mu<span class="op">)</span> <span class="op">/</span> sigma<span class="op">,</span> <span class="dv">2</span><span class="op">));</span></span>
+<span id="cb59-9"><a></a>  <span class="op">};</span></span>
+<span id="cb59-10"><a></a><span class="op">}</span></span>
+<span id="cb59-11"><a></a></span>
+<span id="cb59-12"><a></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb59-13"><a></a><span class="op">{</span></span>
+<span id="cb59-14"><a></a>  <span class="kw">auto</span> f <span class="op">=</span> normal_distribution<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">2.0</span><span class="op">);</span></span>
+<span id="cb59-15"><a></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> f<span class="op">(</span><span class="fl">7.5</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb59-16"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="leetcode-example" class="slide level3 scrollable">
+<h3>LeetCode Example</h3>
+<p>Let’s say we want to solve <a href="https://leetcode.com/problems/reverse-words-in-a-string-iii/description/">LeetCode problem 557</a> (Reverse Words in a String III). Given a string <code>str</code>, reverse the characters in each word while still preserving the initial word order.</p>
+<p>Example:</p>
+<pre><code>str = "The quick brown fox jumps over the lazy dog"
+--&gt; "ehT kciuq nworb xof spmuj revo eht yzal god"</code></pre>
+<div class="fragment">
+<p>This problem can be solved in a very elegant way using functional programming:</p>
+<ol type="1">
+<li class="fragment"><code>split</code> the string at the space (’ ’) character</li>
+<li class="fragment"><code>map</code> the <code>reverse</code> function to each element</li>
+<li class="fragment"><code>join</code> everything back together</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Julia</a></li><li><a href="#tabset-15-2">C++</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb61-1"><a></a><span class="kw">function</span> <span class="fu">reverse_word</span>(str<span class="op">::</span><span class="dt">String</span>)</span>
+<span id="cb61-2"><a></a>  <span class="cf">return</span> <span class="fu">join</span>(<span class="fu">map</span>(reverse, <span class="fu">split</span>(str, <span class="st">" "</span>)), <span class="st">" "</span>)</span>
+<span id="cb61-3"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-15-2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb62-1"><a></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb62-2"><a></a><span class="pp">#include </span><span class="im">&lt;ranges&gt;</span></span>
+<span id="cb62-3"><a></a><span class="pp">#include </span><span class="im">&lt;string_view&gt;</span></span>
+<span id="cb62-4"><a></a></span>
+<span id="cb62-5"><a></a><span class="bu">std::</span>string reverseWords<span class="op">(</span><span class="bu">std::</span>string_view str<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb62-6"><a></a>  <span class="cf">return</span> str <span class="op">|</span> <span class="bu">std::</span>views::split<span class="op">(</span><span class="ch">' '</span><span class="op">)</span></span>
+<span id="cb62-7"><a></a>             <span class="op">|</span> <span class="bu">std::</span>views::transform<span class="op">([](</span><span class="kw">auto</span><span class="op">&amp;&amp;</span> word<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb62-8"><a></a>                  <span class="cf">return</span> word <span class="op">|</span> <span class="bu">std::</span>views::reverse<span class="op">;</span></span>
+<span id="cb62-9"><a></a>                <span class="op">})</span></span>
+<span id="cb62-10"><a></a>              <span class="op">|</span> <span class="bu">std::</span>views::join_with<span class="op">(</span><span class="ch">' '</span><span class="op">)</span></span>
+<span id="cb62-11"><a></a>              <span class="op">|</span> <span class="bu">std::</span>ranges::to<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;();</span></span>
+<span id="cb62-12"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Alternatively, you can do this with the pipe operator:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb63-1"><a></a><span class="kw">function</span> <span class="fu">reverse_word</span>(str<span class="op">::</span><span class="dt">String</span>)</span>
+<span id="cb63-2"><a></a>  <span class="cf">return</span> str <span class="op">|&gt;</span> x <span class="op">-&gt;</span> <span class="fu">split</span>(x, <span class="st">" "</span>) <span class="op">|&gt;</span></span>
+<span id="cb63-3"><a></a>  x <span class="op">-&gt;</span> <span class="fu">map</span>(reverse, x) <span class="op">|&gt;</span></span>
+<span id="cb63-4"><a></a>  x <span class="op">-&gt;</span> <span class="fu">join</span>(x, <span class="st">" "</span>)</span>
+<span id="cb63-5"><a></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+</section></section>
 <section id="todo" class="title-slide slide level2">
 <h2>TODO:</h2>
-<ul>
-<li class="fragment">Julias Types System, Multiple Dispatch</li>
-<li class="fragment">Functional Programming (map, reduce; Beispiel FP vs OOP, normalverteilung)</li>
-<li class="fragment">Arrays</li>
-<li class="fragment">Sets</li>
-<li class="fragment">Dictionaries</li>
+<ul class="task-list">
+<li class="fragment"><label><input type="checkbox" checked="">Constructors</label></li>
+<li class="fragment"><label><input type="checkbox" checked="">Method overloading</label></li>
+<li class="fragment"><label><input type="checkbox">Polymorphism, Multiple Dispatch</label></li>
+<li class="fragment"><label><input type="checkbox">Functional Programming (map, reduce; …)</label></li>
+<li class="fragment"><label><input type="checkbox">Example for FP vs OOP: normal distribution</label></li>
+<li class="fragment"><label><input type="checkbox">Sets</label></li>
+<li class="fragment"><label><input type="checkbox">Dictionaries</label></li>
+<li class="fragment"><label><input type="checkbox">Difference Arrays vs.&nbsp;Tuples (named tuples as intro to DataFrames)</label></li>
 </ul>
 
 
@@ -512,7 +1293,7 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":false,"theme":"whiteboard","boardmarkerWidth":2},
-'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":false,"appearparents":false},
+'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":false,"autoelements":false,"appearparents":false},
 'pointer': {"key":"q","color":"red","pointerSize":25,"alwaysVisible":false},
 'smaller': false,
  
@@ -694,190 +1475,173 @@ Figure was created with <a href="https://app.diagrams.net/">app.diagrams.net</a>
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/mathematics-weekly\.org");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/math-with-marcel\.org");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>

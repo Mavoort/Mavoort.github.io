@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mathematics-weekly.org/Optimization/introduction.html</loc>
-    <lastmod>2025-01-31T12:52:56.489Z</lastmod>
+    <loc>https://math-with-marcel.org/rss-feed.html</loc>
+    <lastmod>2026-01-02T20:00:00.409Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/Optimization/introduction-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.489Z</lastmod>
+    <loc>https://math-with-marcel.org/Optimization/fundamentals_of_optimization.html</loc>
+    <lastmod>2026-01-02T20:00:00.387Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julia_ecosystem.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/Optimization/fundamentals_of_optimization-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.387Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julia_ecosystem-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/index.html</loc>
+    <lastmod>2026-01-02T20:00:00.386Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julias_type_system.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/index-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.386Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julias_type_system-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/basics_of_linalg.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/about.html</loc>
-    <lastmod>2025-01-31T12:52:56.491Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/basics_of_linalg-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/index.html</loc>
-    <lastmod>2025-01-31T12:52:56.491Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/julias_type_system.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julia_basics-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/julias_type_system-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/julia_basics.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/about.html</loc>
+    <lastmod>2026-01-02T20:00:00.396Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/data_frames-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/index.html</loc>
+    <lastmod>2026-01-02T20:00:00.397Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/data_frames.html</loc>
-    <lastmod>2025-01-31T12:52:56.472Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia_basics-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.368Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/introduction-slides.html</loc>
-    <lastmod>2025-01-31T12:52:56.487Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia_basics.html</loc>
+    <lastmod>2026-01-02T20:00:00.368Z</lastmod>
   </url>
   <url>
-    <loc>https://mathematics-weekly.org/NumLinAlg/introduction.html</loc>
-    <lastmod>2025-01-31T12:52:56.487Z</lastmod>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia_ecosystem-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia_ecosystem.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia-LinearSolveJL-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/NumLinAlg/julia-LinearSolveJL.html</loc>
+    <lastmod>2026-01-02T20:00:00.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/Optimization/convexity-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/Optimization/convexity.html</loc>
+    <lastmod>2026-01-02T20:00:00.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/Optimization/index-slides.html</loc>
+    <lastmod>2026-01-02T20:00:00.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math-with-marcel.org/Optimization/index.html</loc>
+    <lastmod>2026-01-02T20:00:00.392Z</lastmod>
   </url>
 </urlset>

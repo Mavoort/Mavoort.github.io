@@ -7,13 +7,13 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-9e228d6d4d66c12a9d11739da31c2b1c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-1b3db88def35042d172274863c1cdcf0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Marcel Angenvoort">
   <meta name="dcterms.date" content="2025-01-02">
   <meta name="keywords" content="math, 65Fxx, numerical linear algebra, julia">
-  <title>Mathematics Weekly – Introduction</title>
+  <title>Math with Marcel – Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,6 +31,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2e3440; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #75715e; } /* Annotation */
+    code span.at { color: #f92672; } /* Attribute */
+    code span.bn { color: #ae81ff; } /* BaseN */
+    code span.bu { color: #66d9ef; } /* BuiltIn */
+    code span.cf { color: #f92672; } /* ControlFlow */
+    code span.ch { color: #e6db74; } /* Char */
+    code span.cn { color: #ae81ff; } /* Constant */
+    code span.co { color: #75715e; } /* Comment */
+    code span.cv { color: #75715e; } /* CommentVar */
+    code span.do { color: #75715e; } /* Documentation */
+    code span.dt { color: #66d9ef; font-style: italic; } /* DataType */
+    code span.dv { color: #ae81ff; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #a6e22e; font-weight: bold; } /* Extension */
+    code span.fl { color: #ae81ff; } /* Float */
+    code span.fu { color: #a6e22e; } /* Function */
+    code span.im { color: #f92672; } /* Import */
+    code span.in { color: #f1fa8c; } /* Information */
+    code span.kw { color: #f92672; } /* Keyword */
+    code span.op { color: #f8f8f2; } /* Operator */
+    code span.ot { color: #a6e22e; } /* Other */
+    code span.pp { color: #f92672; } /* Preprocessor */
+    code span.re { color: #75715e; } /* RegionMarker */
+    code span.sc { color: #ae81ff; } /* SpecialChar */
+    code span.ss { color: #e6db74; } /* SpecialString */
+    code span.st { color: #e6db74; } /* String */
+    code span.va { color: #f8f8f2; } /* Variable */
+    code span.vs { color: #e6db74; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -52,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c5b6a1026e0bd0fb59551726b9dbd2d4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8360b5825b7175df3238cb831ab8ff7c.css">
   <link rel="stylesheet" href="../custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -276,39 +342,42 @@ Marcel Angenvoort
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div>
-
-</div>
 <div class="figure quarto-layout-panel" data-layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Matrix_Computations-Golub.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Matrix_Computations-Golub.jpg"></p>
 <figcaption><span class="citation" data-cites="Matrix_Computations_Golub">(<a href="#/references" role="doc-biblioref" onclick="">Golub and Van Loan 2013</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Linear_Algebra-Rannacher.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerical_Linear_Algebra-Rannacher.jpg"></p>
 <figcaption><span class="citation" data-cites="NumLinAlg_Rannacher">(<a href="#/references" role="doc-biblioref" onclick="">Rannacher 2018</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerik_linearer_Gleichungssysteme-Meister.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerik_linearer_Gleichungssysteme-Meister.jpg"></p>
 <figcaption><span class="citation" data-cites="Numerik_LGS_Meister">(<a href="#/references" role="doc-biblioref" onclick="">Meister 2015</a>)</span></figcaption>
 </figure>
+</div>
 </div>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
@@ -333,39 +402,42 @@ Marcel Angenvoort
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div>
-
-</div>
 <div class="figure quarto-layout-panel" data-layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Linear_Algebra-An_Introduction.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerical_Linear_Algebra-An_Introduction.jpg"></p>
 <figcaption><span class="citation" data-cites="NumLinAlg_Wendland">(<a href="#/references" role="doc-biblioref" onclick="">Wendland 2018</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerical_Linear_Algebra_and_Matrix_Factorizations.jpg"></p>
 <figcaption><span class="citation" data-cites="NumLinAlg_Matrix_Factorizations">(<a href="#/references" role="doc-biblioref" onclick="">Lyche 2020</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Linear_Algebra_with_Julia-large.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerical_Linear_Algebra_with_Julia-large.jpg"></p>
 <figcaption><span class="citation" data-cites="NumLinAlg_Julia">(<a href="#/references" role="doc-biblioref" onclick="">Darve and Wootters 2021</a>)</span></figcaption>
 </figure>
+</div>
 </div>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
@@ -391,55 +463,340 @@ Marcel Angenvoort
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div>
-
-</div>
 <div class="figure quarto-layout-panel" data-layout="[0.22, -0.04, 0.22, -0.04, 0.22, -0.04, 0.22]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Algorithms_for_Sparse_Linear_Systems.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Algorithms_for_Sparse_Linear_Systems.jpg"></p>
 <figcaption><span class="citation" data-cites="Algos_sparse_LinSys">(<a href="#/references" role="doc-biblioref" onclick="">Scott and Tůma 2023</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Iterative_Solution_of_Large_Sparse_Systems_of_Equations.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Iterative_Solution_of_Large_Sparse_Systems_of_Equations.jpg"></p>
 <figcaption><span class="citation" data-cites="Iterative_Solution">(<a href="#/references" role="doc-biblioref" onclick="">Hackbusch 2016</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Direct_Methods_for_Sparse_Linear_Systems.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Direct_Methods_for_Sparse_Linear_Systems.jpg"></p>
 <figcaption><span class="citation" data-cites="Direct_Methods">(<a href="#/references" role="doc-biblioref" onclick="">Davis 2006</a>)</span></figcaption>
 </figure>
 </div>
 </div>
+</div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg" class="fragment"></p>
+<p><img data-src="images/literature/Numerical_Methods_for_Large_Eigenvalue_Systems.jpg"></p>
 <figcaption><span class="citation" data-cites="Large_Eigenvalue_Problems">(<a href="#/references" role="doc-biblioref" onclick="">Saad 2011</a>)</span></figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
+</div>
 </section></section>
+<section id="introduction" class="title-slide slide level2 scrollable">
+<h2>Introduction</h2>
+<p>In this course we will study the problem of linear systems of equations <span class="math display">\[
+A\mathbf{x} = \mathbf{b},
+\]</span></p>
+<p>where <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> is an invertible matrix, <span class="math inline">\(\mathbf{b} \in \mathbb{R}^n\)</span> is a given vector, and <span class="math inline">\(\mathbf{x} \in \mathbb{R}^n\)</span> is the solution that we are looking for.</p>
+<p>During the study of numerical methods, we are interested in the following questions:</p>
+<ol type="1">
+<li class="fragment"><strong>Time complexity</strong>: How expensive is the algorithm, i.e.&nbsp;how much time does it take to compute?</li>
+<li class="fragment"><strong>Stability/Error estimation</strong>: How does perturbation of the input affect the solution?</li>
+<li class="fragment"><strong>Structure</strong>: Can we exploit the structure of the matrix (e.g.&nbsp;symmetric and positive definite)?</li>
+<li class="fragment">What if the system is over- or underdetermined, i.e.&nbsp;does not have a unique solution?</li>
+</ol>
+</section>
+
+<section id="examples-for-linear-systems" class="title-slide slide level2">
+<h2>Examples for Linear Systems</h2>
+<p>Linear equations appear almost everywhere. Here are some examples of applications where such linear systems are used.</p>
+<p>See also: <span class="citation" data-cites="Numerik_LGS_Meister">(<a href="#/references" role="doc-biblioref" onclick="">Meister 2015, chap. 1</a>)</span>, <span class="citation" data-cites="NumLinAlg_Rannacher">(<a href="#/references" role="doc-biblioref" onclick="">Rannacher 2018, sec. 0.4</a>)</span> and <span class="citation" data-cites="NumLinAlg_Wendland">(<a href="#/references" role="doc-biblioref" onclick="">Wendland 2018, sec. 1.1</a>)</span></p>
+</section>
+
+<section id="partial-differential-equations" class="title-slide slide level2">
+<h2>1. Partial Differential Equations</h2>
+<p>The Poisson equation is one of the simplest differential equations. It describes the electric potential in a capacitor with a given charge density.</p>
+<p><span class="math display">\[
+\begin{aligned}
+- \Delta u &amp;= f, &amp;&amp; \text{in $\Omega$}, \\
+u &amp;= 0, &amp;&amp; \text{on $\partial\Omega$}
+\end{aligned}
+\]</span></p>
+<div class="fragment">
+<p>Here, <span class="math inline">\(\Omega := [a, b]^2 \subseteq \mathbb{R}^2\)</span> is the domain of the problem, and <span class="math inline">\(u  = 0\)</span> is the (Dirichlet) boundary condition.</p>
+</div>
+<div class="fragment">
+<p>To solve this equation using the finite difference method, we must first discretise the domain. A simple approach would be to use a regular grid as shown in the figure below.</p>
+<div id="782d8d88" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co">#</span></span>
+<span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, num<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb1-6"><a></a>y <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, num<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb1-7"><a></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="co"># Plot the FDM mesh</span></span>
+<span id="cb1-10"><a></a>plt.plot(X, Y, color<span class="op">=</span><span class="st">"lightgray"</span>)</span>
+<span id="cb1-11"><a></a>plt.plot(X.T, Y.T, color<span class="op">=</span><span class="st">"lightgray"</span>)</span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="co"># Annotations</span></span>
+<span id="cb1-14"><a></a>plt.text(<span class="fl">0.41</span>, <span class="fl">0.51</span>, <span class="st">"$u_{i-1,j}$"</span>)</span>
+<span id="cb1-15"><a></a>plt.text(<span class="fl">0.51</span>, <span class="fl">0.51</span>, <span class="st">"$u_{i,j}$"</span>)</span>
+<span id="cb1-16"><a></a>plt.text(<span class="fl">0.61</span>, <span class="fl">0.51</span>, <span class="st">"$u_{i+1,j}$"</span>)</span>
+<span id="cb1-17"><a></a>plt.text(<span class="fl">0.51</span>, <span class="fl">0.41</span>, <span class="st">"$u_{i,j-1}$"</span>)</span>
+<span id="cb1-18"><a></a>plt.text(<span class="fl">0.51</span>, <span class="fl">0.61</span>, <span class="st">"$u_{i,j+1}$"</span>)</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a><span class="co"># Plot stencil</span></span>
+<span id="cb1-21"><a></a>plt.plot([<span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>], [<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>], <span class="st">".b"</span>)</span>
+<span id="cb1-22"><a></a></span>
+<span id="cb1-23"><a></a><span class="co"># Remove axes and spines</span></span>
+<span id="cb1-24"><a></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb1-25"><a></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb1-26"><a></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb1-27"><a></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb1-28"><a></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb1-29"><a></a></span>
+<span id="cb1-30"><a></a>ax.get_xaxis().set_ticks([])</span>
+<span id="cb1-31"><a></a>ax.get_yaxis().set_ticks([])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="introduction_files/figure-html/cell-2-output-1.png" width="540" height="389"></p>
+<figcaption>Regular grid for the Poisson equation</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>That way, we can approximate the derivatices via <span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 u}{\partial  x^2} (x_i, y_i)
+&amp;\approx
+\frac{1}{h}
+\left(
+  \frac{u_{i+1, j} - u_{i,j}}{h} - \frac{u_{i,j} - u_{i-1, j}}{h}
+  \right) \\
+&amp;= \frac{1}{h^2} \bigl( u_{i+1, j} - 2 u_{ij} + u_{i-1,j} \bigr)
+\end{aligned}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>and for the Laplacian we obtain: <span class="math display">\[
+- \Delta u \approx \frac{1}{h^2}
+\bigl(
+  4 u_{i,j} - u_{i+1,j} - u_{i-1, j} - u_{i,j+1} - u_{i,j-1}
+  \bigr)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Now we regroup <span class="math inline">\(u\)</span> row-wise into a single vector:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_1 &amp;:= u_{1,1},
+&amp; U_2 &amp;:= u_{1,2},
+&amp;\dotsc&amp;
+&amp; U_N &amp;:= u_{1,N}, \\
+U_{N+1} &amp;:= u_{2, 1},
+&amp; U_{N+2} &amp;:= u_{2,2},
+&amp;\dotsc&amp;
+&amp; U_{N^2} &amp;:= u_{N, N}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>This leads to the linear system</p>
+<p><span class="math display">\[
+A =
+\begin{pmatrix}
+B &amp; -I \\
+-I &amp; \ddots &amp; \ddots \\
+  &amp; \ddots &amp; \ddots &amp; -I \\
+  &amp; &amp; -I &amp; B
+\end{pmatrix}
+\in \mathbb{R}^{N^2 \times N^2}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+B =
+\begin{pmatrix}
+4 &amp; -1 \\
+-1 &amp;  \ddots &amp; \ddots \\
+&amp;\ddots &amp;\ddots &amp; -1 \\
+&amp;  &amp; -1 &amp; 4
+\end{pmatrix}
+\in \mathbb{R}^{N \times N}
+%
+\quad \text{and}  \quad
+%
+I =
+\begin{pmatrix}
+1 \\
+&amp; \ddots \\
+&amp; &amp; \ddots \\
+&amp; &amp; &amp; 1
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>This linear system is <em>symmetric, positive definite</em> and <em>sparse</em>.</p>
+</div>
+</section>
+
+<section id="linear-regression" class="title-slide slide level2">
+<h2>Linear Regression</h2>
+<p>A classic problem in astronomy is the method of least squares, used by Carl Friedrich Gauss to predict the position of the newly discovered asteroid Ceres.</p>
+<div class="fragment">
+<div id="41c69eb5" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># </span></span>
+<span id="cb2-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a>N <span class="op">=</span> <span class="dv">31</span></span>
+<span id="cb2-6"><a></a>sigma <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a><span class="co"># Generate synthetic data</span></span>
+<span id="cb2-9"><a></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2025</span>)</span>
+<span id="cb2-10"><a></a>eps <span class="op">=</span> sigma <span class="op">*</span> rng.standard_normal((N,))</span>
+<span id="cb2-11"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, num<span class="op">=</span>N)</span>
+<span id="cb2-12"><a></a>y <span class="op">=</span> np.sin(x) <span class="op">+</span> eps</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="co"># Compute Polynomial regression (order 3)</span></span>
+<span id="cb2-15"><a></a>p <span class="op">=</span> np.polyfit(x, y, <span class="dv">3</span>)</span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a><span class="co"># Plot data, polyfit and confidence interval</span></span>
+<span id="cb2-18"><a></a>xx <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, num<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb2-19"><a></a>solution <span class="op">=</span> np.sin(xx)</span>
+<span id="cb2-20"><a></a>reg_fit <span class="op">=</span> np.polyval(p, xx)</span>
+<span id="cb2-21"><a></a></span>
+<span id="cb2-22"><a></a>plt.plot(x, y, <span class="st">".r"</span>, label<span class="op">=</span><span class="st">"data"</span>)</span>
+<span id="cb2-23"><a></a>plt.plot(xx, reg_fit, <span class="st">"k-"</span>, label<span class="op">=</span><span class="st">"polynomial regression"</span>)</span>
+<span id="cb2-24"><a></a>plt.fill_between(xx, solution <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>sigma, solution <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>sigma, color<span class="op">=</span><span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb2-25"><a></a></span>
+<span id="cb2-26"><a></a>plt.legend()</span>
+<span id="cb2-27"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="introduction_files/figure-html/cell-3-output-1.png" width="582" height="411"></p>
+<figcaption>Polynomial Regression yields in a linear system of equations</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Given <span class="math inline">\(N\)</span> measurements <span class="math inline">\((x_n, y_n)\)</span>, <span class="math inline">\(1 \leq n \leq N\)</span>, the goal is to find a function</p>
+<p><span class="math display">\[
+u(x) = \sum_{k=1}^N c_k x^k
+\]</span></p>
+</div>
+<div class="fragment">
+<p>such that the <em>mean square error</em></p>
+<p><span class="math display">\[
+E := \left( \sum_{n=1}^N \lvert u(x_n) - y_n \rvert^2 \right)^2
+\]</span></p>
+<p>becomes minimal.</p>
+</div>
+<div class="fragment">
+<p>This minimum can be obtained by solving the <em>normal equation</em></p>
+<p><span class="math display">\[
+A^\top A \mathbf{c} = A^\top \mathbf{y}.
+\]</span></p>
+</div>
+<div class="fragment">
+<p>For the special case of interpolation, this matrix becomes the <em>Vandermonde</em> matrix:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; x_1 &amp; x_1^2 &amp; \dots &amp; x_1^n \\
+1 &amp; x_2 &amp; x_2^2 &amp; \dots &amp; x_2^n \\
+1 &amp; x_3 &amp; x_3^2 &amp; \dots &amp; x_3^n \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; x_n &amp;  x_n^2 &amp; \dots &amp; x_n^n
+\end{bmatrix}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>This is a <em>full matrix</em>, meaning each entry is non-zero.</p>
+</div>
+</section>
+
+<section id="convex-optimization" class="title-slide slide level2">
+<h2>Convex Optimization</h2>
+<p>The example above can be generalised to more general optimisation problems.</p>
+<p>Let’s say we are given a non-linear objective function <span class="math inline">\(f\)</span> to minimise.</p>
+<p><span class="math display">\[
+f(x) \overset{\text{!}}{=} \min.
+\]</span></p>
+<div class="fragment">
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/example_for_optimization.jpg"></p>
+<figcaption><strong>nonlinear optimization</strong><br>
+source: <a href="https://arxiv.org/abs/1805.04829">arXiv:1805.04829</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Since <span class="math inline">\(f\)</span> is minimal in <span class="math inline">\(x\)</span> implies <span class="math inline">\(f'(x) = 0\)</span>, finding the minimum of a convex function is equivalent to finding the roots of it’s derivative, so we can use the Newton-Raphson method:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+x_{n+1} = x_n - \alpha \frac{f'(x_n)}{f''(x_n)}
+\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the step size (also called <em>learning rate</em>).</p>
+</div>
+<div class="fragment">
+<p>But what if we are dealing with a multi-dimensional optimisation problem?<br>
+Then the second derivative of <span class="math inline">\(f\)</span> becomes the Hessian matrix, and the iteration formula is:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{aligned}
+H_f \Delta \mathbf{x} = - \nabla f(\mathbf{x}_n) \\
+\mathbf{x}_{n+1} = \mathbf{x}_n + \alpha \Delta \mathbf{x}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>This means that with the Newton-Raphson method we have to solve a linear system <strong>for each step</strong>.</p>
+</div>
+</section>
+
 <section id="references" class="title-slide slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -459,7 +816,7 @@ Hackbusch, Wolfgang. 2016. <em>Iterative Solution of Large Sparse Systems of Equ
 Lyche, Tom. 2020. <em>Numerical Linear Algebra and Matrix Factorizations</em>. Cham, Switzerland: Springer.
 </div>
 <div id="ref-Numerik_LGS_Meister" class="csl-entry" role="listitem">
-Meister, Andreas. 2015. <em>Numerik Linearer Gleichungssysteme</em>. 5th ed. Springer Spektrum.
+Meister, Andreas. 2015. <em><span class="nocase">Numerik linearer Gleichungssysteme</span></em>. 5th ed. Springer Spektrum.
 </div>
 <div id="ref-NumLinAlg_Rannacher" class="csl-entry" role="listitem">
 Rannacher, Rolf. 2018. <em>Numerical Linear Algebra</em>. Heidelberg University Publ. <a href="https://doi.org/10.17885/heiup.407">https://doi.org/10.17885/heiup.407</a>.
@@ -517,7 +874,7 @@ Wendland, Holger. 2018. <em>Numerical Linear Algebra: An Introduction</em>. Camb
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":false,"theme":"whiteboard","boardmarkerWidth":2},
-'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":true,"autoelements":false,"appearparents":false},
+'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":false,"autoelements":false,"appearparents":false},
 'pointer': {"key":"q","color":"red","pointerSize":25,"alwaysVisible":false},
 'smaller': false,
  
@@ -699,190 +1056,173 @@ Wendland, Holger. 2018. <em>Numerical Linear Algebra: An Introduction</em>. Camb
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/mathematics-weekly\.org");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/math-with-marcel\.org");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>

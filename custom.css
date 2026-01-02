@@ -1,6 +1,6 @@
 /*-- scss:rules --*/
 
-
+/* --- Make SVG images larger --- */
 
 /* Disable Chalkboard toolbar on the left */
 .palette,
@@ -156,5 +156,22 @@ iframe {
 /* Invert colors of svg image in light mode */
 body.quarto-light img.svg-image {
 	filter: invert(0.95);
+}
+body.quarto-light img.svg-light {
+	filter: invert(0.95);
+}
+body.quarto-dark img.svg-dark {
+	filter: invert(0.95);
+}
+
+
+/* Fix Plotly image sizes in Reveal.js presentation
+   Make sure to set the Plotly figsize to the same values!!
+   Example: surface(x, y, f, color=:viridis, extra_plot_kwargs=KW(:width=>900, :height=>600)) */
+
+.js-plotly-plot {
+  width: 900px !important;
+  height: 600px !important;
+  margin: auto; 
 }
 

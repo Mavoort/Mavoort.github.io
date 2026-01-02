@@ -1,0 +1,4 @@
+<svg width="407mm" height="357mm" version="1.1" viewBox="0 0 407 357" xmlns="http://www.w3.org/2000/svg">
+ <g stroke="#000"><path d="m36 289c-51-95-35-228 42-268 108-48 395-7 310 151-14 24-34 32-60 22-207-119-85 70-151 146-35 37-121-13-141-51z" fill="#8d3" stroke-width="3"/><path d="m130 265 205-143" stroke-width="5"/></g>
+ <path d="m202 215 69-48" fill="none" stroke="#d13" stroke-width="5"/>
+  <circle cx="130" cy="265" r="7"/> <circle cx="335" cy="121" r="7"/><text x="79" y="297" font-family="Arial" font-size="58px" font-style="italic">x<tspan x="354" y="127">y</tspan></text></svg>
