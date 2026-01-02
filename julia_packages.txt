@@ -5,4 +5,6 @@ LaTeXStrings
 Example
 Symbolics
 LinearSolve
+StatsPlots
+RDatasets
 
