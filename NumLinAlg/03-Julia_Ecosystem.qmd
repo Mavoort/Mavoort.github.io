@@ -6,7 +6,7 @@ bibliography: references.bib
 abstract: >
   lorem ipsum
 keywords: ["julia", "programming", "scientific computing"]
-jupyter: julia-1.11
+jupyter: julia-1.12
 #engine: julia
 #julia:
 #  exeflags: ["--project=JuliaEcosystem"]
