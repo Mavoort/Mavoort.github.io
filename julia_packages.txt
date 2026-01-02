@@ -3,4 +3,6 @@ WebIO
 Plots
 LaTeXStrings
 Example
+Symbolics
 LinearSolve
+
