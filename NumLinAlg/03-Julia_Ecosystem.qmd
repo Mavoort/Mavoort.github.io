@@ -37,6 +37,7 @@ Important Julia Packages
 - [StatsKit.jl](https://github.com/JuliaStats/StatsKit.jl) Convenience meta-package to load essential packages for statistics
 - [MLJ.jl](https://juliaai.github.io/MLJ.jl/stable/) Machine Learning framework for Julia
 - [Turing.jl](https://turinglang.org/docs/tutorials/coin-flipping/index.html) Bayesian inference with probabilistic programming
+- [JuliaGPU](https://juliagpu.org/) Packages for programming on GPUs with Julia
 
 
 
@@ -58,11 +59,20 @@ We also need [LaTeXStrings.jl](https://github.com/JuliaStrings/LaTeXStrings.jl):
 
 ```{julia}
 #| code-fold: false
+#| output: false
+#| warning: false
 using Plots
 using LaTeXStrings
 using WebIO
 
 theme(:dark)
+```
+
+```{julia}
+#| echo: false
+#| output: false
+#| warning: false
+using WebIO	# Disable warning for WebIO
 ```
 
 ---
@@ -160,4 +170,34 @@ contour(x, y, z, levels=20, clabels=true, color=:turbo)
 title!("Himmelblau function")
 xlabel!(L"x")
 ylabel!(L"y")
+```
+
+
+### DataFrames
+
+Using the `StatsPlots` extension, you can use 
+DataFrames as arguments:
+
+
+```{julia}
+using StatsPlots, RDatasets
+
+data = dataset("datasets", "iris")
+@df data scatter(:SepalLength, :SepalWidth;
+    group = :Species,
+    title = "Scatter Plot of the iris dataset",
+    xlabel = "Sepal Length (cm)",
+    ylabel = "Sepal Width (cm)",
+)
+```
+
+Unlike in Seaborn, it is not possible to label the axes automatically.
+
+```{.python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("iris")
+sns.scatterplot(data, x="sepal_length", y="sepal_width", hue="species")
+plt.show()
 ```

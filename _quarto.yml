@@ -8,7 +8,7 @@ project:
     render:
         - index.md
         - about.md
-        - posts/*
+#        - posts/*
         - NumLinAlg/*
         - Optimization/*
         - Finite_Element_Method/*
@@ -19,11 +19,14 @@ project:
 #        - Deep_Learning/*
 #        - Stochastic_Calculus/*
 #        - Rendering/*
-        - Parallel_Computing/*
-        - demo/demo.qmd
+#        - Parallel_Computing/*
+#        - demo/demo.qmd
+        - "*/!TODO.md"
+        - "rss-feed.qmd"
 
 website:
-    title: "My Notes"
+    title: "Math with Marcel"
+    site-url: "https://math-with-marcel.org"
     favicon: logo.png
     navbar:
         search: true
@@ -44,26 +47,28 @@ website:
                     text: Julia Basics
                   - href: NumLinAlg/julias_type_system.html
                     text: Julias Type System
-                  - href: NumLinAlg/julia_dataframes.html
-                    text: Data Analysis with Julia
                   - href: NumLinAlg/julia_ecosystem.html
                     text: Important Julia Packages
+                  - href: NumLinAlg/julia-LinearSolveJL.html
+                    text: Linear Equations
                   - href: NumLinAlg/basics_of_linalg.html
                     text: Basics of Linear Algebra
             - section: "Optimization"
               contents:
                   - href: Optimization/index.html
                     text: Introduction
-                  - href: Optimization/convex_functions.html
-                    text: Convex Functions
-            - section: "Parallel Computing"
-              contents:
-                - href: Parallel_Computing/index.html
-                  text: Introduction
-                - href: Parallel_Computing/openmp.html
-                  text: OpenMP
-                - href: Parallel_Computing/mpi.html
-                  text: MPI
+                  - href: Optimization/convexity.html
+                    text: Convex Sets and Functions
+                  - href: Optimization/fundamentals_of_optimization.html
+                    text: Fundamentals of Optimization
+#            - section: "Parallel Computing"
+#              contents:
+#                - href: Parallel_Computing/index.html
+#                  text: Introduction
+#                - href: Parallel_Computing/openmp.html
+#                  text: OpenMP
+#                - href: Parallel_Computing/mpi.html
+#                  text: MPI
             - section: "Finite Element Method"
               contents:
                   - href: Finite_Element_Method/index.html
@@ -138,10 +143,13 @@ format:
         center-title-slide: false
         highlight-style: monokai
         code-fold: true
+        echo: false
+        execute:
+            echo: false
         fig-align: center
-        appearance:
-            autoappear: true
-            #autoelements:
+#        appearance:
+#            autoappear: true
+#            #autoelements:
             #    "ul li": "animate__fadeInLeft"
             #    "ol li": "animate__fadeInRight"
         pointer:
@@ -155,6 +163,7 @@ format:
             dark: [darkly, theme-custom.scss]
             light: minty
         css: "custom.css"
+        toc: true
         html-math-method: mathjax
         email-obfuscation: javascript
         main-font: "Noto Sans"
@@ -168,6 +177,8 @@ format:
         #- file: macros.txt
         #include-after-body:
         #    - file: include_pseudocode-body.html
+        filters:
+            - remove-dots.lua
         page-layout: article
         csl: ieee.csl
         code:

@@ -1,0 +1,12 @@
+---
+title: "RSS Feed"
+format: html
+listing:
+  id: feed-pages-listing
+  contents: feed-pages.yml
+  feed: true
+  sort: "date desc"
+---
+
+<!-- This page is primarily for generating the RSS feed.
+No content is intended for display. -->

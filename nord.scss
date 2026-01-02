@@ -335,3 +335,16 @@ figure > figcaption, figure > p.caption {
   display: block !important;
 }
 
+
+// Make Plots in presentation slightly larger.
+// This should override svg attributes width and height.
+.quarto-figure > figure svg{
+    width: 800px;
+    height: 600px;
+}
+
+// Make sure the figcaptions are centered
+//.quarto-figure > figure {
+//  width: 800px;
+//  margin-bottom: 0;
+//}

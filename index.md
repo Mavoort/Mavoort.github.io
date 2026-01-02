@@ -1,5 +1,5 @@
 ---
-title: "Mathematics Weekly"
+title: "Mavoorts Notes"
 comments: false
 #listing:
 #    contents: posts

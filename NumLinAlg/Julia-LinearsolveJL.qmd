@@ -1,0 +1,42 @@
+---
+title: "LinearSolve.jl"
+author: "Marcel Angenvoort"
+date: 2025-02-01
+bibliography: references.bib
+abstract: >
+  lorem ipsum
+keywords: ["julia", "programming", "scientific computing"]
+jupyter: julia-1.11
+#engine: julia
+#julia:
+#  exeflags: ["--project=JuliaEcosystem"]
+execute:
+  enabled: true
+format: 
+  html: 
+    output-file: julia-LinearSolveJL.html
+    code-line-numbers: false
+    echo: true
+    code-fold: true
+  revealjs:
+    output-file: julia-LinearSolveJL-slides.html
+    echo: true
+    code-fold: true
+#  typst:
+#    output-file: julia_ecosystem.pdf
+---
+
+
+LinearSolve.jl
+--------------
+
+- [LinearSolve.jl](https://docs.sciml.ai/LinearSolve/stable/) High-performance library for solving linear equations
+
+Installation:
+```{.julia}
+Pkg.add("LinearSolve")
+```
+
+---
+
+askdjf

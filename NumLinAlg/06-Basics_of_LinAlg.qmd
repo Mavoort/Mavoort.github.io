@@ -18,6 +18,7 @@ format:
     toc: true
   revealjs:
     output-file: basics_of_linalg-slides.html
+    incremental: true
 #    footer: Numerical Linear Algebra
 #  typst:
 #    output-file: basics_of_linalg.pdf
@@ -27,12 +28,14 @@ nocite: |
 
 
 
+
 Normed Spaces
 --------------
 
 Concepts such as distance, orthogonality and convergence are based on a scalar product and its induced metrics.
 As such, we'll introduce the definitions of these concepts.
 
+. . .
 
 ::: {.callout-note}
 ## Definition 1: Norm
@@ -69,6 +72,7 @@ $$
 \left( \sum_{i=1}^n \lvert x_i \rvert^p \right)^{1/p}
 \end{aligned}
 $$
+
 
 . . .
 
@@ -176,7 +180,7 @@ In a finite-dimensional vector space, all norms are equivalent.
 :::
 
 ::: {.proof}
-See handwritten notes 1.
+See [handwritten notes 1](notes/Banach_spaces.xopp)
 :::
 
 . . .

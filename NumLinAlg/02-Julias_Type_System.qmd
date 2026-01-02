@@ -1118,6 +1118,7 @@ See also:
 
 - [The Unreasonable Effectiveness of Multiple Dispatch](https://www.youtube.com/watch?v=kc9HwsxE1OY) by _Stefan Karpinski_, JuliaCon 2019
 - [Multiple Dispatch in C++](https://stackoverflow.com/a/1749604) on StackOverflow
+- [A polyglot's guide to multiple dispatch](https://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch) by _Eli Bendersky_ ([permalink](https://archive.ph/m66JE))
 
 
 
