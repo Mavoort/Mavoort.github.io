@@ -1,3 +1,6 @@
 IJulia
+WebIO
 Plots
+LaTeXStrings
 Example
+LinearSolve
