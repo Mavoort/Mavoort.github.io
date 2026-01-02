@@ -2,6 +2,7 @@ IJulia
 WebIO
 Plots
 LaTeXStrings
+PlotlyJS
 Example
 Symbolics
 LinearSolve
